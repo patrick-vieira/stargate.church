@@ -1,0 +1,10 @@
+# Roteamento de executores do Stargate: que tipo de executor faz que tipo de card.
+# Versionado aqui; a cópia de trabalho do time evolui a partir dos registos de cada entrega.
+versao: 1
+executores:
+  cloud_claude: {para: [esqueleto, modelos, testes, refactor, cards grandes sem palco]}
+  codex:        {para: [ui, integracao, telas]}
+  gemini:       {para: [cards pequenos, revisao pelo diff, docs, pt-br, testes]}
+  claude_local: {para: [fallback quando os outros falham]}
+  exoticos:     {so_em: lab, para: [comparacao em cards marcados lab, com tecto de custo]}
+regra: "o card leva a etiqueta do executor; sem etiqueta, o líder escolhe pela lista 'para'. Cada entrega regista provedor, modelo, tokens/custo, tempo, portão à 1.ª, retrabalho."
