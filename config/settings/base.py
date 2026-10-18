@@ -57,11 +57,12 @@ DATABASES = {
     "default": env.db("DATABASE_URL", default=f"sqlite:///{BASE_DIR / 'db.sqlite3'}"),
 }
 
+_PWD = "django.contrib.auth.password_validation"
 AUTH_PASSWORD_VALIDATORS = [
-    {"NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"},
-    {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"},
-    {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator"},
-    {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
+    {"NAME": f"{_PWD}.UserAttributeSimilarityValidator"},
+    {"NAME": f"{_PWD}.MinimumLengthValidator"},
+    {"NAME": f"{_PWD}.CommonPasswordValidator"},
+    {"NAME": f"{_PWD}.NumericPasswordValidator"},
 ]
 
 LANGUAGE_CODE = "pt-br"
