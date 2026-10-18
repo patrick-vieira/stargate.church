@@ -13,7 +13,7 @@ Tom: claro, verificado, esperançoso sem ser ingénuo. Todo artigo publicado tem
 - Este projecto é isolado: não depende de nada de outros sistemas nem os referencia.
 
 ## Stack e layout
-- Python 3.13, **Django 5.2 LTS**, dependências com **uv** (`pyproject.toml` + `uv.lock`).
+- Python 3.13, **Django 5.2 LTS**, dependências com **pip** (`requirements.txt` + `requirements-dev.txt`, versões fixas); `ruff` configurado no `pyproject.toml`.
 - `manage.py` na raiz; settings em `config/settings/{base,dev,test,prod}.py`.
 - Apps: `core` (home, `/saude/`) e `noticias` (modelo editorial). Testes em `<app>/tests/`.
 - Banco: Postgres no `docker-compose.yml` de desenvolvimento; **testes em SQLite**.
@@ -21,11 +21,11 @@ Tom: claro, verificado, esperançoso sem ser ingénuo. Todo artigo publicado tem
 
 ## Comandos
 ```
-uv sync                                                        # instala dependências
-uv run python manage.py check                                  # verificações do Django
-uv run python manage.py test --settings=config.settings.test   # testes (SQLite)
-uv run ruff check . && uv run ruff format --check .            # lint e formato
-uv run pre-commit run --all-files                              # todos os ganchos
+pip install -r requirements-dev.txt                            # instala dependências (num venv)
+python manage.py check                                         # verificações do Django
+python manage.py test --settings=config.settings.test          # testes (SQLite)
+ruff check . && ruff format --check .                          # lint e formato
+pre-commit run --all-files                                     # todos os ganchos
 docker compose config                                          # valida o compose
 ```
 

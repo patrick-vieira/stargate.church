@@ -5,8 +5,8 @@ STAR-<n> — <título do card>
 <!-- Em poucas linhas: o que foi feito e porquê. -->
 
 ## Testes corridos
-- [ ] `uv run python manage.py test --settings=config.settings.test`
-- [ ] `uv run ruff check . && uv run ruff format --check .`
+- [ ] `python manage.py test --settings=config.settings.test`
+- [ ] `ruff check . && ruff format --check .`
 - [ ] Testes de quem usa as rotas/views alteradas
 
 <!-- Cole aqui o resultado resumido (n.º de testes, verde/vermelho). -->
