@@ -27,13 +27,16 @@ class FiltrosTests(SimpleTestCase):
         self.assertEqual(sem_realce("Já está *acendendo*"), "Já está acendendo")
 
 
+H1_REALCE = '<h1>Rede <em class="sg-realce">acesa</em> hoje</h1>'
+
+
 class RenderTests(TestCase):
     def setUp(self):
         self.artigo = criar_artigo(titulo="Rede *acesa* hoje", destaque=True)
 
     def test_manchete_da_home_tem_realce_e_card_nao(self):
         resposta = self.client.get(reverse("core:home"))
-        self.assertContains(resposta, '<h1>Rede <em class="sg-realce">acesa</em> hoje</h1>')
+        self.assertContains(resposta, H1_REALCE)
 
     def test_card_nao_mostra_asteriscos(self):
         outro = criar_artigo(titulo="Outro *destaque* aqui")
@@ -44,7 +47,7 @@ class RenderTests(TestCase):
 
     def test_artigo_h1_realce_e_title_limpo(self):
         resposta = self.client.get(self.artigo.get_absolute_url())
-        self.assertContains(resposta, '<h1>Rede <em class="sg-realce">acesa</em> hoje</h1>')
+        self.assertContains(resposta, H1_REALCE)
         self.assertContains(resposta, "<title>Rede acesa hoje — Stargate</title>")
 
     def test_script_no_titulo_sai_escapado_na_pagina(self):
