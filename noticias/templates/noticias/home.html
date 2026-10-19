@@ -1,4 +1,4 @@
-{% extends "noticias/base.html" %}{% block conteudo %}{% with tema=manchete.tema_principal %}{% if manchete %}<section class="sg-wrap sg-manchete"{% if tema %} data-t="{{ tema.slug }}"{% endif %}><div><span class="sg-sobrolho">{% if tema %}{{ tema.nome }} · {% endif %}Manchete</span><h1>{{ manchete.titulo }}</h1>
+{% extends "noticias/base.html" %}{% load realce %}{% block conteudo %}{% with tema=manchete.tema_principal %}{% if manchete %}<section class="sg-wrap sg-manchete"{% if tema %} data-t="{{ tema.slug }}"{% endif %}><div><span class="sg-sobrolho">{% if tema %}{{ tema.nome }} · {% endif %}Manchete</span><h1>{{ manchete.titulo|realce }}</h1>
 <p class="sg-lede">{{ manchete.resumo }}</p>
 <div class="sg-meta"><b>{{ manchete.autor.nome }}</b><span class="sg-dot">{{ manchete.publicado_em|date:"l, j \d\e F"|lower }}</span><span class="sg-dot">{{ manchete.tempo_leitura }} min de leitura</span></div>
 <p style="margin-top:1.6rem"><a class="sg-btn sg-btn--coral" href="{{ manchete.get_absolute_url }}">Ler a reportagem →</a></p></div>

@@ -257,8 +257,9 @@ class FixtureDemoTests(TestCase):
         self.assertEqual(resposta.status_code, 200)
         self.assertEqual(
             resposta.context["manchete"].titulo,
-            "A rede elétrica do amanhã já está acendendo",
+            "A rede elétrica do amanhã já está *acendendo*",
         )
+        self.assertContains(resposta, '<em class="sg-realce">acendendo</em>')
         self.assertEqual(len(resposta.context["futuro_hoje"]), 4)
         self.assertEqual(len(resposta.context["ultimas"]), 6)
         self.assertNotContains(resposta, "ainda não foi verificada")

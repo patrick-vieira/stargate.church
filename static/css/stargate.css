@@ -38,7 +38,7 @@ img,svg{display:block;max-width:100%}
 /* manchete */
 .sg-manchete{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:var(--sg-s7);align-items:center;padding-block:var(--sg-s7) var(--sg-s8)}
 .sg-manchete h1{font:600 var(--sg-fs-hero)/var(--sg-lh-titulo) var(--sg-serif);letter-spacing:-.025em;margin:1rem 0 1.25rem;font-variation-settings:'opsz' 144}
-.sg-manchete h1 em{font-style:italic;color:var(--sg-coral-ink)}
+.sg-manchete h1 em,.sg-realce{font-style:italic;color:var(--sg-coral-ink)}
 .sg-lede{font-size:var(--sg-fs-lede);line-height:1.5;color:var(--sg-tinta-2);margin:0 0 1.5rem;max-width:34em}
 .sg-manchete .sg-art{border-radius:var(--sg-r3);box-shadow:var(--sg-sombra)}
 
