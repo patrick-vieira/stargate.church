@@ -1,9 +1,11 @@
 from django.http import JsonResponse
-from django.shortcuts import render
+
+from noticias.views import home as home_noticias
 
 
 def home(request):
-    return render(request, "core/home.html")
+    """A home é a das notícias; o nome `core:home` continua valendo."""
+    return home_noticias(request)
 
 
 def saude(request):

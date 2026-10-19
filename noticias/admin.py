@@ -1,7 +1,7 @@
 from django.contrib import admin, messages
 from django.core.exceptions import ValidationError
 
-from .models import Artigo, Autor, Fonte, Tema
+from .models import Artigo, Autor, Fonte, NumeroDestaque, Tema
 
 
 @admin.register(Tema)
@@ -13,14 +13,14 @@ class TemaAdmin(admin.ModelAdmin):
 
 @admin.register(Fonte)
 class FonteAdmin(admin.ModelAdmin):
-    list_display = ("nome", "url", "confiavel")
+    list_display = ("nome", "url", "descricao", "confiavel")
     list_filter = ("confiavel",)
     search_fields = ("nome", "url")
 
 
 @admin.register(Autor)
 class AutorAdmin(admin.ModelAdmin):
-    list_display = ("nome", "slug", "ativo")
+    list_display = ("nome", "slug", "funcao", "ativo")
     list_filter = ("ativo",)
     search_fields = ("nome", "slug")
     prepopulated_fields = {"slug": ("nome",)}
@@ -28,8 +28,15 @@ class AutorAdmin(admin.ModelAdmin):
 
 @admin.register(Artigo)
 class ArtigoAdmin(admin.ModelAdmin):
-    list_display = ("titulo", "autor", "estado", "criado_em", "publicado_em")
-    list_filter = ("estado", "temas")
+    list_display = (
+        "titulo",
+        "autor",
+        "estado",
+        "destaque",
+        "criado_em",
+        "publicado_em",
+    )
+    list_filter = ("estado", "destaque", "temas")
     search_fields = ("titulo", "slug", "resumo")
     prepopulated_fields = {"slug": ("titulo",)}
     filter_horizontal = ("temas", "fontes")
@@ -58,3 +65,10 @@ class ArtigoAdmin(admin.ModelAdmin):
     @admin.action(description="Publicar artigos selecionados")
     def publicar_artigos(self, request, queryset):
         self._aplicar(request, queryset, "publicar", "publicado(s)")
+
+
+@admin.register(NumeroDestaque)
+class NumeroDestaqueAdmin(admin.ModelAdmin):
+    list_display = ("valor", "texto", "tema", "ordem", "ativo")
+    list_filter = ("ativo", "tema")
+    list_editable = ("ordem", "ativo")
