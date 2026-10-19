@@ -20,12 +20,12 @@ def criar_autor(nome="Helena Aragão", funcao="repórter de energia"):
     return Autor.objects.create(nome=nome, slug=f"autor-{n}", funcao=funcao)
 
 
-def criar_fonte(nome=None, descricao=""):
+def criar_fonte(nome=None, descricao="", confiavel=True):
     n = next(_contador)
     return Fonte.objects.create(
         nome=nome or f"Fonte {n}",
         url=f"https://exemplo.org/fonte-{n}",
-        confiavel=True,
+        confiavel=confiavel,
         descricao=descricao,
     )
 

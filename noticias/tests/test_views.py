@@ -4,7 +4,7 @@ from django.urls import reverse
 
 from noticias.models import Artigo, NumeroDestaque
 
-from .util import criar_artigo, criar_tema
+from .util import criar_artigo, criar_fonte, criar_tema
 
 
 class HomeTests(TestCase):
@@ -182,6 +182,26 @@ class ArtigoTests(TestCase):
         self.assertContains(resposta, "Fontes verificadas")
         self.assertContains(resposta, "Validação de fatos")
         self.assertContains(resposta, "verificado</span>", count=3)
+
+    def test_so_fontes_confiaveis_contam_e_aparecem(self):
+        misto = criar_artigo(fontes=2)
+        intrusa = criar_fonte(
+            nome="Fonte duvidosa", descricao="Sem lastro.", confiavel=False
+        )
+        misto.fontes.add(intrusa)
+        resposta = self.get(misto)
+        self.assertContains(resposta, "Verificado · 2 fontes")
+        self.assertNotContains(resposta, "Fonte duvidosa")
+        self.assertNotContains(resposta, intrusa.url)
+        self.assertContains(resposta, "verificado</span>", count=2)
+
+    def test_sem_fonte_confiavel_sem_selo_nem_quadro(self):
+        so_duvidosa = criar_artigo(fontes=0)
+        so_duvidosa.fontes.add(criar_fonte(confiavel=False))
+        resposta = self.get(so_duvidosa)
+        self.assertNotContains(resposta, "Verificado")
+        self.assertNotContains(resposta, "Fontes verificadas")
+        self.assertNotContains(resposta, "Validação de fatos")
 
     def test_porque_boa_noticia_so_com_texto(self):
         self.assertContains(self.get(), "Porque sim.")

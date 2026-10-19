@@ -29,7 +29,7 @@ def tema(request, slug):
 def artigo(request, slug):
     publicado = get_object_or_404(servicos.artigos_publicados(), slug=slug)
     corpo, indice = servicos.processar_corpo(publicado.corpo)
-    fontes = list(publicado.fontes.all())
+    fontes = list(publicado.fontes.filter(confiavel=True))
     contexto = {
         "artigo": publicado,
         "tema_atual": publicado.tema_principal,
