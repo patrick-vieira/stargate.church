@@ -25,6 +25,7 @@ pip install -r requirements-dev.txt                            # instala depend�
 python manage.py check                                         # verificações do Django
 python manage.py test --settings=config.settings.test          # testes (SQLite)
 ruff check . && ruff format --check .                          # lint e formato
+python scripts/testar_cadeira.py [modulo ...]                  # o portão do executor: ruff, format, makemigrations --check e test (rc por passo)
 pre-commit run --all-files                                     # todos os ganchos
 docker compose config                                          # valida o compose
 ```
