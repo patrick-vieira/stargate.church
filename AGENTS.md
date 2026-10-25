@@ -5,7 +5,7 @@ As instruções para agentes (Codex, Gemini, Claude e outros) vivem num só fich
 
 Resumo mínimo:
 - Repositório **público**: nunca segredos nem dados de clientes.
-- Django 5.2 + uv; testes: `uv run python manage.py test --settings=config.settings.test`; lint: ruff.
+- Django 5.2 + pip; testes: `python manage.py test --settings=config.settings.test`; lint: ruff.
 - UI e conteúdo em **PT-BR**; commits em português com `STAR-n` no título.
 - Sem push direto para `main`: PR com CI verde, revisão do líder e o registo preenchido.
 - Executores e roteamento: `docs/roteamento.yaml`.
