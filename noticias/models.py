@@ -64,7 +64,7 @@ class Artigo(models.Model):
         PUBLICADO = "publicado", "Publicado"
 
     titulo = models.CharField("título", max_length=200)
-    slug = models.SlugField("slug", unique=True)
+    slug = models.SlugField("slug", max_length=200, unique=True)
     resumo = models.TextField("resumo", blank=True)
     corpo = models.TextField("corpo", blank=True)
     autor = models.ForeignKey(
