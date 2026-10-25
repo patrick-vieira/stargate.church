@@ -1,0 +1,11 @@
+{% extends "noticias/base.html" %}
+{% block titulo %}Entrar — Stargate{% endblock %}
+{% block newsletter %}{% endblock %}
+{% block conteudo %}<section class="sg-sec"><div class="sg-wrap" style="max-width:28rem"><h1>Entrar</h1>
+<form method="post" class="sg-form" style="flex-direction:column">{% csrf_token %}
+{{ form.non_field_errors }}
+<label>E-mail{{ form.username }}</label>{{ form.username.errors }}
+<label>Senha{{ form.password }}</label>{{ form.password.errors }}
+<input type="hidden" name="next" value="{{ next }}">
+<button class="sg-btn sg-btn--coral" type="submit">Entrar</button></form>
+<p class="sg-meta">Ainda não tem conta? <a href="{% url 'leitores:criar' %}">Criar conta</a></p></div></section>{% endblock %}

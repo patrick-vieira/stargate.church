@@ -22,6 +22,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "core",
     "noticias",
+    "leitores",
 ]
 
 MIDDLEWARE = [
@@ -77,3 +78,11 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_DIRS = [BASE_DIR / "static"] if (BASE_DIR / "static").is_dir() else []
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+LOGIN_URL = "leitores:entrar"
+LOGIN_REDIRECT_URL = "core:home"
+LOGOUT_REDIRECT_URL = "core:home"
+
+# Tecto diário por utilizador (F3: conversa e comentários).
+STARGATE_TECTO_CONVERSA = env.int("STARGATE_TECTO_CONVERSA", default=20)
+STARGATE_TECTO_COMENTARIO = env.int("STARGATE_TECTO_COMENTARIO", default=10)

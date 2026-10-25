@@ -1,0 +1,1 @@
+{% if user.is_authenticated %}<span class="sg-conta"><span class="sg-conta__mail">{{ user.email|default:user.username }}</span><form method="post" action="{% url 'leitores:sair' %}" style="display:inline">{% csrf_token %}<button class="sg-btn" type="submit">Sair</button></form></span>{% else %}<a class="sg-btn" href="{% url 'leitores:entrar' %}">Entrar</a>{% endif %}

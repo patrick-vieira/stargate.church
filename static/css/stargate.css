@@ -182,3 +182,5 @@ img,svg{display:block;max-width:100%}
 .sg-news .sg-news-aviso{font-size:.9375rem;margin:.8rem 0 0}
 .sg-pag{display:flex;align-items:center;justify-content:center;gap:var(--sg-s5);margin-top:var(--sg-s6)}
 .sg-pag a{font-weight:600;color:var(--sg-coral-ink)}
+.sg-conta{display:inline-flex;align-items:center;gap:.5rem}.sg-conta__mail{font-size:.875rem}
+.sg-form label{display:block;width:100%;font-weight:600}.sg-form label input{display:block;width:100%;margin-top:.3rem;box-sizing:border-box}
