@@ -47,6 +47,11 @@ class Autor(models.Model):
         "função", max_length=100, blank=True, help_text="Ex.: repórter de energia."
     )
     ativo = models.BooleanField("ativo", default=True)
+    agente_easyon = models.SlugField(
+        "agente EasyON",
+        blank=True,
+        help_text="Slug do agente no EasyON que dá voz a este autor (opcional).",
+    )
 
     class Meta:
         ordering = ["nome"]
@@ -94,6 +99,11 @@ class Artigo(models.Model):
         "URL da imagem",
         blank=True,
         help_text="Se vazia, usa-se a ilustração do tema.",
+    )
+    audio_url = models.URLField(
+        "URL do áudio",
+        blank=True,
+        help_text="Voz gerada por IA (comando gerar_audio); o player some se vazia.",
     )
     tempo_leitura = models.PositiveSmallIntegerField(
         "tempo de leitura (min)", default=5
