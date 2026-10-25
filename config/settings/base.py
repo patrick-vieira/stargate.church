@@ -77,3 +77,8 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_DIRS = [BASE_DIR / "static"] if (BASE_DIR / "static").is_dir() else []
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# EasyON (agentes alugados): ver noticias/easyon.py.
+# A chave vem de um ficheiro em modo 600.
+EASYON_API_URL = env("EASYON_API_URL", default="")
+EASYON_API_KEY_FILE = env("EASYON_API_KEY_FILE", default="")
