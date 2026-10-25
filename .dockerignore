@@ -1,0 +1,13 @@
+.env*
+!.env.example
+.git
+.gitignore
+.venv
+venv/
+*.sqlite3
+staticfiles/
+__pycache__/
+*.pyc
+.github/
+.ruff_cache/
+.pytest_cache/
