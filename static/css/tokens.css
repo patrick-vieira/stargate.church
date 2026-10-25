@@ -1,0 +1,29 @@
+/* Stargate — tokens (Editorial solar). Base do design system. */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Instrument+Sans:wght@400;500;600;700&display=swap');
+:root{
+  /* superfícies */
+  --sg-creme:#FBF5EA; --sg-creme-2:#F4EBDA; --sg-papel:#FFFDF8; --sg-linha:#E6DAC4;
+  /* tinta */
+  --sg-tinta:#1F1914; --sg-tinta-2:#4A4038; --sg-tinta-3:#6B5F54; /* 3 = 5.6:1 sobre creme */
+  /* acento principal: coral nascer-do-sol */
+  --sg-coral:#EB5A3C;      /* só acento, formas e texto grande */
+  --sg-coral-ink:#B3321A;  /* texto pequeno AA (6:1) */
+  --sg-coral-bg:#FDE3D8;
+  --sg-sol:#F7B84B;        /* amarelo-sol, só decoração */
+  /* segundo acento: azul-céu */
+  --sg-ceu:#2A6FA8; --sg-ceu-bg:#DCEAF5;
+  /* temas */
+  --sg-t-futuro:#B3321A; --sg-t-ia:#4947B5; --sg-t-energia:#955000;
+  --sg-t-saude:#17704E; --sg-t-espaco:#5B3EB0; --sg-t-clima:#1D649E;
+  /* tipografia */
+  --sg-serif:'Fraunces',Georgia,'Times New Roman',serif;
+  --sg-sans:'Instrument Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --sg-fs-micro:.8125rem; --sg-fs-base:1.125rem; --sg-fs-lede:1.375rem;
+  --sg-fs-h3:1.5rem; --sg-fs-h2:2.25rem; --sg-fs-h1:clamp(2.4rem,4.6vw,4.75rem); --sg-fs-hero:clamp(2.6rem,5.4vw,6rem);
+  --sg-lh-corpo:1.65; --sg-lh-titulo:1.08;
+  /* espaços e raios */
+  --sg-s1:.25rem; --sg-s2:.5rem; --sg-s3:.75rem; --sg-s4:1rem; --sg-s5:1.5rem; --sg-s6:2.25rem; --sg-s7:3.5rem; --sg-s8:5.5rem;
+  --sg-gutter:clamp(1rem,4vw,3.5rem);
+  --sg-r1:6px; --sg-r2:14px; --sg-r3:24px; --sg-pill:999px;
+  --sg-sombra:0 1px 2px rgba(60,40,20,.06),0 8px 28px rgba(60,40,20,.08);
+}

@@ -1,0 +1,22 @@
+{% extends "noticias/base.html" %}{% load realce %}{% block titulo %}{{ artigo.titulo|sem_realce }} — Stargate{% endblock %}{% block newsletter %}{% endblock %}{% block conteudo %}{% with tema=artigo.tema_principal total=fontes|length %}<article><div class="sg-wrap"><div class="sg-art-hero"{% if tema %} data-t="{{ tema.slug }}"{% endif %}>{% if tema %}<span class="sg-sobrolho">{{ tema.nome }}</span>{% endif %}<h1>{{ artigo.titulo|realce }}</h1>
+{% if artigo.resumo %}<p class="sg-lede" style="max-width:40em">{{ artigo.resumo }}</p>{% endif %}
+<div class="sg-autor"><div class="sg-avatar">{{ artigo.autor.nome|first }}</div><div class="sg-meta"><b>{{ artigo.autor.nome }}</b>{% if artigo.autor.funcao %}, {{ artigo.autor.funcao }}{% endif %}<br>{{ artigo.publicado_em|date:"l, j \d\e F \d\e Y"|lower }}<span class="sg-dot">{{ artigo.tempo_leitura }} min de leitura</span></div></div>
+{% if total %}<p class="sg-selo-linha"><a class="sg-selo sg-selo-link" href="#validacao-de-fatos"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg>Verificado · {{ total }} fonte{{ total|pluralize }}</a></p>{% endif %}</div>
+<figure class="sg-art-img" style="margin-inline:0">{% include "noticias/_arte.html" with tema=tema prefixo="h" uid=artigo.pk classe="" imagem=artigo.imagem_url %}{% if not artigo.imagem_url %}<figcaption class="sg-legenda">Ilustração abstrata{% if tema %} do tema {{ tema.nome }}{% endif %}. Imagem fictícia para o protótipo.</figcaption>{% endif %}</figure>
+<div class="sg-layout">
+<aside class="sg-indice" aria-label="Índice do artigo">{% if indice %}<details open><summary>Neste artigo</summary><h4>Neste artigo</h4><ol>{% for ancora, texto in indice %}<li><a{% if forloop.first %} class="on"{% endif %} href="#{{ ancora }}">{{ texto }}</a></li>{% endfor %}</ol></details>{% endif %}
+<div class="sg-partilha"><a href="#">Compartilhar</a><a href="#">Copiar link</a><a href="#">Salvar</a></div></aside>
+<div class="sg-corpo">
+{{ corpo }}
+</div>
+<div class="sg-aside">
+{% if fontes %}<div class="sg-caixa"><h4>Fontes verificadas</h4><ul>{% for fonte in fontes %}<li><a href="{{ fonte.url }}" rel="noopener noreferrer">{{ fonte.nome }}</a>{% if fonte.descricao %}<span>{{ fonte.descricao }}</span>{% endif %}</li>{% endfor %}</ul></div>{% endif %}
+{% if artigo.porque_boa_noticia %}<div class="sg-caixa sg-caixa--sol"><h4>Por que isto é uma boa notícia</h4>{{ artigo.porque_boa_noticia|safe }}</div>{% endif %}
+</div></div>
+{% if fontes %}<section class="sg-fatos" id="validacao-de-fatos" data-t="saude"><span class="sg-selo"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg>Verificado</span><h3>Validação de fatos</h3>
+<table><thead><tr><th>Afirmação</th><th>Fonte</th><th>Estado</th></tr></thead><tbody>
+{% for fonte in fontes %}<tr><td>{{ fonte.descricao|default:fonte.nome }}</td><td><a href="{{ fonte.url }}" rel="noopener noreferrer">{{ fonte.nome }}</a></td><td><span class="sg-selo">verificado</span></td></tr>
+{% endfor %}</tbody></table>
+<p class="sg-meta" style="margin:1rem 0 0">Verificado antes da publicação, em {{ artigo.publicado_em|date:"j \d\e F \d\e Y"|lower }}. Todos os dados deste protótipo são fictícios.</p></section>{% endif %}
+{% if relacionados %}<section class="sg-sec" style="padding-inline:0"><div class="sg-sec__cab"><h2>Continue lendo</h2><a href="{% url 'core:home' %}">Voltar à home →</a></div><div class="sg-grade sg-grade--3">{% for outro in relacionados %}{% include "noticias/_card.html" with artigo=outro prefixo="r" %}{% endfor %}</div></section>{% endif %}</div></article>{% endwith %}{% endblock %}
+{% block scripts %}{% if indice %}<script>if(matchMedia("(max-width:640px)").matches)document.querySelector(".sg-indice details").open=false</script>{% endif %}{% endblock %}

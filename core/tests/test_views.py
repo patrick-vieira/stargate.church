@@ -6,7 +6,7 @@ class HomeTests(TestCase):
     def test_home_responde_200_em_portugues(self):
         resposta = self.client.get(reverse("core:home"))
         self.assertEqual(resposta.status_code, 200)
-        self.assertContains(resposta, 'lang="pt-br"')
+        self.assertContains(resposta, 'lang="pt-BR"')
 
 
 class SaudeTests(TestCase):
