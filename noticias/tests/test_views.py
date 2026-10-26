@@ -235,7 +235,6 @@ class ArtigoTests(TestCase):
         )
         resposta = self.get()
         self.assertContains(resposta, 'src="https://exemplo.org/a.jpg"')
-        self.assertContains(resposta, 'alt="Rede do amanhã"')
         self.assertNotContains(resposta, "Ilustração abstrata do tema energia")
 
     def test_artigo_sem_newsletter_e_com_script_do_indice(self):

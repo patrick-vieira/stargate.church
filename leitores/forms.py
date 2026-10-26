@@ -10,9 +10,9 @@ class BaseA11yFormMixin:
         super().full_clean()
         for field_name in self.errors:
             if field_name in self.fields:
-                self.fields[field_name].widget.attrs["aria-describedby"] = (
-                    f"erro-{field_name}"
-                )
+                self.fields[field_name].widget.attrs[
+                    "aria-describedby"
+                ] = f"erro-{field_name}"
 
 
 class EntrarForm(BaseA11yFormMixin, AuthenticationForm):
