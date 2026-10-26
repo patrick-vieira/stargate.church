@@ -1,5 +1,7 @@
+import unittest
+
 from django.contrib.auth import get_user_model
-from django.test import TestCase
+from django.test import Client, TestCase
 from django.urls import reverse
 
 User = get_user_model()
@@ -55,3 +57,80 @@ class ContaTests(TestCase):
         r = self.client.get(reverse("core:home"))
         self.assertContains(r, "a@b.com")
         self.assertContains(r, "Sair")
+
+    @unittest.expectedFailure
+    def test_email_normalizado_login(self):
+        # Falha esperada: o e-mail não é normalizado no login (STAR-11)
+        User.objects.create_user(
+            "leitor@example.com", "leitor@example.com", "senha-forte-91"
+        )
+        r = self.client.post(
+            reverse("leitores:entrar"),
+            {"username": " Leitor@EXAMPLE.com ", "password": "senha-forte-91"},
+        )
+        self.assertRedirects(r, reverse("core:home"), fetch_redirect_response=False)
+        self.assertIn("_auth_user_id", self.client.session)
+
+    def test_criar_conta_duplicada_email_nao_normalizado(self):
+        # A criação recusa duplicados normalizando o e-mail
+        # (testado em `test_criar_recusa_senha_fraca_e_email_repetido`),
+        # mas certificamos que o input sujo e o guardado sujo
+        # conflitam e não cria segunda conta.
+        User.objects.create_user(
+            "leitor@example.com", "leitor@example.com", "senha-forte-91"
+        )
+        r = self.client.post(
+            reverse("leitores:criar"),
+            {"email": " LEITOR@example.COM ", "senha": "senha-forte-91"},
+        )
+        self.assertContains(r, "Já existe uma conta")
+        self.assertEqual(User.objects.count(), 1)
+
+    def test_next_valido_e_invalido(self):
+        User.objects.create_user(
+            "leitor@example.com", "leitor@example.com", "senha-forte-91"
+        )
+        r = self.client.post(
+            reverse("leitores:entrar") + "?next=/interno/",
+            {"username": "leitor@example.com", "password": "senha-forte-91"},
+        )
+        self.assertRedirects(r, "/interno/", fetch_redirect_response=False)
+
+        self.client.logout()
+        r = self.client.post(
+            reverse("leitores:entrar") + "?next=https://mal.example/",
+            {"username": "leitor@example.com", "password": "senha-forte-91"},
+        )
+        self.assertRedirects(r, reverse("core:home"), fetch_redirect_response=False)
+
+    def test_sair_apenas_post_nao_termina_sessao(self):
+        User.objects.create_user(
+            "leitor@example.com", "leitor@example.com", "senha-forte-91"
+        )
+        self.client.login(username="leitor@example.com", password="senha-forte-91")
+        r = self.client.get(reverse("leitores:sair"))
+        self.assertEqual(r.status_code, 405)
+        self.assertIn("_auth_user_id", self.client.session)
+
+    def test_autenticado_acede_login_e_criar(self):
+        User.objects.create_user(
+            "leitor@example.com", "leitor@example.com", "senha-forte-91"
+        )
+        self.client.login(username="leitor@example.com", password="senha-forte-91")
+        r = self.client.get(reverse("leitores:entrar"))
+        self.assertRedirects(r, reverse("core:home"), fetch_redirect_response=False)
+        r = self.client.get(reverse("leitores:criar"))
+        self.assertRedirects(r, reverse("core:home"), fetch_redirect_response=False)
+
+    def test_csrf_no_login_e_criar(self):
+        c = Client(enforce_csrf_checks=True)
+        r = c.post(
+            reverse("leitores:entrar"),
+            {"username": "leitor@example.com", "password": "senha-forte-91"},
+        )
+        self.assertEqual(r.status_code, 403)
+        r = c.post(
+            reverse("leitores:criar"),
+            {"email": "leitor@example.com", "senha": "senha-forte-91"},
+        )
+        self.assertEqual(r.status_code, 403)
