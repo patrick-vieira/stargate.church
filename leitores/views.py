@@ -2,11 +2,12 @@ from django.contrib.auth import login
 from django.contrib.auth.views import LoginView, LogoutView
 from django.shortcuts import redirect, render
 
-from .forms import CriarContaForm
+from .forms import CriarContaForm, EntrarForm
 
 
 class Entrar(LoginView):
     template_name = "leitores/entrar.html"
+    authentication_form = EntrarForm
     redirect_authenticated_user = True
 
 

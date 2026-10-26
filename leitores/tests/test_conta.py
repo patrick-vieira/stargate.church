@@ -47,6 +47,8 @@ class ContaTests(TestCase):
         )
         self.assertEqual(r.status_code, 200)
         self.assertNotIn("_auth_user_id", self.client.session)
+        self.assertContains(r, "E-mail ou senha incorretos.")
+        self.assertNotContains(r, "usuário")
 
     def test_cabecalho_muda_com_o_login(self):
         self.assertContains(self.client.get(reverse("core:home")), "Entrar")
