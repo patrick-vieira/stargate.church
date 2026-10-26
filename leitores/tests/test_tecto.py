@@ -52,6 +52,24 @@ class TectoTests(TestCase):
     def test_defaults_vem_das_settings(self):
         self.assertEqual(tecto.limite("conversa"), 20)
 
+    def test_unicidade_uso_diario(self):
+        UsoDiario.objects.create(
+            utilizador=self.user, dia=tecto._hoje(), tipo="conversa", quantidade=1
+        )
+        from django.db import IntegrityError
+
+        with self.assertRaises(IntegrityError):
+            UsoDiario.objects.create(
+                utilizador=self.user, dia=tecto._hoje(), tipo="conversa", quantidade=2
+            )
+
+    def test_apagar_utilizador_apaga_uso_diario(self):
+        tecto.consumir(self.user, "conversa")
+        user_pk = self.user.pk
+        self.assertTrue(UsoDiario.objects.filter(utilizador_id=user_pk).exists())
+        self.user.delete()
+        self.assertFalse(UsoDiario.objects.filter(utilizador_id=user_pk).exists())
+
 
 @override_settings(STARGATE_TECTO_CONVERSA=1)
 class DecoradorTests(TestCase):
