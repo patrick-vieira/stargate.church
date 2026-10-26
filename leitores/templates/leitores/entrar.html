@@ -5,8 +5,12 @@
 <p class="sg-meta">Ler e ouvir continua livre. A conta serve para conversar e comentar.</p>
 <form method="post" class="sg-form sg-form--conta" novalidate>{% csrf_token %}
 {% if form.non_field_errors %}<p class="sg-erro" role="alert">{{ form.non_field_errors|join:" " }}</p>{% endif %}
-<label>E-mail{{ form.username }}</label>{% if form.username.errors %}<p class="sg-erro" role="alert">{{ form.username.errors|join:" " }}</p>{% endif %}
-<label>Senha{{ form.password }}</label>{% if form.password.errors %}<p class="sg-erro" role="alert">{{ form.password.errors|join:" " }}</p>{% endif %}
+<label for="{{ form.username.id_for_label }}">E-mail
+<input type="email" name="{{ form.username.name }}" id="{{ form.username.id_for_label }}" {% if form.username.value %}value="{{ form.username.value }}"{% endif %} {% if form.username.errors %}aria-describedby="erro-username"{% endif %} required>
+</label>{% if form.username.errors %}<p class="sg-erro" role="alert" id="erro-username">{{ form.username.errors|join:" " }}</p>{% endif %}
+<label for="{{ form.password.id_for_label }}">Senha
+<input type="password" name="{{ form.password.name }}" id="{{ form.password.id_for_label }}" {% if form.password.errors %}aria-describedby="erro-password"{% endif %} required>
+</label>{% if form.password.errors %}<p class="sg-erro" role="alert" id="erro-password">{{ form.password.errors|join:" " }}</p>{% endif %}
 <input type="hidden" name="next" value="{{ next }}">
 <button class="sg-btn sg-btn--coral" type="submit">Entrar</button></form>
 <p class="sg-meta">Ainda não tem conta? <a href="{% url 'leitores:criar' %}">Criar conta</a></p></div></div></section>{% endblock %}

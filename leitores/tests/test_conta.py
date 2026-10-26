@@ -27,6 +27,8 @@ class ContaTests(TestCase):
             {"email": "A@b.com", "senha": "outra-senha-forte-7"},
         )
         self.assertContains(r, "Já existe uma conta")
+        self.assertContains(r, 'for="id_email"')
+        self.assertContains(r, 'aria-describedby="erro-email"')
 
     def test_entrar_e_sair(self):
         User.objects.create_user("a@b.com", "a@b.com", "uma-senha-forte-91")
@@ -47,6 +49,7 @@ class ContaTests(TestCase):
         )
         self.assertEqual(r.status_code, 200)
         self.assertNotIn("_auth_user_id", self.client.session)
+        self.assertContains(r, 'for="id_username"')
 
     def test_cabecalho_muda_com_o_login(self):
         self.assertContains(self.client.get(reverse("core:home")), "Entrar")

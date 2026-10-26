@@ -1,0 +1,6 @@
+| Texto | Fundo | Rácio | Contexto |
+|-------|-------|-------|----------|
+| --sg-coral | --sg-creme | 3.19:1 | Acento/Links |
+| --sg-coral | --sg-creme-2 | 2.93:1 | Acento/Links |
+| --sg-coral | --sg-papel | 3.41:1 | Acento/Links |
+| --sg-coral | branco | 3.47:1 | Acento/Links |
