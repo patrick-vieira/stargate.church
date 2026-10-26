@@ -1,0 +1,9 @@
+| Texto | Fundo | Rácio | Contexto |
+|-------|-------|-------|----------|
+| --sg-coral-ink | --sg-creme | 5.71:1 | TEXTO |
+| --sg-coral-ink | --sg-creme-2 | 5.24:1 | TEXTO |
+| --sg-coral-ink | --sg-papel | 6.1:1 | TEXTO |
+| --sg-coral-ink | branco | 6.2:1 | TEXTO |
+| --sg-coral | * | > 3:1 | NÃO-TEXTO (sublinhados, bordas, foco, accent-color, botão da newsletter 5.02:1) |
+
+Navbar marcada como corrigida.
