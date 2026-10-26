@@ -169,7 +169,7 @@ img,svg{display:block;max-width:100%}
   .sg-fatos tr{padding:.6rem 0;border-top:1px solid #C6E2D4}.sg-fatos td{border:0;padding:.15rem 0}
   .sg-indice details summary{display:block;cursor:pointer;font-weight:600;padding:.9rem 1rem;border:1.5px solid var(--sg-linha);border-radius:var(--sg-r2);background:var(--sg-papel)}
   .sg-indice h4{display:none}
-  .sg-menu-aberto .sg-nav{display:flex;flex-direction:column;position:absolute;top:64px;left:0;right:0;background:var(--sg-creme);padding:1rem var(--sg-gutter);border-bottom:1px solid var(--sg-linha)}
+  .sg-menu-aberto .sg-nav{display:flex;flex-direction:column;position:absolute;top:64px;left:0;right:0;background:var(--sg-creme);padding:1rem var(--sg-gutter) var(--sg-s5);border-bottom:1px solid var(--sg-linha);box-shadow: 0 12px 24px -12px rgba(31,25,20,.25)}
 }
 
 /* STAR-5: acréscimos ao mock (não alteram tokens) */

@@ -1,5 +1,6 @@
 from django import forms
 from django.contrib.auth import get_user_model
+from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.password_validation import validate_password
 from django.core.exceptions import ValidationError
 
@@ -30,3 +31,10 @@ class CriarContaForm(forms.Form):
         return get_user_model().objects.create_user(
             username=email, email=email, password=self.cleaned_data["senha"]
         )
+
+
+class EntrarForm(AuthenticationForm):
+    error_messages = {
+        "invalid_login": "E-mail ou senha incorretos.",
+        "inactive": "Esta conta está inativa.",
+    }
