@@ -76,6 +76,26 @@ class GerarAudioTests(TestCase):
         self.assertTrue(a.audio_url)
         self.assertEqual(b.audio_url, "")
 
+    import unittest
+
+    @unittest.expectedFailure
+    def test_saida_e_codigo_quando_api_indisponivel_de_raiz(self):
+        # BUG EXPLICADO: engole exceção e sai com 0 em vez de erro
+        criar_artigo(autor=self.autor, corpo="ok")
+
+        class ClienteIndisponivel:
+            def gerar_audio(self, slug, texto):
+                raise EasyONIndisponivel("API fora")
+
+        saida = self.correr(ClienteIndisponivel())
+        self.assertIn("Gerados: 0", saida)
+        self.assertIn("falhas: 1", saida)
+
+        from django.core.management.base import CommandError
+
+        with self.assertRaises(CommandError):
+            self.correr(ClienteIndisponivel())
+
 
 class PlayerTests(TestCase):
     def test_player_aparece_so_com_audio(self):
@@ -87,6 +107,22 @@ class PlayerTests(TestCase):
         )
         self.assertContains(r, "Ouvir na voz de Helena Aragão")
         self.assertContains(r, "voz gerada por IA")
+        r = self.client.get(sem.get_absolute_url())
+        self.assertNotContains(r, "<audio")
+        self.assertNotContains(r, "voz gerada por IA")
+
+    def test_escapamento_audio_url_com_aspas(self):
+        com = criar_artigo(audio_url='https://cdn.test/a.mp3" onload="alert(1)')
+        r = self.client.get(com.get_absolute_url())
+        # Should be escaped, e.g. &quot;
+        self.assertContains(
+            r, 'src="https://cdn.test/a.mp3&quot; onload=&quot;alert(1)"'
+        )
+        self.assertContains(r, '<audio controls preload="none"')
+        self.assertContains(r, "Ouvir na voz de")
+        self.assertContains(r, "voz gerada por IA")
+
+        sem = criar_artigo(audio_url="")
         r = self.client.get(sem.get_absolute_url())
         self.assertNotContains(r, "<audio")
         self.assertNotContains(r, "voz gerada por IA")
