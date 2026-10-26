@@ -182,7 +182,30 @@ img,svg{display:block;max-width:100%}
 .sg-news .sg-news-aviso{font-size:.9375rem;margin:.8rem 0 0}
 .sg-pag{display:flex;align-items:center;justify-content:center;gap:var(--sg-s5);margin-top:var(--sg-s6)}
 .sg-pag a{font-weight:600;color:var(--sg-coral-ink)}
+.sg-conta{display:inline-flex;align-items:center;gap:.5rem}.sg-conta__mail{font-size:.875rem}
+.sg-form label{display:block;width:100%;font-weight:600}.sg-form label input{display:block;width:100%;margin-top:.3rem;box-sizing:border-box}
 .sg-voz{margin-top:1.2rem;max-width:34rem;background:var(--sg-creme);border:1px solid var(--sg-linha);border-radius:var(--sg-r3);padding:1rem 1.1rem}
 .sg-voz__legenda{margin:0 0 .5rem;font:600 .95rem/1.3 var(--sg-sans);display:flex;flex-wrap:wrap;align-items:center;gap:.5rem}
 .sg-voz audio{width:100%;accent-color:var(--sg-coral);color-scheme:light}
 .sg-voz .sg-selo--neutro{background:var(--sg-creme);border:1px solid var(--sg-linha);color:var(--sg-tinta-3)}
+
+/* STAR-11 v2: conta do leitor (classe própria; a newsletter não muda) */
+.sg-conta__sair{display:inline;margin:0}
+.sg-conta--menu{display:none}
+.sg-cartao-conta{max-width:440px;margin-inline:auto;padding:var(--sg-s6);background:#fff;border:1px solid var(--sg-linha);border-radius:var(--sg-r2);box-sizing:border-box}
+.sg-cartao-conta h1{font-family:var(--sg-serif);font-size:2.25rem;line-height:var(--sg-lh-titulo);margin:.6rem 0 .8rem}
+.sg-form--conta{flex-direction:column;gap:var(--sg-s4);margin:var(--sg-s5) 0}
+.sg-form--conta input:not([type=hidden]){flex:none;width:100%;min-width:0;box-sizing:border-box;min-height:44px;padding:.7rem 1.2rem;background:#fff;border:1px solid var(--sg-linha);border-radius:var(--sg-pill);color:var(--sg-tinta)}
+.sg-form--conta input:focus,.sg-form--conta input:focus-visible{outline:3px solid var(--sg-coral);outline-offset:2px;border-color:var(--sg-coral)}
+.sg-form--conta .sg-btn{justify-content:center;min-height:44px}
+.sg-erro{margin:-.4rem 0 0;font-size:.9375rem;font-weight:600;color:var(--sg-coral-ink)}
+@media (max-width:1024px){
+  .sg-cab .sg-conta{display:none}
+}
+@media (max-width:640px){
+  .sg-cartao-conta{padding:var(--sg-s5)}
+  .sg-menu-aberto .sg-nav .sg-conta--menu{display:flex;flex-wrap:wrap;margin-top:var(--sg-s3);padding-top:var(--sg-s3);border-top:1px solid var(--sg-linha)}
+  .sg-menu-aberto .sg-nav a.sg-conta--menu{display:inline-flex}
+  .sg-menu-aberto .sg-nav .sg-conta--menu .sg-btn{display:inline-flex}
+  .sg-menu-aberto .sg-nav .sg-conta__mail{flex:1 1 100%}
+}

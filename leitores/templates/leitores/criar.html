@@ -1,0 +1,10 @@
+{% extends "noticias/base.html" %}
+{% block titulo %}Criar conta — Stargate{% endblock %}
+{% block newsletter %}{% endblock %}
+{% block conteudo %}<section class="sg-sec"><div class="sg-wrap"><div class="sg-cartao-conta"><span class="sg-sobrolho">Conta do leitor</span><h1>Criar conta</h1>
+<p class="sg-meta">Ler e ouvir continua livre. A conta serve para conversar e comentar.</p>
+<form method="post" class="sg-form sg-form--conta" novalidate>{% csrf_token %}
+<label>E-mail{{ form.email }}</label>{% if form.email.errors %}<p class="sg-erro" role="alert">{{ form.email.errors|join:" " }}</p>{% endif %}
+<label>Senha{{ form.senha }}</label>{% if form.senha.errors %}<p class="sg-erro" role="alert">{{ form.senha.errors|join:" " }}</p>{% endif %}
+<button class="sg-btn sg-btn--coral" type="submit">Criar conta</button></form>
+<p class="sg-meta">Já tem conta? <a href="{% url 'leitores:entrar' %}">Entrar</a></p></div></div></section>{% endblock %}
