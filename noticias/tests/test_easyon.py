@@ -71,3 +71,64 @@ class ClienteTests(SimpleTestCase):
     def test_resposta_sem_url_e_indisponivel(self):
         with self.assertRaises(EasyONIndisponivel):
             self.cliente(Falso({"cache": True})).gerar_audio("h", "t")
+
+    def test_url_final_com_ou_sem_barra(self):
+        falso1 = Falso([])
+        ClienteEasyON("https://easyon.test/api/", self.chave(), falso1).agentes()
+        self.assertEqual(falso1.chamadas[0][1], "https://easyon.test/api/agentes/")
+
+        falso2 = Falso([])
+        ClienteEasyON("https://easyon.test/api", self.chave(), falso2).agentes()
+        self.assertEqual(falso2.chamadas[0][1], "https://easyon.test/api/agentes/")
+
+    def test_gerar_audio_metodo_post(self):
+        falso = Falso({"url": "https://cdn.test/a.mp3", "cache": False})
+        self.cliente(falso).gerar_audio("helena", "Olá")
+        self.assertEqual(falso.chamadas[0][0], "POST")
+        self.assertEqual(
+            falso.chamadas[0][1], "https://easyon.test/api/agentes/helena/audio/"
+        )
+        self.assertEqual(falso.chamadas[0][3], {"texto": "Olá"})
+
+    def test_resposta_nao_dict_e_indisponivel(self):
+        for resposta in [[], None, "string"]:
+            with self.subTest(resposta=resposta):
+                with self.assertRaises(EasyONIndisponivel):
+                    self.cliente(Falso(resposta)).gerar_audio("h", "t")
+
+    def test_ficheiro_chave_invalido_recusado_sem_vazar(self):
+        # 400
+        falso = Falso([])
+        with self.assertRaises(EasyONIndisponivel) as ctx:
+            self.cliente(falso, modo=0o400).agentes()
+        self.assertNotIn(SEGREDO, str(ctx.exception))
+
+        # vazio
+        vazio = tempfile.mktemp()
+        open(vazio, "w").close()
+        os.chmod(vazio, 0o600)
+        self.addCleanup(os.unlink, vazio)
+        with self.assertRaises(EasyONIndisponivel) as ctx:
+            ClienteEasyON("https://a/", vazio, falso).agentes()
+        self.assertNotIn(SEGREDO, str(ctx.exception))
+
+        # inexistente
+        inexistente = tempfile.mktemp()
+        with self.assertRaises(EasyONIndisponivel) as ctx:
+            ClienteEasyON("https://a/", inexistente, falso).agentes()
+        self.assertNotIn(SEGREDO, str(ctx.exception))
+
+    def test_repr_nao_contem_chave_nem_caminho(self):
+        caminho = self.chave()
+        cliente = ClienteEasyON("https://a/", caminho, Falso([]))
+        representacao = repr(cliente)
+        self.assertNotIn(SEGREDO, representacao)
+        self.assertNotIn(caminho, representacao)
+
+    def test_erro_de_transporte_cause_none(self):
+        falso = Falso(erro=OSError(f"falhou com Bearer {SEGREDO}"))
+        cliente = self.cliente(falso)
+        with self.assertRaises(EasyONIndisponivel) as ctx:
+            cliente.agentes()
+        self.assertNotIn(SEGREDO, str(ctx.exception))
+        self.assertIsNone(ctx.exception.__cause__)
