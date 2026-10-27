@@ -2,7 +2,7 @@
 {% block titulo %}Entrar — Stargate{% endblock %}
 {% block newsletter %}{% endblock %}
 {% block conteudo %}<section class="sg-sec"><div class="sg-wrap"><div class="sg-cartao-conta"><span class="sg-sobrolho">Conta do leitor</span><h1>Entrar</h1>
-<p class="sg-meta">Ler e ouvir continua livre. A conta serve para conversar e comentar.</p>
+<p class="sg-meta">Ler e ouvir continuam livres. A conta serve para conversar e comentar.</p>
 <form method="post" class="sg-form sg-form--conta" novalidate>{% csrf_token %}
 {% if form.non_field_errors %}<p class="sg-erro" role="alert">{{ form.non_field_errors|join:" " }}</p>{% endif %}
 <label>E-mail{{ form.username }}</label>{% if form.username.errors %}<p class="sg-erro" role="alert">{{ form.username.errors|join:" " }}</p>{% endif %}
