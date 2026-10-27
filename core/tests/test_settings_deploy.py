@@ -14,6 +14,9 @@ VARIAVEIS = (
     "DJANGO_SESSION_COOKIE_SECURE",
     "DJANGO_CSRF_COOKIE_SECURE",
     "DJANGO_CSRF_TRUSTED_ORIGINS",
+    "DJANGO_SECURE_HSTS_SECONDS",
+    "DJANGO_SECURE_HSTS_INCLUDE_SUBDOMAINS",
+    "DJANGO_SECURE_HSTS_PRELOAD",
 )
 
 
@@ -71,3 +74,27 @@ class SettingsDeployTests(SimpleTestCase):
 
     def test_static_root_definido(self):
         self.assertEqual(carregar("prod").STATIC_ROOT.name, "staticfiles")
+
+    def test_prod_hsts_por_defeito(self):
+        s = carregar("prod")
+        self.assertEqual(s.SECURE_HSTS_SECONDS, 31536000)
+        self.assertFalse(s.SECURE_HSTS_INCLUDE_SUBDOMAINS)
+        self.assertFalse(s.SECURE_HSTS_PRELOAD)
+
+    def test_prod_hsts_por_env(self):
+        s = carregar(
+            "prod",
+            DJANGO_SECURE_HSTS_SECONDS="600",
+            DJANGO_SECURE_HSTS_INCLUDE_SUBDOMAINS="1",
+            DJANGO_SECURE_HSTS_PRELOAD="1",
+        )
+        self.assertEqual(s.SECURE_HSTS_SECONDS, 600)
+        self.assertTrue(s.SECURE_HSTS_INCLUDE_SUBDOMAINS)
+        self.assertTrue(s.SECURE_HSTS_PRELOAD)
+
+    def test_staging_hsts_a_zero_por_defeito(self):
+        self.assertEqual(carregar("staging").SECURE_HSTS_SECONDS, 0)
+
+    def test_staging_hsts_por_variavel(self):
+        s = carregar("staging", DJANGO_SECURE_HSTS_SECONDS="300")
+        self.assertEqual(s.SECURE_HSTS_SECONDS, 300)
