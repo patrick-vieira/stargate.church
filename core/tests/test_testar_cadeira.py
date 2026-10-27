@@ -1,4 +1,5 @@
 import importlib.util
+import tomllib
 from pathlib import Path
 from types import SimpleNamespace
 from unittest import mock
@@ -32,6 +33,10 @@ class TestarCadeiraTests(SimpleTestCase):
         self.assertIn("test", comandos[3])
         self.assertIn("core.tests.test_a", comandos[3])
         self.assertIn("core.tests.test_b", comandos[3])
+
+    def test_ruff_ignora_entregas_nao_rastreadas(self):
+        config = tomllib.loads((SCRIPT.parents[1] / "pyproject.toml").read_text())
+        self.assertIn("_entregas", config["tool"]["ruff"]["extend-exclude"])
 
     def test_passo_falhado_da_rc_e_nao_corta_os_seguintes(self):
         modulo = _carregar()
