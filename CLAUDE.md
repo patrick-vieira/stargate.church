@@ -26,6 +26,7 @@ python manage.py check                                         # verificações 
 python manage.py test --settings=config.settings.test          # testes (SQLite)
 ruff check . && ruff format --check .                          # lint e formato
 python scripts/testar_cadeira.py [modulo ...]                  # o portão do executor: ruff, format, makemigrations --check e test (rc por passo)
+DJANGO_SETTINGS_MODULE=config.settings.prod DJANGO_SECRET_KEY=<chave-ficticia-longa> DJANGO_ALLOWED_HOSTS=exemplo.test python manage.py check --deploy  # settings de produção; valores fictícios só na linha de comando, nunca .env nem segredos reais. Avisos esperados: W005 (HSTS subdomínios) e W021 (HSTS preload), opt-in deliberado em prod.py
 pre-commit run --all-files                                     # todos os ganchos
 docker compose config                                          # valida o compose
 ```
