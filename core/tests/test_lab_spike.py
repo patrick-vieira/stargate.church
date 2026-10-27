@@ -11,10 +11,10 @@ class LabSpikeTests(TestCase):
         self.assertEqual(self.resposta.status_code, 200)
         self.assertTemplateUsed(self.resposta, "core/lab_spike.html")
 
-    def test_import_map_com_versoes_fixas(self):
+    def test_import_map_local_do_three(self):
         self.assertContains(self.resposta, 'type="importmap"')
-        self.assertContains(self.resposta, "three@0.160.0")
-        self.assertContains(self.resposta, "@rive-app/canvas@2.21.6")
+        self.assertContains(self.resposta, "lab/vendor/three-0.160.0.module.js")
+        self.assertNotContains(self.resposta, "cdn.jsdelivr.net")
 
     def test_modo_reduzido_e_atos_presentes(self):
         self.assertContains(self.resposta, "prefers-reduced-motion")
@@ -22,6 +22,11 @@ class LabSpikeTests(TestCase):
         self.assertContains(self.resposta, 'data-efeito="rive:estado"')
         self.assertContains(self.resposta, 'data-efeito="diagrama:constroi"')
 
-    def test_diagrama_svg_e_ponto_de_ligacao_do_rive(self):
+    def test_diagrama_svg(self):
         self.assertContains(self.resposta, '<svg viewBox="0 0 400 120"')
-        self.assertContains(self.resposta, "lab/exemplo.riv")
+
+    def test_rive_local_2_35_0_com_viewmodel(self):
+        self.assertContains(self.resposta, "lab/rive/stargate-leitura.riv")
+        self.assertContains(self.resposta, "lab/vendor/rive-canvas-2.35.0.js")
+        self.assertContains(self.resposta, "lab/vendor/rive-2.35.0.wasm")
+        self.assertContains(self.resposta, 'data-riv-prop="progressoLeitura"')

@@ -41,23 +41,47 @@ async function cena() {
   }
 }
 
+// Rive 2.35.0 vendorizado (UMD -> window.rive); o .wasm vem do mesmo diretório.
+function carregarRive(js) {
+  return new Promise((ok, erro) => {
+    const s = document.createElement("script");
+    s.src = js;
+    s.onload = ok;
+    s.onerror = () => erro(new Error("rive js"));
+    document.head.appendChild(s);
+  });
+}
+
+let erroRive = "";
 async function rive() {
   const canvas = document.getElementById("lab-rive");
-  const maquina = canvas.dataset.rivStateMachine;
   try {
-    const { Rive } = await import("@rive-app/canvas");
-    const r = new Rive({
-      src: canvas.dataset.rivSrc,
-      canvas,
-      stateMachines: maquina,
-      autoplay: !reduzido,
-      onLoad: () => {
-        const entrada = r.stateMachineInputs(maquina).find((i) => i.name === canvas.dataset.rivInput);
-        if (entrada) ouvintes.push((v) => (entrada.value = v * 100));
-      },
+    await carregarRive(canvas.dataset.rivJs);
+    window.rive.RuntimeLoader.setWasmUrl(canvas.dataset.rivWasm);
+    await new Promise((ok, erro) => {
+      const r = new window.rive.Rive({
+        src: canvas.dataset.rivSrc,
+        canvas,
+        autoplay: !reduzido,
+        autoBind: true, // instância por defeito do ViewModel «Reading»
+        onLoad: () => {
+          try {
+            r.resizeDrawingSurfaceToCanvas();
+            const prop = r.viewModelInstance.number(canvas.dataset.rivProp);
+            if (!prop) throw new Error("propriedade ausente: " + canvas.dataset.rivProp);
+            ouvintes.push((v) => (prop.value = v * 100));
+            ok();
+          } catch (e) {
+            erro(e);
+          }
+        },
+        onLoadError: (e) => erro(new Error(String(e && e.data ? e.data : e))),
+      });
     });
     return true;
   } catch (e) {
+    erroRive = e.message;
+    console.error("Rive:", e);
     return false;
   }
 }
@@ -69,4 +93,5 @@ const [tres, riv] = await Promise.all([cena(), rive()]);
 calcular();
 modo.textContent =
   (reduzido ? "Movimento reduzido ativo. " : "Movimento completo. ") +
-  `Cena 3D: ${tres ? "ok" : "indisponível"}. Rive: ${riv ? "carregado (aguarda o .riv)" : "indisponível"}.`;
+  `Cena 3D: ${tres ? "ok" : "indisponível"}. Rive: ${riv ? "ok (ViewModel ligado)" : "indisponível " + erroRive}.`;
+window.__labEstado = { tres, riv, erroRive, reduzido };

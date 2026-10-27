@@ -12,9 +12,11 @@
 <div class="lab-palco" data-lab-palco>
   <div class="lab-fixo" aria-hidden="true">
     <canvas id="lab-three" class="lab-canvas" width="640" height="360"></canvas>
-    {# Ponto de ligação do Rive: o .riv ainda não existe (ver docs/spike-star-19.md). #}
-    <canvas id="lab-rive" class="lab-canvas lab-canvas--rive" width="240" height="240"
-            data-riv-src="{% static 'lab/exemplo.riv' %}" data-riv-state-machine="Scroll" data-riv-input="progresso"></canvas>
+    <canvas id="lab-rive" class="lab-canvas lab-canvas--rive" width="400" height="160"
+            data-riv-src="{% static 'lab/rive/stargate-leitura.riv' %}"
+            data-riv-js="{% static 'lab/vendor/rive-canvas-2.35.0.js' %}"
+            data-riv-wasm="{% static 'lab/vendor/rive-2.35.0.wasm' %}"
+            data-riv-prop="progressoLeitura"></canvas>
   </div>
   <div class="lab-atos">
     <article class="lab-ato" data-ato="1" data-efeito="three:gira"><h2>Ato 1 · a cena acorda</h2><p>A cena three.js gira conforme o scroll avança.</p></article>
@@ -52,12 +54,9 @@
 @media (prefers-reduced-motion:reduce){.js .lab-passo{stroke-dashoffset:0;transition:none}}
 </style>
 <script>document.documentElement.classList.add("js")</script>
-{# Versões fixas; troque aqui e em docs/spike-star-19.md. Sem SRI: o CDN será avaliado na medição. #}
+{# Tudo local (vendorizado), versões fixas; troque aqui e em docs/spike-star-19.md. #}
 <script type="importmap">
-{"imports": {
-"three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
-"@rive-app/canvas": "https://cdn.jsdelivr.net/npm/@rive-app/canvas@2.21.6/+esm"
-}}
+{"imports": {"three": "{% static 'lab/vendor/three-0.160.0.module.js' %}"}}
 </script>
 <script type="module" src="{% static 'js/lab-spike.js' %}"></script>
 {% endblock %}
