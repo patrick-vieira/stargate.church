@@ -43,10 +43,11 @@
 {% endblock %}
 {% block scripts %}
 <style>
-.lab-palco{position:relative}
-.lab-fixo{position:sticky;top:0;height:50vh;display:flex;gap:1rem;justify-content:center;align-items:center;background:#FBF6EE;z-index:1}
-.lab-canvas{max-width:100%;height:auto;background:#fff;border:1px solid #1F1914}
-.lab-canvas--rive{max-width:40%}
+.lab-palco{position:relative;max-width:100%}
+.lab-fixo{position:sticky;top:0;height:50vh;display:flex;gap:1rem;justify-content:center;align-items:center;background:#FBF6EE;z-index:1;max-width:100%;min-width:0;box-sizing:border-box;padding-inline:var(--sg-gutter,1rem)}
+.lab-canvas{flex:1 1 0;min-width:0;max-width:100%;height:auto;background:#fff;border:1px solid #1F1914;box-sizing:border-box}
+.lab-canvas--rive{flex:0 1 40%;max-width:40%}
+.lab-diagrama svg{max-width:100%;height:auto}
 .lab-ato{min-height:70vh;padding:2rem var(--sg-gutter,1rem)}
 .lab-passo{stroke-dasharray:var(--len,200);stroke-dashoffset:0}
 .js .lab-passo{stroke-dashoffset:var(--len,200);transition:stroke-dashoffset .6s}

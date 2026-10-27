@@ -70,6 +70,8 @@ async function rive() {
             const prop = r.viewModelInstance.number(canvas.dataset.rivProp);
             if (!prop) throw new Error("propriedade ausente: " + canvas.dataset.rivProp);
             ouvintes.push((v) => (prop.value = v * 100));
+            // Leitura do estado atual do ViewModel (para a medição).
+            window.__labRive = { propriedade: canvas.dataset.rivProp, valor: () => prop.value };
             ok();
           } catch (e) {
             erro(e);
