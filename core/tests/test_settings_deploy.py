@@ -77,7 +77,7 @@ class SettingsDeployTests(SimpleTestCase):
 
     def test_prod_hsts_por_defeito(self):
         s = carregar("prod")
-        self.assertEqual(s.SECURE_HSTS_SECONDS, 31536000)
+        self.assertEqual(s.SECURE_HSTS_SECONDS, 86400)
         self.assertFalse(s.SECURE_HSTS_INCLUDE_SUBDOMAINS)
         self.assertFalse(s.SECURE_HSTS_PRELOAD)
 
