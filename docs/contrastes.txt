@@ -5,5 +5,7 @@
 | --sg-coral-ink | --sg-papel | 6.1:1 | TEXTO |
 | --sg-coral-ink | branco | 6.2:1 | TEXTO |
 | --sg-coral | * | > 3:1 | NÃO-TEXTO (sublinhados, bordas, foco, accent-color, botão da newsletter 5.02:1) |
+| --sg-campo-borda | branco | 4.46:1 | NÃO-TEXTO (borda dos campos, WCAG 1.4.11; antes 1.38:1) |
+| --sg-campo-borda | --sg-creme | 4.11:1 | NÃO-TEXTO (borda dos campos, WCAG 1.4.11; antes 1.27:1) |
 
 Navbar marcada como corrigida.

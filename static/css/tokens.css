@@ -3,6 +3,7 @@
 :root{
   /* superfícies */
   --sg-creme:#FBF5EA; --sg-creme-2:#F4EBDA; --sg-papel:#FFFDF8; --sg-linha:#E6DAC4;
+  --sg-campo-borda:#857560; /* borda de campos: 4.46:1 sobre branco, 4.11:1 sobre creme (WCAG 1.4.11) */
   /* tinta */
   --sg-tinta:#1F1914; --sg-tinta-2:#4A4038; --sg-tinta-3:#6B5F54; /* 3 = 5.6:1 sobre creme */
   /* acento principal: coral nascer-do-sol */
