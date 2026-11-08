@@ -1,0 +1,66 @@
+/* Motor imersivo (STAR-38). Sem JS o texto fica legível; os efeitos só melhoram. */
+.im-palco{max-width:100%;min-width:0;overflow-x:clip}
+.im-ato{position:relative;min-width:0;max-width:100%;box-sizing:border-box;min-height:70vh;padding:2rem var(--sg-gutter,1rem);display:grid;gap:1.5rem;align-content:center}
+.im-texto{min-width:0;max-width:60ch}
+.im-cena{min-width:0;max-width:100%;margin:0}
+.im-canvas{display:block;width:100%;max-width:100%;height:auto;background:#fff;border:1px solid #1F1914;box-sizing:border-box}
+.im-canvas--rive{max-width:400px}
+.im-diagrama svg{max-width:100%;height:auto}
+
+/* Parallax: camadas empilhadas, deslocadas por transform. */
+.im-parallax{position:relative;overflow:hidden;aspect-ratio:2/1;max-height:50vh;border:1px solid #1F1914}
+.im-camada{position:absolute;inset:-10% 0;width:100%;height:120%;will-change:transform}
+
+/* Revela: formas visíveis por padrão; só escondidas quando o JS está ativo. */
+.im-revela{display:flex;gap:1rem;flex-wrap:wrap}
+.im-forma{display:block;width:5rem;height:5rem;background:#EB5A3C;border-radius:50%;opacity:1;transform:none;transition:opacity .6s,transform .6s}
+.im-forma:nth-child(2){border-radius:12px;background:#1F1914}
+.im-forma:nth-child(3){border-radius:0;background:#B3321A}
+.js .im-revela:not(.im-revela--on) .im-forma{opacity:0;transform:translateY(1.5rem)}
+
+/* Diagrama: completo sem JS. */
+.im-passo{stroke-dasharray:var(--len,200);stroke-dashoffset:0}
+.js .im-passo{stroke-dashoffset:var(--len,200);transition:stroke-dashoffset .6s}
+.js .im-passo.on{stroke-dashoffset:0}
+
+/* Scroll-driven por CSS (sem JS): parallax e revela animam pela timeline view().
+   O JS (scroll + rAF + IO) só entra quando não há suporte (ver motor.js: cssScroll). */
+.im-camada[data-camada="fundo"]{--v:.25}
+.im-camada[data-camada="meio"]{--v:.6}
+.im-camada[data-camada="frente"]{--v:1}
+@supports (animation-timeline:view()){
+  @media (prefers-reduced-motion:no-preference){
+    @keyframes im-par{
+      from{transform:translate3d(0,calc(var(--im-int,.5)*var(--v,0)*-10%),0)}
+      to{transform:translate3d(0,calc(var(--im-int,.5)*var(--v,0)*10%),0)}
+    }
+    @keyframes im-rev{
+      from{opacity:0;transform:translateY(1.5rem)}
+      to{opacity:1;transform:none}
+    }
+    .im-camada{animation:im-par linear both;animation-timeline:view();animation-range:cover}
+    .js .im-revela:not(.im-revela--on) .im-forma,.im-forma{transition:none;animation:im-rev linear both;animation-timeline:view();animation-range:entry 0% entry 90%}
+    .im-forma:nth-child(2){animation-range:entry 10% entry 95%}
+    .im-forma:nth-child(3){animation-range:entry 20% entry 100%}
+  }
+}
+
+/* Pin sem GSAP: a cena fica colada (sticky) enquanto o ato rola. Sem JS. */
+.im-ato--fixo{min-height:150vh;align-content:start}
+.im-ato--fixo .im-cena{position:sticky;top:1rem;z-index:1}
+
+/* View Transitions entre posts: só onde há suporte. */
+@supports (view-transition-name:none){
+  @view-transition{navigation:auto}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .im-ato--omitir{display:none}
+  .js .im-revela:not(.im-revela--on) .im-forma{opacity:1;transform:none}
+  .im-forma,.js .im-passo{transition:none}
+  .js .im-passo{stroke-dashoffset:0}
+  .im-camada{transform:none!important;animation:none!important}
+  .im-ato--fixo{min-height:70vh;align-content:center}
+  .im-ato--fixo .im-cena{position:static}
+  ::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}
+}

@@ -1,0 +1,57 @@
+{% extends "noticias/base.html" %}
+{% load static %}
+{% block titulo %}{{ post.titulo }} — Stargate{% endblock %}
+{% block conteudo %}
+<section class="sg-sec"><div class="sg-wrap">
+<span class="sg-sobrolho">Post imersivo</span>
+<h1>{{ post.titulo }}</h1>
+</div></section>
+
+<div class="im-palco" data-imersivo data-libs="{{ libs }}">
+{% for ato in atos %}
+<article class="im-ato{% if ato.reduzido == 'omitir' %} im-ato--omitir{% endif %}{% if ato.parametros.fixar is True %}{% if ato.efeito == 'parallax:camadas' or ato.efeito == 'three:gira' or ato.efeito == 'rive:estado' %} im-ato--fixo{% endif %}{% endif %}"{% if ato.efeito == 'parallax:camadas' and ato.parametros.intensidade is not None %} style="--im-int:{{ ato.parametros.intensidade|stringformat:'s' }}"{% endif %} data-ato data-efeito="{{ ato.efeito }}" data-parametros="{{ ato.parametros_json }}" data-reduzido="{{ ato.reduzido }}">
+  <div class="im-texto">
+    <h2>{{ ato.titulo }}</h2>
+    <p>{{ ato.texto }}</p>
+  </div>
+  {% if ato.efeito == "parallax:camadas" %}
+  <div class="im-cena im-parallax" aria-hidden="true">
+    <svg class="im-camada" data-camada="fundo" viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice"><rect width="400" height="200" fill="#F3E6D3"/><circle cx="300" cy="60" r="40" fill="#EB5A3C" opacity=".35"/></svg>
+    <svg class="im-camada" data-camada="meio" viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice"><path d="M0 200 L90 90 L170 170 L260 70 L400 200Z" fill="#1F1914" opacity=".25"/></svg>
+    <svg class="im-camada" data-camada="frente" viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice"><path d="M0 200 L0 160 L120 130 L240 170 L400 120 L400 200Z" fill="#1F1914"/><circle cx="60" cy="110" r="10" fill="#EB5A3C"/></svg>
+  </div>
+  {% elif ato.efeito == "scroll:revela" %}
+  <div class="im-cena im-revela" aria-hidden="true"><span class="im-forma"></span><span class="im-forma"></span><span class="im-forma"></span></div>
+  {% elif ato.efeito == "three:gira" %}
+  <div class="im-cena" aria-hidden="true"><canvas class="im-canvas" data-three width="640" height="360"></canvas></div>
+  {% elif ato.efeito == "rive:estado" %}
+  <div class="im-cena" aria-hidden="true"><canvas class="im-canvas im-canvas--rive" data-rive width="400" height="160"
+      data-riv-src="{% static 'lab/rive/stargate-leitura.riv' %}"
+      data-riv-js="{% static 'lab/vendor/rive-canvas-2.35.0.js' %}"
+      data-riv-wasm="{% static 'lab/vendor/rive-2.35.0.wasm' %}"></canvas></div>
+  {% elif ato.efeito == "diagrama:constroi" %}
+  <figure class="im-cena im-diagrama" aria-hidden="true">
+    <svg viewBox="0 0 400 120">
+      <g fill="none" stroke="#1F1914" stroke-width="3">
+        <rect class="im-passo" x="10" y="30" width="100" height="60" rx="8"/>
+        <path class="im-passo" d="M110 60 H150"/>
+        <rect class="im-passo" x="150" y="30" width="100" height="60" rx="8"/>
+        <path class="im-passo" d="M250 60 H290"/>
+        <rect class="im-passo" x="290" y="30" width="100" height="60" rx="8"/>
+      </g>
+    </svg>
+  </figure>
+  {% endif %}
+</article>
+{% endfor %}
+</div>
+{% endblock %}
+{% block scripts %}
+<link rel="stylesheet" href="{% static 'css/imersivo.css' %}">
+<script>document.documentElement.classList.add("js")</script>
+{# Tudo local (vendorizado), versões fixas; ver docs/motor-imersivo.md. #}
+<script type="importmap">
+{"imports": {"three": "{% static 'lab/vendor/three-0.160.0.module.js' %}"}}
+</script>
+<script type="module" src="{% static 'js/imersivo/motor.js' %}"></script>
+{% endblock %}
