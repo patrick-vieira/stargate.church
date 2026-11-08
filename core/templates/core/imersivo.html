@@ -4,11 +4,11 @@
 {% block titulo %}{{ post.titulo }} — Stargate{% endblock %}
 {% block conteudo %}
 {% include "core/_narrador.html" %}
-{% include "core/_midia.html" %}
 <section class="sg-sec"><div class="sg-wrap">
 <span class="sg-sobrolho">Post imersivo</span>
 <h1>{{ post.titulo }}</h1>
 </div></section>
+{% include "core/_midia.html" %}
 
 <div class="im-palco" data-imersivo data-libs="{{ libs }}">
 {% for ato in atos %}

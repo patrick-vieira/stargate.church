@@ -5,7 +5,6 @@
 {% block titulo %}{{ post.titulo }} — A IA na ficção — Stargate{% endblock %}
 {% block conteudo %}
 {% include "core/_narrador.html" %}
-{% include "core/_midia.html" %}
 {% for ato in atos %}{% if ato.efeito == "atmosfera:guerra-maquinas" %}
 <div class="ag-raiz" id="principal" data-imersivo data-libs="{{ libs }}">
 <div class="ag-fx" aria-hidden="true"><div class="ag-arte"></div><div class="ag-horizonte"></div><div class="ag-grade" id="ag-grade"></div></div>
@@ -30,6 +29,7 @@
     </div>
     <svg class="ag-anel-hero" viewBox="0 0 400 400" aria-hidden="true" focusable="false"><g fill="none" stroke="#9AA7B5" stroke-width="1.5"><circle cx="200" cy="200" r="180" stroke-opacity=".5"/><circle cx="200" cy="200" r="140" stroke="#FF4B3E" stroke-dasharray="6 14" stroke-width="3"/><circle cx="200" cy="200" r="100" stroke="#5EE1F0" stroke-dasharray="40 24" stroke-opacity=".7"/><path d="M200 8v26M200 366v26M8 200h26M366 200h26" stroke="#FF4B3E" stroke-width="3"/></g></svg>
   </section>
+{% include "core/_midia.html" %}
 
   <section class="ag-pista" id="ag-ato1" aria-labelledby="ag-t-ato1">
     <div class="ag-cena">

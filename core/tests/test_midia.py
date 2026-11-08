@@ -146,6 +146,37 @@ class PlayerTests(TestCase):
                 r = self.client.get(f"/series/ia-na-ficcao/{slug}/")
                 self.assertContains(r, "data-midia")
 
+    def test_bloco_vem_depois_do_h1_em_todos_os_templates(self):
+        for n, slug in [
+            (1, "a-maquina-fria"),
+            (2, "o-medo-da-guerra-das-maquinas"),
+            (3, "o-que-e-ser-humano"),
+            (4, "a-ia-afetiva"),
+            (6, "escolhas-da-maquina"),
+        ]:
+            self._com_midia(n)
+            with self.subTest(slug=slug):
+                html = self.client.get(f"/series/ia-na-ficcao/{slug}/").content.decode()
+                self.assertGreater(html.index("data-midia"), html.index("<h1"))
+
+    def test_sem_estilo_inline_e_css_estatico(self):
+        self._com_midia(video_vertical="episodios/x/vertical.mp4", transcricao="T")
+        html = self.client.get("/series/ia-na-ficcao/a-maquina-fria/").content.decode()
+        ini = html.index("data-midia")
+        bloco = html[ini : html.index("</section>", ini)]
+        self.assertNotIn("style=", bloco)
+        self.assertNotIn("<style", bloco)
+        self.assertNotIn("system-ui", bloco)
+        self.assertIn("css/midia.css", bloco)
+        self.assertIn("Ver e ouvir", bloco)
+
+    def test_css_so_com_tokens(self):
+        from django.conf import settings
+
+        css = (settings.BASE_DIR / "static" / "css" / "midia.css").read_text()
+        self.assertNotRegex(css, r"#[0-9a-fA-F]{3,8}\b")
+        self.assertNotIn("system-ui", css)
+
     def test_trailer_no_hub(self):
         s = Serie.objects.get(slug="ia-na-ficcao")
         s.trailer = "series/t/video.mp4"

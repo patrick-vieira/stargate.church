@@ -5,7 +5,6 @@
 {% block titulo %}{{ post.titulo }} — A IA na ficção — Stargate{% endblock %}
 {% block conteudo %}
 {% include "core/_narrador.html" %}
-{% include "core/_midia.html" %}
 {% for ato in atos %}{% if ato.efeito == "atmosfera:escolhas" %}
 <div class="em-raiz" id="principal" data-imersivo data-libs="{{ libs }}">
 <div class="em-paisagem" id="em-paisagem" aria-hidden="true">
@@ -38,6 +37,7 @@
       <circle class="em-c" cx="150" cy="100" r="22"/>
     </svg>
   </section>
+{% include "core/_midia.html" %}
 
   <section class="em-ato" id="em-ato1" aria-labelledby="em-t-ato1">
     <div class="em-miolo em-duas">

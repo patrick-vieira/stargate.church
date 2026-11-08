@@ -3,7 +3,6 @@
 {% block titulo %}{{ post.titulo }} — A IA na ficção — Stargate{% endblock %}
 {% block conteudo %}
 {% include "core/_narrador.html" %}
-{% include "core/_midia.html" %}
 {% for ato in atos %}{% if ato.efeito == "atmosfera:ser-humano" %}
 <div class="sh-raiz" id="principal" data-imersivo data-libs="{{ libs }}">
 <div class="sh-sala" id="sh-sala" aria-hidden="true">
@@ -30,6 +29,7 @@
       <p class="sh-rolar" aria-hidden="true"><span>Mova o cursor: o vidro reflete</span><span class="sh-ponto"> · </span><span>role: os painéis deslizam</span></p>
     </div>
   </section>
+{% include "core/_midia.html" %}
 
   <section class="sh-ato" id="sh-ato1" aria-labelledby="sh-t-ato1">
     <div class="sh-miolo sh-duas">
