@@ -67,6 +67,8 @@ PARAMETROS_POR_EFEITO = {
     },
     # Atmosfera inteira (STAR-41/STAR-51): o conteúdo vive no template.
     "atmosfera:maquina-fria": {},
+    # Atmosfera do post 2 (STAR-42): HUD, glitch e scanlines; conteúdo no template.
+    "atmosfera:guerra-maquinas": {},
 }
 
 
@@ -99,6 +101,10 @@ class Ato(models.Model):
         CORREDOR = "three:corredor", "Corredor 3D"
         OLHO = "olho:segue", "Olho que segue o cursor"
         ATMOSFERA = "atmosfera:maquina-fria", "Atmosfera «Máquina fria»"
+        ATMOSFERA_GUERRA = (
+            "atmosfera:guerra-maquinas",
+            "Atmosfera «Guerra das máquinas»",
+        )
 
     class Reduzido(models.TextChoices):
         ESTATICO = "estatico", "Estático"

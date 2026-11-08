@@ -6,6 +6,12 @@ from noticias.views import home as home_noticias
 from .imersivo import libs_opcionais
 from .models import Ato, PostImersivo
 
+# Efeito de página inteira → template próprio (STAR-41, STAR-42).
+TEMPLATES_ATMOSFERA = {
+    Ato.Efeito.ATMOSFERA: "core/imersivo_maquina_fria.html",
+    Ato.Efeito.ATMOSFERA_GUERRA: "core/imersivo_guerra_maquinas.html",
+}
+
 
 def home(request):
     """A home é a das notícias; o nome `core:home` continua valendo."""
@@ -26,6 +32,7 @@ def imersivo(request, slug):
     post = get_object_or_404(PostImersivo.publicados(), slug=slug)
     atos = post.atos.all()
     contexto = {"post": post, "atos": atos, "libs": libs_opcionais()}
-    if any(a.efeito == Ato.Efeito.ATMOSFERA for a in atos):
-        return render(request, "core/imersivo_maquina_fria.html", contexto)
+    for a in atos:
+        if a.efeito in TEMPLATES_ATMOSFERA:
+            return render(request, TEMPLATES_ATMOSFERA[a.efeito], contexto)
     return render(request, "core/imersivo.html", contexto)
