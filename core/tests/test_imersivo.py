@@ -470,6 +470,11 @@ class AtmosferaSerHumanoTests(TestCase):
         self.assertNotContains(r, "cdn.")
         self.assertNotContains(r, "Georgia")
 
+    def test_rodape_sem_temas_nao_mostra_o_titulo_temas(self):
+        r = self.client.get(reverse("core:imersivo", args=["o-que-e-ser-humano"]))
+        self.assertNotContains(r, "<h4>Temas</h4>")
+        self.assertContains(r, "<h4>Mais</h4>")
+
     def test_post_2_liga_para_o_post_3(self):
         from django.core.management import call_command
 
