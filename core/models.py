@@ -27,7 +27,8 @@ def _estacoes(valor):
     if not isinstance(valor, list) or not valor:
         return False
     for e in valor:
-        if not isinstance(e, dict) or not set(e) <= {"decada", "titulo", "slug", "texto"}:
+        chaves = {"decada", "titulo", "slug", "texto"}
+        if not isinstance(e, dict) or not set(e) <= chaves:
             return False
         d = e.get("decada")
         if isinstance(d, bool) or not isinstance(d, int) or not 1920 <= d <= 2020:
@@ -159,7 +160,8 @@ class Ato(models.Model):
     @property
     def estacoes(self):
         """Estações da linha do tempo, com a forma decorativa da época."""
-        lista = self.parametros.get("estacoes") if isinstance(self.parametros, dict) else None
+        params = self.parametros
+        lista = params.get("estacoes") if isinstance(params, dict) else None
         if not isinstance(lista, list):
             return []
         return [
