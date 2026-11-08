@@ -105,7 +105,16 @@
 .im-palco:has([data-efeito="linha-tempo:decadas"]) .im-decada{color:#8F2412}
 .js .im-palco:has([data-efeito="linha-tempo:decadas"]) .im-trilho--ativo .im-estacao{opacity:.8}
 .js .im-palco:has([data-efeito="linha-tempo:decadas"]) .im-trilho--ativo .im-estacao.on{opacity:1;background:var(--papel)}
-.im-pausa{position:fixed;top:.75rem;right:.75rem;z-index:30;font:600 .8rem/1 ui-monospace,Menlo,monospace;color:#EDE6D3;background:rgba(var(--bg-rgb,42,32,20),.95);border:1px solid rgb(var(--luz-rgb,230,196,143));border-radius:99px;padding:.6rem .9rem;min-height:2.25rem;cursor:pointer}
+/* «Pausar» vive no fluxo do ato, no canto da cena: nunca sobre a navbar fixa (1920 e 390). */
+.im-pausa{position:relative;display:block;margin:.75rem var(--sg-gutter,1rem) 0 auto;z-index:2;font:600 .8rem/1 ui-monospace,Menlo,monospace;color:#EDE6D3;background:rgba(var(--bg-rgb,42,32,20),.95);border:1px solid rgb(var(--luz-rgb,230,196,143));border-radius:99px;padding:.6rem .9rem;min-height:2.5rem;min-width:2.5rem;cursor:pointer}
+/* Título do hub em Fraunces 600, como os h2 dos atos. */
+.im-titulo-hub{font-family:var(--sg-serif,'Fraunces',Georgia,serif);font-weight:600}
+/* Estações sem destino: «em breve», sem aspecto de link. */
+.im-breve{justify-self:start;font:600 .75rem/1 ui-monospace,Menlo,monospace;letter-spacing:.04em;text-transform:uppercase;color:#5A4E42;border:1px dashed #5A4E42;border-radius:99px;padding:.3rem .6rem}
+.im-estacao--breve .im-estacao-titulo{color:#4A3F35}
+/* Lista (reduzido ou sem JS): grelha de 2–3 colunas em ecrãs largos, 1 em ecrãs estreitos. */
+.im-linha:not(.im-linha--x){grid-template-columns:repeat(auto-fit,minmax(min(100%,max(16rem,calc((100% - 2rem) / 3))),1fr))}
+.js .im-trilho--ativo .im-linha{grid-template-columns:none}
 .im-pausa:hover{background:rgba(var(--luz-rgb,230,196,143),.25)}
 .im-pausa[disabled]{display:none}
 /* Balões de conversa na década azul (2000+): só decoração, parados quando pausado. */

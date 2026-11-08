@@ -448,7 +448,7 @@ class HubTests(TestCase):
         self.assertContains(self.r, '<ol class="im-linha">')
         self.assertContains(self.r, 'data-efeito="linha-tempo:decadas"')
         self.assertContains(self.r, 'tabindex="0" role="region" aria-label=')
-        self.assertContains(self.r, 'class="im-estacao"', count=10)
+        self.assertContains(self.r, '<li class="im-estacao', count=10)
 
     def test_ordem_das_decadas(self):
         import re

@@ -5,8 +5,13 @@
 {% block conteudo %}
 {% include "core/_narrador.html" %}
 <section class="sg-sec"><div class="sg-wrap">
+{% if serie and serie.hub_id == post.id %}
+<span class="sg-sobrolho">Série · {{ serie.episodios.count }} posts · 1920 → 2026</span>
+<h1 class="im-titulo-hub">{{ post.titulo }}</h1>
+{% else %}
 <span class="sg-sobrolho">Post imersivo</span>
 <h1>{{ post.titulo }}</h1>
+{% endif %}
 </div></section>
 {% include "core/_midia.html" %}
 
@@ -64,7 +69,7 @@
   <div class="im-cena im-trilho" tabindex="0" role="region" aria-label="Linha do tempo por décadas: use as setas para percorrer">
     <ol class="im-linha">
       {% for e in ato.estacoes %}
-      <li class="im-estacao" data-decada="{{ e.decada }}">
+      <li class="im-estacao{% if not e.url %} im-estacao--breve{% endif %}" data-decada="{{ e.decada }}">
         <div class="im-estacao-arte" aria-hidden="true">
         {% if e.forma == 'papel' %}
         <svg class="im-camada" style="--v:0.2" viewBox="0 0 200 120" preserveAspectRatio="xMidYMid slice"><rect x="20" y="14" width="90" height="100" fill="#F3E6D3" stroke="#1F1914"/><path d="M34 40H96M34 56H96M34 72H80" stroke="#1F1914" stroke-width="3"/></svg>
@@ -78,13 +83,29 @@
         {% elif e.forma == 'pixels' %}
         <svg class="im-camada" style="--v:0.2" viewBox="0 0 200 120" preserveAspectRatio="xMidYMid slice"><rect width="200" height="120" fill="#F3E6D3"/></svg>
         <svg class="im-camada" style="--v:0.6" viewBox="0 0 200 120" preserveAspectRatio="xMidYMid slice"><g fill="#1F1914"><rect x="40" y="30" width="16" height="16"/><rect x="72" y="46" width="16" height="16"/><rect x="104" y="30" width="16" height="16"/><rect x="136" y="62" width="16" height="16"/></g><rect x="88" y="78" width="16" height="16" fill="#EB5A3C"/></svg>
+        {% elif e.forma == 'transistor' %}
+        <svg class="im-camada" style="--v:0.2" viewBox="0 0 200 120" preserveAspectRatio="xMidYMid slice"><rect width="200" height="120" fill="#F3E6D3"/><path d="M0 90H200" stroke="#1F1914" stroke-width="2" opacity=".35"/></svg>
+        <svg class="im-camada" style="--v:0.6" viewBox="0 0 200 120" preserveAspectRatio="xMidYMid slice"><g fill="none" stroke="#1F1914" stroke-width="3"><circle cx="100" cy="56" r="26"/><path d="M60 56H74M126 56H140M100 82V104M88 104H112"/></g><circle cx="100" cy="56" r="7" fill="#EB5A3C"/></svg>
+        {% elif e.forma == 'vidro' and e.variante == 1 %}
+        <svg class="im-camada" style="--v:0.2" viewBox="0 0 200 120" preserveAspectRatio="xMidYMid slice"><rect width="200" height="120" fill="#F3E6D3"/><rect x="0" y="96" width="200" height="24" fill="#1F1914" opacity=".18"/></svg>
+        <svg class="im-camada" style="--v:0.6" viewBox="0 0 200 120" preserveAspectRatio="xMidYMid slice"><g fill="#fff" stroke="#1F1914" stroke-width="2"><path d="M100 24C84 16 62 16 44 24V100C62 92 84 92 100 100Z"/><path d="M100 24C116 16 138 16 156 24V100C138 92 116 92 100 100Z"/></g><path d="M58 44H88M58 58H88M112 44H142M112 58H134" stroke="#B3321A" stroke-width="3"/></svg>
+        {% elif e.forma == 'vidro' and e.variante == 2 %}
+        <svg class="im-camada" style="--v:0.2" viewBox="0 0 200 120" preserveAspectRatio="xMidYMid slice"><rect width="200" height="120" fill="#F3E6D3"/><circle cx="150" cy="30" r="34" fill="#1F1914" opacity=".1"/></svg>
+        <svg class="im-camada" style="--v:0.6" viewBox="0 0 200 120" preserveAspectRatio="xMidYMid slice"><g fill="none" stroke="#1F1914" stroke-width="3"><path d="M100 24V96M60 96H140M46 44H154"/><path d="M46 44L30 76H62ZM154 44L138 76H170Z"/></g><circle cx="100" cy="24" r="6" fill="#EB5A3C"/></svg>
         {% elif e.forma == 'vidro' %}
         <svg class="im-camada" style="--v:0.2" viewBox="0 0 200 120" preserveAspectRatio="xMidYMid slice"><circle cx="100" cy="60" r="48" fill="#EB5A3C" opacity=".25"/></svg>
         <svg class="im-camada" style="--v:0.6" viewBox="0 0 200 120" preserveAspectRatio="xMidYMid slice"><rect x="50" y="20" width="100" height="80" rx="16" fill="#fff" fill-opacity=".5" stroke="#1F1914" stroke-width="2"/></svg>
+        {% elif e.forma == 'rede' and e.variante == 1 %}
+        <svg class="im-camada" style="--v:0.2" viewBox="0 0 200 120" preserveAspectRatio="xMidYMid slice"><rect width="200" height="120" fill="#F3E6D3"/><path d="M30 20V100H180" stroke="#1F1914" stroke-width="2" fill="none" opacity=".5"/></svg>
+        <svg class="im-camada" style="--v:0.6" viewBox="0 0 200 120" preserveAspectRatio="xMidYMid slice"><g fill="#1F1914"><circle cx="70" cy="70" r="9"/><circle cx="120" cy="42" r="9"/></g><circle cx="150" cy="78" r="9" fill="#EB5A3C"/></svg>
+        {% elif e.forma == 'rede' %}
+        <svg class="im-camada" style="--v:0.2" viewBox="0 0 200 120" preserveAspectRatio="xMidYMid slice"><rect width="200" height="120" fill="#1F1914" opacity=".08"/></svg>
+        <svg class="im-camada" style="--v:0.6" viewBox="0 0 200 120" preserveAspectRatio="xMidYMid slice"><g fill="none" stroke="#1F1914" stroke-width="2"><path d="M50 30L110 60L160 28M110 60L90 100M110 60L168 92"/></g><g fill="#fff" stroke="#1F1914" stroke-width="2"><circle cx="50" cy="30" r="9"/><circle cx="160" cy="28" r="9"/><circle cx="90" cy="100" r="9"/><circle cx="168" cy="92" r="9"/></g><circle cx="110" cy="60" r="12" fill="#EB5A3C"/></svg>
         {% endif %}
         </div>
         <span class="im-decada">{{ e.decada }}s</span>
         <h3 class="im-estacao-titulo">{% if e.url %}<a href="{{ e.url }}">{{ e.titulo }}</a>{% else %}{{ e.titulo }}{% endif %}</h3>
+        {% if not e.url %}<span class="im-breve">em breve</span>{% endif %}
         {% if e.texto %}<p>{{ e.texto }}</p>{% endif %}
       </li>
       {% endfor %}
