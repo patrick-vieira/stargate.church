@@ -3,8 +3,8 @@
     "model": "core.postimersivo",
     "pk": 2,
     "fields": {
-      "slug": "a-maquina-fria",
-      "titulo": "A máquina fria (PROVISÓRIO)",
+      "slug": "efeitos-maquina-fria-provisorio",
+      "titulo": "Efeitos da máquina fria (PROVISÓRIO)",
       "publicado": true
     }
   },

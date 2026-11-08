@@ -5,7 +5,12 @@ from django.urls import reverse
 
 from core.models import Ato, PostImersivo
 
-EFEITOS_MAQUINA_FRIA = {"terminal:fala", "three:corredor", "olho:segue"}
+EFEITOS_MAQUINA_FRIA = {
+    "terminal:fala",
+    "three:corredor",
+    "olho:segue",
+    "atmosfera:maquina-fria",
+}
 
 
 def ato(efeito, parametros=None, **extra):
@@ -265,12 +270,15 @@ class MaquinaFriaTests(TestCase):
             ato("olho:segue", {"alcance": 2}).clean()
 
     def test_fixture_valida_e_renderiza(self):
-        post = PostImersivo.objects.get(slug="a-maquina-fria")
+        post = PostImersivo.objects.get(slug="efeitos-maquina-fria-provisorio")
         self.assertIn("PROVISÓRIO", post.titulo)
         for a in post.atos.all():
             a.full_clean()
-        r = self.client.get(reverse("core:imersivo", args=["a-maquina-fria"]))
+        r = self.client.get(
+            reverse("core:imersivo", args=["efeitos-maquina-fria-provisorio"])
+        )
         self.assertEqual(r.status_code, 200)
+        self.assertTemplateUsed(r, "core/imersivo.html")
         self.assertContains(r, "data-terminal")
         self.assertContains(r, "&gt; status do sistema: tudo normal.")
         self.assertContains(r, 'data-efeito="three:corredor"')
@@ -291,3 +299,64 @@ class MaquinaFriaTests(TestCase):
         self.assertIn("progresso(", olho)
         corredor = (base / "three-corredor.js").read_text()
         self.assertIn('await import("three")', corredor)
+
+
+class AtmosferaMaquinaFriaTests(TestCase):
+    fixtures = ["maquina_fria"]
+
+    def _raiz(self):
+        from pathlib import Path
+
+        return Path(__file__).resolve().parents[2]
+
+    def test_efeito_sem_parametros(self):
+        ato("atmosfera:maquina-fria").clean()
+        with self.assertRaises(ValidationError):
+            ato("atmosfera:maquina-fria", {"fixar": True}).clean()
+
+    def test_fixture_valida(self):
+        post = PostImersivo.objects.get(slug="a-maquina-fria")
+        self.assertNotIn("PROVISÓRIO", post.titulo)
+        for a in post.atos.all():
+            a.full_clean()
+
+    def test_renderiza_o_template_da_atmosfera(self):
+        r = self.client.get(reverse("core:imersivo", args=["a-maquina-fria"]))
+        self.assertEqual(r.status_code, 200)
+        self.assertTemplateUsed(r, "core/imersivo_maquina_fria.html")
+        self.assertContains(r, 'data-efeito="atmosfera:maquina-fria"')
+        self.assertContains(r, "css/atmosfera-maquina-fria.css")
+        self.assertContains(r, "js/imersivo/motor.js")
+        self.assertContains(
+            r, "Console 7, sessão aberta. Ação recomendada: prosseguir."
+        )
+        self.assertContains(r, "Auditoria da decisão: indisponível.")
+        self.assertContains(r, "Interrupção humana: não configurada.")
+        self.assertContains(r, 'id="am-corredor"')
+        self.assertContains(r, 'id="am-g-valor"')
+        self.assertNotContains(r, "Georgia")
+        self.assertNotContains(r, "cdn.")
+
+    def test_fonte_fraunces_e_licenca_em_static(self):
+        raiz = self._raiz()
+        css = (raiz / "static/css/atmosfera-maquina-fria.css").read_text()
+        self.assertIn("fraunces-latin-600-normal.woff2", css)
+        self.assertIn("--serif:var(--sg-serif)", css)
+        self.assertNotIn("Georgia", css)
+        pasta = raiz / "static/fonts/fraunces"
+        self.assertTrue((pasta / "fraunces-latin-600-normal.woff2").is_file())
+        self.assertTrue((pasta / "Fraunces-OFL.txt").is_file())
+
+    def test_css_oculta_canvas_em_movimento_reduzido(self):
+        css = (self._raiz() / "static/css/atmosfera-maquina-fria.css").read_text()
+        reduzido = css[css.index("@media (prefers-reduced-motion:reduce)") :]
+        self.assertIn(".am-poeira,.am-corredor{display:none!important}", reduzido)
+
+    def test_js_lazy_three_e_reduzido(self):
+        js = (
+            self._raiz() / "static/js/imersivo/efeitos/atmosfera-maquina-fria.js"
+        ).read_text()
+        self.assertIn('registar("atmosfera:maquina-fria"', js)
+        self.assertIn('await import("three")', js)
+        self.assertIn("if (reduzido) return;", js)
+        self.assertNotIn("http", js)

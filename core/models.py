@@ -65,6 +65,8 @@ PARAMETROS_POR_EFEITO = {
         "alcance": (_entre(0, 1), "um número entre 0 e 1"),
         "fixar": _FIXAR,
     },
+    # Atmosfera inteira (STAR-41/STAR-51): o conteúdo vive no template.
+    "atmosfera:maquina-fria": {},
 }
 
 
@@ -96,6 +98,7 @@ class Ato(models.Model):
         TERMINAL = "terminal:fala", "Terminal que fala"
         CORREDOR = "three:corredor", "Corredor 3D"
         OLHO = "olho:segue", "Olho que segue o cursor"
+        ATMOSFERA = "atmosfera:maquina-fria", "Atmosfera «Máquina fria»"
 
     class Reduzido(models.TextChoices):
         ESTATICO = "estatico", "Estático"
