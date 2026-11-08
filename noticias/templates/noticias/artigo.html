@@ -20,7 +20,8 @@
 {% endfor %}</tbody></table>
 <p class="sg-meta" style="margin:1rem 0 0">Verificado antes da publicação, em {{ artigo.publicado_em|date:"j \d\e F \d\e Y"|lower }}. Todos os dados deste protótipo são fictícios.</p></section>{% endif %}
 <section class="sg-sec" id="comentarios" style="padding-inline:0"><div class="sg-cartao-conta sg-cartao-conta--larga" data-luz="nevoa" id="cartao-comentario"><span class="sg-sobrolho">Conversa</span><h2>Comente esta reportagem</h2>
-{% if messages %}<div class="sg-avisos" role="status">{% for m in messages %}<p class="sg-aviso{% if m.level_tag == 'error' %} sg-erro{% endif %}"{% if m.level_tag == 'error' %} role="alert"{% endif %}>{{ m }}</p>{% endfor %}</div>{% endif %}
+{% if messages %}<div class="sg-avisos" id="avisos-comentario" role="status" tabindex="-1">{% for m in messages %}<p class="sg-aviso{% if m.level_tag == 'error' %} sg-erro{% endif %}"{% if m.level_tag == 'error' %} role="alert"{% endif %}>{{ m }}</p>{% endfor %}</div>
+<script>(function(){var a=document.getElementById("avisos-comentario");if(a){a.scrollIntoView({block:"center"});a.focus({preventScroll:true})}})()</script>{% endif %}
 {% if user.is_authenticated %}<p class="sg-meta">Seu comentário passa por uma revisão antes de aparecer.</p>
 <form method="post" action="{% url 'noticias:comentar' artigo.slug %}" class="sg-form sg-form--conta" id="form-comentario" novalidate>{% csrf_token %}
 {% if form_comentario.errors %}<p class="sg-erro" role="alert">Confira o nome e o comentário.</p>{% endif %}
