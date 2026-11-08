@@ -10,6 +10,7 @@ from .models import Ato, PostImersivo
 TEMPLATES_ATMOSFERA = {
     Ato.Efeito.ATMOSFERA: "core/imersivo_maquina_fria.html",
     Ato.Efeito.ATMOSFERA_GUERRA: "core/imersivo_guerra_maquinas.html",
+    Ato.Efeito.ATMOSFERA_SER_HUMANO: "core/imersivo_ser_humano.html",
     Ato.Efeito.ATMOSFERA_ESCOLHAS: "core/imersivo_escolhas.html",
 }
 

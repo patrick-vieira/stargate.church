@@ -69,6 +69,8 @@ PARAMETROS_POR_EFEITO = {
     "atmosfera:maquina-fria": {},
     # Atmosfera do post 2 (STAR-42): HUD, glitch e scanlines; conteúdo no template.
     "atmosfera:guerra-maquinas": {},
+    # Atmosfera do post 3 (STAR-43): sala de vidro e teste; conteúdo no template.
+    "atmosfera:ser-humano": {},
     # Atmosfera do post 6 (STAR-46): narrativa ramificada, estado no cliente.
     "atmosfera:escolhas": {},
 }
@@ -106,6 +108,10 @@ class Ato(models.Model):
         ATMOSFERA_GUERRA = (
             "atmosfera:guerra-maquinas",
             "Atmosfera «Guerra das máquinas»",
+        )
+        ATMOSFERA_SER_HUMANO = (
+            "atmosfera:ser-humano",
+            "Atmosfera «O que é ser humano?»",
         )
         ATMOSFERA_ESCOLHAS = (
             "atmosfera:escolhas",
