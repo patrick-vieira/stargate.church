@@ -4,7 +4,7 @@ from django.shortcuts import get_object_or_404, render
 from noticias.views import home as home_noticias
 
 from .imersivo import libs_opcionais
-from .models import PostImersivo
+from .models import Ato, PostImersivo
 
 
 def home(request):
@@ -24,5 +24,8 @@ def lab_spike(request):
 def imersivo(request, slug):
     """Post imersivo: atos em dados, efeitos pelo motor JS."""
     post = get_object_or_404(PostImersivo.publicados(), slug=slug)
-    contexto = {"post": post, "atos": post.atos.all(), "libs": libs_opcionais()}
+    atos = post.atos.all()
+    contexto = {"post": post, "atos": atos, "libs": libs_opcionais()}
+    if any(a.efeito == Ato.Efeito.ATMOSFERA for a in atos):
+        return render(request, "core/imersivo_maquina_fria.html", contexto)
     return render(request, "core/imersivo.html", contexto)
