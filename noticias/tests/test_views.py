@@ -78,6 +78,14 @@ class HomeTests(TestCase):
         self.assertNotIn('type="submit"', texto)
         self.assertIn('type="button" disabled', texto)
 
+    def test_base_da_luz_ligada_na_home(self):
+        texto = self.get().content.decode()
+        self.assertIn("css/luz.css", texto)
+        self.assertIn("js/luz.js", texto)
+        # o luz.css vem depois do stargate.css; o botão desativado não leva data-luz
+        self.assertLess(texto.index("css/stargate.css"), texto.index("css/luz.css"))
+        self.assertNotIn("data-luz", texto)
+
     def test_rodape_mantem_aviso_ficticio(self):
         self.assertContains(self.get(), "Todo o conteúdo deste protótipo é fictício")
 
