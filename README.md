@@ -36,7 +36,7 @@ Para rodar o projeto localmente com o banco SQLite padrão, siga os passos abaix
    ```
 4. **Carregue os dados de demonstração (fixture):**
    ```bash
-   python manage.py loaddata stargate_demo --settings=config.settings.dev
+   python manage.py loaddata stargate_demo maquina_fria guerra_maquinas escolhas --settings=config.settings.dev
    ```
 5. **Inicie o servidor de desenvolvimento:**
    ```bash
