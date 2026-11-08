@@ -5,6 +5,8 @@ from django.urls import reverse
 
 from core.models import Ato, PostImersivo
 
+EFEITOS_MAQUINA_FRIA = {"terminal:fala", "three:corredor", "olho:segue"}
+
 
 def ato(efeito, parametros=None, **extra):
     return Ato(
@@ -134,7 +136,8 @@ class FixtureDemoTests(TestCase):
         self.assertIn("PROVISÓRIO", post.titulo)
         self.assertEqual(post.atos.count(), 5)
         self.assertEqual(
-            set(post.atos.values_list("efeito", flat=True)), set(Ato.Efeito.values)
+            set(post.atos.values_list("efeito", flat=True)),
+            set(Ato.Efeito.values) - EFEITOS_MAQUINA_FRIA,
         )
         for a in post.atos.all():
             a.full_clean()
@@ -240,3 +243,51 @@ class CssTests(TestCase):
         self.assertIn("@view-transition", css)
         self.assertIn("@supports", css)
         self.assertIn("prefers-reduced-motion", css)
+
+
+class MaquinaFriaTests(TestCase):
+    fixtures = ["maquina_fria_provisorio"]
+
+    def test_terminal_linhas_e_velocidade(self):
+        ato("terminal:fala", {"linhas": ["> ok"], "velocidade": 40}).clean()
+        for ruim in ([], "texto", [""], [1], ["x" * 81], ["a"] * 13):
+            with self.subTest(valor=ruim), self.assertRaises(ValidationError):
+                ato("terminal:fala", {"linhas": ruim}).clean()
+        with self.assertRaises(ValidationError):
+            ato("terminal:fala", {"velocidade": 500}).clean()
+
+    def test_corredor_e_olho_parametros(self):
+        ato("three:corredor", {"profundidade": 12, "fixar": True}).clean()
+        ato("olho:segue", {"alcance": 0.5, "fixar": False}).clean()
+        with self.assertRaises(ValidationError):
+            ato("three:corredor", {"profundidade": 2}).clean()
+        with self.assertRaises(ValidationError):
+            ato("olho:segue", {"alcance": 2}).clean()
+
+    def test_fixture_valida_e_renderiza(self):
+        post = PostImersivo.objects.get(slug="a-maquina-fria")
+        self.assertIn("PROVISÓRIO", post.titulo)
+        for a in post.atos.all():
+            a.full_clean()
+        r = self.client.get(reverse("core:imersivo", args=["a-maquina-fria"]))
+        self.assertEqual(r.status_code, 200)
+        self.assertContains(r, "data-terminal")
+        self.assertContains(r, "&gt; status do sistema: tudo normal.")
+        self.assertContains(r, 'data-efeito="three:corredor"')
+        self.assertContains(r, "data-pupila")
+        self.assertContains(r, 'data-reduzido="omitir"', count=1)
+
+    def test_efeitos_js_existem_e_respeitam_reduzido(self):
+        from pathlib import Path
+
+        base = Path(__file__).resolve().parents[2] / "static/js/imersivo/efeitos"
+        for nome in ("terminal-fala", "three-corredor", "olho-segue"):
+            js = (base / f"{nome}.js").read_text()
+            self.assertIn("reduzido", js)
+            self.assertIn("registar(", js)
+            self.assertNotIn("http", js)
+        olho = (base / "olho-segue.js").read_text()
+        self.assertIn("pointermove", olho)
+        self.assertIn("progresso(", olho)
+        corredor = (base / "three-corredor.js").read_text()
+        self.assertIn('await import("three")', corredor)

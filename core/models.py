@@ -25,6 +25,15 @@ def _booleano(valor):
 
 _FIXAR = (_booleano, "verdadeiro ou falso")
 
+
+def _linhas(valor):
+    return (
+        isinstance(valor, list)
+        and 1 <= len(valor) <= 12
+        and all(_texto(v) and len(v) <= 80 for v in valor)
+    )
+
+
 PARAMETROS_POR_EFEITO = {
     "parallax:camadas": {
         "intensidade": (_entre(0, 1), "um número entre 0 e 1"),
@@ -43,6 +52,18 @@ PARAMETROS_POR_EFEITO = {
     },
     "diagrama:constroi": {
         "atraso": (_entre(0, 2), "um número entre 0 e 2 (segundos)"),
+    },
+    "terminal:fala": {
+        "linhas": (_linhas, "uma lista de 1 a 12 textos de até 80 caracteres"),
+        "velocidade": (_entre(10, 120), "um número entre 10 e 120 (ms por letra)"),
+    },
+    "three:corredor": {
+        "profundidade": (_entre(4, 40), "um número entre 4 e 40 (aros)"),
+        "fixar": _FIXAR,
+    },
+    "olho:segue": {
+        "alcance": (_entre(0, 1), "um número entre 0 e 1"),
+        "fixar": _FIXAR,
     },
 }
 
@@ -72,6 +93,9 @@ class Ato(models.Model):
         THREE = "three:gira", "Cena 3D que gira"
         RIVE = "rive:estado", "Rive com estado"
         DIAGRAMA = "diagrama:constroi", "Diagrama que se constrói"
+        TERMINAL = "terminal:fala", "Terminal que fala"
+        CORREDOR = "three:corredor", "Corredor 3D"
+        OLHO = "olho:segue", "Olho que segue o cursor"
 
     class Reduzido(models.TextChoices):
         ESTATICO = "estatico", "Estático"
