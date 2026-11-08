@@ -48,6 +48,14 @@ Decisão do Patrick: o motor fica **sem GSAP e sem Lenis** (e sem rede). Ordem d
 
 **Rive** é o motor de animação de primeira linha (pedido do Patrick): efeitos com estado e interação usam `rive:estado`; CSS cobre o scroll simples.
 
+### Narrador Rive (`rive:narrador`, STAR-38)
+
+Glifo comum a **todos os posts imersivos** (`core/_narrador.html`, incluído nos 4 templates). Runtime Rive 2.35.0 vendorizado em `static/lab/vendor/` (nada de CDN) e `static/rive/narrador.riv` (fonte STAR-37, ViewModel `Narrador`: `progresso` 0–100, `era` 0–6, `humor` 0–2, `cor`).
+
+- `static/js/imersivo/efeitos/rive-narrador.js` liga `progresso` ao scroll da página (`progressoPagina(cb)` no contexto do motor) e põe a `era` vinda de `data-parametros`; a `cor` sai da tabela de eras.
+- Era por post: tabela `ERA_NARRADOR` em `core/views.py` (slug → era); fora da tabela vale 6. Post novo = uma linha na tabela.
+- Reduced-motion: não carrega runtime nem wasm; fica o glifo SVG estático com a pele da era. A 390 px o glifo tem 48 px, no canto, sem capturar toques; é decorativo (`aria-hidden`).
+
 ## GSAP + ScrollTrigger e Lenis: PENDENTES
 Decisão: ficam fora por agora. Se um dia entrarem, vão para `static/lab/vendor/gsap-3.12.x/gsap.min.js` e `static/lab/vendor/lenis-1.x/lenis.mjs` (caminhos esperados em `core/imersivo.py`), com a licença ao lado e versão + licença citadas aqui. Enquanto não existirem, o motor não os pede (o servidor só os indica se os ficheiros existirem, ver `core/imersivo.py`) e usa o fallback nativo (`scroll` + `requestAnimationFrame` + `IntersectionObserver`), sem erro de consola.
 
@@ -67,7 +75,7 @@ Post 2 da série. Mesmo padrão do STAR-41: um ato com este efeito faz `core/vie
 - **Peças**: HUD vermelho com contagem 10→0 que o leitor pode parar; glitch RGB, scanlines, vinheta e faixa de interferência que crescem com o scroll (variável CSS `--g`, de 0 a 1 e de volta a 0); mosaico 14×8 que se parte em pixels e se recompõe; 3 sinais de supervisão (`<details>`, um aberto de cada vez); formulário «Registro de supervisão» cujo botão «Interromper o sistema» baixa de facto o alarme (`--g` → 0) até alguém rearmar.
 - **Ficheiros**: `static/js/imersivo/efeitos/atmosfera-guerra-maquinas.js`, `static/css/atmosfera-guerra-maquinas.css`, fixture `core/fixtures/guerra_maquinas.json` (slug `o-medo-da-guerra-das-maquinas`, post pk 4, ato pk 15), migration `core/0004`.
 - **Parâmetros**: nenhum (`PARAMETROS_POR_EFEITO["atmosfera:guerra-maquinas"] = {}`).
-- **Sem biblioteca**: nada de three nem Rive; o efeito é CSS + JS próprio e não carrega nada sob demanda.
+- **Sem biblioteca própria**: o efeito da atmosfera não usa three nem Rive; é CSS + JS próprio. O único Rive da página é o narrador (`rive:narrador`), carregado à parte.
 - **Imagens**: `static/img/guerra-maquinas/fundo-1920.webp` (≈66 KB) e `fundo-780.webp` (≈56 KB, só no mobile), ambas ≤ 70 KB. Arte original (Yamato) de paisagem noturna abstrata: sem personagens, cartazes, fotogramas ou logos, sem código verde. Servem de fundo da camada `.ag-arte`, com `mix-blend-mode: screen` a 50 %.
 - **Barra de baixo**: o cabeçalho do site ocupa o topo, por isso a barra do protótipo (ligação à série, intensidade e «pausar movimento») fica fixa em baixo. A 390 px a ligação lê «Ficção · 2», numa linha só.
 - **Cenas fixas**: as cenas `sticky` começam abaixo do cabeçalho do site (76 px; 66 px no mobile); o progresso do ato desconta esse deslocamento.

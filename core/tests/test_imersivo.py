@@ -152,7 +152,7 @@ class FixtureDemoTests(TestCase):
     def test_fixture_renderiza(self):
         r = self.client.get(reverse("core:imersivo", args=["demo-provisorio"]))
         self.assertEqual(r.status_code, 200)
-        self.assertContains(r, "data-ato", count=5)
+        self.assertContains(r, "data-ato", count=6)  # 5 atos + o narrador (STAR-38)
         self.assertContains(r, "PROVISÓRIO")
 
     def test_loaddata_pelo_comando(self):
@@ -238,6 +238,52 @@ class ScrollDrivenTests(TestCase):
 
         self.assertEqual(LIBS_OPCIONAIS["gsap"], "lab/vendor/gsap-3.12.x/gsap.min.js")
         self.assertEqual(LIBS_OPCIONAIS["lenis"], "lab/vendor/lenis-1.x/lenis.mjs")
+
+
+class NarradorRiveTests(TestCase):
+    """STAR-38: o narrador aparece em todos os posts imersivos, na era certa."""
+
+    POSTS = {
+        "a-maquina-fria": ("maquina_fria", 1),
+        "o-medo-da-guerra-das-maquinas": ("guerra_maquinas", 2),
+        "escolhas-da-maquina": ("escolhas", 5),
+        "demo-provisorio": ("imersivo_demo", 6),
+    }
+
+    def _raiz(self):
+        from pathlib import Path
+
+        return Path(__file__).resolve().parents[2]
+
+    def test_narrador_em_todos_os_posts_com_a_era_certa(self):
+        for slug, (fixture, era) in self.POSTS.items():
+            call_command("loaddata", fixture, verbosity=0)
+            with self.subTest(slug=slug):
+                r = self.client.get(reverse("core:imersivo", args=[slug]))
+                self.assertEqual(r.status_code, 200)
+                self.assertContains(r, 'data-efeito="rive:narrador"', count=1)
+                self.assertContains(r, f'data-era="{era}"')
+                self.assertContains(r, f"data-parametros='{{\"era\": {era}}}'")
+                self.assertContains(r, "rive/narrador.riv")
+                self.assertContains(r, "lab/vendor/rive-canvas-2.35.0.js")
+                self.assertNotContains(r, "cdn.")
+
+    def test_js_liga_progresso_ao_scroll_e_respeita_reduzido(self):
+        raiz = self._raiz()
+        js = (raiz / "static/js/imersivo/efeitos/rive-narrador.js").read_text()
+        self.assertIn('registar("rive:narrador"', js)
+        self.assertIn("progressoPagina(", js)
+        self.assertIn("if (reduzido) return;", js)
+        self.assertNotIn("http", js)
+        motor = (raiz / "static/js/imersivo/motor.js").read_text()
+        self.assertIn("progressoPagina(cb)", motor)
+
+    def test_css_48px_a_390_e_sem_captura(self):
+        css = (self._raiz() / "static/css/narrador.css").read_text()
+        self.assertIn("pointer-events:none", css)
+        self.assertIn("max-width:600px", css)
+        self.assertIn("width:48px", css)
+        self.assertIn("prefers-reduced-motion:reduce", css)
 
 
 class CssTests(TestCase):
