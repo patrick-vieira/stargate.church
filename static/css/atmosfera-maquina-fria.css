@@ -174,3 +174,5 @@
   .am-grao,.am-terminal .am-cur{animation:none}
   .am-poeira,.am-corredor{display:none!important}
 }
+/* STAR-38: narrador acima do botão de pausa (16+36 px) e da barra .am-topo do STAR-53 (53 px). */
+.nr-narrador{--nr-base:72px}

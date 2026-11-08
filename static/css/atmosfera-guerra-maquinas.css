@@ -179,3 +179,5 @@
 .ag-raiz.ag-estatico .ag-faixa,.ag-raiz.ag-estatico .ag-mira,.ag-raiz.ag-estatico #ag-mos,.ag-raiz.ag-estatico #ag-regua{display:none}
 .ag-raiz.ag-estatico .ag-hud-el,.ag-raiz.ag-estatico .ag-gl{transition:none}
 @media (prefers-reduced-motion:reduce){.ag-hud .ag-a1,.ag-hud .ag-a2{animation:none}.ag-mira svg{transition:none}}
+/* STAR-38: narrador acima da barra fixa de baixo (.ag-topo). */
+.nr-narrador{--nr-base:76px}

@@ -1,3 +1,5 @@
+import re
+
 from django.core.exceptions import ValidationError
 from django.core.management import call_command
 from django.test import TestCase
@@ -284,6 +286,21 @@ class NarradorRiveTests(TestCase):
         self.assertIn("max-width:600px", css)
         self.assertIn("width:48px", css)
         self.assertIn("prefers-reduced-motion:reduce", css)
+
+    def test_narrador_sobe_acima_do_controlo_de_pausa(self):
+        raiz = self._raiz()
+        css = (raiz / "static/css/narrador.css").read_text()
+        self.assertIn("bottom:var(--nr-base,16px)", css)
+        self.assertIn("bottom:var(--nr-base,8px)", css)
+        for nome, minimo in (
+            ("atmosfera-maquina-fria", 65),
+            ("atmosfera-escolhas", 65),
+            ("atmosfera-guerra-maquinas", 65),
+        ):
+            txt = (raiz / f"static/css/{nome}.css").read_text()
+            m = re.search(r"\.nr-narrador\{--nr-base:(\d+)px\}", txt)
+            self.assertIsNotNone(m, nome)
+            self.assertGreaterEqual(int(m.group(1)), minimo, nome)
 
 
 class CssTests(TestCase):

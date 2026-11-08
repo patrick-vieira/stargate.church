@@ -1,5 +1,6 @@
-/* Narrador Rive (STAR-38). Canto de baixo; 48 px a 390; nunca tapa texto (pointer-events:none). */
-.nr-narrador{position:fixed;right:16px;bottom:16px;z-index:40;width:96px;height:96px;border-radius:50%;pointer-events:none;background:var(--nr-fundo,#FBF5EA);--nr-luz:#EB5A3C;box-shadow:0 2px 10px rgba(0,0,0,.25)}
+/* Narrador Rive (STAR-38). Canto de baixo; 48 px a 390; nunca tapa texto (pointer-events:none).
+   --nr-base = folga em baixo; o post com barra ou botão fixo em baixo define-a, para o narrador ficar acima do «pausar movimento». */
+.nr-narrador{position:fixed;right:16px;bottom:var(--nr-base,16px);z-index:40;width:96px;height:96px;border-radius:50%;pointer-events:none;background:var(--nr-fundo,#FBF5EA);--nr-luz:#EB5A3C;box-shadow:0 2px 10px rgba(0,0,0,.25)}
 .nr-narrador[data-era="0"]{--nr-fundo:#2A2014;--nr-luz:#E6C48F}
 .nr-narrador[data-era="1"]{--nr-fundo:#2B1E05;--nr-luz:#FFB000}
 .nr-narrador[data-era="2"]{--nr-fundo:#07200F;--nr-luz:#3DDC7A}
@@ -13,5 +14,5 @@
 .nr-canvas{opacity:0}
 .nr-narrador.nr-vivo .nr-canvas{opacity:1}
 .nr-narrador.nr-vivo .nr-estatico{opacity:0}
-@media (max-width:600px){.nr-narrador{width:48px;height:48px;right:8px;bottom:8px}}
+@media (max-width:600px){.nr-narrador{width:48px;height:48px;right:8px;bottom:var(--nr-base,8px)}}
 @media (prefers-reduced-motion:reduce){.nr-canvas{display:none}.nr-narrador.nr-vivo .nr-estatico{opacity:1}}
