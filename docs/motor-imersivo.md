@@ -74,3 +74,17 @@ Post 2 da série. Mesmo padrão do STAR-41: um ato com este efeito faz `core/vie
 - **Movimento reduzido**: `reduzido` põe `.ag-estatico` (atos empilhados, contagem parada em 04, intensidade fixa em 15 %, mosaico em duas imagens lado a lado, sem glitch); o botão «pausar movimento» pausa o resto.
 - **Retoques da REVISAO-5**: (1) atos mais curtos (190vh e 200vh; 170vh e 180vh a 390 px) e hero mais baixo, para não haver ecrãs sem texto; (3) a linha mono do hero tem entrelinha de 1,6 e, a 390 px, uma indicação por linha; (4) o sobrolho do hero e a ligação da série não se partem (`white-space: nowrap`).
 - **Direitos**: HUD, mosaico e alarme são desenhos originais; nenhuma citação literal; fontes (AFI, NIST, Warner Bros.) no fim do post.
+
+## Atmosfera «O que é ser humano?» (`atmosfera:ser-humano`, STAR-43)
+Post 3 da série. Mesmo padrão: `TEMPLATES_ATMOSFERA` aponta para `core/templates/core/imersivo_ser_humano.html`. Tudo escopado em `.sh-raiz` com o prefixo `.sh-` (ids incluídos).
+- **Peças**: sala de vidro (arte de fundo, 3 painéis e 2 silhuetas em parallax), reflexo que segue o cursor, brilho especular nos cartões `.sh-vidro` e teste original de 3 perguntas. As respostas (maioria; empate ou nenhuma = «não sei») põem `.sh-tom-<tom>` na raiz, reordenam os 3 cartões do ato 2 e escolhem o final do ato 3. Nada é guardado nem enviado. As perguntas são rascunho do Orochimaru (caixa-hokage#4253) e ficam como estão.
+- **Ficheiros**: `static/js/imersivo/efeitos/atmosfera-ser-humano.js`, `static/css/atmosfera-ser-humano.css`, fixture `core/fixtures/ser_humano.json` (slug `o-que-e-ser-humano`, post pk 5, ato pk 16), migration `core/0005`.
+- **Parâmetros**: nenhum (`PARAMETROS_POR_EFEITO["atmosfera:ser-humano"] = {}`). Sem biblioteca: nada de three nem Rive.
+- **Ligação da série**: a «próxima estação» do post 2 é agora uma ligação para este post; a deste post (post 4) é texto até o post 4 existir.
+- **Imagens**: `static/img/ser-humano/fundo-1920.webp` (≈35 KB) e `fundo-780.webp` (≈31 KB, só no mobile). Só fundos (sala de vidro, sem «personagem»); as figuras difusas das imagens-chave foram apagadas com desfoque. Camada `.sh-arte`, `mix-blend-mode: screen` a 38 %. 1.º carregamento medido: 130–175 KB.
+- **Barra de baixo**: igual ao post 2 (o cabeçalho do site ocupa o topo); a 390 px a ligação lê «Ficção · 3».
+- **Movimento reduzido**: `reduzido` põe `.sh-estatico` (sem reflexo nem transições, ordem fixa em «confiar», os 3 finais visíveis como texto); o botão «pausar movimento» pausa o resto.
+- **Retoques da REVISAO-5 (3)**: a linha mono do hero tem entrelinha de 1,6 e, a 390 px, uma indicação por linha. O sobrolho do hero só quebra a 390 px (não cabe numa linha com este texto).
+- **Acessibilidade medida no browser** (Playwright, `_provas/star43.py`): 24–25 seletores de texto a 1920 e a 390 px, 0 falhas; o mais baixo é `.sh-chip` com 5,67:1. Sem scroll horizontal a 390 px.
+- **Desempenho**: fps em Chromium headless sem GPU, com o teste e o scroll a correr: média 40–42, p5 ≈ 30 (`backdrop-filter` por software); o protótipo marcava ≈ 59 com GPU. Se a média cair, a classe `.sh-sem-blur` tira o desfoque sozinha.
+- **Direitos**: o teste é original e não copia o Voight-Kampff; sala, painéis e silhuetas genéricos; fontes (AFI, A24, HBO, NIST) no fim do post.

@@ -1,0 +1,24 @@
+[
+  {
+    "model": "core.postimersivo",
+    "pk": 5,
+    "fields": {
+      "slug": "o-que-e-ser-humano",
+      "titulo": "O que é ser humano?",
+      "publicado": true
+    }
+  },
+  {
+    "model": "core.ato",
+    "pk": 16,
+    "fields": {
+      "post": 5,
+      "ordem": 1,
+      "titulo": "O que é ser humano?",
+      "texto": "Uma conversa convincente testa quem observa; não decide, sozinha, consciência ou direitos.",
+      "efeito": "atmosfera:ser-humano",
+      "parametros": {},
+      "reduzido": "estatico"
+    }
+  }
+]
