@@ -1,4 +1,5 @@
 import json
+import re
 
 from django.core.exceptions import ValidationError
 from django.db import models
@@ -16,6 +17,29 @@ def _texto(valor):
 
 def _entre(minimo, maximo):
     return lambda valor: _numero(valor, minimo, maximo)
+
+
+_SLUG = re.compile(r"[-a-zA-Z0-9_]+")
+
+
+def _estacoes(valor):
+    """Lista não vazia de {decada 1920..2020, titulo, slug?, texto?}."""
+    if not isinstance(valor, list) or not valor:
+        return False
+    for e in valor:
+        chaves = {"decada", "titulo", "slug", "texto"}
+        if not isinstance(e, dict) or not set(e) <= chaves:
+            return False
+        d = e.get("decada")
+        if isinstance(d, bool) or not isinstance(d, int) or not 1920 <= d <= 2020:
+            return False
+        if not _texto(e.get("titulo")):
+            return False
+        if "slug" in e and not (_texto(e["slug"]) and _SLUG.fullmatch(e["slug"])):
+            return False
+        if "texto" in e and not _texto(e["texto"]):
+            return False
+    return True
 
 
 # efeito -> {chave: (validador, descrição legível)}. Efeito novo = entrada nova aqui.
@@ -52,6 +76,14 @@ PARAMETROS_POR_EFEITO = {
     },
     "diagrama:constroi": {
         "atraso": (_entre(0, 2), "um número entre 0 e 2 (segundos)"),
+    },
+    "linha-tempo:decadas": {
+        "intensidade": (_entre(0, 1), "um número entre 0 e 1"),
+        "estacoes": (
+            _estacoes,
+            "uma lista não vazia de objetos {decada: 1920..2020, titulo, "
+            "slug (opcional), texto (opcional)}",
+        ),
     },
     "terminal:fala": {
         "linhas": (_linhas, "uma lista de 1 a 12 textos de até 80 caracteres"),
@@ -103,6 +135,7 @@ class Ato(models.Model):
         THREE = "three:gira", "Cena 3D que gira"
         RIVE = "rive:estado", "Rive com estado"
         DIAGRAMA = "diagrama:constroi", "Diagrama que se constrói"
+        LINHA_TEMPO = "linha-tempo:decadas", "Linha do tempo por décadas"
         TERMINAL = "terminal:fala", "Terminal que fala"
         CORREDOR = "three:corredor", "Corredor 3D"
         OLHO = "olho:segue", "Olho que segue o cursor"
@@ -159,6 +192,31 @@ class Ato(models.Model):
     @property
     def parametros_json(self):
         return json.dumps(self.parametros, ensure_ascii=False, sort_keys=True)
+
+    @staticmethod
+    def _forma(decada):
+        if decada < 1940:
+            return "papel"
+        if decada < 1970:
+            return "valvulas"
+        if decada < 1990:
+            return "fosforo"
+        if decada < 2010:
+            return "pixels"
+        return "vidro"
+
+    @property
+    def estacoes(self):
+        """Estações da linha do tempo, com a forma decorativa da época."""
+        params = self.parametros
+        lista = params.get("estacoes") if isinstance(params, dict) else None
+        if not isinstance(lista, list):
+            return []
+        return [
+            {**e, "forma": self._forma(e["decada"])}
+            for e in lista
+            if isinstance(e, dict) and isinstance(e.get("decada"), int)
+        ]
 
     def clean(self):
         super().clean()
