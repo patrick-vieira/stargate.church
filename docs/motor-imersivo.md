@@ -59,6 +59,17 @@ Glifo comum a **todos os posts imersivos** (`core/_narrador.html`, incluído nos
 ## GSAP + ScrollTrigger e Lenis: PENDENTES
 Decisão: ficam fora por agora. Se um dia entrarem, vão para `static/lab/vendor/gsap-3.12.x/gsap.min.js` e `static/lab/vendor/lenis-1.x/lenis.mjs` (caminhos esperados em `core/imersivo.py`), com a licença ao lado e versão + licença citadas aqui. Enquanto não existirem, o motor não os pede (o servidor só os indica se os ficheiros existirem, ver `core/imersivo.py`) e usa o fallback nativo (`scroll` + `requestAnimationFrame` + `IntersectionObserver`), sem erro de consola.
 
+## Atmosfera «A IA afetiva» (`atmosfera:ia-afetiva`, STAR-44)
+Efeito de página inteira (protótipo aprovado no STAR-51, revisão 5). Se o post tiver um ato com este efeito, `core/views.py` renderiza o template próprio `core/templates/core/imersivo_ia_afetiva.html` em vez do genérico.
+- **Peças**: cidade ao entardecer (prédios gerados em JS, janela que acende com o scroll), conversa que se escreve ao rolar (a 1.ª bolha já vem inteira), cartões «é possível» / «é aceitável?» em cascata, escolha de limites com tabela ficção × 2026. Tudo escopado em `.aa-raiz`.
+- **Ficheiros**: `static/js/imersivo/efeitos/atmosfera-ia-afetiva.js`, `static/css/atmosfera-ia-afetiva.css`, fixture `core/fixtures/ia_afetiva.json` (slug `a-ia-afetiva`).
+- **Parâmetros**: nenhum (`PARAMETROS_POR_EFEITO["atmosfera:ia-afetiva"] = {}`).
+- **Fonte**: títulos em Fraunces 600 local (`static/fonts/fraunces/`), via `--serif: var(--sg-serif)`; nada vem de CDN.
+- **Imagens e libs**: nenhuma. A cidade e a janela são CSS; sem three, sem rede (1.º carregamento = HTML + 1 CSS + 2 JS + a fonte).
+- **Movimento reduzido**: `reduzido` põe `.aa-estatico` (sem respiração da janela, sem cursor a piscar, diálogo completo e cartões visíveis); o botão «pausar movimento» pausa o resto.
+- **Áudio**: desligado; o «som (em breve)» é uma caixa desactivada.
+- **Medições (browser)**: ver o registo da entrega no STAR-44 (fps com «load» anotado, contraste AA, 390 px sem scroll horizontal).
+
 ## Atmosfera «Máquina fria» (`atmosfera:maquina-fria`, STAR-41)
 Efeito de página inteira (protótipo aprovado no STAR-51). Se o post tiver um ato com este efeito, `core/views.py` renderiza o template próprio `core/templates/core/imersivo_maquina_fria.html` em vez do genérico.
 - **Peças**: lâmpada que segue o cursor, console que escreve ao rolar (Console 7), corredor 3D (three) com camadas e medidor de risco. Tudo escopado em `.am-raiz`.
