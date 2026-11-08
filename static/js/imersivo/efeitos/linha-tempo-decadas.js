@@ -52,7 +52,29 @@ registar("linha-tempo:decadas", ({ el, parametros, reduzido, progresso }) => {
       requestAnimationFrame(aplicar);
     }
   };
+  // A luz segue a estação mais próxima de um ponto de referência que vai da
+  // borda esquerda (scroll 0 → primeira estação) à direita (fim → última),
+  // para que a 1920, com várias estações visíveis, todas as luzes apareçam.
+  const luzPorScroll = () => {
+    const tr = trilho.getBoundingClientRect();
+    const max = trilho.scrollWidth - trilho.clientWidth;
+    const f = max > 0 ? Math.min(1, Math.max(0, trilho.scrollLeft / max)) : 0;
+    const ref = tr.left + f * tr.width;
+    let melhor = null;
+    let dist = Infinity;
+    for (const e of estacoes) {
+      const r = e.getBoundingClientRect();
+      const d = Math.abs(r.left + r.width / 2 - ref);
+      if (d < dist) {
+        dist = d;
+        melhor = e;
+      }
+    }
+    acender(melhor);
+  };
+  trilho.addEventListener("scroll", luzPorScroll, { passive: true });
   trilho.addEventListener("scroll", pedir, { passive: true });
+  window.addEventListener("resize", luzPorScroll);
   window.addEventListener("resize", pedir);
   progresso((p) => {
     empurra = (p - 0.5) * 60 * k;
@@ -62,11 +84,11 @@ registar("linha-tempo:decadas", ({ el, parametros, reduzido, progresso }) => {
     (entradas) => {
       for (const en of entradas) {
         en.target.classList.toggle("on", en.isIntersecting);
-        if (en.isIntersecting) acender(en.target);
       }
     },
     { root: trilho, threshold: 0.6 },
   );
   estacoes.forEach((e) => obs.observe(e));
+  luzPorScroll();
   pedir();
 });

@@ -254,13 +254,17 @@ class Ato(models.Model):
     def _forma(decada):
         if decada < 1940:
             return "papel"
-        if decada < 1970:
+        if decada < 1960:
             return "valvulas"
+        if decada < 1970:
+            return "transistor"
         if decada < 1990:
             return "fosforo"
         if decada < 2010:
             return "pixels"
-        return "vidro"
+        if decada < 2020:
+            return "vidro"
+        return "rede"
 
     @property
     def estacoes(self):
@@ -269,15 +273,24 @@ class Ato(models.Model):
         lista = params.get("estacoes") if isinstance(params, dict) else None
         if not isinstance(lista, list):
             return []
-        return [
-            {
-                **e,
-                "forma": self._forma(e["decada"]),
-                "url": getattr(self, "urls_episodios", {}).get(e.get("slug")),
-            }
-            for e in lista
-            if isinstance(e, dict) and isinstance(e.get("decada"), int)
+        validas = [
+            e for e in lista if isinstance(e, dict) and isinstance(e.get("decada"), int)
         ]
+        vistas = {}
+        estacoes = []
+        for e in validas:
+            n = vistas.get(e["decada"], 0)
+            vistas[e["decada"]] = n + 1
+            estacoes.append(
+                {
+                    **e,
+                    "forma": self._forma(e["decada"]),
+                    # Posição dentro da mesma década: variante visual da arte.
+                    "variante": n % 3,
+                    "url": getattr(self, "urls_episodios", {}).get(e.get("slug")),
+                }
+            )
+        return estacoes
 
     @property
     def previa_pontos(self):
