@@ -46,5 +46,13 @@ Um post imersivo é feito de **atos** guardados em dados (`core.PostImersivo` e 
 | three | 0.160.0 | MIT |
 | Rive (`@rive-app/canvas`) | 2.35.0 | MIT |
 
-## GSAP + ScrollTrigger e Lenis: PENDENTE
-Vendorização barrada por falta de rede. Colocar em `static/lab/vendor/` (`gsap.min.js`, `lenis.mjs`) com a licença ao lado e citar versão + licença aqui. Enquanto não existirem, o motor não os pede (o servidor só os indica se os ficheiros existirem, ver `core/imersivo.py`) e usa o fallback nativo (`scroll` + `requestAnimationFrame` + `IntersectionObserver`), sem erro de consola.
+## Sem GSAP: sticky + animation-timeline
+Decisão do Patrick: o motor fica **sem GSAP e sem Lenis** (e sem rede). Ordem de preferência:
+1. **CSS scroll-driven primeiro.** `parallax:camadas` e `scroll:revela` animam por CSS em `@supports (animation-timeline: view())` (keyframes `im-par` e `im-rev`, `animation-range`). A intensidade do parallax vai para `--im-int` no `<article>`. O JS (scroll + `requestAnimationFrame` + `IntersectionObserver`) só entra quando não há suporte (`cssScroll` em `motor.js`).
+2. **Pin sem GSAP.** O parâmetro `fixar` (booleano, validado em `parallax:camadas`, `three:gira` e `rive:estado`) põe a classe `im-ato--fixo` no ato: `position: sticky` na `.im-cena` e o ato ganha altura (150vh). Sem JS.
+3. Em `prefers-reduced-motion` nada anima e **não fixa** (a cena volta a `position: static`). A 390 px não há scroll horizontal (o palco mantém `overflow-x: clip`, que não quebra o sticky).
+
+**Rive** é o motor de animação de primeira linha (pedido do Patrick): efeitos com estado e interação usam `rive:estado`; CSS cobre o scroll simples.
+
+## GSAP + ScrollTrigger e Lenis: PENDENTES
+Decisão: ficam fora por agora. Se um dia entrarem, vão para `static/lab/vendor/gsap-3.12.x/gsap.min.js` e `static/lab/vendor/lenis-1.x/lenis.mjs` (caminhos esperados em `core/imersivo.py`), com a licença ao lado e versão + licença citadas aqui. Enquanto não existirem, o motor não os pede (o servidor só os indica se os ficheiros existirem, ver `core/imersivo.py`) e usa o fallback nativo (`scroll` + `requestAnimationFrame` + `IntersectionObserver`), sem erro de consola.

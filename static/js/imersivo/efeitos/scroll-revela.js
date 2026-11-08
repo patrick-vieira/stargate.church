@@ -1,4 +1,4 @@
-import { registar } from "../motor.js";
+import { registar, cssScroll } from "../motor.js";
 
 // Revela as formas quando o ato entra no viewport (IntersectionObserver + CSS).
 registar("scroll:revela", ({ el, parametros, reduzido }) => {
@@ -8,6 +8,7 @@ registar("scroll:revela", ({ el, parametros, reduzido }) => {
     alvo.classList.add("im-revela--on");
     return;
   }
+  if (cssScroll) return; // o CSS (animation-timeline: view()) revela sem JS
   const atraso = typeof parametros.atraso === "number" ? parametros.atraso : 0;
   alvo.querySelectorAll(".im-forma").forEach((f, i) => {
     f.style.transitionDelay = `${(atraso + i * 0.12).toFixed(2)}s`;

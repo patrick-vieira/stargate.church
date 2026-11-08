@@ -6,8 +6,8 @@ from django.contrib.staticfiles import finders
 from django.templatetags.static import static
 
 LIBS_OPCIONAIS = {
-    "gsap": "lab/vendor/gsap.min.js",
-    "lenis": "lab/vendor/lenis.mjs",
+    "gsap": "lab/vendor/gsap-3.12.x/gsap.min.js",
+    "lenis": "lab/vendor/lenis-1.x/lenis.mjs",
 }
 
 

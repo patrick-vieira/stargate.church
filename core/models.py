@@ -42,18 +42,27 @@ def _estacoes(valor):
 
 
 # efeito -> {chave: (validador, descrição legível)}. Efeito novo = entrada nova aqui.
+def _booleano(valor):
+    return isinstance(valor, bool)
+
+
+_FIXAR = (_booleano, "verdadeiro ou falso")
+
 PARAMETROS_POR_EFEITO = {
     "parallax:camadas": {
         "intensidade": (_entre(0, 1), "um número entre 0 e 1"),
+        "fixar": _FIXAR,
     },
     "scroll:revela": {
         "atraso": (_entre(0, 2), "um número entre 0 e 2 (segundos)"),
     },
     "three:gira": {
         "voltas": (_entre(0, 10), "um número entre 0 e 10"),
+        "fixar": _FIXAR,
     },
     "rive:estado": {
         "propriedade": (_texto, "um texto não vazio"),
+        "fixar": _FIXAR,
     },
     "diagrama:constroi": {
         "atraso": (_entre(0, 2), "um número entre 0 e 2 (segundos)"),

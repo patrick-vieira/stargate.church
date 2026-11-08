@@ -1,10 +1,11 @@
-import { registar } from "../motor.js";
+import { registar, cssScroll } from "../motor.js";
 
 // Camadas fundo/meio/frente deslocadas por translate3d conforme o progresso.
 const VELOCIDADE = { fundo: 0.25, meio: 0.6, frente: 1 };
 
 registar("parallax:camadas", ({ el, parametros, reduzido, progresso }) => {
   if (reduzido) return; // camadas ficam na posição estática do CSS
+  if (cssScroll) return; // o CSS (animation-timeline: view()) anima sem JS
   const intensidade = typeof parametros.intensidade === "number" ? parametros.intensidade : 0.5;
   const camadas = [...el.querySelectorAll("[data-camada]")];
   progresso((p) => {
