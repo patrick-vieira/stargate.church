@@ -23,6 +23,32 @@
 .js .im-passo{stroke-dashoffset:var(--len,200);transition:stroke-dashoffset .6s}
 .js .im-passo.on{stroke-dashoffset:0}
 
+/* Scroll-driven por CSS (sem JS): parallax e revela animam pela timeline view().
+   O JS (scroll + rAF + IO) só entra quando não há suporte (ver motor.js: cssScroll). */
+.im-camada[data-camada="fundo"]{--v:.25}
+.im-camada[data-camada="meio"]{--v:.6}
+.im-camada[data-camada="frente"]{--v:1}
+@supports (animation-timeline:view()){
+  @media (prefers-reduced-motion:no-preference){
+    @keyframes im-par{
+      from{transform:translate3d(0,calc(var(--im-int,.5)*var(--v,0)*-10%),0)}
+      to{transform:translate3d(0,calc(var(--im-int,.5)*var(--v,0)*10%),0)}
+    }
+    @keyframes im-rev{
+      from{opacity:0;transform:translateY(1.5rem)}
+      to{opacity:1;transform:none}
+    }
+    .im-camada{animation:im-par linear both;animation-timeline:view();animation-range:cover}
+    .js .im-revela:not(.im-revela--on) .im-forma,.im-forma{transition:none;animation:im-rev linear both;animation-timeline:view();animation-range:entry 0% entry 90%}
+    .im-forma:nth-child(2){animation-range:entry 10% entry 95%}
+    .im-forma:nth-child(3){animation-range:entry 20% entry 100%}
+  }
+}
+
+/* Pin sem GSAP: a cena fica colada (sticky) enquanto o ato rola. Sem JS. */
+.im-ato--fixo{min-height:150vh;align-content:start}
+.im-ato--fixo .im-cena{position:sticky;top:1rem;z-index:1}
+
 /* View Transitions entre posts: só onde há suporte. */
 @supports (view-transition-name:none){
   @view-transition{navigation:auto}
@@ -33,6 +59,8 @@
   .js .im-revela:not(.im-revela--on) .im-forma{opacity:1;transform:none}
   .im-forma,.js .im-passo{transition:none}
   .js .im-passo{stroke-dashoffset:0}
-  .im-camada{transform:none!important}
+  .im-camada{transform:none!important;animation:none!important}
+  .im-ato--fixo{min-height:70vh;align-content:center}
+  .im-ato--fixo .im-cena{position:static}
   ::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}
 }

@@ -150,6 +150,86 @@ class FixtureDemoTests(TestCase):
         self.assertEqual(PostImersivo.objects.filter(slug="demo-provisorio").count(), 1)
 
 
+class FixarTests(TestCase):
+    def test_fixar_booleano_nos_tres_efeitos(self):
+        for efeito in ("parallax:camadas", "three:gira", "rive:estado"):
+            with self.subTest(efeito=efeito):
+                ato(efeito, {"fixar": True}).clean()
+                ato(efeito, {"fixar": False}).clean()
+                for ruim in (1, "sim", None, 0.5):
+                    with self.assertRaises(ValidationError):
+                        ato(efeito, {"fixar": ruim}).clean()
+
+    def test_fixar_nao_aceito_nos_outros(self):
+        for efeito in ("scroll:revela", "diagrama:constroi"):
+            with self.subTest(efeito=efeito), self.assertRaises(ValidationError):
+                ato(efeito, {"fixar": True}).clean()
+
+    def test_classe_fixo_no_render(self):
+        post = PostImersivo.objects.create(
+            slug="fixo-ficticio", titulo="F", publicado=True
+        )
+        Ato.objects.create(
+            post=post,
+            ordem=1,
+            titulo="A",
+            texto="a",
+            efeito="three:gira",
+            parametros={"fixar": True},
+        )
+        Ato.objects.create(
+            post=post,
+            ordem=2,
+            titulo="B",
+            texto="b",
+            efeito="parallax:camadas",
+            parametros={"fixar": False, "intensidade": 0.3},
+        )
+        Ato.objects.create(
+            post=post, ordem=3, titulo="C", texto="c", efeito="rive:estado"
+        )
+        r = self.client.get(reverse("core:imersivo", args=["fixo-ficticio"]))
+        self.assertContains(r, "im-ato--fixo", count=1)
+        self.assertContains(r, 'style="--im-int:0.3"')
+
+    def test_css_sticky_e_reduzido_nao_fixa(self):
+        css = _css()
+        self.assertIn(".im-ato--fixo .im-cena{position:sticky", css)
+        reduzido = css[css.index("@media (prefers-reduced-motion:reduce)") :]
+        self.assertIn(".im-ato--fixo .im-cena{position:static}", reduzido)
+
+
+def _css():
+    from pathlib import Path
+
+    return (Path(__file__).resolve().parents[2] / "static/css/imersivo.css").read_text()
+
+
+class ScrollDrivenTests(TestCase):
+    def test_css_scroll_driven_sob_supports(self):
+        css = _css()
+        self.assertIn("@supports (animation-timeline:view())", css)
+        self.assertIn("animation-timeline:view()", css)
+        self.assertIn("@keyframes im-par", css)
+        self.assertIn("@keyframes im-rev", css)
+
+    def test_js_so_sem_suporte(self):
+        from pathlib import Path
+
+        base = Path(__file__).resolve().parents[2] / "static/js/imersivo"
+        self.assertIn("animation-timeline: view()", (base / "motor.js").read_text())
+        for nome in ("parallax-camadas", "scroll-revela"):
+            self.assertIn(
+                "if (cssScroll) return", (base / "efeitos" / f"{nome}.js").read_text()
+            )
+
+    def test_libs_opcionais_caminhos_versionados(self):
+        from core.imersivo import LIBS_OPCIONAIS
+
+        self.assertEqual(LIBS_OPCIONAIS["gsap"], "lab/vendor/gsap-3.12.x/gsap.min.js")
+        self.assertEqual(LIBS_OPCIONAIS["lenis"], "lab/vendor/lenis-1.x/lenis.mjs")
+
+
 class CssTests(TestCase):
     def test_css_view_transition_e_reduzido(self):
         from pathlib import Path

@@ -9,7 +9,7 @@
 
 <div class="im-palco" data-imersivo data-libs="{{ libs }}">
 {% for ato in atos %}
-<article class="im-ato{% if ato.reduzido == 'omitir' %} im-ato--omitir{% endif %}" data-ato data-efeito="{{ ato.efeito }}" data-parametros="{{ ato.parametros_json }}" data-reduzido="{{ ato.reduzido }}">
+<article class="im-ato{% if ato.reduzido == 'omitir' %} im-ato--omitir{% endif %}{% if ato.parametros.fixar is True %}{% if ato.efeito == 'parallax:camadas' or ato.efeito == 'three:gira' or ato.efeito == 'rive:estado' %} im-ato--fixo{% endif %}{% endif %}"{% if ato.efeito == 'parallax:camadas' and ato.parametros.intensidade is not None %} style="--im-int:{{ ato.parametros.intensidade|stringformat:'s' }}"{% endif %} data-ato data-efeito="{{ ato.efeito }}" data-parametros="{{ ato.parametros_json }}" data-reduzido="{{ ato.reduzido }}">
   <div class="im-texto">
     <h2>{{ ato.titulo }}</h2>
     <p>{{ ato.texto }}</p>

@@ -3,6 +3,10 @@
 // Com prefers-reduced-motion nada anima e nenhuma lib pesada é carregada.
 const reduzidoGlobal = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+// Com animation-timeline: view() o CSS anima parallax e revela; o JS fica de fora.
+export const cssScroll =
+  typeof CSS !== "undefined" && CSS.supports("animation-timeline: view()");
+
 export const efeitos = new Map();
 export function registar(nome, fn) {
   efeitos.set(nome, fn);
