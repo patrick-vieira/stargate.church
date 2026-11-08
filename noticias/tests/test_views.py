@@ -113,6 +113,27 @@ class HomeTests(TestCase):
         resposta = self.get()
         self.assertEqual(resposta.status_code, 200)
         self.assertNotContains(resposta, "sg-manchete")
+        self.assertNotContains(resposta, "luz-ceu")
+
+    def test_home_com_manchete_tem_a_atmosfera(self):
+        criar_artigo(titulo="Manchete com céu")
+        texto = self.get().content.decode()
+        self.assertIn('<div class="luz-ceu" data-luz="ceu" data-fase="tarde">', texto)
+        self.assertEqual(texto.count("<i data-f="), 5)
+        for fase in ("madrugada", "manha", "tarde", "crepusculo", "noite"):
+            self.assertIn(f'<i data-f="{fase}">', texto)
+        # o céu embrulha a manchete e fecha depois dela
+        self.assertLess(texto.index("luz-ceu"), texto.index("sg-manchete"))
+        self.assertLess(texto.index("sg-manchete"), texto.index("</section></div>"))
+
+    def test_fase_posta_antes_da_pintura_por_script_sem_defer(self):
+        criar_artigo(titulo="Manchete com céu")
+        texto = self.get().content.decode()
+        inicio = texto.index("document.currentScript.parentNode.setAttribute")
+        abertura = texto.rindex("<script", 0, inicio)
+        # sem src nem defer
+        self.assertEqual(texto[abertura : abertura + 8], "<script>")
+        self.assertLess(inicio, texto.index("sg-manchete"))
 
     def test_nav_de_temas_com_links(self):
         resposta = self.get()
