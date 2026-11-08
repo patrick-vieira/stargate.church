@@ -3,7 +3,6 @@
 {% block titulo %}{{ post.titulo }} — A IA na ficção — Stargate{% endblock %}
 {% block conteudo %}
 {% include "core/_narrador.html" %}
-{% include "core/_midia.html" %}
 {% for ato in atos %}{% if ato.efeito == "atmosfera:ia-afetiva" %}
 <div class="aa-raiz" id="principal" data-imersivo data-libs="{{ libs }}">
 <div class="aa-cidade" id="aa-cidade" aria-hidden="true">
@@ -21,6 +20,7 @@
       <p class="aa-rolar" aria-hidden="true"><span>Role: a janela acende</span><span>A conversa se escreve</span></p>
     </div>
   </section>
+{% include "core/_midia.html" %}
 
   <section class="aa-ato1" id="aa-ato1" aria-labelledby="aa-t-ato1">
     <div class="aa-cena">
