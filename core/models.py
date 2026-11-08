@@ -43,6 +43,41 @@ def _estacoes(valor):
     return True
 
 
+def _perguntas(valor):
+    """Lista de 1 a 8 {id, rotulo, slugs:[slug de estação]}; ids únicos."""
+    if not isinstance(valor, list) or not 1 <= len(valor) <= 8:
+        return False
+    ids = set()
+    for p in valor:
+        if not isinstance(p, dict) or set(p) != {"id", "rotulo", "slugs"}:
+            return False
+        if not (_texto(p["id"]) and _SLUG.fullmatch(p["id"])) or p["id"] in ids:
+            return False
+        ids.add(p["id"])
+        if not _texto(p["rotulo"]) or len(p["rotulo"]) > 40:
+            return False
+        slugs = p["slugs"]
+        if not isinstance(slugs, list) or not all(
+            _texto(s) and _SLUG.fullmatch(s) for s in slugs
+        ):
+            return False
+    return True
+
+
+def _previa(valor):
+    """Lista de 1 a 6 pontos {obra, x, y} com x e y entre 0 e 100."""
+    if not isinstance(valor, list) or not 1 <= len(valor) <= 6:
+        return False
+    for p in valor:
+        if not isinstance(p, dict) or set(p) != {"obra", "x", "y"}:
+            return False
+        if not _texto(p["obra"]) or len(p["obra"]) > 60:
+            return False
+        if not (_numero(p["x"], 0, 100) and _numero(p["y"], 0, 100)):
+            return False
+    return True
+
+
 # efeito -> {chave: (validador, descrição legível)}. Efeito novo = entrada nova aqui.
 def _booleano(valor):
     return isinstance(valor, bool)
@@ -84,6 +119,19 @@ PARAMETROS_POR_EFEITO = {
             _estacoes,
             "uma lista não vazia de objetos {decada: 1920..2020, titulo, "
             "slug (opcional), texto (opcional)}",
+        ),
+    },
+    # Hub (STAR-63): chips que atenuam as estações do trilho; grelha dos posts.
+    "filtro:chips": {
+        "perguntas": (
+            _perguntas,
+            "uma lista de 1 a 8 objetos {id, rotulo, slugs: [slugs de estações]}",
+        ),
+    },
+    "grelha:posts": {
+        "previa": (
+            _previa,
+            "uma lista de 1 a 6 objetos {obra, x: 0..100, y: 0..100}",
         ),
     },
     "terminal:fala": {
@@ -139,6 +187,8 @@ class Ato(models.Model):
         RIVE = "rive:estado", "Rive com estado"
         DIAGRAMA = "diagrama:constroi", "Diagrama que se constrói"
         LINHA_TEMPO = "linha-tempo:decadas", "Linha do tempo por décadas"
+        FILTRO_CHIPS = "filtro:chips", "Filtro por chips (perguntas)"
+        GRELHA_POSTS = "grelha:posts", "Grelha dos posts da série"
         TERMINAL = "terminal:fala", "Terminal que fala"
         CORREDOR = "three:corredor", "Corredor 3D"
         OLHO = "olho:segue", "Olho que segue o cursor"
@@ -228,6 +278,33 @@ class Ato(models.Model):
             for e in lista
             if isinstance(e, dict) and isinstance(e.get("decada"), int)
         ]
+
+    @property
+    def previa_pontos(self):
+        """Pontos da prévia do placar já em coordenadas do SVG (400×260)."""
+        params = self.parametros
+        lista = params.get("previa") if isinstance(params, dict) else None
+        if not isinstance(lista, list):
+            return []
+        pontos = []
+        for p in lista:
+            if not isinstance(p, dict):
+                continue
+            if not (_numero(p.get("x")) and _numero(p.get("y"))):
+                continue
+            cx = round(50 + p["x"] * 3.3, 1)
+            cy = round(210 - p["y"] * 1.9, 1)
+            fim = cx > 260
+            pontos.append(
+                {
+                    **p,
+                    "cx": cx,
+                    "cy": cy,
+                    "tx": round(cx - 10 if fim else cx + 10, 1),
+                    "ancora": "end" if fim else "start",
+                }
+            )
+        return pontos
 
     def clean(self):
         super().clean()

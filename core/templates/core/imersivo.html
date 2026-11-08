@@ -60,11 +60,68 @@
       </g>
     </svg>
   </figure>
+  {% elif ato.efeito == "filtro:chips" %}
+  <div class="im-cena im-filtro" role="group" aria-label="Filtrar as estações da linha por pergunta">
+    <ul class="im-chips">
+      {% for p in ato.parametros.perguntas %}
+      <li><button type="button" class="im-chip" data-pergunta="{{ p.id }}" data-slugs="{{ p.slugs|join:' ' }}" aria-pressed="false">{{ p.rotulo }}</button></li>
+      {% endfor %}
+    </ul>
+    <p class="im-contagem" data-contagem aria-live="polite"></p>
+  </div>
+  {% elif ato.efeito == "grelha:posts" %}
+  <div class="im-cena im-convite">
+    <figure class="im-previa">
+      <svg viewBox="0 0 400 260" role="img" aria-labelledby="im-previa-t-{{ ato.pk }}" focusable="false">
+        <title id="im-previa-t-{{ ato.pk }}">Prévia do placar: plano com perto/longe na horizontal e preocupação na vertical.{% for p in ato.previa_pontos %} {{ p.obra }}: perto/longe {{ p.x }}, preocupação {{ p.y }}.{% endfor %}</title>
+        <rect x="50" y="20" width="330" height="190" fill="#FBF5EA" stroke="#1F1A17" stroke-width="1.5"/>
+        <path d="M215 20V210M50 115H380" stroke="#1F1A17" stroke-opacity=".3" stroke-dasharray="4 4"/>
+        <text x="215" y="236" text-anchor="middle" font-size="13" fill="#1F1A17">perto ← → longe</text>
+        <text transform="translate(16 115) rotate(-90)" text-anchor="middle" font-size="13" fill="#1F1A17">preocupação</text>
+        {% for p in ato.previa_pontos %}
+        <circle cx="{{ p.cx }}" cy="{{ p.cy }}" r="7" fill="#EB5A3C" stroke="#1F1A17" stroke-width="1.5"/>
+        <text x="{{ p.tx }}" y="{{ p.cy }}" dy="4" text-anchor="{{ p.ancora }}" font-size="13" fill="#1F1A17">{{ p.obra }}</text>
+        {% endfor %}
+      </svg>
+      <figcaption>Só uma prévia: no post 8 («O placar») cada obra ganha o seu lugar neste mapa, e você pode mover as suas.</figcaption>
+    </figure>
+    {% if ato.episodios_serie %}
+    <ol class="im-grelha" aria-label="Posts da série">
+      {% for e in ato.episodios_serie %}
+      <li class="im-post{% if not e.url %} im-post--breve{% endif %}">
+        <span class="im-post-num">{{ e.numero }}</span>
+        {% if e.url %}<a class="im-post-titulo" href="{{ e.url }}">{{ e.titulo }}</a>{% else %}<span class="im-post-titulo">{{ e.titulo }}</span> <em class="im-breve">em breve</em>{% endif %}
+      </li>
+      {% endfor %}
+    </ol>
+    {% endif %}
+    {% if ato.comecar_url %}<p class="im-comecar-p"><a class="im-comecar" href="{{ ato.comecar_url }}">Começar pelo post 1 →</a></p>{% endif %}
+    <div class="im-tabelas">
+      <table class="im-tabela">
+        <caption>Posts da série e o seu estado</caption>
+        <thead><tr><th scope="col">Número</th><th scope="col">Título</th><th scope="col">Estado</th></tr></thead>
+        <tbody>
+          {% for e in ato.episodios_serie %}
+          <tr><th scope="row">{{ e.numero }}</th><td>{{ e.titulo }}</td><td>{% if e.url %}disponível{% else %}em breve{% endif %}</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <table class="im-tabela">
+        <caption>Prévia do placar: obras de exemplo</caption>
+        <thead><tr><th scope="col">Obra</th><th scope="col">Perto/longe (0–100)</th><th scope="col">Preocupação (0–100)</th></tr></thead>
+        <tbody>
+          {% for p in ato.previa_pontos %}
+          <tr><th scope="row">{{ p.obra }}</th><td>{{ p.x }}</td><td>{{ p.y }}</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
   {% elif ato.efeito == "linha-tempo:decadas" %}
   <div class="im-cena im-trilho" tabindex="0" role="region" aria-label="Linha do tempo por décadas: use as setas para percorrer">
     <ol class="im-linha">
       {% for e in ato.estacoes %}
-      <li class="im-estacao" data-decada="{{ e.decada }}">
+      <li class="im-estacao" data-decada="{{ e.decada }}" data-slug="{{ e.slug|default:'' }}">
         <div class="im-estacao-arte" aria-hidden="true">
         {% if e.forma == 'papel' %}
         <svg class="im-camada" style="--v:0.2" viewBox="0 0 200 120" preserveAspectRatio="xMidYMid slice"><rect x="20" y="14" width="90" height="100" fill="#F3E6D3" stroke="#1F1914"/><path d="M34 40H96M34 56H96M34 72H80" stroke="#1F1914" stroke-width="3"/></svg>
