@@ -10,6 +10,7 @@ FIXTURES = [
     "ser_humano",
     "ia_afetiva",
     "escolhas",
+    "leis_robos_livros",
     "serie_ia_na_ficcao",
 ]
 
@@ -42,6 +43,28 @@ class RotasTests(TestCase):
         self.assertContains(r, 'href="/series/ia-na-ficcao/escolhas-da-maquina/"')
         self.assertNotContains(r, 'href="/imersivo/')
         self.assertNotContains(r, "/series/ia-na-ficcao/o-placar/")
+
+    def test_hub_post_5_entrou_com_link(self):
+        r = self.client.get("/series/ia-na-ficcao/")
+        self.assertContains(r, 'href="/series/ia-na-ficcao/leis-robos-e-livros/"')
+
+    def test_hub_estacoes_sem_destino_dizem_em_breve(self):
+        r = self.client.get("/series/ia-na-ficcao/")
+        # R.U.R., Asimov e Turing, O quase-presente, O placar.
+        self.assertContains(r, 'class="im-breve">em breve</span>', count=4)
+
+    def test_hub_sobrolho_e_h1_da_serie(self):
+        r = self.client.get("/series/ia-na-ficcao/")
+        self.assertContains(r, "Série · 9 posts · 1920 → 2026")
+        self.assertNotContains(r, "Post imersivo")
+        self.assertContains(r, '<h1 class="im-titulo-hub">')
+
+    def test_hub_arte_distinta_por_estacao(self):
+        from core.models import Ato
+
+        ato = Ato.objects.get(pk=401)
+        formas = [(e["forma"], e["variante"]) for e in ato.estacoes]
+        self.assertEqual(len(set(formas)), len(formas))
 
     def test_episodios_200(self):
         for slug, tpl in [
