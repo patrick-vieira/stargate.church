@@ -5,7 +5,6 @@
 {% block titulo %}{{ post.titulo }} — A IA na ficção — Stargate{% endblock %}
 {% block conteudo %}
 {% include "core/_narrador.html" %}
-{% include "core/_midia.html" %}
 {% for ato in atos %}{% if ato.efeito == "atmosfera:maquina-fria" %}
 <div class="am-raiz" id="principal" data-imersivo data-libs="{{ libs }}">
 <div class="am-frio" aria-hidden="true"></div>
@@ -26,6 +25,7 @@
       <p class="am-rolar" aria-hidden="true"><span>Mova o cursor: a lâmpada o segue</span><span class="am-ponto"> &nbsp;·&nbsp; </span><span>role: o console escreve</span></p>
     </div>
   </section>
+{% include "core/_midia.html" %}
 
   <section class="am-pista am-ato1" id="am-ato1" aria-labelledby="am-t-ato1">
     <div class="am-cena">

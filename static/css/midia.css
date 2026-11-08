@@ -1,0 +1,23 @@
+/* STAR-62 — bloco «Ver e ouvir» (vídeo e narração). Só tokens --sg-*. */
+.md-midia{max-width:880px;margin:var(--sg-s5) auto;padding:var(--sg-s4);box-sizing:border-box;background:var(--sg-tinta);color:var(--sg-creme);border-radius:var(--sg-r2);font-family:var(--sg-sans);font-size:1rem;line-height:1.5;position:relative;z-index:5}
+.md-midia .md-sobrolho{margin:0 0 var(--sg-s3);font-family:var(--sg-sans);font-size:var(--sg-fs-micro);font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--sg-creme-2)}
+.md-midia video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:var(--sg-tinta);border-radius:var(--sg-r1)}
+.md-midia video.md-vert{max-width:320px;aspect-ratio:9/16;margin:var(--sg-s3) auto 0}
+.md-midia audio{display:none}
+.md-midia .md-btn{margin-top:var(--sg-s3);padding:var(--sg-s3) var(--sg-s4);min-height:44px;border:2px solid var(--sg-coral);border-radius:var(--sg-r1);background:transparent;color:var(--sg-creme);font:inherit;cursor:pointer;transition:background .2s}
+.md-midia .md-btn:hover,.md-midia .md-btn[aria-pressed="true"]{background:var(--sg-coral);color:var(--sg-tinta)}
+.md-midia .md-btn:focus-visible,.md-midia summary:focus-visible,.md-midia video:focus-visible{outline:3px solid var(--sg-creme);outline-offset:3px}
+.md-midia details{margin-top:var(--sg-s3);border-top:1px solid var(--sg-tinta-2)}
+.md-midia summary{cursor:pointer;min-height:44px;display:flex;align-items:center;gap:var(--sg-s3);list-style:none}
+.md-midia summary::-webkit-details-marker{display:none}
+.md-midia summary::before{content:"";flex:none;width:.55rem;height:.55rem;border-right:2px solid var(--sg-coral);border-bottom:2px solid var(--sg-coral);transform:rotate(-45deg);transition:transform .2s}
+.md-midia details[open] summary::before{transform:rotate(45deg)}
+.md-midia summary:hover{text-decoration:underline;text-underline-offset:3px}
+.md-midia .md-transc{white-space:pre-line}
+/* a 390 a barra nativa ocupa o fundo do vídeo: o poster fica no topo e sobra faixa livre para ela */
+@media (max-width:480px){
+  .md-midia{margin:var(--sg-s4) var(--sg-s3);padding:var(--sg-s3)}
+  .md-midia{container-type:inline-size}
+  .md-midia video:not(.md-vert){aspect-ratio:auto;height:calc(100cqw*9/16 + 3.25rem);object-fit:contain;object-position:top}
+}
+@media (prefers-reduced-motion:reduce){.md-midia .md-btn,.md-midia summary::before{transition:none}}
