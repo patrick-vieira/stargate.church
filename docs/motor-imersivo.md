@@ -61,3 +61,16 @@ Efeito de página inteira (protótipo aprovado no STAR-51). Se o post tiver um a
 - **Movimento reduzido**: `reduzido` põe `.am-estatico` (sem poeira, sem grão animado, sem three); o botão «pausar movimento» pausa o resto.
 - **Acessibilidade**: contraste AA medido no browser a 1920 e 390 px: 23 seletores de texto, 0 falhas; o mais baixo é `p.am-n` com 4,98:1 (mínimo 4,5). Terminal e corredor são `aria-hidden`; o texto do console vai num `.am-sr`.
 - **Desempenho**: fps medido com WebGL por software (swiftshader); com a máquina carregada vale a paridade com o protótipo (ver o registo no STAR-41).
+
+## Atmosfera «Guerra das máquinas» (`atmosfera:guerra-maquinas`, STAR-42)
+Post 2 da série. Mesmo padrão do STAR-41: um ato com este efeito faz `core/views.py` renderizar `core/templates/core/imersivo_guerra_maquinas.html` (mapa `TEMPLATES_ATMOSFERA`, uma entrada por atmosfera). Tudo escopado em `.ag-raiz` e com o prefixo `.ag-` (ids incluídos).
+- **Peças**: HUD vermelho com contagem 10→0 que o leitor pode parar; glitch RGB, scanlines, vinheta e faixa de interferência que crescem com o scroll (variável CSS `--g`, de 0 a 1 e de volta a 0); mosaico 14×8 que se parte em pixels e se recompõe; 3 sinais de supervisão (`<details>`, um aberto de cada vez); formulário «Registro de supervisão» cujo botão «Interromper o sistema» baixa de facto o alarme (`--g` → 0) até alguém rearmar.
+- **Ficheiros**: `static/js/imersivo/efeitos/atmosfera-guerra-maquinas.js`, `static/css/atmosfera-guerra-maquinas.css`, fixture `core/fixtures/guerra_maquinas.json` (slug `o-medo-da-guerra-das-maquinas`, post pk 4, ato pk 15), migration `core/0004`.
+- **Parâmetros**: nenhum (`PARAMETROS_POR_EFEITO["atmosfera:guerra-maquinas"] = {}`).
+- **Sem biblioteca**: nada de three nem Rive; o efeito é CSS + JS próprio e não carrega nada sob demanda.
+- **Imagens**: `static/img/guerra-maquinas/fundo-1920.webp` (≈66 KB) e `fundo-780.webp` (≈56 KB, só no mobile), ambas ≤ 70 KB. Arte original (Yamato) de paisagem noturna abstrata: sem personagens, cartazes, fotogramas ou logos, sem código verde. Servem de fundo da camada `.ag-arte`, com `mix-blend-mode: screen` a 50 %.
+- **Barra de baixo**: o cabeçalho do site ocupa o topo, por isso a barra do protótipo (ligação à série, intensidade e «pausar movimento») fica fixa em baixo. A 390 px a ligação lê «Ficção · 2», numa linha só.
+- **Cenas fixas**: as cenas `sticky` começam abaixo do cabeçalho do site (76 px; 66 px no mobile); o progresso do ato desconta esse deslocamento.
+- **Movimento reduzido**: `reduzido` põe `.ag-estatico` (atos empilhados, contagem parada em 04, intensidade fixa em 15 %, mosaico em duas imagens lado a lado, sem glitch); o botão «pausar movimento» pausa o resto.
+- **Retoques da REVISAO-5**: (1) atos mais curtos (190vh e 200vh; 170vh e 180vh a 390 px) e hero mais baixo, para não haver ecrãs sem texto; (3) a linha mono do hero tem entrelinha de 1,6 e, a 390 px, uma indicação por linha; (4) o sobrolho do hero e a ligação da série não se partem (`white-space: nowrap`).
+- **Direitos**: HUD, mosaico e alarme são desenhos originais; nenhuma citação literal; fontes (AFI, NIST, Warner Bros.) no fim do post.
