@@ -15,12 +15,37 @@ function carregarScript(src) {
   });
 }
 
+// Peso (STAR-38): o runtime (js + wasm) fica fora da carga inicial. Só carrega
+// depois de `load` E da primeira interação, em ocioso. Até lá fica o SVG estático.
+function aposCargaEInteracao() {
+  const carga = new Promise((ok) => {
+    if (document.readyState === "complete") ok();
+    else window.addEventListener("load", ok, { once: true });
+  });
+  const interacao = new Promise((ok) => {
+    const evs = ["scroll", "pointerdown", "keydown"];
+    const feito = () => {
+      evs.forEach((e) => window.removeEventListener(e, feito));
+      ok();
+    };
+    evs.forEach((e) => window.addEventListener(e, feito, { once: true, passive: true }));
+  });
+  return Promise.all([carga, interacao]).then(
+    () =>
+      new Promise((ok) => {
+        if ("requestIdleCallback" in window) window.requestIdleCallback(() => ok());
+        else setTimeout(ok, 200);
+      })
+  );
+}
+
 registar("rive:narrador", async ({ el, parametros, reduzido, progressoPagina }) => {
   const era = Math.min(6, Math.max(0, Math.round(Number(parametros.era)) || 0));
   el.dataset.era = String(era);
   if (reduzido) return; // estático: o glifo SVG com a pele da era, sem runtime nem wasm
   const canvas = el.querySelector("canvas[data-rive]");
   if (!canvas) throw new Error("canvas ausente");
+  await aposCargaEInteracao();
   await carregarScript(canvas.dataset.rivJs);
   window.rive.RuntimeLoader.setWasmUrl(canvas.dataset.rivWasm);
   await new Promise((ok, erro) => {
