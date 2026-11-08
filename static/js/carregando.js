@@ -53,7 +53,11 @@
 
   async function carrega(el) {
     prepara(el);
-    if (!el.hasAttribute('data-modulo') && !el.hasAttribute('data-simula')) return;   // modo manual: quem monta chama Carregando.pronto/erro
+    if (!el.hasAttribute('data-modulo') && !el.hasAttribute('data-simula')) {   // modo manual: quem monta chama Carregando.pronto/erro
+      // Em movimento reduzido o motor não monta a cena: sem isto o esqueleto ficava para sempre com aria-busy.
+      if (!falha && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) pronto(el);
+      return;
+    }
     try {
       var modulo = null;
       if (lento) await espera(lento);

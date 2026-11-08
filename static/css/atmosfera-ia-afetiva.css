@@ -162,3 +162,9 @@
 }
 /* STAR-38: narrador acima do botão de pausa fixo (16+36 px). */
 body:has(.aa-raiz){--nr-base:72px}
+/* STAR-54 retoque: a 390 o botão vira barra de baixo (como no post 2), com padding no fim da página; não tapa campos. */
+@media (max-width:600px){
+  .aa-btn-pausa{left:0;right:0;bottom:0;width:100%;border-radius:0;border-width:1px 0 0;min-height:44px;text-align:center}
+  .aa-raiz{padding-bottom:44px}
+  body:has(.aa-raiz){--nr-base:52px}
+}

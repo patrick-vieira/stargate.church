@@ -22,11 +22,17 @@ class BaseA11yFormMixin:
 
 
 class EntrarForm(BaseA11yFormMixin, AuthenticationForm):
-    pass
+    error_messages = {
+        **AuthenticationForm.error_messages,
+        "invalid_login": "E-mail ou senha incorretos.",
+    }
 
 
 class CriarContaForm(BaseA11yFormMixin, forms.Form):
-    email = forms.EmailField(label="E-mail")
+    email = forms.EmailField(
+        label="E-mail",
+        error_messages={"invalid": "Informe um e-mail válido."},
+    )
     senha = forms.CharField(label="Senha", widget=forms.PasswordInput)
 
     def clean_email(self):
