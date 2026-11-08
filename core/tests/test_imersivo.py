@@ -303,6 +303,34 @@ class NarradorRiveTests(TestCase):
         motor = (raiz / "static/js/imersivo/motor.js").read_text()
         self.assertIn("progressoPagina(cb)", motor)
 
+    def test_runtime_rive_fora_da_carga_inicial(self):
+        """STAR-60: o HTML dos posts não puxa o runtime Rive (js/wasm); só o
+        rive-narrador.js o carrega, depois de load + interação."""
+        posts = {
+            "a-maquina-fria": "maquina_fria",
+            "o-medo-da-guerra-das-maquinas": "guerra_maquinas",
+            "o-que-e-ser-humano": "ser_humano",
+            "a-ia-afetiva": "ia_afetiva",
+            "escolhas-da-maquina": "escolhas",
+        }
+        for slug, fixture in posts.items():
+            call_command("loaddata", fixture, verbosity=0)
+            with self.subTest(slug=slug):
+                r = self.client.get(reverse("core:imersivo", args=[slug]))
+                self.assertEqual(r.status_code, 200)
+                html = r.content.decode()
+                for tag in re.findall(r"<(?:script|link)\b[^>]*>", html):
+                    self.assertNotRegex(tag, r"rive", tag)
+                self.assertNotIn("modulepreload", html)
+        js = (self._raiz() / "static/js/imersivo/efeitos/rive-narrador.js").read_text()
+        self.assertIn("aposCargaEInteracao", js)
+        self.assertLess(
+            js.index("await aposCargaEInteracao()"), js.index("await carregarScript(")
+        )
+        for ev in ("scroll", "pointerdown", "keydown"):
+            self.assertIn(f'"{ev}"', js)
+        self.assertNotIn("IntersectionObserver", js)
+
     def test_css_48px_a_390_e_sem_captura(self):
         css = (self._raiz() / "static/css/narrador.css").read_text()
         self.assertIn("pointer-events:none", css)
