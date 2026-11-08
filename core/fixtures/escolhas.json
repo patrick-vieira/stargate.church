@@ -1,0 +1,24 @@
+[
+  {
+    "model": "core.postimersivo",
+    "pk": 6,
+    "fields": {
+      "slug": "escolhas-da-maquina",
+      "titulo": "Escolhas da máquina",
+      "publicado": true
+    }
+  },
+  {
+    "model": "core.ato",
+    "pk": 17,
+    "fields": {
+      "post": 6,
+      "ordem": 1,
+      "titulo": "Escolhas da máquina",
+      "texto": "Jogar uma decisão torna visível quem definiu as opções e quem recebe a consequência.",
+      "efeito": "atmosfera:escolhas",
+      "parametros": {},
+      "reduzido": "estatico"
+    }
+  }
+]

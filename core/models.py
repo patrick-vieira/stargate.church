@@ -67,6 +67,12 @@ PARAMETROS_POR_EFEITO = {
     },
     # Atmosfera inteira (STAR-41/STAR-51): o conteúdo vive no template.
     "atmosfera:maquina-fria": {},
+    # Atmosfera do post 2 (STAR-42): HUD, glitch e scanlines; conteúdo no template.
+    "atmosfera:guerra-maquinas": {},
+    # Atmosfera do post 3 (STAR-43): sala de vidro e teste; conteúdo no template.
+    "atmosfera:ser-humano": {},
+    # Atmosfera do post 6 (STAR-46): narrativa ramificada, estado no cliente.
+    "atmosfera:escolhas": {},
     # Atmosfera inteira (STAR-44/STAR-51): o conteúdo vive no template.
     "atmosfera:ia-afetiva": {},
 }
@@ -101,6 +107,18 @@ class Ato(models.Model):
         CORREDOR = "three:corredor", "Corredor 3D"
         OLHO = "olho:segue", "Olho que segue o cursor"
         ATMOSFERA = "atmosfera:maquina-fria", "Atmosfera «Máquina fria»"
+        ATMOSFERA_GUERRA = (
+            "atmosfera:guerra-maquinas",
+            "Atmosfera «Guerra das máquinas»",
+        )
+        ATMOSFERA_SER_HUMANO = (
+            "atmosfera:ser-humano",
+            "Atmosfera «O que é ser humano?»",
+        )
+        ATMOSFERA_ESCOLHAS = (
+            "atmosfera:escolhas",
+            "Atmosfera «Escolhas da máquina»",
+        )
         ATMOSFERA_IA_AFETIVA = "atmosfera:ia-afetiva", "Atmosfera «IA afetiva»"
 
     class Reduzido(models.TextChoices):

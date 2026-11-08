@@ -1,0 +1,123 @@
+{% extends "noticias/base.html" %}
+{% load static %}
+{% block titulo %}{{ post.titulo }} — A IA na ficção — Stargate{% endblock %}
+{% block conteudo %}
+{% for ato in atos %}{% if ato.efeito == "atmosfera:guerra-maquinas" %}
+<div class="ag-raiz" id="principal" data-imersivo data-libs="{{ libs }}">
+<div class="ag-fx" aria-hidden="true"><div class="ag-arte"></div><div class="ag-horizonte"></div><div class="ag-grade" id="ag-grade"></div></div>
+<div class="ag-vin" aria-hidden="true"></div>
+<div class="ag-scan" aria-hidden="true"></div>
+<div class="ag-faixa" id="ag-faixa" aria-hidden="true"></div>
+<div class="ag-mira" id="ag-mira" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="#FF4B3E" stroke-width="2"><circle cx="24" cy="24" r="10" stroke-opacity=".8"/><path d="M24 2v12M24 34v12M2 24h12M34 24h12"/></svg></div>
+
+<div class="ag-topo">
+  <a href="{% url 'core:home' %}"><span class="ag-longo">A IA na ficção · 2</span><span class="ag-curto">Ficção · 2</span></a>
+  <span class="ag-ind" aria-hidden="true"><span class="ag-lg">intensidade </span><span id="ag-gv">0</span> %</span>
+  <button class="ag-btn-pausa" id="ag-pausa" type="button" aria-pressed="false">pausar movimento</button>
+</div>
+
+<div class="ag-conteudo" data-ato data-efeito="atmosfera:guerra-maquinas" data-parametros="{{ ato.parametros_json }}" data-reduzido="{{ ato.reduzido }}">
+  <section class="ag-hero" aria-labelledby="ag-t-post">
+    <div>
+      <p class="ag-sobrolho">Post 2 · Terminator, Matrix</p>
+      <h1 id="ag-t-post" class="ag-gl">O medo da <em>guerra das máquinas</em></h1>
+      <p class="ag-lead">{{ ato.texto }}</p>
+      <p class="ag-rolar" aria-hidden="true"><span>Role: o alarme sobe</span><span class="ag-ponto"> · </span><span>mova o cursor: a mira o acompanha</span></p>
+    </div>
+    <svg class="ag-anel-hero" viewBox="0 0 400 400" aria-hidden="true" focusable="false"><g fill="none" stroke="#9AA7B5" stroke-width="1.5"><circle cx="200" cy="200" r="180" stroke-opacity=".5"/><circle cx="200" cy="200" r="140" stroke="#FF4B3E" stroke-dasharray="6 14" stroke-width="3"/><circle cx="200" cy="200" r="100" stroke="#5EE1F0" stroke-dasharray="40 24" stroke-opacity=".7"/><path d="M200 8v26M200 366v26M8 200h26M366 200h26" stroke="#FF4B3E" stroke-width="3"/></g></svg>
+  </section>
+
+  <section class="ag-pista" id="ag-ato1" aria-labelledby="ag-t-ato1">
+    <div class="ag-cena">
+      <div class="ag-hud" id="ag-hud" role="img" aria-label="Painel de alerta com contagem regressiva de dez a zero">
+        <svg viewBox="0 0 400 400" aria-hidden="true" focusable="false">
+          <g fill="none" stroke="#9AA7B5" stroke-width="1.5"><circle cx="200" cy="200" r="180" stroke-opacity=".5"/></g>
+          <g class="ag-a1" fill="none"><circle class="ag-alerta-s" cx="200" cy="200" r="140" stroke="#FF4B3E" stroke-dasharray="6 14" stroke-width="3"/></g>
+          <g class="ag-a2" fill="none"><circle class="ag-alerta-s" cx="200" cy="200" r="100" stroke="#5EE1F0" stroke-dasharray="40 24" stroke-opacity=".8" stroke-width="1.5"/></g>
+          <path class="ag-alerta-s" d="M200 8v26M200 366v26M8 200h26M366 200h26" stroke="#FF4B3E" stroke-width="3" fill="none"/>
+          <g id="ag-ticks" stroke="#9AA7B5" stroke-opacity=".6"></g>
+          <text id="ag-cnt" class="ag-cnt" x="200" y="232" text-anchor="middle">10</text>
+          <text class="ag-legenda" x="200" y="268" text-anchor="middle">CONTAGEM · SOB CONTROLE HUMANO</text>
+        </svg>
+      </div>
+      <div class="ag-veu">
+        <p class="ag-sobrolho">Ato 1 · A promessa do botão</p>
+        <h2 id="ag-t-ato1" class="ag-gl">A contagem é do leitor.</h2>
+        <p><em>The Terminator</em> (1984) coloca a defesa nas mãos de uma inteligência que passa a tratar humanos como ameaça. Não temos uma Skynet pública demonstrada. Temos uma razão concreta para discutir armas autônomas, comando e responsabilidade antes de ampliar a automação.</p>
+        <div class="ag-acao"><button class="ag-btn ag-prim ag-hud-el" type="button" id="ag-para">Parar a contagem</button><p class="ag-estado" id="ag-pst" role="status" aria-live="polite">contagem a correr: 10</p></div>
+        <p class="ag-fonte">Fonte: The Terminator, AFI · NIST GenAI Profile</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="ag-pista" id="ag-ato2" aria-labelledby="ag-t-ato2">
+    <div class="ag-cena">
+      <div class="ag-veu">
+        <p class="ag-sobrolho">Ato 2 · Se o mundo parece construído</p>
+        <h2 id="ag-t-ato2" class="ag-gl">Duas camadas, uma evidência.</h2>
+        <p><em>The Matrix</em> (1999) faz da percepção uma prisão. A tecnologia de 2026 não sustenta uma simulação total como a do filme. Imagens, vozes e mensagens sintéticas, porém, já tornam a verificação de uma evidência cotidiana mais trabalhosa.</p>
+        <p class="ag-fonte">Fonte: The Matrix, Warner Bros.</p>
+      </div>
+      <div class="ag-mos-caixa">
+        <div class="ag-mos" id="ag-mos" role="img" aria-label="Mosaico abstrato de 14 por 8 células que se parte em pixels e se recompõe"></div>
+        <div class="ag-regua" id="ag-regua" aria-hidden="true"><span id="ag-c1" class="ag-on">camada 1 · inteira</span><span id="ag-c2">camada 2 · partida</span></div>
+        <div class="ag-mos-estatico">
+          <p class="ag-legenda-mos">Camada 1 · inteira</p>
+          <div class="ag-mos" id="ag-mosA" aria-hidden="true"></div>
+          <p class="ag-legenda-mos">Camada 2 · partida</p>
+          <div class="ag-mos" id="ag-mosB" aria-hidden="true"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="ag-ato3" aria-labelledby="ag-t-ato3">
+    <div class="ag-miolo">
+      <div class="ag-veu">
+        <p class="ag-sobrolho">Ato 3 · Saída de emergência</p>
+        <h2 id="ag-t-ato3" class="ag-gl">Três sinais de supervisão.</h2>
+        <p>O antídoto dramático é acordar. O antídoto prático é manter pessoas responsáveis, proveniência quando possível e meios de interromper sistemas de alto impacto.</p>
+      </div>
+      <div class="ag-palco">
+        <div class="ag-sinais" id="ag-sinais" role="group" aria-label="Três sinais de supervisão">
+          <details class="ag-sinal ag-hud-el" name="sinais"><summary><span class="ag-n">1</span>Pessoas responsáveis</summary><p class="ag-ex">Antes de ligar um sistema de alto impacto, um nome e um cargo respondem pelo que ele decide, e quem foi afetado sabe a quem recorrer.</p></details>
+          <details class="ag-sinal ag-hud-el" name="sinais"><summary><span class="ag-n">2</span>Proveniência</summary><p class="ag-ex">Uma imagem, uma voz ou uma mensagem chega com a origem anexada, quando é possível: quem produziu, com qual ferramenta e se foi editada.</p></details>
+          <details class="ag-sinal ag-hud-el" name="sinais"><summary><span class="ag-n">3</span>Poder de interromper</summary><p class="ag-ex">Existe um botão de parada ao alcance de uma pessoa treinada, testado antes da falha e sem depender do próprio sistema para funcionar.</p></details>
+        </div>
+        <form class="ag-painel ag-hud-el" id="ag-supervisao" novalidate aria-labelledby="ag-t-form">
+          <h3 id="ag-t-form">Registro de supervisão</h3>
+          <p class="ag-nota">Preencha e use o botão de interromper: o alarme da página cai de fato.</p>
+          <div class="ag-campo ag-hud-el"><label for="ag-f-resp">Quem responde por este sistema?</label><input id="ag-f-resp" type="text" placeholder="Pessoa ou equipe" autocomplete="off"></div>
+          <div class="ag-campo ag-hud-el"><label for="ag-f-dec">O que ele decide?</label><input id="ag-f-dec" type="text" placeholder="Ex.: liberar pagamentos" autocomplete="off"></div>
+          <div class="ag-campo ag-hud-el"><label for="ag-f-imp">Impacto se errar</label>
+            <select id="ag-f-imp"><option>Baixo (rascunhos, agenda)</option><option selected>Médio (compras, conteúdo)</option><option>Alto (saúde, infraestrutura, segurança)</option></select></div>
+          <div class="ag-campo ag-chk ag-hud-el"><label><input id="ag-f-par" type="checkbox" checked> Exigir parada humana imediata</label></div>
+          <div class="ag-acao">
+            <button class="ag-btn ag-prim ag-hud-el" type="button" id="ag-interromper">Interromper o sistema</button>
+            <button class="ag-btn ag-sec ag-hud-el" type="button" id="ag-rearmar">Rearmar o alerta</button>
+          </div>
+          <p class="ag-registro" id="ag-registro" role="status" aria-live="polite">Alarme em curso. Nenhuma interrupção registrada.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="ag-fecho" aria-label="Próxima estação">
+    <div class="ag-miolo">
+      <p>Quanto mais alto o alarme, mais vale perguntar quem está com a mão no botão.</p><br>
+      <a class="ag-prox" href="{% url 'core:imersivo' 'o-que-e-ser-humano' %}">Próxima estação: <em>O que é ser humano?</em> →</a><br>
+      <a href="{% url 'core:home' %}">← Voltar à página inicial</a>
+      <p class="ag-fontes">Fontes: The Terminator, AFI · The Matrix, Warner Bros. · NIST AI 600-1, Generative AI Profile. HUD, mosaico e alarme são desenhos originais; nenhuma imagem, personagem ou código de franquia.</p>
+    </div>
+  </section>
+</div>
+</div>
+{% endif %}{% endfor %}
+{% endblock %}
+{% block newsletter %}{% endblock %}
+{% block scripts %}
+<link rel="stylesheet" href="{% static 'css/atmosfera-guerra-maquinas.css' %}">
+<script>document.documentElement.classList.add("js")</script>
+{# Tudo local, sem biblioteca: o efeito é CSS e JS próprio. #}
+<script type="module" src="{% static 'js/imersivo/motor.js' %}"></script>
+{% endblock %}
