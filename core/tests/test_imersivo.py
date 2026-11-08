@@ -488,7 +488,7 @@ class HubTests(TestCase):
         self.assertContains(self.r, 'data-slugs="a-ia-afetiva o-que-e-ser-humano"')
 
     def test_data_slug_nas_estacoes(self):
-        self.assertEqual(self.html.count('class="im-estacao" data-decada'), 10)
+        self.assertEqual(self.html.count('<li class="im-estacao'), 10)
         self.assertEqual(self.html.count('data-slug=""'), 2)
         self.assertContains(self.r, 'data-slug="a-maquina-fria"')
 
