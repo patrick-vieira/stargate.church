@@ -82,9 +82,22 @@ class HomeTests(TestCase):
         texto = self.get().content.decode()
         self.assertIn("css/luz.css", texto)
         self.assertIn("js/luz.js", texto)
-        # o luz.css vem depois do stargate.css; o botão desativado não leva data-luz
+        # o luz.css vem depois do stargate.css
         self.assertLess(texto.index("css/stargate.css"), texto.index("css/luz.css"))
-        self.assertNotIn("data-luz", texto)
+
+    def test_botoes_e_cartoes_com_data_luz_e_desativado_sem(self):
+        criar_artigo(titulo="Manchete")
+        criar_artigo(titulo="Cartão com luz")
+        texto = self.get().content.decode()
+        # cabeçalho uniforme: Assinar e Entrar levam data-luz="botao"
+        self.assertIn('class="sg-btn sg-btn--coral" data-luz="botao" href', texto)
+        self.assertIn('data-luz="botao" href', texto)
+        self.assertIn('data-luz="cartao"', texto)
+        # o botão desativado da newsletter nunca leva data-luz
+        self.assertIn(
+            '<button class="sg-btn sg-btn--coral" type="button" disabled>Quero receber',
+            texto,
+        )
 
     def test_rodape_mantem_aviso_ficticio(self):
         self.assertContains(self.get(), "Todo o conteúdo deste protótipo é fictício")
