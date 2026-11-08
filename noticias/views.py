@@ -1,7 +1,15 @@
-from django.shortcuts import get_object_or_404, render
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse
+from django.shortcuts import get_object_or_404, redirect, render
+from django.views.decorators.http import require_POST
+
+from leitores import tecto
+from leitores.models import UsoDiario
 
 from . import servicos
-from .models import Tema
+from .forms import ComentarioForm
+from .models import Comentario, Tema
 
 
 def home(request):
@@ -39,3 +47,24 @@ def artigo(request, slug):
         "relacionados": servicos.relacionados(publicado),
     }
     return render(request, "noticias/artigo.html", contexto)
+
+
+@require_POST
+@login_required
+def comentar(request, slug):
+    publicado = get_object_or_404(servicos.artigos_publicados(), slug=slug)
+    form = ComentarioForm(request.POST)
+    if not form.is_valid():
+        messages.error(request, "Confira o nome e o comentário.")
+        return redirect(publicado.get_absolute_url())
+    # O tecto só gasta depois de o form validar.
+    if not tecto.consumir(request.user, UsoDiario.COMENTARIO):
+        return HttpResponse("Limite diário de comentários atingido.", status=429)
+    Comentario.objects.create(
+        artigo=publicado,
+        autor=request.user,
+        nome=form.cleaned_data["nome"],
+        texto=form.cleaned_data["texto"],
+    )
+    messages.success(request, "Recebemos o seu comentário. Ele aparece após a revisão.")
+    return redirect(publicado.get_absolute_url())
