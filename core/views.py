@@ -80,8 +80,25 @@ def _renderizar_post(request, post, serie=None, episodio=None):
             publicado=True, post__publicado=True
         ).select_related("serie")
         urls = {e.slug: e.get_absolute_url() for e in episodios}
+    lista = []
+    comecar = None
+    if serie is not None:
+        for e in serie.episodios.exclude(numero=0).select_related("post"):
+            url = urls.get(e.slug) if e.post_id else None
+            lista.append(
+                {
+                    "numero": e.numero,
+                    "titulo": e.titulo or (e.post.titulo if e.post_id else e.slug),
+                    "slug": e.slug,
+                    "url": url,
+                }
+            )
+            if e.numero == 1:
+                comecar = url
     for a in atos:
         a.urls_episodios = urls
+        a.episodios_serie = lista
+        a.comecar_url = comecar
     contexto = {
         "post": post,
         "atos": atos,

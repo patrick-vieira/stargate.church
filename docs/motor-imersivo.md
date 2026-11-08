@@ -21,6 +21,11 @@ Um post imersivo é feito de **atos** guardados em dados (`core.PostImersivo` e 
 - CSS/JS: sem JS ou com movimento reduzido a lista é vertical e cronológica. Com JS, trilho horizontal com `scroll-snap`, parallax por variável `--d` (scroll do trilho + progresso vertical da página) e classe `.on` na estação visível (`IntersectionObserver`). Sem GSAP/Lenis, Three ou Rive.
 - Fixture do hub: `core/fixtures/imersivo_hub.json` (`ia-na-ficcao`; textos originais, sem imagens de obras).
 
+## Efeitos `filtro:chips` e `grelha:posts` (STAR-63, atos 2 e 3 do hub)
+- `filtro:chips`: `parametros.perguntas`, lista de 1 a 8 `{id, rotulo, slugs: [slugs de estações]}` (validador `_perguntas`; ids únicos). Cada pergunta vira um `<button class="im-chip" aria-pressed>`. O JS (`efeitos/filtro-chips.js`) atenua com `.im-estacao--fora` (opacity .35, sem esconder) as `.im-estacao[data-slug]` da página cujo slug não casa (estação sem slug fica atenuada com filtro activo); clicar no chip activo limpa. A contagem «N estações» vai num `aria-live="polite"`. Sem JS os chips ficam como lista de perguntas; com movimento reduzido o filtro é o mesmo, sem transição. Cada `li.im-estacao` do trilho leva `data-slug` (vazio se não houver).
+- `grelha:posts`: `parametros.previa`, lista de 1 a 6 `{obra, x, y}` (0–100; `Ato.previa_pontos` converte para coordenadas do SVG). Mostra a prévia estática do placar em SVG (`role=img` + `<title>`), a grelha dos episódios da série (a view junta `ato.episodios_serie` = `{numero, titulo, slug, url|None}`, sem o número 0; os não publicados levam «em breve» e nenhum `<a>`; funciona com N itens) e «Começar pelo post 1 →» (`ato.comecar_url`, com `view-transition-name`). Com movimento reduzido aparecem duas `<table>` equivalentes (posts e pontos da prévia); fora dele ficam só para leitores de ecrã.
+- View Transitions (`@view-transition`) só dentro de `prefers-reduced-motion: no-preference`.
+
 ## Régua de direitos
 - Proibido: imagens, personagens, cartazes, fotogramas e logos de obras.
 - Citações: 1 a 2 frases, sempre com fonte.

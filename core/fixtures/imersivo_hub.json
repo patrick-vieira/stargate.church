@@ -43,8 +43,16 @@
       "ordem": 2,
       "titulo": "Mapa — Cinco perguntas",
       "texto": "Quem manda? Quem luta? Quem sente? Quem cuida? Quem vê tudo? Escolha uma pergunta ou percorra a linha inteira. Em cada parada, separaremos a invenção que não chegou do efeito social que já podemos medir.",
-      "efeito": "scroll:revela",
-      "parametros": {},
+      "efeito": "filtro:chips",
+      "parametros": {
+        "perguntas": [
+          {"id": "manda", "rotulo": "Quem manda?", "slugs": ["a-maquina-fria", "escolhas-da-maquina", "o-quase-presente"]},
+          {"id": "luta", "rotulo": "Quem luta?", "slugs": ["o-medo-da-guerra-das-maquinas"]},
+          {"id": "sente", "rotulo": "Quem sente?", "slugs": ["a-ia-afetiva", "o-que-e-ser-humano"]},
+          {"id": "cuida", "rotulo": "Quem cuida?", "slugs": ["leis-robos-e-livros", "a-ia-afetiva"]},
+          {"id": "ve-tudo", "rotulo": "Quem vê tudo?", "slugs": ["o-quase-presente", "o-placar"]}
+        ]
+      },
       "reduzido": "estatico"
     }
   },
@@ -56,8 +64,14 @@
       "ordem": 3,
       "titulo": "Convite — Seu próprio placar",
       "texto": "No fim, você poderá mover cada obra no mapa perto/longe × preocupação. Nossa pontuação é uma hipótese explicada, não um veredito.",
-      "efeito": "diagrama:constroi",
-      "parametros": {},
+      "efeito": "grelha:posts",
+      "parametros": {
+        "previa": [
+          {"obra": "R.U.R. (1920)", "x": 25, "y": 70},
+          {"obra": "Asimov, Eu, Robô (1950)", "x": 50, "y": 35},
+          {"obra": "Série de 2020", "x": 85, "y": 55}
+        ]
+      },
       "reduzido": "estatico"
     }
   }
