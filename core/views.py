@@ -23,6 +23,8 @@ ERA_NARRADOR = {
     "efeitos-maquina-fria-provisorio": 1,
     "o-medo-da-guerra-das-maquinas": 2,
     "escolhas-da-maquina": 5,
+    "o-que-e-ser-humano": 3,
+    "a-ia-afetiva": 5,
 }
 
 

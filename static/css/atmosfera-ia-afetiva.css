@@ -160,3 +160,5 @@
   .aa-ato1{height:auto;padding:70px 0}
   .aa-cena{position:static;height:auto}
 }
+/* STAR-38: narrador acima do botão de pausa fixo (16+36 px). */
+body:has(.aa-raiz){--nr-base:72px}

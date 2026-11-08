@@ -275,6 +275,24 @@ class NarradorRiveTests(TestCase):
                 self.assertContains(r, "lab/vendor/rive-canvas-2.35.0.js")
                 self.assertNotContains(r, "cdn.")
 
+    def test_narrador_no_post_3_ser_humano_fora_da_raiz(self):
+        call_command("loaddata", "ser_humano", verbosity=0)
+        r = self.client.get(reverse("core:imersivo", args=["o-que-e-ser-humano"]))
+        self.assertEqual(r.status_code, 200)
+        self.assertContains(r, 'data-efeito="rive:narrador"', count=1)
+        self.assertContains(r, 'data-era="3"')
+        html = r.content.decode()
+        self.assertLess(html.index("rive:narrador"), html.index('class="sh-raiz"'))
+
+    def test_narrador_no_post_4_ia_afetiva_fora_da_raiz(self):
+        call_command("loaddata", "ia_afetiva", verbosity=0)
+        r = self.client.get(reverse("core:imersivo", args=["a-ia-afetiva"]))
+        self.assertEqual(r.status_code, 200)
+        self.assertContains(r, 'data-efeito="rive:narrador"', count=1)
+        self.assertContains(r, 'data-era="5"')
+        html = r.content.decode()
+        self.assertLess(html.index("rive:narrador"), html.index('class="aa-raiz"'))
+
     def test_js_liga_progresso_ao_scroll_e_respeita_reduzido(self):
         raiz = self._raiz()
         js = (raiz / "static/js/imersivo/efeitos/rive-narrador.js").read_text()
@@ -301,9 +319,14 @@ class NarradorRiveTests(TestCase):
             ("atmosfera-maquina-fria", 65),
             ("atmosfera-escolhas", 65),
             ("atmosfera-guerra-maquinas", 65),
+            ("atmosfera-ser-humano", 65),
+            ("atmosfera-ia-afetiva", 65),
         ):
             txt = (raiz / f"static/css/{nome}.css").read_text()
-            m = re.search(r"\.nr-narrador\{--nr-base:(\d+)px\}", txt)
+            m = re.search(
+                r"(?:\.nr-narrador|body:has\(\.(?:sh|aa)-raiz\))\{--nr-base:(\d+)px\}",
+                txt,
+            )
             self.assertIsNotNone(m, nome)
             self.assertGreaterEqual(int(m.group(1)), minimo, nome)
 
