@@ -888,6 +888,11 @@ class AtmosferaLeisRobosLivrosTests(TestCase):
         self.assertNotContains(r, "Georgia")
         self.assertNotContains(r, "http://")
 
+    def test_narrador_na_era_0_de_1920(self):
+        r = self.client.get(reverse("core:imersivo", args=["leis-robos-e-livros"]))
+        self.assertContains(r, 'data-era="0"')
+        self.assertContains(r, "data-parametros='{\"era\": 0}'")
+
     def test_sem_gravacao_no_servidor(self):
         r = self.client.get(reverse("core:imersivo", args=["leis-robos-e-livros"]))
         self.assertNotContains(r, "csrfmiddlewaretoken")

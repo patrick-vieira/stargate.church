@@ -26,6 +26,7 @@ ERA_NARRADOR = {
     "escolhas-da-maquina": 5,
     "o-que-e-ser-humano": 3,
     "a-ia-afetiva": 5,
+    "leis-robos-e-livros": 0,
 }
 
 
