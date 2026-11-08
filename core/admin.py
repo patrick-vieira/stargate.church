@@ -31,6 +31,18 @@ class SerieAdmin(admin.ModelAdmin):
     search_fields = ("titulo", "slug")
     prepopulated_fields = {"slug": ("titulo",)}
     inlines = [EpisodioInline]
+    fields = (
+        "slug",
+        "titulo",
+        "resumo",
+        "capa",
+        "ordem",
+        "publicado",
+        "hub",
+        "trailer",
+        "trailer_poster",
+        "trailer_legenda",
+    )
 
 
 @admin.register(Episodio)

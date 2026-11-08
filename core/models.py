@@ -270,6 +270,19 @@ class Serie(models.Model):
         help_text="Post imersivo renderizado em /series/<série>/.",
     )
 
+    trailer = models.FileField(
+        "trailer (16:9)", upload_to="series/trailer/", blank=True, max_length=200
+    )
+    trailer_poster = models.FileField(
+        "poster do trailer", upload_to="series/trailer/", blank=True, max_length=200
+    )
+    trailer_legenda = models.FileField(
+        "legenda do trailer (VTT)",
+        upload_to="series/trailer/",
+        blank=True,
+        max_length=200,
+    )
+
     class Meta:
         verbose_name = "série"
         verbose_name_plural = "séries"
@@ -301,6 +314,31 @@ class Episodio(models.Model):
         verbose_name="conteúdo imersivo",
     )
     publicado = models.BooleanField("publicado", default=False)
+    video = models.FileField(
+        "vídeo 16:9", upload_to="episodios/", blank=True, max_length=200
+    )
+    video_vertical = models.FileField(
+        "vídeo 9:16 (opcional, com voz)",
+        upload_to="episodios/",
+        blank=True,
+        max_length=200,
+    )
+    poster = models.FileField(
+        "poster do vídeo", upload_to="episodios/", blank=True, max_length=200
+    )
+    audio = models.FileField(
+        "áudio da narração (MP3)", upload_to="episodios/", blank=True, max_length=200
+    )
+    audio_ogg = models.FileField(
+        "áudio da narração (Opus/OGG, opcional)",
+        upload_to="episodios/",
+        blank=True,
+        max_length=200,
+    )
+    legenda = models.FileField(
+        "legenda (VTT)", upload_to="episodios/", blank=True, max_length=200
+    )
+    transcricao = models.TextField("transcrição", blank=True)
 
     class Meta:
         verbose_name = "episódio"
@@ -320,3 +358,7 @@ class Episodio(models.Model):
 
     def get_absolute_url(self):
         return reverse("core:episodio", args=[self.serie.slug, self.slug])
+
+    @property
+    def tem_midia(self):
+        return bool(self.video or self.audio)

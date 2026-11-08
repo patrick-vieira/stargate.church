@@ -46,7 +46,30 @@ def lab_spike(request):
     return render(request, "core/lab_spike.html")
 
 
-def _renderizar_post(request, post, serie=None):
+def _midia(post, serie, episodio):
+    """Mídia embutida da página: vídeo/áudio do episódio, ou trailer no hub."""
+    if episodio is not None and episodio.tem_midia:
+        return {
+            "titulo": episodio.titulo or post.titulo,
+            "video": episodio.video,
+            "vertical": episodio.video_vertical,
+            "poster": episodio.poster,
+            "audio": episodio.audio,
+            "audio_ogg": episodio.audio_ogg,
+            "legenda": episodio.legenda,
+            "transcricao": episodio.transcricao,
+        }
+    if serie is not None and serie.hub_id == post.id and serie.trailer:
+        return {
+            "titulo": f"Trailer — {serie.titulo}",
+            "video": serie.trailer,
+            "poster": serie.trailer_poster,
+            "legenda": serie.trailer_legenda,
+        }
+    return None
+
+
+def _renderizar_post(request, post, serie=None, episodio=None):
     """Post imersivo: atos em dados, efeitos pelo motor JS."""
     atos = list(post.atos.all())
     urls = {}
@@ -61,6 +84,8 @@ def _renderizar_post(request, post, serie=None):
         "post": post,
         "atos": atos,
         "serie": serie,
+        "episodio": episodio,
+        "midia": _midia(post, serie, episodio),
         "libs": libs_opcionais(),
         "narrador_era": ERA_NARRADOR.get(post.slug, 6),
     }
@@ -91,7 +116,8 @@ def serie(request, serie):
     obj = get_object_or_404(Serie.objects.filter(publicado=True), slug=serie)
     if obj.hub is None or not obj.hub.publicado:
         raise Http404("Série sem página.")
-    return _renderizar_post(request, obj.hub, obj)
+    ep0 = Episodio.objects.filter(serie=obj, post=obj.hub, publicado=True).first()
+    return _renderizar_post(request, obj.hub, obj, ep0)
 
 
 def episodio(request, serie, episodio):
@@ -107,4 +133,4 @@ def episodio(request, serie, episodio):
         raise Http404("Episódio sem conteúdo.")
     if obj.post_id == obj.serie.hub_id:
         return redirect(obj.serie.get_absolute_url(), permanent=True)
-    return _renderizar_post(request, obj.post, obj.serie)
+    return _renderizar_post(request, obj.post, obj.serie, obj)
