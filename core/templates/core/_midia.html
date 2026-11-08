@@ -1,20 +1,7 @@
-{% if midia %}
+{% load static %}{% if midia %}
 <section class="md-midia" aria-label="{{ midia.titulo }}: vídeo e narração" data-midia>
-<style>
-.md-midia{max-width:880px;margin:1rem auto;padding:1rem;box-sizing:border-box;background:#1F1914;color:#F3E6D3;border-radius:12px;font:16px/1.5 system-ui,sans-serif;position:relative;z-index:5}
-.md-midia h2{margin:0 0 .6rem;font-size:1.05rem;color:#F3E6D3}
-.md-midia video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#000;border-radius:8px}
-.md-midia video.md-vert{max-width:320px;aspect-ratio:9/16;margin:.6rem auto 0}
-.md-midia audio{display:none}
-.md-midia .md-btn{margin-top:.7rem;padding:.6rem 1rem;min-height:44px;border:2px solid #EB5A3C;border-radius:8px;background:transparent;color:#F3E6D3;font:inherit;cursor:pointer;transition:background .2s}
-.md-midia .md-btn:hover,.md-midia .md-btn[aria-pressed="true"]{background:#EB5A3C;color:#1F1914}
-.md-midia .md-btn:focus-visible,.md-midia summary:focus-visible,.md-midia video:focus-visible{outline:3px solid #F3E6D3;outline-offset:3px}
-.md-midia details{margin-top:.7rem}
-.md-midia summary{cursor:pointer;min-height:44px;display:flex;align-items:center}
-.md-midia .md-transc{white-space:pre-line}
-@media (prefers-reduced-motion:reduce){.md-midia .md-btn{transition:none}}
-</style>
-<h2>{{ midia.titulo }}</h2>
+<link rel="stylesheet" href="{% static 'css/midia.css' %}">
+<h2 class="md-sobrolho">Ver e ouvir</h2>
 {% if midia.video %}
 <video controls preload="none" playsinline{% if midia.poster %} poster="{{ midia.poster.url }}"{% endif %}>
   <source src="{{ midia.video.url }}" type="video/mp4">
