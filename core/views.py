@@ -1,10 +1,10 @@
-from django.http import JsonResponse
-from django.shortcuts import get_object_or_404, render
+from django.http import Http404, JsonResponse
+from django.shortcuts import get_object_or_404, redirect, render
 
 from noticias.views import home as home_noticias
 
 from .imersivo import libs_opcionais
-from .models import Ato, PostImersivo
+from .models import Ato, Episodio, PostImersivo, Serie
 
 # Efeito de página inteira → template próprio (STAR-41, STAR-42).
 TEMPLATES_ATMOSFERA = {
@@ -42,18 +42,65 @@ def lab_spike(request):
     return render(request, "core/lab_spike.html")
 
 
-def imersivo(request, slug):
+def _renderizar_post(request, post, serie=None):
     """Post imersivo: atos em dados, efeitos pelo motor JS."""
-    post = get_object_or_404(PostImersivo.publicados(), slug=slug)
-    atos = post.atos.all()
+    atos = list(post.atos.all())
+    urls = {}
+    if serie is not None:
+        episodios = serie.episodios.filter(
+            publicado=True, post__publicado=True
+        ).select_related("serie")
+        urls = {e.slug: e.get_absolute_url() for e in episodios}
+    for a in atos:
+        a.urls_episodios = urls
     contexto = {
         "post": post,
         "atos": atos,
+        "serie": serie,
         "libs": libs_opcionais(),
-        "publicados": set(PostImersivo.publicados().values_list("slug", flat=True)),
         "narrador_era": ERA_NARRADOR.get(post.slug, 6),
     }
     for a in atos:
         if a.efeito in TEMPLATES_ATMOSFERA:
             return render(request, TEMPLATES_ATMOSFERA[a.efeito], contexto)
     return render(request, "core/imersivo.html", contexto)
+
+
+def imersivo(request, slug):
+    """Rota antiga: 301 para a rota da série; sem série, serve o post (legado)."""
+    post = get_object_or_404(PostImersivo.publicados(), slug=slug)
+    serie_hub = Serie.objects.filter(publicado=True, hub=post).first()
+    if serie_hub is not None:
+        return redirect(serie_hub.get_absolute_url(), permanent=True)
+    episodio = (
+        Episodio.objects.filter(post=post, publicado=True, serie__publicado=True)
+        .select_related("serie")
+        .first()
+    )
+    if episodio is not None:
+        return redirect(episodio.get_absolute_url(), permanent=True)
+    return _renderizar_post(request, post)
+
+
+def serie(request, serie):
+    """Página da série: renderiza o hub (STAR-40)."""
+    obj = get_object_or_404(Serie.objects.filter(publicado=True), slug=serie)
+    if obj.hub is None or not obj.hub.publicado:
+        raise Http404("Série sem página.")
+    return _renderizar_post(request, obj.hub, obj)
+
+
+def episodio(request, serie, episodio):
+    """Episódio da série: renderiza o post imersivo ligado."""
+    obj = get_object_or_404(
+        Episodio.objects.select_related("serie", "post"),
+        serie__slug=serie,
+        serie__publicado=True,
+        slug=episodio,
+        publicado=True,
+    )
+    if obj.post is None or not obj.post.publicado:
+        raise Http404("Episódio sem conteúdo.")
+    if obj.post_id == obj.serie.hub_id:
+        return redirect(obj.serie.get_absolute_url(), permanent=True)
+    return _renderizar_post(request, obj.post, obj.serie)
