@@ -19,5 +19,22 @@
 {% for fonte in fontes %}<tr><td>{{ fonte.descricao|default:fonte.nome }}</td><td><a href="{{ fonte.url }}" rel="noopener noreferrer">{{ fonte.nome }}</a></td><td><span class="sg-selo">verificado</span></td></tr>
 {% endfor %}</tbody></table>
 <p class="sg-meta" style="margin:1rem 0 0">Verificado antes da publicação, em {{ artigo.publicado_em|date:"j \d\e F \d\e Y"|lower }}. Todos os dados deste protótipo são fictícios.</p></section>{% endif %}
+<section class="sg-sec" id="comentarios" style="padding-inline:0"><div class="sg-cartao-conta sg-cartao-conta--larga" data-luz="nevoa" id="cartao-comentario"><span class="sg-sobrolho">Conversa</span><h2>Comente esta reportagem</h2>
+{% if messages %}<div class="sg-avisos" role="status">{% for m in messages %}<p class="sg-aviso{% if m.level_tag == 'error' %} sg-erro{% endif %}"{% if m.level_tag == 'error' %} role="alert"{% endif %}>{{ m }}</p>{% endfor %}</div>{% endif %}
+{% if user.is_authenticated %}<p class="sg-meta">Seu comentário passa por uma revisão antes de aparecer.</p>
+<form method="post" action="{% url 'noticias:comentar' artigo.slug %}" class="sg-form sg-form--conta" id="form-comentario" novalidate>{% csrf_token %}
+{% if form_comentario.errors %}<p class="sg-erro" role="alert">Confira o nome e o comentário.</p>{% endif %}
+<label for="{{ form_comentario.nome.id_for_label }}">Nome
+<span class="luz-campo" data-luz="campo">{{ form_comentario.nome }}</span>
+</label>{% if form_comentario.nome.errors %}<p class="sg-erro" id="erro-nome">{{ form_comentario.nome.errors|join:" " }}</p>{% endif %}
+<label for="{{ form_comentario.texto.id_for_label }}">Seu comentário
+<span class="luz-campo luz-campo--area" data-luz="campo">{{ form_comentario.texto }}</span>
+</label>{% if form_comentario.texto.errors %}<p class="sg-erro" id="erro-texto">{{ form_comentario.texto.errors|join:" " }}</p>{% endif %}
+<p class="sg-meta luz-tecto"><span class="sg-selo sg-selo--neutro"><strong><span data-uso>{{ comentarios_restantes }}</span> de {{ comentarios_teto }} restantes hoje</strong></span><span>comentários de hoje</span></p>
+<button class="sg-btn sg-btn--coral" type="submit" data-luz="botao">Publicar comentário</button></form>
+{% else %}<p class="sg-meta">Comentar pede conta. Ler e ouvir continua livre.</p>
+<p><a class="sg-btn sg-btn--coral" data-luz="botao" href="{% url 'leitores:entrar' %}?next={{ request.path|urlencode }}%23comentarios">Entrar para comentar</a></p>
+<p class="sg-meta">Ainda não tem conta? <a href="{% url 'leitores:criar' %}">Criar conta</a></p>{% endif %}
+</div></section>
 {% if relacionados %}<section class="sg-sec" style="padding-inline:0"><div class="sg-sec__cab"><h2>Continue lendo</h2><a href="{% url 'core:home' %}">Voltar à home →</a></div><div class="sg-grade sg-grade--3">{% for outro in relacionados %}{% include "noticias/_card.html" with artigo=outro prefixo="r" %}{% endfor %}</div></section>{% endif %}</div></article>{% endwith %}{% endblock %}
-{% block scripts %}{% if indice %}<script>if(matchMedia("(max-width:640px)").matches)document.querySelector(".sg-indice details").open=false</script>{% endif %}{% endblock %}
+{% block scripts %}{{ block.super }}{% if indice %}<script>if(matchMedia("(max-width:640px)").matches)document.querySelector(".sg-indice details").open=false</script>{% endif %}{% if form_comentario.errors %}<script>document.getElementById("cartao-comentario").scrollIntoView({block:"center"})</script>{% endif %}{% endblock %}

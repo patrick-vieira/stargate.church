@@ -1,7 +1,10 @@
 {% extends "noticias/base.html" %}
 {% load static %}
+{% block clima %}padrao{% endblock %}
+{% block fundo_vt %}<style>html{background:#0B0C0E;--vt-fundo:#0B0C0E}body{background:#0B0C0E}</style>{% endblock %}
 {% block titulo %}{{ post.titulo }} — A IA na ficção — Stargate{% endblock %}
 {% block conteudo %}
+{% include "core/_narrador.html" %}
 {% for ato in atos %}{% if ato.efeito == "atmosfera:maquina-fria" %}
 <div class="am-raiz" id="principal" data-imersivo data-libs="{{ libs }}">
 <div class="am-frio" aria-hidden="true"></div>

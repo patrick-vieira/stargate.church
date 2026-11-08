@@ -54,8 +54,27 @@ Decisão do Patrick: o motor fica **sem GSAP e sem Lenis** (e sem rede). Ordem d
 
 **Rive** é o motor de animação de primeira linha (pedido do Patrick): efeitos com estado e interação usam `rive:estado`; CSS cobre o scroll simples.
 
+### Narrador Rive (`rive:narrador`, STAR-38)
+
+Glifo comum a **todos os posts imersivos** (`core/_narrador.html`, incluído nos 6 templates). Runtime Rive 2.35.0 vendorizado em `static/lab/vendor/` (nada de CDN) e `static/rive/narrador.riv` (fonte STAR-37, ViewModel `Narrador`: `progresso` 0–100, `era` 0–6, `humor` 0–2, `cor`).
+
+- `static/js/imersivo/efeitos/rive-narrador.js` liga `progresso` ao scroll da página (`progressoPagina(cb)` no contexto do motor) e põe a `era` vinda de `data-parametros`; a `cor` sai da tabela de eras.
+- Era por post: tabela `ERA_NARRADOR` em `core/views.py` (slug → era); fora da tabela vale 6. Post novo = uma linha na tabela.
+- Reduced-motion: não carrega runtime nem wasm; fica o glifo SVG estático com a pele da era. A 390 px o glifo tem 48 px, no canto, sem capturar toques; é decorativo (`aria-hidden`).
+
 ## GSAP + ScrollTrigger e Lenis: PENDENTES
 Decisão: ficam fora por agora. Se um dia entrarem, vão para `static/lab/vendor/gsap-3.12.x/gsap.min.js` e `static/lab/vendor/lenis-1.x/lenis.mjs` (caminhos esperados em `core/imersivo.py`), com a licença ao lado e versão + licença citadas aqui. Enquanto não existirem, o motor não os pede (o servidor só os indica se os ficheiros existirem, ver `core/imersivo.py`) e usa o fallback nativo (`scroll` + `requestAnimationFrame` + `IntersectionObserver`), sem erro de consola.
+
+## Atmosfera «A IA afetiva» (`atmosfera:ia-afetiva`, STAR-44)
+Efeito de página inteira (protótipo aprovado no STAR-51, revisão 5). Se o post tiver um ato com este efeito, `core/views.py` renderiza o template próprio `core/templates/core/imersivo_ia_afetiva.html` em vez do genérico.
+- **Peças**: cidade ao entardecer (prédios gerados em JS, janela que acende com o scroll), conversa que se escreve ao rolar (a 1.ª bolha já vem inteira), cartões «é possível» / «é aceitável?» em cascata, escolha de limites com tabela ficção × 2026. Tudo escopado em `.aa-raiz`.
+- **Ficheiros**: `static/js/imersivo/efeitos/atmosfera-ia-afetiva.js`, `static/css/atmosfera-ia-afetiva.css`, fixture `core/fixtures/ia_afetiva.json` (slug `a-ia-afetiva`).
+- **Parâmetros**: nenhum (`PARAMETROS_POR_EFEITO["atmosfera:ia-afetiva"] = {}`).
+- **Fonte**: títulos em Fraunces 600 local (`static/fonts/fraunces/`), via `--serif: var(--sg-serif)`; nada vem de CDN.
+- **Imagens e libs**: nenhuma. A cidade e a janela são CSS; sem three, sem rede (1.º carregamento = HTML + 1 CSS + 2 JS + a fonte).
+- **Movimento reduzido**: `reduzido` põe `.aa-estatico` (sem respiração da janela, sem cursor a piscar, diálogo completo e cartões visíveis); o botão «pausar movimento» pausa o resto.
+- **Áudio**: desligado; o «som (em breve)» é uma caixa desactivada.
+- **Medições (browser)**: ver o registo da entrega no STAR-44 (fps com «load» anotado, contraste AA, 390 px sem scroll horizontal).
 
 ## Atmosfera «Máquina fria» (`atmosfera:maquina-fria`, STAR-41)
 Efeito de página inteira (protótipo aprovado no STAR-51). Se o post tiver um ato com este efeito, `core/views.py` renderiza o template próprio `core/templates/core/imersivo_maquina_fria.html` em vez do genérico.
@@ -73,7 +92,7 @@ Post 2 da série. Mesmo padrão do STAR-41: um ato com este efeito faz `core/vie
 - **Peças**: HUD vermelho com contagem 10→0 que o leitor pode parar; glitch RGB, scanlines, vinheta e faixa de interferência que crescem com o scroll (variável CSS `--g`, de 0 a 1 e de volta a 0); mosaico 14×8 que se parte em pixels e se recompõe; 3 sinais de supervisão (`<details>`, um aberto de cada vez); formulário «Registro de supervisão» cujo botão «Interromper o sistema» baixa de facto o alarme (`--g` → 0) até alguém rearmar.
 - **Ficheiros**: `static/js/imersivo/efeitos/atmosfera-guerra-maquinas.js`, `static/css/atmosfera-guerra-maquinas.css`, fixture `core/fixtures/guerra_maquinas.json` (slug `o-medo-da-guerra-das-maquinas`, post pk 4, ato pk 15), migration `core/0004`.
 - **Parâmetros**: nenhum (`PARAMETROS_POR_EFEITO["atmosfera:guerra-maquinas"] = {}`).
-- **Sem biblioteca**: nada de three nem Rive; o efeito é CSS + JS próprio e não carrega nada sob demanda.
+- **Sem biblioteca própria**: o efeito da atmosfera não usa three nem Rive; é CSS + JS próprio. O único Rive da página é o narrador (`rive:narrador`), carregado à parte.
 - **Imagens**: `static/img/guerra-maquinas/fundo-1920.webp` (≈66 KB) e `fundo-780.webp` (≈56 KB, só no mobile), ambas ≤ 70 KB. Arte original (Yamato) de paisagem noturna abstrata: sem personagens, cartazes, fotogramas ou logos, sem código verde. Servem de fundo da camada `.ag-arte`, com `mix-blend-mode: screen` a 50 %.
 - **Barra de baixo**: o cabeçalho do site ocupa o topo, por isso a barra do protótipo (ligação à série, intensidade e «pausar movimento») fica fixa em baixo. A 390 px a ligação lê «Ficção · 2», numa linha só.
 - **Cenas fixas**: as cenas `sticky` começam abaixo do cabeçalho do site (76 px; 66 px no mobile); o progresso do ato desconta esse deslocamento.
@@ -81,6 +100,19 @@ Post 2 da série. Mesmo padrão do STAR-41: um ato com este efeito faz `core/vie
 - **Retoques da REVISAO-5**: (1) atos mais curtos (190vh e 200vh; 170vh e 180vh a 390 px) e hero mais baixo, para não haver ecrãs sem texto; (3) a linha mono do hero tem entrelinha de 1,6 e, a 390 px, uma indicação por linha; (4) o sobrolho do hero e a ligação da série não se partem (`white-space: nowrap`).
 - **Direitos**: HUD, mosaico e alarme são desenhos originais; nenhuma citação literal; fontes (AFI, NIST, Warner Bros.) no fim do post.
 
+## Atmosfera «O que é ser humano?» (`atmosfera:ser-humano`, STAR-43)
+Post 3 da série. Mesmo padrão: `TEMPLATES_ATMOSFERA` aponta para `core/templates/core/imersivo_ser_humano.html`. Tudo escopado em `.sh-raiz` com o prefixo `.sh-` (ids incluídos).
+- **Peças**: sala de vidro (arte de fundo, 3 painéis e 2 silhuetas em parallax), reflexo que segue o cursor, brilho especular nos cartões `.sh-vidro` e teste original de 3 perguntas. As respostas (maioria; empate ou nenhuma = «não sei») põem `.sh-tom-<tom>` na raiz, reordenam os 3 cartões do ato 2 e escolhem o final do ato 3. Nada é guardado nem enviado. As perguntas são rascunho do Orochimaru (caixa-hokage#4253) e ficam como estão.
+- **Ficheiros**: `static/js/imersivo/efeitos/atmosfera-ser-humano.js`, `static/css/atmosfera-ser-humano.css`, fixture `core/fixtures/ser_humano.json` (slug `o-que-e-ser-humano`, post pk 5, ato pk 16), migration `core/0006`.
+- **Parâmetros**: nenhum (`PARAMETROS_POR_EFEITO["atmosfera:ser-humano"] = {}`). Sem biblioteca: nada de three nem Rive.
+- **Ligação da série**: a «próxima estação» do post 2 é agora uma ligação para este post; a deste post (post 4) é texto até o post 4 existir.
+- **Imagens**: `static/img/ser-humano/fundo-1920.webp` (≈35 KB) e `fundo-780.webp` (≈31 KB, só no mobile). Só fundos (sala de vidro, sem «personagem»); as figuras difusas das imagens-chave foram apagadas com desfoque. Camada `.sh-arte`, `mix-blend-mode: screen` a 38 %. 1.º carregamento medido: 130–175 KB.
+- **Barra de baixo**: igual ao post 2 (o cabeçalho do site ocupa o topo); a 390 px a ligação lê «Ficção · 3».
+- **Movimento reduzido**: `reduzido` põe `.sh-estatico` (sem reflexo nem transições, ordem fixa em «confiar», os 3 finais visíveis como texto); o botão «pausar movimento» pausa o resto.
+- **Retoques da REVISAO-5 (3)**: a linha mono do hero tem entrelinha de 1,6 e, a 390 px, uma indicação por linha. O sobrolho do hero só quebra a 390 px (não cabe numa linha com este texto).
+- **Acessibilidade medida no browser** (Playwright, `_provas/star43.py`): 24–25 seletores de texto a 1920 e a 390 px, 0 falhas; o mais baixo é `.sh-chip` com 5,67:1. Sem scroll horizontal a 390 px.
+- **Desempenho**: fps em Chromium headless sem GPU, com o teste e o scroll a correr: média 40–42, p5 ≈ 30 (`backdrop-filter` por software); o protótipo marcava ≈ 59 com GPU. Se a média cair, a classe `.sh-sem-blur` tira o desfoque sozinha.
+- **Direitos**: o teste é original e não copia o Voight-Kampff; sala, painéis e silhuetas genéricos; fontes (AFI, A24, HBO, NIST) no fim do post.
 ## Atmosfera «Escolhas da máquina» (`atmosfera:escolhas`, STAR-46)
 Post 6 da série. `TEMPLATES_ATMOSFERA` aponta para `core/templates/core/imersivo_escolhas.html`. Tudo escopado em `.em-raiz` com o prefixo `.em-`.
 - **Peças**: paisagem azul-noite (arte + névoa em 2 camadas com parallax), dois caminhos que se prolongam ao rolar, trilhas de dados cuja velocidade segue o scroll, escolha 1 (A/B), escolha 2 dependente da 1.ª, 4 finais (A1, A2, B1, B2) todos abríveis, árvore dos finais e contador «N de 4 finais vistos».

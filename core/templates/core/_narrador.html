@@ -1,0 +1,7 @@
+{% load static %}
+{# Narrador Rive (STAR-38): glifo comum a todos os posts imersivos, na era do post. Decorativo. #}
+<link rel="stylesheet" href="{% static 'css/narrador.css' %}">
+<div class="nr-narrador" data-ato data-efeito="rive:narrador" data-parametros='{"era": {{ narrador_era|default:6 }}}' data-reduzido="estatico" data-era="{{ narrador_era|default:6 }}" aria-hidden="true">
+  <svg class="nr-estatico" viewBox="0 0 96 96" focusable="false"><circle class="nr-halo" cx="48" cy="48" r="38" fill="none" stroke-width="2"/><circle class="nr-disco" cx="48" cy="48" r="16"/><rect class="nr-barra" x="30" y="46" width="36" height="4" rx="2"/><rect class="nr-barra" x="30" y="62" width="14" height="4" rx="2"/></svg>
+  <canvas class="nr-canvas" width="192" height="192" data-rive data-riv-src="{% static 'rive/narrador.riv' %}" data-riv-js="{% static 'lab/vendor/rive-canvas-2.35.0.js' %}" data-riv-wasm="{% static 'lab/vendor/rive-2.35.0.wasm' %}"></canvas>
+</div>

@@ -13,6 +13,12 @@ class BaseA11yFormMixin:
                 self.fields[field_name].widget.attrs["aria-describedby"] = (
                     f"erro-{field_name}"
                 )
+        # Erro non-field (ex.: «e-mail ou senha incorretos»): não aponta para um campo,
+        # por isso todos os campos ficam inválidos e ligados ao aviso geral. Sem JS.
+        if self.non_field_errors():
+            for campo in self.fields.values():
+                campo.widget.attrs["aria-invalid"] = "true"
+                campo.widget.attrs["aria-describedby"] = "erro-geral"
 
 
 class EntrarForm(BaseA11yFormMixin, AuthenticationForm):

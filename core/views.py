@@ -10,7 +10,21 @@ from .models import Ato, PostImersivo
 TEMPLATES_ATMOSFERA = {
     Ato.Efeito.ATMOSFERA: "core/imersivo_maquina_fria.html",
     Ato.Efeito.ATMOSFERA_GUERRA: "core/imersivo_guerra_maquinas.html",
+    Ato.Efeito.ATMOSFERA_SER_HUMANO: "core/imersivo_ser_humano.html",
     Ato.Efeito.ATMOSFERA_ESCOLHAS: "core/imersivo_escolhas.html",
+    Ato.Efeito.ATMOSFERA_IA_AFETIVA: "core/imersivo_ia_afetiva.html",
+}
+
+
+# Era do narrador (0 1920, 1 1960, 2 1980, 3 1990, 4 2000, 5 2010, 6 2020) por post.
+# Posts fora da tabela ficam na era 6 (creme Stargate).
+ERA_NARRADOR = {
+    "a-maquina-fria": 1,
+    "efeitos-maquina-fria-provisorio": 1,
+    "o-medo-da-guerra-das-maquinas": 2,
+    "escolhas-da-maquina": 5,
+    "o-que-e-ser-humano": 3,
+    "a-ia-afetiva": 5,
 }
 
 
@@ -37,6 +51,7 @@ def imersivo(request, slug):
         "atos": atos,
         "libs": libs_opcionais(),
         "publicados": set(PostImersivo.publicados().values_list("slug", flat=True)),
+        "narrador_era": ERA_NARRADOR.get(post.slug, 6),
     }
     for a in atos:
         if a.efeito in TEMPLATES_ATMOSFERA:

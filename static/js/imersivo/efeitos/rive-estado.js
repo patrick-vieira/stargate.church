@@ -13,9 +13,20 @@ function carregarScript(src) {
 }
 
 registar("rive:estado", async ({ el, parametros, reduzido, progresso }) => {
-  if (reduzido) return; // sem runtime nem wasm: o texto basta
   const canvas = el.querySelector("canvas[data-rive]");
+  const cont = canvas && canvas.closest("[data-carrega]");
+  const carrega = (fim) => window.Carregando && cont && window.Carregando[fim](cont);
+  if (reduzido) return carrega("pronto"); // sem runtime nem wasm: o texto basta
   if (!canvas) throw new Error("canvas ausente");
+  try {
+    await montar();
+  } catch (e) {
+    carrega("erro");
+    throw e;
+  }
+  carrega("pronto");
+
+  async function montar() {
   const nomeProp = parametros.propriedade || "progressoLeitura";
   await carregarScript(canvas.dataset.rivJs);
   window.rive.RuntimeLoader.setWasmUrl(canvas.dataset.rivWasm);
@@ -39,4 +50,5 @@ registar("rive:estado", async ({ el, parametros, reduzido, progresso }) => {
       onLoadError: (e) => erro(new Error(String(e && e.data ? e.data : e))),
     });
   });
+  }
 });
