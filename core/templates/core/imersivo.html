@@ -3,6 +3,7 @@
 {% block clima %}padrao{% endblock %}
 {% block titulo %}{{ post.titulo }} — Stargate{% endblock %}
 {% block conteudo %}
+{% include "core/_narrador.html" %}
 <section class="sg-sec"><div class="sg-wrap">
 <span class="sg-sobrolho">Post imersivo</span>
 <h1>{{ post.titulo }}</h1>
