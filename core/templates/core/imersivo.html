@@ -4,6 +4,7 @@
 {% block titulo %}{{ post.titulo }} — Stargate{% endblock %}
 {% block conteudo %}
 {% include "core/_narrador.html" %}
+{% include "core/_midia.html" %}
 <section class="sg-sec"><div class="sg-wrap">
 <span class="sg-sobrolho">Post imersivo</span>
 <h1>{{ post.titulo }}</h1>
@@ -83,7 +84,7 @@
         {% endif %}
         </div>
         <span class="im-decada">{{ e.decada }}s</span>
-        <h3 class="im-estacao-titulo">{% if e.slug in publicados %}<a href="{% url 'core:imersivo' e.slug %}">{{ e.titulo }}</a>{% else %}{{ e.titulo }}{% endif %}</h3>
+        <h3 class="im-estacao-titulo">{% if e.url %}<a href="{{ e.url }}">{{ e.titulo }}</a>{% else %}{{ e.titulo }}{% endif %}</h3>
         {% if e.texto %}<p>{{ e.texto }}</p>{% endif %}
       </li>
       {% endfor %}

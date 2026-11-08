@@ -77,6 +77,10 @@ STATIC_URL = "static/"
 STATIC_ROOT = Path(env("STATIC_ROOT", default=str(BASE_DIR / "staticfiles")))
 STATICFILES_DIRS = [BASE_DIR / "static"] if (BASE_DIR / "static").is_dir() else []
 
+# Mídia (vídeos e narrações): fora do src e fora do git; servida só em DEBUG.
+MEDIA_URL = "midia/"
+MEDIA_ROOT = Path(env("MEDIA_ROOT", default=str(BASE_DIR.parent / "stargate-media")))
+
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 LOGIN_URL = "leitores:entrar"
