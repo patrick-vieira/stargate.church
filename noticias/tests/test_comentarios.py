@@ -39,7 +39,11 @@ class ComentarViewTests(TestCase):
     def test_cria_pendente_com_nome_sem_email(self):
         self.client.force_login(self.user)
         res = self.client.post(self.url, self.dados)
-        self.assertRedirects(res, self.artigo.get_absolute_url())
+        self.assertRedirects(
+            res,
+            self.artigo.get_absolute_url() + "#comentarios",
+            fetch_redirect_response=False,
+        )
         c = Comentario.objects.get()
         self.assertEqual(c.estado, Comentario.Estado.PENDENTE)
         self.assertEqual(c.nome, "Maria")
@@ -71,6 +75,57 @@ class ComentarViewTests(TestCase):
         self.client.force_login(self.user)
         url = reverse("noticias:comentar", args=[rascunho.slug])
         self.assertEqual(self.client.post(url, self.dados).status_code, 404)
+
+    def test_form_invalido_rerenderiza_com_400_e_sem_perder_texto(self):
+        self.client.force_login(self.user)
+        res = self.client.post(self.url, {"nome": "  ", "texto": "Meu texto longo"})
+        self.assertEqual(res.status_code, 400)
+        self.assertTemplateUsed(res, "noticias/artigo.html")
+        self.assertContains(res, "Meu texto longo", status_code=400)
+        self.assertContains(res, 'id="erro-nome"', status_code=400)
+        self.assertContains(res, 'aria-invalid="true"', status_code=400)
+        self.assertContains(res, self.artigo.titulo[:20], status_code=400)
+
+    def test_tecto_rerenderiza_artigo_com_aviso(self):
+        self.client.force_login(self.user)
+        for _ in range(2):
+            self.client.post(self.url, self.dados)
+        res = self.client.post(self.url, self.dados)
+        self.assertEqual(res.status_code, 429)
+        self.assertContains(res, "Limite diário", status_code=429)
+
+
+@override_settings(STARGATE_TECTO_COMENTARIO=5)
+class ArtigoFormComentarioTests(TestCase):
+    def setUp(self):
+        self.artigo = criar_artigo()
+        self.url = self.artigo.get_absolute_url()
+        self.user = User.objects.create_user(EMAIL, EMAIL, SENHA)
+
+    def test_anonimo_ve_convite_com_next_de_volta(self):
+        res = self.client.get(self.url)
+        self.assertEqual(res.status_code, 200)
+        self.assertNotContains(res, 'id="form-comentario"')
+        self.assertContains(res, "Entrar para comentar")
+        self.assertContains(res, "next=" + self.url + "%23comentarios")
+
+    def test_leitor_ve_form_com_contador_e_data_luz(self):
+        self.client.force_login(self.user)
+        res = self.client.get(self.url)
+        self.assertContains(res, 'id="form-comentario"')
+        self.assertContains(res, 'data-luz="campo"')
+        self.assertContains(res, "<span data-uso>5</span> de 5 restantes hoje")
+        self.assertContains(res, "luz.js")
+
+    def test_contador_desce_e_mensagem_de_sucesso_aparece(self):
+        self.client.force_login(self.user)
+        res = self.client.post(
+            reverse("noticias:comentar", args=[self.artigo.slug]),
+            {"nome": "Maria", "texto": "Ótima matéria."},
+            follow=True,
+        )
+        self.assertContains(res, "Recebemos o seu comentário")
+        self.assertContains(res, "<span data-uso>4</span> de 5 restantes hoje")
 
 
 class ComentarioFormTests(TestCase):

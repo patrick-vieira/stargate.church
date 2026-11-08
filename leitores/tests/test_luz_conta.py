@@ -27,6 +27,15 @@ class LuzContaTests(TestCase):
         self.assertIn('role="alert"', html)
         self.assertIn('aria-describedby="erro-email"', html)
 
+    def test_entrar_com_erro_non_field_marca_os_dois_campos(self):
+        r = self.client.post(
+            reverse("leitores:entrar"), {"username": "x@y.org", "password": "errada"}
+        )
+        html = r.content.decode()
+        self.assertIn('id="erro-geral"', html)
+        self.assertEqual(html.count('aria-invalid="true"'), 2)
+        self.assertEqual(html.count('aria-describedby="erro-geral"'), 2)
+
     def test_newsletter_nao_aparece_nas_paginas_de_conta(self):
         for nome in ("leitores:entrar", "leitores:criar"):
             self.assertNotContains(self.client.get(reverse(nome)), 'id="assinar"')

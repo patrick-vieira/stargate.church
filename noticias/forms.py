@@ -13,6 +13,7 @@ class ComentarioForm(forms.Form):
         for campo in self.errors:
             if campo in self.fields:
                 self.fields[campo].widget.attrs["aria-describedby"] = f"erro-{campo}"
+                self.fields[campo].widget.attrs["aria-invalid"] = "true"
 
     def clean_nome(self):
         nome = self.cleaned_data["nome"].strip()

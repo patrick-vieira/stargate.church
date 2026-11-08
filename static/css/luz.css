@@ -140,6 +140,15 @@
   linear-gradient(180deg,#0F1226 0%,#1C1B38 60%,#2D2442 100%)}
 @media (max-width:1024px){.luz-ceu{--sol-x:72%;--sol-y:12%}}
 
+/* ---------- comentário do leitor (STAR-54 A4): cartão largo e o contador do tecto diário ---------- */
+.sg-cartao-conta--larga{max-width:640px}
+.sg-cartao-conta--larga h2{font:600 1.75rem/1.15 var(--sg-serif);margin:.6rem 0 .5rem}
+.sg-avisos{margin:.6rem 0}
+.sg-aviso{margin:.3rem 0;font-weight:600;color:var(--sg-t-saude)}
+.sg-aviso.sg-erro{color:var(--sg-coral-ink)}
+.luz-tecto{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin:0;font-size:.9375rem}
+.luz-tecto strong{font-weight:600;color:var(--sg-tinta)}
+
 /* ---------- reduced-motion: a luz fica parada; sem tremor nem dissipação animada.
    Erro e sucesso seguem visíveis: o .sg-erro, o glifo, o anel coral, o .luz-ok e a névoa já apagada. ---------- */
 @media (prefers-reduced-motion:reduce){

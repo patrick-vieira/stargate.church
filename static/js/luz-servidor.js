@@ -6,7 +6,7 @@
     var cartoes = document.querySelectorAll('[data-luz=nevoa]');
     Array.prototype.forEach.call(cartoes, function (cartao) {
       if (!cartao.querySelector('.sg-erro[role=alert]')) return;
-      Array.prototype.forEach.call(cartao.querySelectorAll('input[aria-describedby]'), function (campo) {
+      Array.prototype.forEach.call(cartao.querySelectorAll('input[aria-describedby],textarea[aria-describedby]'), function (campo) {
         var ids = campo.getAttribute('aria-describedby').split(/\s+/);
         var comErro = ids.some(function (id) {
           var alvo = id && document.getElementById(id);
