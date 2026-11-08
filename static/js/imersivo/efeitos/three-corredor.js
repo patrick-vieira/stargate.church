@@ -3,9 +3,20 @@ import { registar } from "../motor.js";
 // Corredor 3D feito só de aros geométricos (arte original); a câmera avança com o scroll.
 // A lib three só é baixada quando o ato entra em vista; com movimento reduzido nem isso.
 registar("three:corredor", async ({ el, parametros, reduzido, progresso }) => {
-  if (reduzido) return;
   const canvas = el.querySelector("canvas[data-three]");
+  const cont = canvas && canvas.closest("[data-carrega]");
+  const carrega = (fim) => window.Carregando && cont && window.Carregando[fim](cont);
+  if (reduzido) return carrega("pronto"); // sem three: o esqueleto sai e o texto basta
   if (!canvas) throw new Error("canvas ausente");
+  try {
+    await montar();
+  } catch (e) {
+    carrega("erro");
+    throw e;
+  }
+  carrega("pronto");
+
+  async function montar() {
   const THREE = await import("three");
   const aros = typeof parametros.profundidade === "number" ? Math.round(parametros.profundidade) : 16;
   const passo = 1.5;
@@ -31,4 +42,5 @@ registar("three:corredor", async ({ el, parametros, reduzido, progresso }) => {
     camera.position.z = 2 - p * (aros - 1) * passo;
     renderer.render(cena, camera);
   });
+  }
 });

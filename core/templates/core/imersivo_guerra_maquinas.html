@@ -1,5 +1,7 @@
 {% extends "noticias/base.html" %}
 {% load static %}
+{% block clima %}glitch{% endblock %}
+{% block fundo_vt %}<style>html{background:#07090D;--vt-fundo:#07090D}body{background:#07090D}</style>{% endblock %}
 {% block titulo %}{{ post.titulo }} — A IA na ficção — Stargate{% endblock %}
 {% block conteudo %}
 {% for ato in atos %}{% if ato.efeito == "atmosfera:guerra-maquinas" %}

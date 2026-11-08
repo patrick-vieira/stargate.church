@@ -1,5 +1,6 @@
 {% extends "noticias/base.html" %}
 {% load static %}
+{% block clima %}padrao{% endblock %}
 {% block titulo %}{{ post.titulo }} — Stargate{% endblock %}
 {% block conteudo %}
 <section class="sg-sec"><div class="sg-wrap">
@@ -23,12 +24,12 @@
   {% elif ato.efeito == "scroll:revela" %}
   <div class="im-cena im-revela" aria-hidden="true"><span class="im-forma"></span><span class="im-forma"></span><span class="im-forma"></span></div>
   {% elif ato.efeito == "three:gira" %}
-  <div class="im-cena" aria-hidden="true"><canvas class="im-canvas" data-three width="640" height="360"></canvas></div>
+  <div class="im-cena" data-carrega="three" aria-busy="true" aria-hidden="true"><canvas class="im-canvas" data-three width="640" height="360"></canvas><div class="car-esq" role="status"><i class="car-esq__forma"></i><i class="car-esq__forma"></i><i class="car-esq__forma"></i><p class="car-esq__txt">A cena está chegando…</p></div></div>
   {% elif ato.efeito == "rive:estado" %}
-  <div class="im-cena" aria-hidden="true"><canvas class="im-canvas im-canvas--rive" data-rive width="400" height="160"
+  <div class="im-cena" data-carrega="rive" aria-busy="true" aria-hidden="true"><canvas class="im-canvas im-canvas--rive" data-rive width="400" height="160"
       data-riv-src="{% static 'lab/rive/stargate-leitura.riv' %}"
       data-riv-js="{% static 'lab/vendor/rive-canvas-2.35.0.js' %}"
-      data-riv-wasm="{% static 'lab/vendor/rive-2.35.0.wasm' %}"></canvas></div>
+      data-riv-wasm="{% static 'lab/vendor/rive-2.35.0.wasm' %}"></canvas><div class="car-esq" role="status"><i class="car-esq__forma"></i><i class="car-esq__forma"></i><i class="car-esq__forma"></i><p class="car-esq__txt">A cena está chegando…</p></div></div>
   {% elif ato.efeito == "terminal:fala" %}
   <div class="im-cena im-terminal">
     <pre class="im-term" data-terminal aria-hidden="true">{% for l in ato.parametros.linhas %}{{ l }}
@@ -36,7 +37,7 @@
     <p class="im-sr">{{ ato.parametros.linhas|join:" " }}</p>
   </div>
   {% elif ato.efeito == "three:corredor" %}
-  <div class="im-cena" aria-hidden="true"><canvas class="im-canvas" data-three width="640" height="360"></canvas></div>
+  <div class="im-cena" data-carrega="three" aria-busy="true" aria-hidden="true"><canvas class="im-canvas" data-three width="640" height="360"></canvas><div class="car-esq" role="status"><i class="car-esq__forma"></i><i class="car-esq__forma"></i><i class="car-esq__forma"></i><p class="car-esq__txt">A cena está chegando…</p></div></div>
   {% elif ato.efeito == "olho:segue" %}
   <div class="im-cena im-olho" aria-hidden="true">
     <svg viewBox="0 0 200 200" data-olho>
@@ -63,7 +64,8 @@
 </div>
 {% endblock %}
 {% block scripts %}
-<link rel="stylesheet" href="{% static 'css/imersivo.css' %}">
+<link rel="stylesheet" href="{% static 'css/imersivo.css' %}"><link rel="stylesheet" href="{% static 'css/carregando.css' %}">
+<script src="{% static 'js/carregando.js' %}" defer></script>
 <script>document.documentElement.classList.add("js")</script>
 {# Tudo local (vendorizado), versões fixas; ver docs/motor-imersivo.md. #}
 <script type="importmap">
