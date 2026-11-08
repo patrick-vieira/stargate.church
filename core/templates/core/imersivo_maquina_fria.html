@@ -1,5 +1,7 @@
 {% extends "noticias/base.html" %}
 {% load static %}
+{% block clima %}padrao{% endblock %}
+{% block fundo_vt %}<style>html{background:#0B0C0E;--vt-fundo:#0B0C0E}body{background:#0B0C0E}</style>{% endblock %}
 {% block titulo %}{{ post.titulo }} — A IA na ficção — Stargate{% endblock %}
 {% block conteudo %}
 {% include "core/_narrador.html" %}

@@ -118,6 +118,9 @@ class RotaTests(TestCase):
         self.assertContains(r, "data-parametros=")
         self.assertContains(r, "&quot;intensidade&quot;: 0.3")
         self.assertContains(r, 'data-reduzido="estatico"')
+        # a base da luz: o CSS vem do base.html, o luz.js não corre no imersivo
+        self.assertContains(r, "css/luz.css")
+        self.assertNotContains(r, "js/luz.js")
         self.assertContains(r, "<h2>Primeiro</h2>", html=True)
         self.assertContains(r, "<p>Texto do segundo.</p>", html=True)
         self.assertContains(r, 'data-camada="fundo"')

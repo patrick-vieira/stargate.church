@@ -1,0 +1,68 @@
+/* transicao.css — STAR-51, onda 7: transições entre páginas (View Transitions entre documentos).
+   Liga-se com <html data-clima="padrao|nevoa|glitch|pagina"> (o clima da página que SAI) + transicao.js.
+   Cada página define, num <style> inline ANTES de qualquer CSS, o fundo da sua paleta (html{background:…}) e --vt-fundo (a mesma cor).
+   Só transform, opacity, clip-path e filter nos ::view-transition-*; nada de layout. Sem CDN, sem imagens.
+   --vt-k multiplica as durações (1 = normal); só a prova a muda (câmera lenta, para fotografar o meio do salto). */
+
+@view-transition{navigation:auto}
+
+:root{--vt-fundo:#FBF5EA}
+
+/* o fundo por baixo dos dois instantâneos é a paleta da página (nunca branco): a da que saiu, até o fim */
+::view-transition{background:var(--vt-fundo-ant,var(--vt-fundo))}
+::view-transition-group(root){animation:none}
+::view-transition-old(root),::view-transition-new(root){mix-blend-mode:normal;animation-fill-mode:both}
+
+/* ---- padrao (a home e o resto): a página antiga fica firme por baixo e a nova funde por cima (≈ 260 ms) ---- */
+::view-transition-old(root){animation:none}
+::view-transition-new(root){animation:vt-entra calc(260ms*var(--vt-k,1)) ease-out both}
+@keyframes vt-entra{from{opacity:0}to{opacity:1}}
+
+/* ---- nevoa (sai o 00): a névoa cobre e abre, ≈ 620 ms ---- */
+:root:active-view-transition-type(nevoa)::view-transition{
+  background:radial-gradient(70% 60% at 50% 45%,rgba(230,196,143,.42),transparent 75%),#2A2014}
+:root:active-view-transition-type(nevoa)::view-transition-old(root){animation:vt-nevoa-sai calc(360ms*var(--vt-k,1)) ease-in both}
+:root:active-view-transition-type(nevoa)::view-transition-new(root){animation:vt-nevoa-entra calc(420ms*var(--vt-k,1)) calc(200ms*var(--vt-k,1)) ease-out both}
+@keyframes vt-nevoa-sai{from{opacity:1;filter:blur(0) brightness(1)}to{opacity:0;filter:blur(14px) brightness(1.25)}}
+@keyframes vt-nevoa-entra{from{opacity:0;filter:blur(14px) brightness(1.25)}to{opacity:1;filter:blur(0) brightness(1)}}
+
+/* ---- glitch (sai o 02): cortes horizontais e deslocamento RGB, ≈ 420 ms ---- */
+:root:active-view-transition-type(glitch)::view-transition{background:#07090D}
+:root:active-view-transition-type(glitch)::view-transition-old(root){animation:vt-glitch-sai calc(240ms*var(--vt-k,1)) steps(1,end) both}
+:root:active-view-transition-type(glitch)::view-transition-new(root){animation:vt-glitch-entra calc(300ms*var(--vt-k,1)) calc(120ms*var(--vt-k,1)) steps(1,end) both}
+@keyframes vt-glitch-sai{
+  0%{transform:none;clip-path:inset(0);filter:none}
+  12%{transform:translateX(-22px);clip-path:inset(8% 0 70% 0);filter:drop-shadow(6px 0 0 rgba(255,60,70,.85)) drop-shadow(-6px 0 0 rgba(60,240,255,.85))}
+  26%{transform:translateX(26px);clip-path:inset(46% 0 30% 0);filter:drop-shadow(-6px 0 0 rgba(255,60,70,.85)) drop-shadow(6px 0 0 rgba(60,240,255,.85))}
+  40%{transform:translateX(-10px);clip-path:inset(0);filter:drop-shadow(5px 0 0 rgba(255,60,70,.85)) drop-shadow(-5px 0 0 rgba(60,240,255,.85))}
+  54%{transform:translateX(30px);clip-path:inset(70% 0 6% 0);filter:none}
+  68%{transform:translateX(-34px);clip-path:inset(20% 0 52% 0);filter:drop-shadow(8px 0 0 rgba(255,60,70,.85)) drop-shadow(-8px 0 0 rgba(60,240,255,.85))}
+  84%{transform:translateX(14px);clip-path:inset(0 0 40% 0);filter:none}
+  100%{transform:none;clip-path:inset(50% 0 50% 0);filter:none}}
+@keyframes vt-glitch-entra{
+  0%{transform:translateX(24px);clip-path:inset(35% 0 35% 0);filter:drop-shadow(-6px 0 0 rgba(255,60,70,.85)) drop-shadow(6px 0 0 rgba(60,240,255,.85))}
+  25%{transform:translateX(-18px);clip-path:inset(10% 0 55% 0);filter:drop-shadow(6px 0 0 rgba(255,60,70,.85)) drop-shadow(-6px 0 0 rgba(60,240,255,.85))}
+  50%{transform:translateX(12px);clip-path:inset(0 0 20% 0);filter:none}
+  75%{transform:translateX(-6px);clip-path:inset(0);filter:drop-shadow(3px 0 0 rgba(255,60,70,.85)) drop-shadow(-3px 0 0 rgba(60,240,255,.85))}
+  100%{transform:none;clip-path:inset(0);filter:none}}
+
+/* ---- pagina (sai o 05): o instantâneo antigo vira à volta da lombada (borda esquerda), ≈ 640 ms ---- */
+:root:active-view-transition-type(pagina)::view-transition{background:#E4D9BF}
+:root:active-view-transition-type(pagina)::view-transition-image-pair(root){perspective:2200px;perspective-origin:50% 50%}
+:root:active-view-transition-type(pagina)::view-transition-old(root){z-index:2;transform-origin:0 50%;backface-visibility:hidden;
+  animation:vt-vira calc(640ms*var(--vt-k,1)) cubic-bezier(.55,.05,.25,1) both}
+:root:active-view-transition-type(pagina)::view-transition-new(root){animation:vt-pagina-entra calc(640ms*var(--vt-k,1)) ease-out both}
+@keyframes vt-vira{from{transform:rotateY(0);filter:brightness(1)}to{transform:rotateY(-100deg);filter:brightness(.5)}}
+@keyframes vt-pagina-entra{from{transform:scale(.965);filter:brightness(.82)}to{transform:none;filter:none}}
+
+/* ---- fallback (sem View Transitions, ou ?semvt=1): a navegação é normal e a página nova funde em ≤ 250 ms.
+   O fundo inline da página garante que nada pisca branco. O transicao.js põe html.vt-fallback. ---- */
+html.vt-fallback body{animation:vt-entra-fb .22s ease-out both}
+@keyframes vt-entra-fb{from{opacity:0}to{opacity:1}}
+
+/* ---- reduced-motion: nenhuma animação; a mudança é instantânea ---- */
+@media (prefers-reduced-motion:reduce){
+  ::view-transition-group(*),::view-transition-image-pair(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}
+  html.vt-fallback body{animation:none!important}
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}

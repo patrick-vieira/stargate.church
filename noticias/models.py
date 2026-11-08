@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.urls import reverse
@@ -181,3 +182,31 @@ class NumeroDestaque(models.Model):
 
     def __str__(self):
         return f"{self.valor} — {self.texto}"
+
+
+class Comentario(models.Model):
+    """Comentário de um leitor num artigo; nasce pendente e o admin publica."""
+
+    class Estado(models.TextChoices):
+        PENDENTE = "pendente", "Pendente"
+        PUBLICADO = "publicado", "Publicado"
+        OCULTO = "oculto", "Oculto"
+
+    artigo = models.ForeignKey(
+        Artigo, on_delete=models.CASCADE, related_name="comentarios"
+    )
+    autor = models.ForeignKey(
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="comentarios"
+    )
+    nome = models.CharField("nome", max_length=60)
+    texto = models.TextField("comentário", max_length=1000)
+    estado = models.CharField(
+        max_length=10, choices=Estado.choices, default=Estado.PENDENTE
+    )
+    criado_em = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ["-criado_em"]
+
+    def __str__(self):
+        return f"{self.nome} em {self.artigo_id} ({self.estado})"

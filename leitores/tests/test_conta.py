@@ -52,6 +52,11 @@ class ContaTests(TestCase):
         self.assertContains(r, 'for="id_username"')
         self.assertContains(r, 'autocomplete="username"')
 
+    def test_entrar_traz_a_base_da_luz(self):
+        r = self.client.get(reverse("leitores:entrar"))
+        self.assertContains(r, "css/luz.css")
+        self.assertContains(r, "js/luz.js")
+
     def test_cabecalho_muda_com_o_login(self):
         self.assertContains(self.client.get(reverse("core:home")), "Entrar")
         User.objects.create_user("a@b.com", "a@b.com", "uma-senha-forte-91")

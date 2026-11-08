@@ -1,0 +1,157 @@
+/* luz.css — STAR-51, onda 6: «a luz e a névoa» nos componentes do site Stargate (Editorial solar).
+   Candidato a static/css/luz.css. Não altera nenhum token de tokens.css e não usa CDN nem imagens.
+   Liga-se por data-luz="campo|botao|cartao|nevoa|ceu". O luz.js escreve, em cada [data-luz] visível:
+     --luz-x / --luz-y   posição do cursor dentro do elemento, em px (pode sair da caixa; padrão 32% / 22%)
+     --luz-nx / --luz-ny a mesma posição normalizada, de -1 (esq./topo) a 1 (dir./fundo); decide o lado da sombra
+     --luz-i             intensidade, 0 (cursor longe, ≥ 240 px) a 1 (cursor dentro); padrão .6
+   Sem o JS, ou com reduced-motion, ficam os padrões: a luz parada numa posição bonita. */
+
+[data-luz]{--luz-x:32%;--luz-y:22%;--luz-nx:-.35;--luz-ny:-.55;--luz-i:.6;
+  --luz-cor:235,90,60;      /* coral: o anel da borda (>= 3:1 sobre creme e papel) */
+  --luz-sol:247,184,75;     /* sol: só halo e brilho, nunca borda em repouso */
+  --luz-raio:120px;
+  --luz-borda:var(--sg-tinta-3);        /* repouso: 5,6:1 sobre o creme; a --sg-linha (1,4:1) NÃO serve em campo */
+  --luz-borda-foco:var(--sg-tinta);
+  --luz-foco:var(--sg-coral-ink)}       /* anel de foco: 6:1, visível sem a luz */
+.sg-form[hidden]{display:none}
+
+/* ---------- campos: a luz acende a borda ---------- */
+[data-luz=campo]{position:relative;display:block;margin-top:.3rem;border-radius:var(--sg-pill);
+  box-shadow:calc(var(--luz-nx)*-5px) calc(var(--luz-ny)*-6px + 6px) 16px -8px rgba(60,40,20,calc(.10 + .22*var(--luz-i)))}
+[data-luz=campo].luz-campo--area{border-radius:var(--sg-r2)}
+[data-luz=campo]::before{content:"";position:absolute;inset:0;z-index:1;border-radius:inherit;padding:2px;pointer-events:none;
+  background:radial-gradient(circle var(--luz-raio) at var(--luz-x) var(--luz-y),rgb(var(--luz-cor)),rgba(var(--luz-cor),0) 100%);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;
+  mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);
+  opacity:var(--luz-i);transition:opacity .2s}
+.sg-form [data-luz=campo] :is(input,textarea):not([type=hidden]){display:block;width:100%;min-width:0;margin-top:0;
+  border:1.5px solid var(--luz-borda);border-radius:inherit;background:#fff;color:var(--sg-tinta);font:500 1.0625rem/1.4 var(--sg-sans)}
+.sg-form [data-luz=campo] textarea{min-height:8rem;padding:.9rem 1.2rem;resize:vertical}
+.sg-form [data-luz=campo] ::placeholder{color:var(--sg-tinta-3);opacity:1}
+.sg-form [data-luz=campo] :is(input,textarea):not([type=hidden]):focus-visible{outline:3px solid var(--luz-foco);outline-offset:3px;border-color:var(--luz-borda-foco)}
+[data-luz=campo].luz--foco{box-shadow:0 0 0 6px rgba(var(--luz-sol),.30),0 0 32px 4px rgba(var(--luz-sol),.55)}
+[data-luz=campo].luz--foco::before{opacity:1;background:var(--luz-foco)}
+.sg-form [data-luz=campo] :is(input,textarea)[aria-invalid=true]{border-color:var(--sg-coral-ink)}
+[data-luz=campo]:has([aria-invalid=true])::before{opacity:1;background:var(--sg-coral-ink)}
+[data-luz=campo]:has(:disabled){box-shadow:none}
+[data-luz=campo]:has(:disabled)::before{display:none}
+
+/* erro e confirmação, desenhados (não só cor): glifo + texto */
+.sg-form .sg-erro{display:flex;align-items:center}
+.sg-form .sg-erro::before{content:"!";flex:none;display:inline-grid;place-items:center;width:1.2em;height:1.2em;margin-right:.5em;border-radius:50%;
+  background:var(--sg-coral-ink);color:#fff;font:700 .8em/1 var(--sg-sans)}
+.luz-ok{margin:1rem 0 0;padding:.85rem 1.1rem;border-radius:var(--sg-r2);background:#EEF8F2;border:1.5px solid var(--sg-t-saude);color:#0F4F37;font-weight:600;font-size:1rem;line-height:1.45}
+.luz-ok::before{content:"\2713\00a0"}
+
+/* ---------- névoa: o fundo vivo de um formulário ---------- */
+[data-luz=nevoa]{--luz-nv:247,184,75;--luz-nv-a:.30;position:relative;isolation:isolate;overflow:hidden}
+[data-luz=nevoa]::after{content:"";position:absolute;inset:-16px;z-index:-1;pointer-events:none;
+  background:
+    radial-gradient(circle 250px at calc(var(--luz-x) + 16px) calc(var(--luz-y) + 16px),rgba(var(--luz-nv),var(--luz-nv-a)),rgba(var(--luz-nv),calc(var(--luz-nv-a)*.35)) 55%,transparent 74%),
+    radial-gradient(60% 45% at 10% 100%,rgba(235,90,60,.10),transparent 70%),
+    radial-gradient(50% 40% at 100% 0%,rgba(247,184,75,.16),transparent 70%);
+  opacity:calc(.6 + .4*var(--luz-i))}
+[data-luz=nevoa].luz--erro{--luz-nv:235,90,60}
+[data-luz=nevoa].luz--tremor::after{animation:luz-tremor .4s ease-in-out;will-change:transform}
+[data-luz=nevoa].luz--dissipa::after{opacity:0;animation:luz-dissipa .6s ease-out forwards;will-change:opacity,transform,filter}
+@keyframes luz-tremor{0%,100%{transform:translateX(0)}15%{transform:translateX(-10px)}30%{transform:translateX(9px)}45%{transform:translateX(-7px)}60%{transform:translateX(5px)}80%{transform:translateX(-2px)}}
+@keyframes luz-dissipa{from{opacity:1;filter:blur(0);transform:scale(1)}to{opacity:0;filter:blur(14px);transform:scale(1.3)}}
+
+/* ---------- botões: brilho que segue o cursor e sombra projetada ---------- */
+[data-luz=botao]{position:relative;isolation:isolate;
+  box-shadow:calc(var(--luz-nx)*-7px) calc(var(--luz-ny)*-9px + 8px) 16px -6px rgba(60,40,20,calc(.16 + .24*var(--luz-i)))}
+[data-luz=botao]::after{content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;pointer-events:none;
+  background:radial-gradient(circle 90px at var(--luz-x) var(--luz-y),rgba(255,255,255,calc(.12*var(--luz-i))),rgba(var(--luz-sol),calc(.16*var(--luz-i))) 52%,transparent 74%)}
+.sg-btn--coral[data-luz=botao]::after{background:radial-gradient(circle 90px at var(--luz-x) var(--luz-y),rgba(255,255,255,calc(.12*var(--luz-i))),rgba(var(--luz-sol),calc(.06*var(--luz-i))) 52%,transparent 74%)}  /* branco sobre #B3321A fica >= 4,5:1 */
+[data-luz=botao]:focus-visible{outline:3px solid var(--luz-foco);outline-offset:3px}
+
+/* ---------- cartões: brilho na arte, sombra do lado oposto à luz, halo de borda ---------- */
+[data-luz=cartao]{position:relative;isolation:isolate}
+[data-luz=cartao]::before{content:"";position:absolute;inset:-8px;z-index:-1;border-radius:calc(var(--sg-r3) + 6px);padding:2px;pointer-events:none;
+  background:radial-gradient(circle 200px at calc(var(--luz-x) + 8px) calc(var(--luz-y) + 8px),rgb(var(--luz-cor)),rgba(var(--luz-cor),0) 100%);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;
+  mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);
+  opacity:calc(var(--luz-i)*.85)}
+[data-luz=cartao] .sg-art{box-shadow:calc(var(--luz-nx)*-14px) calc(var(--luz-ny)*-16px + 12px) 28px -10px rgba(60,40,20,calc(.10 + .28*var(--luz-i)))}
+[data-luz=cartao] .sg-art::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(circle 200px at var(--luz-x) var(--luz-y),rgba(255,248,230,calc(.55*var(--luz-i))),transparent 70%)}
+[data-luz=cartao]:focus-visible{outline:3px solid var(--luz-foco);outline-offset:6px;border-radius:var(--sg-r2)}
+
+/* ---------- newsletter (bloco escuro): a luz é sol sobre tinta, o foco é sol ---------- */
+.sg-news [data-luz]{--luz-borda:var(--sg-creme);--luz-borda-foco:#fff;--luz-foco:var(--sg-sol);--luz-cor:247,184,75}
+.sg-news[data-luz=nevoa]{--luz-nv-a:.20}
+.sg-news [data-luz=campo]{flex:1;min-width:200px}
+.sg-news .sg-form [data-luz=campo] :is(input,textarea):not([type=hidden]){background:#FBF5EA}
+.sg-news .sg-erro{color:#FFB59E;flex:1 1 100%;margin:0}
+.sg-news .luz-ok{color:#0F4F37;font-size:1rem;margin:1rem 0 0}
+.sg-news .sg-form .sg-erro::before{background:#FFB59E;color:var(--sg-tinta)}
+/* o estado atual (desativado): legível, AA, e a luz não o acende */
+.sg-news .sg-form input[disabled]{opacity:1;cursor:not-allowed;background:var(--sg-creme-2);border:2px dashed var(--sg-creme);color:var(--sg-tinta-3)}
+.sg-news .sg-form input[disabled]::placeholder{color:var(--sg-tinta-3);opacity:1}
+.sg-news .sg-btn[disabled]{opacity:1;cursor:not-allowed;background:transparent;color:var(--sg-creme);border:2px dashed var(--sg-creme)}
+
+/* ---------- a home: atmosfera de entrada, que muda com a hora (5 fases) ---------- */
+.luz-ceu{position:relative;isolation:isolate;overflow:hidden;
+  --ceu-tx:var(--sg-tinta);--ceu-tx2:var(--sg-tinta-2);--ceu-tx3:var(--sg-tinta-3);--ceu-ac:var(--sg-coral-ink);
+  --sol-x:62%;--sol-y:30%;--sol-r:clamp(150px,27vw,520px)}
+.luz-ceu__fundo{position:absolute;inset:0;z-index:-1;pointer-events:none}
+.luz-ceu__fundo i{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease}
+.luz-ceu::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(circle 280px at var(--luz-x) var(--luz-y),rgba(var(--luz-sol),calc(.16*var(--luz-i))),transparent 72%)}
+.luz-ceu .sg-sobrolho{color:var(--ceu-ac)}
+.luz-ceu .sg-manchete h1{color:var(--ceu-tx)}
+.luz-ceu .sg-manchete h1 em{color:var(--ceu-ac)}
+.luz-ceu .sg-lede{color:var(--ceu-tx2)}
+.luz-ceu .sg-meta{color:var(--ceu-tx3)}
+.luz-ceu .sg-meta b{color:var(--ceu-tx)}
+.luz-ceu .sg-btn--coral{--luz-foco:var(--ceu-ac)}
+.luz-ceu[data-fase=madrugada],.luz-ceu[data-fase=noite]{--ceu-tx:#FBF5EA;--ceu-tx2:#E9DFCC;--ceu-tx3:#CFC3AE;--ceu-ac:#FFB59E;--luz-sol:255,214,170}
+.luz-ceu[data-fase=crepusculo]{--ceu-tx3:var(--sg-tinta-2);--ceu-ac:#7A1F0E}
+.luz-ceu[data-fase=madrugada] .sg-art,.luz-ceu[data-fase=noite] .sg-art{box-shadow:0 18px 60px -12px rgba(0,0,0,.55)}
+.luz-ceu[data-fase=madrugada]::after,.luz-ceu[data-fase=noite]::after{background:radial-gradient(circle 280px at var(--luz-x) var(--luz-y),rgba(var(--luz-sol),calc(.07*var(--luz-i))),transparent 72%)}
+.luz-ceu[data-fase=madrugada] .luz-ceu__fundo i[data-f=madrugada],
+.luz-ceu[data-fase=manha] .luz-ceu__fundo i[data-f=manha],
+.luz-ceu[data-fase=tarde] .luz-ceu__fundo i[data-f=tarde],
+.luz-ceu[data-fase=crepusculo] .luz-ceu__fundo i[data-f=crepusculo],
+.luz-ceu[data-fase=noite] .luz-ceu__fundo i[data-f=noite]{opacity:1}
+.luz-ceu__fundo i[data-f=madrugada]{background:
+  radial-gradient(circle calc(var(--sol-r)*.14) at var(--sol-x) var(--sol-y),rgba(255,244,214,.55),rgba(255,244,214,.12) 60%,transparent 100%),
+  radial-gradient(70% 45% at 18% 108%,rgba(247,184,75,.20),transparent 70%),
+  radial-gradient(90% 40% at 60% 100%,rgba(120,100,160,.25),transparent 70%),
+  linear-gradient(180deg,#14172B 0%,#272443 58%,#43344A 100%)}
+.luz-ceu__fundo i[data-f=manha]{background:
+  radial-gradient(circle var(--sol-r) at var(--sol-x) calc(var(--sol-y) - 18%),rgba(247,184,75,.55),rgba(247,184,75,.18) 45%,transparent 72%),
+  radial-gradient(90% 30% at 30% 100%,rgba(255,253,248,.9),transparent 70%),
+  radial-gradient(60% 50% at 0% 100%,rgba(235,90,60,.10),transparent 70%),
+  linear-gradient(180deg,#FFF1D6 0%,#FBF5EA 62%,#FBF5EA 100%)}
+.luz-ceu__fundo i[data-f=tarde]{background:
+  radial-gradient(circle var(--sol-r) at var(--sol-x) calc(var(--sol-y) - 30%),rgba(247,184,75,.65),rgba(247,184,75,.2) 45%,transparent 72%),
+  radial-gradient(80% 26% at 70% 100%,rgba(255,253,248,.8),transparent 70%),
+  linear-gradient(180deg,#FFE9BE 0%,#FFF6E3 55%,#FBF5EA 100%)}
+.luz-ceu__fundo i[data-f=crepusculo]{background:
+  radial-gradient(circle var(--sol-r) at var(--sol-x) calc(var(--sol-y) + 52%),rgba(247,184,75,.75),rgba(247,184,75,.25) 45%,transparent 72%),
+  radial-gradient(90% 30% at 20% 100%,rgba(235,90,60,.18),transparent 70%),
+  linear-gradient(180deg,#F8C6A6 0%,#F5B79B 55%,#F4BFA5 100%)}
+.luz-ceu__fundo i[data-f=noite]{background:
+  radial-gradient(circle calc(var(--sol-r)*.14) at var(--sol-x) var(--sol-y),rgba(255,244,214,.5),rgba(255,244,214,.10) 60%,transparent 100%),
+  radial-gradient(2px 2px at 8% 20%,#fff,transparent),radial-gradient(2px 2px at 33% 12%,#fff,transparent),radial-gradient(1.5px 1.5px at 52% 30%,#fff,transparent),
+  radial-gradient(2px 2px at 78% 10%,#fff,transparent),radial-gradient(1.5px 1.5px at 92% 38%,#fff,transparent),radial-gradient(1.5px 1.5px at 20% 55%,#fff,transparent),
+  radial-gradient(80% 35% at 70% 100%,rgba(120,100,190,.20),transparent 70%),
+  linear-gradient(180deg,#0F1226 0%,#1C1B38 60%,#2D2442 100%)}
+@media (max-width:1024px){.luz-ceu{--sol-x:72%;--sol-y:12%}}
+
+/* ---------- comentário do leitor (STAR-54 A4): cartão largo e o contador do tecto diário ---------- */
+.sg-cartao-conta--larga{max-width:640px}
+.sg-cartao-conta--larga h2{font:600 1.75rem/1.15 var(--sg-serif);margin:.6rem 0 .5rem}
+.sg-avisos{margin:.6rem 0}
+.sg-aviso{margin:.3rem 0;font-weight:600;color:var(--sg-t-saude)}
+.sg-aviso.sg-erro{color:var(--sg-coral-ink)}
+.luz-tecto{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin:0;font-size:.9375rem}
+.luz-tecto strong{font-weight:600;color:var(--sg-tinta)}
+
+/* ---------- reduced-motion: a luz fica parada; sem tremor nem dissipação animada.
+   Erro e sucesso seguem visíveis: o .sg-erro, o glifo, o anel coral, o .luz-ok e a névoa já apagada. ---------- */
+@media (prefers-reduced-motion:reduce){
+  [data-luz],[data-luz]::before,[data-luz]::after,[data-luz] *,[data-luz] *::before,[data-luz] *::after{
+    animation:none!important;transition:none!important;will-change:auto!important}
+}

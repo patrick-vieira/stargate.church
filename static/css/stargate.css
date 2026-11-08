@@ -196,7 +196,7 @@ body:has([data-imersivo]) .sg-rodape{margin-top:0}
 .sg-cartao-conta{max-width:440px;margin-inline:auto;padding:var(--sg-s6);background:#fff;border:1px solid var(--sg-linha);border-radius:var(--sg-r2);box-sizing:border-box}
 .sg-cartao-conta h1{font-family:var(--sg-serif);font-size:2.25rem;line-height:var(--sg-lh-titulo);margin:.6rem 0 .8rem}
 .sg-form--conta{flex-direction:column;gap:var(--sg-s4);margin:var(--sg-s5) 0}
-.sg-form--conta input:not([type=hidden]){flex:none;width:100%;min-width:0;box-sizing:border-box;min-height:44px;padding:.7rem 1.2rem;background:#fff;border:1px solid var(--sg-linha);border-radius:var(--sg-pill);color:var(--sg-tinta)}
+.sg-form--conta input:not([type=hidden]){flex:none;width:100%;min-width:0;box-sizing:border-box;min-height:44px;padding:.7rem 1.2rem;background:#fff;border:1px solid var(--sg-tinta-3);border-radius:var(--sg-pill);color:var(--sg-tinta)}
 .sg-form--conta input:focus,.sg-form--conta input:focus-visible{outline:3px solid var(--sg-coral);outline-offset:2px;border-color:var(--sg-coral)}
 .sg-form--conta .sg-btn{justify-content:center;min-height:44px}
 .sg-erro{margin:-.4rem 0 0;font-size:.9375rem;font-weight:600;color:var(--sg-coral-ink)}
