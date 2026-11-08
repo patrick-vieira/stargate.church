@@ -1,0 +1,121 @@
+{% extends "noticias/base.html" %}
+{% load static %}
+{% block titulo %}{{ post.titulo }} — A IA na ficção — Stargate{% endblock %}
+{% block conteudo %}
+{% for ato in atos %}{% if ato.efeito == "atmosfera:ia-afetiva" %}
+<div class="aa-raiz" id="principal" data-imersivo data-libs="{{ libs }}">
+<div class="aa-cidade" id="aa-cidade" aria-hidden="true">
+  <div class="aa-ceu-glow"></div><div class="aa-sol"></div>
+  <div class="aa-cam aa-l3" id="aa-l3"></div><div class="aa-cam aa-z aa-l3" id="aa-l3z"></div>
+  <div class="aa-cam aa-l2" id="aa-l2"></div><div class="aa-cam aa-z aa-l2" id="aa-l2z"></div>
+  <div class="aa-cam aa-l1" id="aa-l1"></div><div class="aa-cam aa-z aa-l1" id="aa-l1z"></div>
+  <div class="aa-janela" id="aa-janela"><div class="aa-luz"></div><div class="aa-cort"></div><div class="aa-trav"></div><div class="aa-trav aa-h"></div></div>
+</div>
+<button class="aa-btn-pausa" id="aa-pausa" type="button" aria-pressed="false">pausar movimento</button>
+
+<div class="aa-conteudo" data-ato data-efeito="atmosfera:ia-afetiva" data-parametros="{{ ato.parametros_json }}" data-reduzido="{{ ato.reduzido }}">
+  <section class="aa-hero" aria-labelledby="aa-t-post">
+    <div>
+      <p class="aa-sobrolho">Post 4 · Her, Be Right Back, Klara and the Sun</p>
+      <h1 id="aa-t-post">A IA <em>afetiva</em></h1>
+      <p class="aa-lead aa-quente">{{ ato.texto }}</p>
+      <p class="aa-rolar" aria-hidden="true"><span>Role: a janela acende</span><span>A conversa se escreve</span></p>
+    </div>
+  </section>
+
+  <section class="aa-ato1" id="aa-ato1" aria-labelledby="aa-t-ato1">
+    <div class="aa-cena">
+      <div class="aa-veu aa-quente">
+        <p class="aa-sobrolho">Ato 1 · Uma voz disponível</p>
+        <h2 id="aa-t-ato1">A conversa se escreve no seu ritmo.</h2>
+        <p><em>Her</em> (2013) imagina um assistente que conversa, aprende preferências e se torna companhia. Conversas naturais e memória de contexto já são familiares. O filme vai além ao atribuir à voz uma vida interior independente, algo que não podemos inferir da fluência.</p>
+        <p class="aa-fonte">Fonte: Her, Warner Bros. · Áudio: desligado por padrão.</p>
+        <label class="aa-som aa-fonte"><input type="checkbox" id="aa-som" disabled> som (em breve)</label>
+      </div>
+      <div class="aa-chat-cx aa-quente" id="aa-chat-cx">
+        <span class="aa-tag">Conversa de exemplo · diálogo inventado</span>
+        <div class="aa-chat" id="aa-chat" role="log" aria-label="Conversa de exemplo, texto completo disponível"></div>
+        <p class="aa-sr" id="aa-chat-sr"></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="aa-ato" id="aa-ato2" aria-labelledby="aa-t-ato2">
+    <div class="aa-miolo aa-duas">
+      <div class="aa-veu aa-quente">
+        <p class="aa-sobrolho">Ato 2 · Quem autoriza o retorno?</p>
+        <h2 id="aa-t-ato2">É possível. É aceitável?</h2>
+        <p><em>Black Mirror</em>, <em>Be Right Back</em> (2013): rastros digitais de uma pessoa morta viram material para uma presença artificial. Clonar uma voz ou imitar um estilo tornou-se tecnicamente viável; legitimidade, consentimento e luto não se resolvem com qualidade de geração.</p>
+        <p class="aa-fonte">Fonte: Black Mirror, Netflix</p>
+      </div>
+      <div class="aa-cols" id="aa-cols">
+        <div class="aa-col"><h3>É possível</h3>
+          <div class="aa-cart aa-quente"><b>Voz</b><span>Clonar uma voz.</span></div>
+          <div class="aa-cart aa-quente"><b>Estilo</b><span>Imitar um jeito de escrever.</span></div>
+          <div class="aa-cart aa-quente"><b>Rastros</b><span>Reunir mensagens e arquivos antigos.</span></div></div>
+        <div class="aa-col"><h3>É aceitável?</h3>
+          <div class="aa-cart aa-quente"><b>Legitimidade</b><span>Quem tem o direito de pedir?</span></div>
+          <div class="aa-cart aa-quente"><b>Consentimento</b><span>A pessoa autorizou, em vida?</span></div>
+          <div class="aa-cart aa-quente"><b>Luto</b><span>O que isso faz com quem fica?</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="aa-ato3" id="aa-ato3" aria-labelledby="aa-t-ato3">
+    <div class="aa-miolo">
+      <div class="aa-veu aa-quente">
+        <p class="aa-sobrolho">Ato 3 · Cuidado não é posse</p>
+        <h2 id="aa-t-ato3">Que limites você pediria?</h2>
+        <p><em>Klara e o Sol</em> (2021) olha a companhia pela perspectiva de quem cuida. A pergunta para o presente é menos «a máquina ama?» e mais «que relações estamos a substituir, reforçar ou vender?». Um bom produto deve deixar o humano livre para sair.</p>
+        <p class="aa-fonte">Fonte: Klara and the Sun, Faber</p>
+      </div>
+      <div class="aa-palco">
+        <form class="aa-painel aa-quente" id="aa-limites" novalidate aria-labelledby="aa-t-form">
+          <h3 id="aa-t-form">Limites para um assistente afetivo</h3>
+          <p class="aa-nota">Escolha um limite: a comparação ao lado destaca a linha que ele protege.</p>
+          <fieldset><legend>O limite mais importante</legend>
+            <div class="aa-esc">
+              <label><input type="radio" name="aa-lim" value="avisar"><span>Avisar sempre que é um software</span></label>
+              <label><input type="radio" name="aa-lim" value="pausa"><span>Sugerir pausas e outras pessoas</span></label>
+              <label><input type="radio" name="aa-lim" value="apagar"><span>Deixar apagar a memória quando eu quiser</span></label>
+            </div></fieldset>
+          <div class="aa-campo"><label for="aa-f-nome">Como você o chamaria? (opcional)</label><input id="aa-f-nome" type="text" placeholder="Um apelido" autocomplete="off"></div>
+          <div class="aa-campo"><label for="aa-f-quando">Quando ele pode puxar conversa?</label>
+            <select id="aa-f-quando"><option>Só quando eu pedir</option><option>Em horários que eu combinar</option><option>Nunca, a menos que eu avise</option></select></div>
+          <label class="aa-chk"><input id="aa-f-aval" type="checkbox" checked> Pedir meu aval antes de guardar algo novo</label>
+          <div class="aa-btns"><button class="aa-btn aa-prim" type="button" id="aa-registrar">Registrar meus limites</button><button class="aa-btn aa-sec" type="button" id="aa-limpar">Limpar escolhas</button></div>
+          <p class="aa-registro" id="aa-registro" role="status" aria-live="polite"></p>
+        </form>
+        <div class="aa-comp aa-quente">
+          <table>
+            <caption class="aa-sr">Comparação entre a ficção e os assistentes de 2026</caption>
+            <thead><tr><th scope="col">Tema</th><th scope="col">Na ficção</th><th scope="col">Nos assistentes de 2026</th></tr></thead>
+            <tbody>
+              <tr data-r="pausa"><th scope="row">Conversa</th><td>Voz contínua e íntima</td><td>Natural e familiar</td></tr>
+              <tr data-r="apagar"><th scope="row">Memória</th><td>Lembra de tudo, sempre</td><td>Memória de contexto já é comum</td></tr>
+              <tr data-r="avisar"><th scope="row">Vida interior</th><td>Atribuída à voz</td><td>Não se infere da fluência</td></tr>
+            </tbody>
+          </table>
+          <p class="aa-nota-c" id="aa-nota-c">Escolha um limite ao lado: a comparação mostra o que um bom produto faria.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="aa-fecho" aria-label="Próxima estação">
+    <div class="aa-miolo">
+      <p class="aa-quente">Cuidar de alguém é também deixá-lo livre para ir.</p><br>
+      <a href="{% url 'core:home' %}">← Voltar à página inicial</a>
+      <p class="aa-fontes aa-quente">Fontes: Her, Warner Bros. · Black Mirror, Netflix · Klara and the Sun, Faber · NIST AI 600-1, Generative AI Profile. O diálogo é texto original inventado; nenhuma interface de assistente real é copiada. Sem áudio nesta onda.</p>
+    </div>
+  </section>
+</div>
+</div>
+{% endif %}{% endfor %}
+{% endblock %}
+{% block newsletter %}{% endblock %}
+{% block scripts %}
+<link rel="stylesheet" href="{% static 'css/atmosfera-ia-afetiva.css' %}">
+<script>document.documentElement.classList.add("js")</script>
+<script type="module" src="{% static 'js/imersivo/motor.js' %}"></script>
+{% endblock %}

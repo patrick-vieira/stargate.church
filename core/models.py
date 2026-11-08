@@ -44,6 +44,8 @@ PARAMETROS_POR_EFEITO = {
     "diagrama:constroi": {
         "atraso": (_entre(0, 2), "um número entre 0 e 2 (segundos)"),
     },
+    # Atmosfera inteira (STAR-44/STAR-51): o conteúdo vive no template.
+    "atmosfera:ia-afetiva": {},
 }
 
 
@@ -72,6 +74,7 @@ class Ato(models.Model):
         THREE = "three:gira", "Cena 3D que gira"
         RIVE = "rive:estado", "Rive com estado"
         DIAGRAMA = "diagrama:constroi", "Diagrama que se constrói"
+        ATMOSFERA_IA_AFETIVA = "atmosfera:ia-afetiva", "Atmosfera «IA afetiva»"
 
     class Reduzido(models.TextChoices):
         ESTATICO = "estatico", "Estático"
