@@ -343,7 +343,7 @@ class CssTests(TestCase):
         self.assertIn("prefers-reduced-motion", css)
 
 
-ESTACAO ={"decada": 1960, "titulo": "A máquina fria"}
+ESTACAO = {"decada": 1960, "titulo": "A máquina fria"}
 
 
 class EstacoesTests(TestCase):
