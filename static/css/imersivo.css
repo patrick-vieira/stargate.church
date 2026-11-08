@@ -114,3 +114,9 @@
 .im-palco.im-pausado::after,.im-palco.im-pausado .im-estacao-arte .im-camada{animation:none!important}
 .im-palco.im-pausado .im-estacao{transition:none!important}
 @media (prefers-reduced-motion:reduce){.im-palco::after{animation:none!important}.im-palco{transition:none!important}.im-texto{transition:none!important}}
+/* Terminal que fala, corredor 3D e olho (STAR-41). Formas e texto originais. */
+.im-terminal{position:relative}
+.im-term{margin:0;padding:1rem;max-width:100%;min-width:0;box-sizing:border-box;overflow:hidden;white-space:pre-wrap;overflow-wrap:anywhere;background:#1F1914;color:#F3E6D3;font:1rem/1.5 ui-monospace,Menlo,Consolas,monospace;min-height:8rem}
+.im-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.im-ouvir{margin-top:.5rem;padding:.5rem 1rem;border:1px solid #1F1914;background:#fff;color:#B3321A;font:inherit;cursor:pointer}
+.im-olho svg{display:block;width:100%;max-width:16rem;height:auto;margin:0 auto}

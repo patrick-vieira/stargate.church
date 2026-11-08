@@ -49,6 +49,15 @@ def _booleano(valor):
 
 _FIXAR = (_booleano, "verdadeiro ou falso")
 
+
+def _linhas(valor):
+    return (
+        isinstance(valor, list)
+        and 1 <= len(valor) <= 12
+        and all(_texto(v) and len(v) <= 80 for v in valor)
+    )
+
+
 PARAMETROS_POR_EFEITO = {
     "parallax:camadas": {
         "intensidade": (_entre(0, 1), "um número entre 0 e 1"),
@@ -76,6 +85,24 @@ PARAMETROS_POR_EFEITO = {
             "slug (opcional), texto (opcional)}",
         ),
     },
+    "terminal:fala": {
+        "linhas": (_linhas, "uma lista de 1 a 12 textos de até 80 caracteres"),
+        "velocidade": (_entre(10, 120), "um número entre 10 e 120 (ms por letra)"),
+    },
+    "three:corredor": {
+        "profundidade": (_entre(4, 40), "um número entre 4 e 40 (aros)"),
+        "fixar": _FIXAR,
+    },
+    "olho:segue": {
+        "alcance": (_entre(0, 1), "um número entre 0 e 1"),
+        "fixar": _FIXAR,
+    },
+    # Atmosfera inteira (STAR-41/STAR-51): o conteúdo vive no template.
+    "atmosfera:maquina-fria": {},
+    # Atmosfera do post 2 (STAR-42): HUD, glitch e scanlines; conteúdo no template.
+    "atmosfera:guerra-maquinas": {},
+    # Atmosfera do post 6 (STAR-46): narrativa ramificada, estado no cliente.
+    "atmosfera:escolhas": {},
 }
 
 
@@ -105,6 +132,18 @@ class Ato(models.Model):
         RIVE = "rive:estado", "Rive com estado"
         DIAGRAMA = "diagrama:constroi", "Diagrama que se constrói"
         LINHA_TEMPO = "linha-tempo:decadas", "Linha do tempo por décadas"
+        TERMINAL = "terminal:fala", "Terminal que fala"
+        CORREDOR = "three:corredor", "Corredor 3D"
+        OLHO = "olho:segue", "Olho que segue o cursor"
+        ATMOSFERA = "atmosfera:maquina-fria", "Atmosfera «Máquina fria»"
+        ATMOSFERA_GUERRA = (
+            "atmosfera:guerra-maquinas",
+            "Atmosfera «Guerra das máquinas»",
+        )
+        ATMOSFERA_ESCOLHAS = (
+            "atmosfera:escolhas",
+            "Atmosfera «Escolhas da máquina»",
+        )
 
     class Reduzido(models.TextChoices):
         ESTATICO = "estatico", "Estático"

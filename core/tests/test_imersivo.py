@@ -5,6 +5,15 @@ from django.urls import reverse
 
 from core.models import Ato, PostImersivo
 
+EFEITOS_MAQUINA_FRIA = {
+    "terminal:fala",
+    "three:corredor",
+    "olho:segue",
+    "atmosfera:maquina-fria",
+    "atmosfera:guerra-maquinas",
+    "atmosfera:escolhas",
+}
+
 
 def ato(efeito, parametros=None, **extra):
     return Ato(
@@ -135,7 +144,7 @@ class FixtureDemoTests(TestCase):
         self.assertEqual(post.atos.count(), 5)
         self.assertEqual(
             set(post.atos.values_list("efeito", flat=True)),
-            set(Ato.Efeito.values) - {"linha-tempo:decadas"},
+            set(Ato.Efeito.values) - EFEITOS_MAQUINA_FRIA - {"linha-tempo:decadas"},
         )
         for a in post.atos.all():
             a.full_clean()
@@ -243,7 +252,7 @@ class CssTests(TestCase):
         self.assertIn("prefers-reduced-motion", css)
 
 
-ESTACAO = {"decada": 1960, "titulo": "A máquina fria"}
+ESTACAO ={"decada": 1960, "titulo": "A máquina fria"}
 
 
 class EstacoesTests(TestCase):
@@ -327,3 +336,261 @@ class HubTests(TestCase):
         total = (raiz / "js/imersivo/efeitos/linha-tempo-decadas.js").stat().st_size
         total += (raiz / "css/imersivo.css").stat().st_size
         self.assertLess(total, 50 * 1024)
+
+
+class MaquinaFriaTests(TestCase):
+    fixtures = ["maquina_fria_provisorio"]
+
+    def test_terminal_linhas_e_velocidade(self):
+        ato("terminal:fala", {"linhas": ["> ok"], "velocidade": 40}).clean()
+        for ruim in ([], "texto", [""], [1], ["x" * 81], ["a"] * 13):
+            with self.subTest(valor=ruim), self.assertRaises(ValidationError):
+                ato("terminal:fala", {"linhas": ruim}).clean()
+        with self.assertRaises(ValidationError):
+            ato("terminal:fala", {"velocidade": 500}).clean()
+
+    def test_corredor_e_olho_parametros(self):
+        ato("three:corredor", {"profundidade": 12, "fixar": True}).clean()
+        ato("olho:segue", {"alcance": 0.5, "fixar": False}).clean()
+        with self.assertRaises(ValidationError):
+            ato("three:corredor", {"profundidade": 2}).clean()
+        with self.assertRaises(ValidationError):
+            ato("olho:segue", {"alcance": 2}).clean()
+
+    def test_fixture_valida_e_renderiza(self):
+        post = PostImersivo.objects.get(slug="efeitos-maquina-fria-provisorio")
+        self.assertIn("PROVISÓRIO", post.titulo)
+        for a in post.atos.all():
+            a.full_clean()
+        r = self.client.get(
+            reverse("core:imersivo", args=["efeitos-maquina-fria-provisorio"])
+        )
+        self.assertEqual(r.status_code, 200)
+        self.assertTemplateUsed(r, "core/imersivo.html")
+        self.assertContains(r, "data-terminal")
+        self.assertContains(r, "&gt; status do sistema: tudo normal.")
+        self.assertContains(r, 'data-efeito="three:corredor"')
+        self.assertContains(r, "data-pupila")
+        self.assertContains(r, 'data-reduzido="omitir"', count=1)
+
+    def test_efeitos_js_existem_e_respeitam_reduzido(self):
+        from pathlib import Path
+
+        base = Path(__file__).resolve().parents[2] / "static/js/imersivo/efeitos"
+        for nome in ("terminal-fala", "three-corredor", "olho-segue"):
+            js = (base / f"{nome}.js").read_text()
+            self.assertIn("reduzido", js)
+            self.assertIn("registar(", js)
+            self.assertNotIn("http", js)
+        olho = (base / "olho-segue.js").read_text()
+        self.assertIn("pointermove", olho)
+        self.assertIn("progresso(", olho)
+        corredor = (base / "three-corredor.js").read_text()
+        self.assertIn('await import("three")', corredor)
+
+
+class AtmosferaMaquinaFriaTests(TestCase):
+    fixtures = ["maquina_fria"]
+
+    def _raiz(self):
+        from pathlib import Path
+
+        return Path(__file__).resolve().parents[2]
+
+    def test_efeito_sem_parametros(self):
+        ato("atmosfera:maquina-fria").clean()
+        with self.assertRaises(ValidationError):
+            ato("atmosfera:maquina-fria", {"fixar": True}).clean()
+
+    def test_fixture_valida(self):
+        post = PostImersivo.objects.get(slug="a-maquina-fria")
+        self.assertNotIn("PROVISÓRIO", post.titulo)
+        for a in post.atos.all():
+            a.full_clean()
+
+    def test_renderiza_o_template_da_atmosfera(self):
+        r = self.client.get(reverse("core:imersivo", args=["a-maquina-fria"]))
+        self.assertEqual(r.status_code, 200)
+        self.assertTemplateUsed(r, "core/imersivo_maquina_fria.html")
+        self.assertContains(r, 'data-efeito="atmosfera:maquina-fria"')
+        self.assertContains(r, "css/atmosfera-maquina-fria.css")
+        self.assertContains(r, "js/imersivo/motor.js")
+        self.assertContains(
+            r, "Console 7, sessão aberta. Ação recomendada: prosseguir."
+        )
+        self.assertContains(r, "Auditoria da decisão: indisponível.")
+        self.assertContains(r, "Interrupção humana: não configurada.")
+        self.assertContains(r, 'id="am-corredor"')
+        self.assertContains(r, 'id="am-g-valor"')
+        self.assertNotContains(r, "Georgia")
+        self.assertNotContains(r, "cdn.")
+
+    def test_fonte_fraunces_e_licenca_em_static(self):
+        raiz = self._raiz()
+        css = (raiz / "static/css/atmosfera-maquina-fria.css").read_text()
+        self.assertIn("fraunces-latin-600-normal.woff2", css)
+        self.assertIn("--serif:var(--sg-serif)", css)
+        self.assertNotIn("Georgia", css)
+        pasta = raiz / "static/fonts/fraunces"
+        self.assertTrue((pasta / "fraunces-latin-600-normal.woff2").is_file())
+        self.assertTrue((pasta / "Fraunces-OFL.txt").is_file())
+
+    def test_css_oculta_canvas_em_movimento_reduzido(self):
+        css = (self._raiz() / "static/css/atmosfera-maquina-fria.css").read_text()
+        reduzido = css[css.index("@media (prefers-reduced-motion:reduce)") :]
+        self.assertIn(".am-poeira,.am-corredor{display:none!important}", reduzido)
+
+    def test_js_lazy_three_e_reduzido(self):
+        js = (
+            self._raiz() / "static/js/imersivo/efeitos/atmosfera-maquina-fria.js"
+        ).read_text()
+        self.assertIn('registar("atmosfera:maquina-fria"', js)
+        self.assertIn('await import("three")', js)
+        self.assertIn("if (reduzido) return;", js)
+        self.assertNotIn("http", js)
+
+
+class AtmosferaGuerraMaquinasTests(TestCase):
+    fixtures = ["guerra_maquinas"]
+
+    def _raiz(self):
+        from pathlib import Path
+
+        return Path(__file__).resolve().parents[2]
+
+    def test_efeito_sem_parametros(self):
+        ato("atmosfera:guerra-maquinas").clean()
+        with self.assertRaises(ValidationError):
+            ato("atmosfera:guerra-maquinas", {"fixar": True}).clean()
+
+    def test_fixture_valida(self):
+        post = PostImersivo.objects.get(slug="o-medo-da-guerra-das-maquinas")
+        self.assertEqual(post.pk, 4)
+        for a in post.atos.all():
+            a.full_clean()
+
+    def test_renderiza_o_template_da_atmosfera(self):
+        r = self.client.get(
+            reverse("core:imersivo", args=["o-medo-da-guerra-das-maquinas"])
+        )
+        self.assertEqual(r.status_code, 200)
+        self.assertTemplateUsed(r, "core/imersivo_guerra_maquinas.html")
+        self.assertTemplateNotUsed(r, "core/imersivo_maquina_fria.html")
+        self.assertContains(r, 'data-efeito="atmosfera:guerra-maquinas"')
+        self.assertContains(r, "css/atmosfera-guerra-maquinas.css")
+        self.assertContains(r, "js/imersivo/motor.js")
+        self.assertContains(r, 'id="ag-hud"')
+        self.assertContains(r, 'id="ag-supervisao"')
+        self.assertContains(r, "Interromper o sistema")
+        self.assertContains(r, "Ficção · 2")
+        self.assertNotContains(r, "cdn.")
+        self.assertNotContains(r, "Georgia")
+
+    def test_maquina_fria_continua_no_seu_template(self):
+        from django.core.management import call_command
+
+        call_command("loaddata", "maquina_fria", verbosity=0)
+        r = self.client.get(reverse("core:imersivo", args=["a-maquina-fria"]))
+        self.assertTemplateUsed(r, "core/imersivo_maquina_fria.html")
+
+    def test_css_escopado_e_reduzido(self):
+        css = (self._raiz() / "static/css/atmosfera-guerra-maquinas.css").read_text()
+        self.assertIn("--serif:var(--sg-serif)", css)
+        self.assertNotIn("Georgia", css)
+        self.assertNotIn(":root", css)
+        self.assertIn("prefers-reduced-motion:reduce", css)
+        self.assertIn(".ag-raiz.ag-estatico", css)
+        self.assertIn("white-space:nowrap", css)  # retoque 4: sobrolho numa linha
+        self.assertIn("font:600 12px/1.6 var(--mono)", css)  # retoque 3: entrelinha
+
+    def test_js_registra_e_respeita_reduzido(self):
+        js = (
+            self._raiz() / "static/js/imersivo/efeitos/atmosfera-guerra-maquinas.js"
+        ).read_text()
+        self.assertIn('registar("atmosfera:guerra-maquinas"', js)
+        self.assertIn("reduzido", js)
+        self.assertNotIn("http", js)
+        self.assertNotIn("import(", js)
+
+    def test_imagens_webp_leves(self):
+        pasta = self._raiz() / "static/img/guerra-maquinas"
+        arquivos = sorted(pasta.glob("*.webp"))
+        self.assertTrue(arquivos)
+        for f in arquivos:
+            with self.subTest(f=f.name):
+                self.assertLessEqual(f.stat().st_size, 70 * 1024)
+
+
+class AtmosferaEscolhasTests(TestCase):
+    fixtures = ["escolhas"]
+
+    def _raiz(self):
+        from pathlib import Path
+
+        return Path(__file__).resolve().parents[2]
+
+    def test_efeito_sem_parametros(self):
+        ato("atmosfera:escolhas").clean()
+        with self.assertRaises(ValidationError):
+            ato("atmosfera:escolhas", {"fixar": True}).clean()
+
+    def test_fixture_valida(self):
+        post = PostImersivo.objects.get(slug="escolhas-da-maquina")
+        self.assertEqual(post.pk, 6)
+        for a in post.atos.all():
+            self.assertEqual(a.pk, 17)
+            a.full_clean()
+
+    def test_renderiza_o_template_da_atmosfera(self):
+        r = self.client.get(reverse("core:imersivo", args=["escolhas-da-maquina"]))
+        self.assertEqual(r.status_code, 200)
+        self.assertTemplateUsed(r, "core/imersivo_escolhas.html")
+        self.assertTemplateNotUsed(r, "core/imersivo_guerra_maquinas.html")
+        self.assertContains(r, 'data-efeito="atmosfera:escolhas"')
+        self.assertContains(r, "css/atmosfera-escolhas.css")
+        self.assertContains(r, "js/imersivo/motor.js")
+        self.assertContains(r, 'id="em-p-esc1"')
+        self.assertContains(r, "Ficção · 6")
+        for f in ("A1", "A2", "B1", "B2"):
+            self.assertContains(r, f'data-f="{f}"')
+        self.assertContains(r, "Limpar caminho")
+        self.assertContains(r, "Guardar meu caminho neste aparelho")
+        self.assertNotContains(r, "cdn.")
+        self.assertNotContains(r, "Georgia")
+
+    def test_sem_gravacao_no_servidor(self):
+        r = self.client.get(reverse("core:imersivo", args=["escolhas-da-maquina"]))
+        self.assertNotContains(r, "csrfmiddlewaretoken")
+        self.assertNotContains(r, "action=")
+
+    def test_css_escopado_e_reduzido(self):
+        css = (self._raiz() / "static/css/atmosfera-escolhas.css").read_text()
+        self.assertIn("--serif:var(--sg-serif)", css)
+        self.assertNotIn("Georgia", css)
+        self.assertNotIn(":root", css)
+        self.assertIn("prefers-reduced-motion:reduce", css)
+        self.assertIn(".em-raiz.em-linear", css)
+        self.assertIn(".em-estatico", css)
+
+    def test_js_estado_no_cliente_e_reduzido(self):
+        js = (
+            self._raiz() / "static/js/imersivo/efeitos/atmosfera-escolhas.js"
+        ).read_text()
+        self.assertIn('registar("atmosfera:escolhas"', js)
+        self.assertIn("reduzido", js)
+        self.assertIn("localStorage", js)
+        self.assertIn("try{", js)
+        self.assertNotIn("fetch(", js)
+        self.assertNotIn("XMLHttpRequest", js)
+        self.assertNotIn("http", js)
+        self.assertNotIn("import(", js)
+
+    def test_imagens_webp_leves_e_so_fundos(self):
+        pasta = self._raiz() / "static/img/escolhas"
+        arquivos = sorted(pasta.glob("*.webp"))
+        self.assertEqual(
+            [f.name for f in arquivos], ["fundo-1920.webp", "fundo-780.webp"]
+        )
+        for f in arquivos:
+            with self.subTest(f=f.name):
+                self.assertLessEqual(f.stat().st_size, 70 * 1024)
