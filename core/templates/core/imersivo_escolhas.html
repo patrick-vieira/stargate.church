@@ -1,0 +1,163 @@
+{% extends "noticias/base.html" %}
+{% load static %}
+{% block titulo %}{{ post.titulo }} — A IA na ficção — Stargate{% endblock %}
+{% block conteudo %}
+{% for ato in atos %}{% if ato.efeito == "atmosfera:escolhas" %}
+<div class="em-raiz" id="principal" data-imersivo data-libs="{{ libs }}">
+<div class="em-paisagem" id="em-paisagem" aria-hidden="true">
+  <div class="em-arte"></div>
+  <div class="em-nv em-n1" id="em-n1"></div>
+  <div class="em-nv em-n2" id="em-n2"></div>
+</div>
+
+<div class="em-topo">
+  <a href="{% url 'core:home' %}"><span class="em-longo">A IA na ficção · 6</span><span class="em-curto">Ficção · 6</span></a>
+  <button class="em-btn-pausa" id="em-pausa" type="button" aria-pressed="false">pausar movimento</button>
+</div>
+
+<div class="em-conteudo" data-ato data-efeito="atmosfera:escolhas" data-parametros="{{ ato.parametros_json }}" data-reduzido="{{ ato.reduzido }}">
+  <section class="em-hero" aria-labelledby="em-t-post">
+    <div>
+      <p class="em-sobrolho">Post 6 · Ghost in the Shell, Portal, Mass Effect, Detroit, NieR</p>
+      <h1 id="em-t-post">Escolhas da <em>máquina</em></h1>
+      <p class="em-lead em-quente">{{ ato.texto }}</p>
+      <div class="em-modo">
+        <button class="em-btn em-sec" type="button" id="em-modo" aria-pressed="false">Ver versão interativa</button>
+        <a href="#em-ato3">Ir direto ao ato 3</a>
+      </div>
+      <p class="em-rolar" aria-hidden="true">Role: os caminhos se prolongam</p>
+    </div>
+    <svg class="em-no-hero" viewBox="0 0 300 300" aria-hidden="true">
+      <path class="em-cam em-a" id="em-ca" pathLength="1" d="M150 120 C110 160 80 200 70 290"/>
+      <path class="em-cam em-b" id="em-cb" pathLength="1" d="M150 120 C190 160 220 200 230 290"/>
+      <circle class="em-pulso" cx="150" cy="100" r="22"/>
+      <circle class="em-c" cx="150" cy="100" r="22"/>
+    </svg>
+  </section>
+
+  <section class="em-ato" id="em-ato1" aria-labelledby="em-t-ato1">
+    <div class="em-miolo em-duas">
+      <div class="em-veu em-quente">
+        <p class="em-sobrolho">Ato 1 · Corpo, rede, identidade</p>
+        <h2 id="em-t-ato1">Corpo, rede, identidade.</h2>
+        <p><em>Ghost in the Shell</em> mistura mente e rede; a tecnologia atual amplia próteses e conexões, mas não demonstrou a transferência de uma pessoa para software. A pergunta valiosa é quem controla os dados e a continuidade da identidade.</p>
+        <p class="em-fonte">Fonte: Ghost in the Shell, Kodansha</p>
+      </div>
+      <div class="em-diag em-quente">
+        <svg class="em-trilhas" viewBox="0 0 600 250" role="img" aria-label="Diagrama: três formas abstratas, corpo, rede e identidade, ligadas por trilhas que convergem num nó; pontos de dados correm entre elas.">
+          <path class="em-t" id="em-t0" d="M110 70 C230 20 370 20 490 70"/>
+          <path class="em-t" id="em-t1" d="M110 70 C150 150 250 200 300 215"/>
+          <path class="em-t" id="em-t2" d="M490 70 C450 150 350 200 300 215"/>
+          <polygon class="em-forma" points="110,40 140,70 110,100 80,70"/>
+          <rect class="em-forma" x="460" y="40" width="60" height="60" rx="4"/><path d="M460 60H520M460 80H520M480 40V100M500 40V100" stroke="#6FE3C1" stroke-width="1.5" fill="none"/>
+          <circle class="em-forma" cx="300" cy="215" r="24"/><circle cx="300" cy="215" r="9" fill="#6FE3C1"/>
+          <circle class="em-ponto" r="6" id="em-p0" cx="110" cy="70"/><circle class="em-ponto" r="6" id="em-p1" cx="110" cy="70"/><circle class="em-ponto" r="6" id="em-p2" cx="490" cy="70"/><circle class="em-ponto" r="6" id="em-p3" cx="490" cy="70"/>
+        </svg>
+        <ul class="em-formas"><li class="em-forma-nome">Corpo</li><li class="em-forma-nome">Rede</li><li class="em-forma-nome">Identidade</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="em-ato" id="em-ato2" aria-labelledby="em-t-ato2">
+    <div class="em-miolo em-duas">
+      <div class="em-veu em-quente">
+        <p class="em-sobrolho">Ato 2 · A voz que dá ordens</p>
+        <h2 id="em-t-ato2">A voz que dá ordens.</h2>
+        <p>Em <em>Portal</em>, uma instalação transforma instruções em armadilha. <em>Mass Effect</em> e <em>NieR</em> colocam máquinas e coletivos em decisões morais de escala épica. O jogador sente a fricção entre seguir uma meta e perguntar quem a escreveu.</p>
+        <p class="em-fonte">Fontes: Portal, Valve · Mass Effect, BioWare · NieR: Automata, Square Enix</p>
+      </div>
+      <div class="em-painel em-quente" id="em-p-esc1">
+        <h3>Escolha 1</h3>
+        <p class="em-nota">Uma instrução chegou. O que você faz? A escolha é opcional e a página segue sem ela.</p>
+        <div class="em-so-inter">
+          <div class="em-arvore" id="em-arvore1">
+            <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path class="em-r em-ra" d="M50 16 C50 55 25 45 25 78"/><path class="em-r em-rb" d="M50 16 C50 55 75 45 75 78"/></svg>
+            <span class="em-instr">Instrução</span>
+            <button class="em-no-btn em-A" type="button" data-a="A" aria-pressed="false">A · Seguir a instrução</button>
+            <button class="em-no-btn em-B" type="button" data-a="B" aria-pressed="false">B · Perguntar quem a escreveu</button>
+          </div>
+        </div>
+        <p class="em-conseq em-A" id="em-cA" hidden><b>A · </b>Você seguiu a instrução. O sistema cumpre a meta sem hesitar; o que ela deixou de fora só aparece depois, em quem sentiu o efeito.</p>
+        <p class="em-conseq em-B" id="em-cB" hidden><b>B · </b>Você perguntou quem escreveu a regra. A resposta pode demorar ou nem vir, mas agora a meta tem um autor e alguém pode ser chamado a responder.</p>
+        <p class="em-rasc">Textos de consequência: rascunho editorial.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="em-ato" id="em-ato3" aria-labelledby="em-t-ato3">
+    <div class="em-miolo em-duas">
+      <div class="em-veu em-quente">
+        <p class="em-sobrolho">Ato 3 · O ramo que não existia</p>
+        <h2 id="em-t-ato3">O ramo que não existia.</h2>
+        <p><em>Detroit</em> põe direitos de androides em primeiro plano. Ainda não há base para tratar os sistemas atuais como androides conscientes. Há base, sim, para examinar o trabalho humano invisível, os vieses e a responsabilidade por decisões automatizadas.</p>
+        <p class="em-fonte">Fonte: Detroit: Become Human, Quantic Dream</p>
+      </div>
+      <form class="em-painel em-quente" id="em-form2" novalidate aria-labelledby="em-t-f2">
+        <h3 id="em-t-f2">Escolha 2 e o seu caminho</h3>
+        <p class="em-nota">Este nó depende da primeira escolha. O caminho só é guardado, neste aparelho, se você marcar a caixa.</p>
+        <div class="em-so-inter">
+          <fieldset><legend>Escolha 2</legend>
+            <p class="em-vazio" id="em-vazio2">Faça a primeira escolha para abrir este nó. Os quatro finais estão sempre abertos mais adiante.</p>
+            <div class="em-esc2" id="em-esc2" hidden></div>
+            <p class="em-conseq" id="em-conseq2" role="status" aria-live="polite" hidden></p>
+          </fieldset>
+          <div class="em-campo"><label for="em-f-final">Abrir um final</label>
+            <select id="em-f-final"><option value="">Escolha um final</option><option value="A1">A1 · Aceitar o resultado</option><option value="A2">A2 · Pedir o registro depois</option><option value="B1">B1 · Mudar a meta</option><option value="B2">B2 · Manter a meta, com um aviso</option></select></div>
+          <label class="em-chk"><input id="em-f-cons" type="checkbox"><span>Guardar meu caminho neste aparelho</span></label>
+          <div class="em-btns"><button class="em-btn em-prim" type="button" id="em-abrir">Abrir este final</button><button class="em-btn em-sec" type="button" id="em-limpar">Limpar caminho</button></div>
+          <p class="em-registro" id="em-registro" role="status" aria-live="polite"></p>
+        </div>
+        <div class="em-so-lin"><p>Na versão linear, os quatro finais estão no ato 4, todos abertos. Para escolher caminhos, use «Ver versão interativa» no começo da página.</p></div>
+      </form>
+    </div>
+  </section>
+
+  <section class="em-ato" id="em-ato4" aria-labelledby="em-t-ato4">
+    <div class="em-miolo">
+      <div class="em-veu em-quente">
+        <p class="em-sobrolho">Ato 4 · Os caminhos que existem</p>
+        <h2 id="em-t-ato4">Os caminhos que existem.</h2>
+        <p>Os quatro finais estão sempre abertos. Escolher é uma forma de ler, não uma porta que se tranca.</p>
+      </div>
+      <div class="em-finais">
+        <div class="em-arv4 em-quente"><svg viewBox="0 0 400 260" role="img" aria-label="Árvore com a instrução na raiz, os ramos A e B e os quatro finais A1, A2, B1 e B2." id="em-arv4">
+          <path class="em-e" id="em-eA" d="M200 30 C200 70 100 70 100 110"/><path class="em-e" id="em-eB" d="M200 30 C200 70 300 70 300 110"/>
+          <path class="em-e" id="em-eA1" d="M100 110 C100 150 50 150 50 200"/><path class="em-e" id="em-eA2" d="M100 110 C100 150 150 150 150 200"/>
+          <path class="em-e" id="em-eB1" d="M300 110 C300 150 250 150 250 200"/><path class="em-e" id="em-eB2" d="M300 110 C300 150 350 150 350 200"/>
+          <circle class="em-n" cx="200" cy="30" r="14"/><circle class="em-n" cx="100" cy="110" r="14"/><circle class="em-n" cx="300" cy="110" r="14"/>
+          <circle class="em-n" id="em-nA1" cx="50" cy="200" r="14"/><circle class="em-n" id="em-nA2" cx="150" cy="200" r="14"/><circle class="em-n" id="em-nB1" cx="250" cy="200" r="14"/><circle class="em-n" id="em-nB2" cx="350" cy="200" r="14"/>
+          <g fill="#E9E6F5" font-family="ui-monospace,monospace" font-size="15" font-weight="700" text-anchor="middle"><text x="50" y="238">A1</text><text x="150" y="238">A2</text><text x="250" y="238">B1</text><text x="350" y="238">B2</text></g>
+        </svg></div>
+        <div>
+          <p class="em-contador" id="em-contador" aria-live="polite">0 de 4 finais vistos</p>
+          <ul class="em-lista">
+            <li class="em-final-item em-quente" data-f="A1"><button type="button" aria-expanded="false"><span>A1 · Aceitar o resultado</span><span class="em-sel">por ver</span></button><p class="em-tx">O resultado fecha o caso. A instrução foi cumprida e ninguém perguntou o que ela deixava de fora. Quem escreveu a regra nunca ouviu falar do efeito.</p></li>
+            <li class="em-final-item em-quente" data-f="A2"><button type="button" aria-expanded="false"><span>A2 · Pedir o registro depois</span><span class="em-sel">por ver</span></button><p class="em-tx">O registro mostra quem definiu as opções e quem sentiu a consequência. Pedi-lo depois não desfaz o dano, mas deixa a próxima decisão menos às cegas.</p></li>
+            <li class="em-final-item em-quente" data-f="B1"><button type="button" aria-expanded="false"><span>B1 · Mudar a meta</span><span class="em-sel">por ver</span></button><p class="em-tx">A meta mudou depois da pergunta. Alguém escreveu uma regra melhor, e o trabalho invisível por trás da regra antiga ficou à vista.</p></li>
+            <li class="em-final-item em-quente" data-f="B2"><button type="button" aria-expanded="false"><span>B2 · Manter a meta, com um aviso</span><span class="em-sel">por ver</span></button><p class="em-tx">A meta continuou, agora com um aviso. Quem sente o efeito sabe de onde ele vem, e quem decide responde por manter o rumo.</p></li>
+          </ul>
+          <p class="em-rasc">Finais: rascunho editorial, a afinar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="em-fecho" aria-label="Próxima estação">
+    <div class="em-miolo">
+      <p class="em-quente">Quem escreve as opções também escolhe.</p><br>
+      <span class="em-prox">Próxima estação: <em>O quase-presente</em></span><br>
+      <a href="{% url 'core:home' %}">← Voltar à página inicial</a>
+      <p class="em-fontes em-quente">Fontes: Ghost in the Shell, Kodansha · Portal, Valve · Mass Effect, BioWare · Detroit: Become Human, Quantic Dream · NieR: Automata, Square Enix · Anthropic, agentes confiáveis. Nós, trilhas e finais são originais; nenhuma interface, personagem ou fala de jogo é reproduzida. Sem áudio nesta onda.</p>
+    </div>
+  </section>
+</div>
+</div>
+{% endif %}{% endfor %}
+{% endblock %}
+{% block newsletter %}{% endblock %}
+{% block scripts %}
+<link rel="stylesheet" href="{% static 'css/atmosfera-escolhas.css' %}">
+<script>document.documentElement.classList.add("js")</script>
+{# Tudo local, sem biblioteca: o efeito é CSS e JS próprio. O estado fica só no navegador. #}
+<script type="module" src="{% static 'js/imersivo/motor.js' %}"></script>
+{% endblock %}

@@ -78,7 +78,7 @@ Post 2 da série. Mesmo padrão do STAR-41: um ato com este efeito faz `core/vie
 ## Atmosfera «O que é ser humano?» (`atmosfera:ser-humano`, STAR-43)
 Post 3 da série. Mesmo padrão: `TEMPLATES_ATMOSFERA` aponta para `core/templates/core/imersivo_ser_humano.html`. Tudo escopado em `.sh-raiz` com o prefixo `.sh-` (ids incluídos).
 - **Peças**: sala de vidro (arte de fundo, 3 painéis e 2 silhuetas em parallax), reflexo que segue o cursor, brilho especular nos cartões `.sh-vidro` e teste original de 3 perguntas. As respostas (maioria; empate ou nenhuma = «não sei») põem `.sh-tom-<tom>` na raiz, reordenam os 3 cartões do ato 2 e escolhem o final do ato 3. Nada é guardado nem enviado. As perguntas são rascunho do Orochimaru (caixa-hokage#4253) e ficam como estão.
-- **Ficheiros**: `static/js/imersivo/efeitos/atmosfera-ser-humano.js`, `static/css/atmosfera-ser-humano.css`, fixture `core/fixtures/ser_humano.json` (slug `o-que-e-ser-humano`, post pk 5, ato pk 16), migration `core/0005`.
+- **Ficheiros**: `static/js/imersivo/efeitos/atmosfera-ser-humano.js`, `static/css/atmosfera-ser-humano.css`, fixture `core/fixtures/ser_humano.json` (slug `o-que-e-ser-humano`, post pk 5, ato pk 16), migration `core/0006`.
 - **Parâmetros**: nenhum (`PARAMETROS_POR_EFEITO["atmosfera:ser-humano"] = {}`). Sem biblioteca: nada de three nem Rive.
 - **Ligação da série**: a «próxima estação» do post 2 é agora uma ligação para este post; a deste post (post 4) é texto até o post 4 existir.
 - **Imagens**: `static/img/ser-humano/fundo-1920.webp` (≈35 KB) e `fundo-780.webp` (≈31 KB, só no mobile). Só fundos (sala de vidro, sem «personagem»); as figuras difusas das imagens-chave foram apagadas com desfoque. Camada `.sh-arte`, `mix-blend-mode: screen` a 38 %. 1.º carregamento medido: 130–175 KB.
@@ -88,3 +88,14 @@ Post 3 da série. Mesmo padrão: `TEMPLATES_ATMOSFERA` aponta para `core/templat
 - **Acessibilidade medida no browser** (Playwright, `_provas/star43.py`): 24–25 seletores de texto a 1920 e a 390 px, 0 falhas; o mais baixo é `.sh-chip` com 5,67:1. Sem scroll horizontal a 390 px.
 - **Desempenho**: fps em Chromium headless sem GPU, com o teste e o scroll a correr: média 40–42, p5 ≈ 30 (`backdrop-filter` por software); o protótipo marcava ≈ 59 com GPU. Se a média cair, a classe `.sh-sem-blur` tira o desfoque sozinha.
 - **Direitos**: o teste é original e não copia o Voight-Kampff; sala, painéis e silhuetas genéricos; fontes (AFI, A24, HBO, NIST) no fim do post.
+## Atmosfera «Escolhas da máquina» (`atmosfera:escolhas`, STAR-46)
+Post 6 da série. `TEMPLATES_ATMOSFERA` aponta para `core/templates/core/imersivo_escolhas.html`. Tudo escopado em `.em-raiz` com o prefixo `.em-`.
+- **Peças**: paisagem azul-noite (arte + névoa em 2 camadas com parallax), dois caminhos que se prolongam ao rolar, trilhas de dados cuja velocidade segue o scroll, escolha 1 (A/B), escolha 2 dependente da 1.ª, 4 finais (A1, A2, B1, B2) todos abríveis, árvore dos finais e contador «N de 4 finais vistos».
+- **Estado**: `{a, b, seen}` só no cliente. `localStorage` (chave `star46.p6`) apenas se a caixa «Guardar meu caminho neste aparelho» estiver marcada, sempre em `try/catch`; «Limpar caminho» apaga. Sem modelo novo, sem gravar no servidor, sem rede.
+- **Só teclado**: botões, caixa e lista são nativos; foco âmbar de 3 px. A lista «Abrir um final» é a alternativa ao nó 2.
+- **Ficheiros**: `static/js/imersivo/efeitos/atmosfera-escolhas.js`, `static/css/atmosfera-escolhas.css`, fixture `core/fixtures/escolhas.json` (slug `escolhas-da-maquina`, post pk 6, ato pk 17), migration `core/0005`.
+- **Parâmetros**: nenhum (`PARAMETROS_POR_EFEITO["atmosfera:escolhas"] = {}`). Sem biblioteca.
+- **Imagens**: `static/img/escolhas/fundo-1920.webp` (≈60 KB) e `fundo-780.webp` (≈42 KB, só no mobile), dos fundos OpenAI 16x9 e 9x16. Sem personagens, sem andróide, sem HUD.
+- **Versão linear** (390, movimento reduzido ou a pedido): `.em-linear` mostra as duas consequências e os 4 finais como texto, sem pulso nem parallax; o botão «Ver versão interativa» alterna.
+- **Medido no browser** (Playwright, `_provas/star46.py`): contraste AA 0 falhas (mínimo 6,96:1), 390 sem scroll horizontal, 1.º carregamento 153–205 KB, 59,8 fps em Chromium headless.
+- **Direitos**: nós, trilhas e finais são originais; nenhuma interface, personagem ou fala de jogo. Textos de consequência e finais são rascunho editorial a afinar pelo Orochimaru.
