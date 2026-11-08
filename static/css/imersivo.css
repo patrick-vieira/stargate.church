@@ -85,3 +85,32 @@
   .im-ato--fixo .im-cena{position:static}
   ::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}
 }
+
+/* Atmosfera do hub (STAR-40/STAR-51): Fraunces 600, véu sob o texto, luz por década, Pausar. */
+@font-face{font-family:'Fraunces';font-weight:600;font-style:normal;font-display:swap;src:url('../fonts/fraunces-latin-600-normal.woff2') format('woff2')}
+.im-palco:has([data-efeito="linha-tempo:decadas"]){--bg-rgb:42,32,20;--luz-rgb:230,196,143;--papel:#FBF5EA;--tinta:#1F1A17;background:rgb(var(--bg-rgb));color:#EDE6D3;position:relative;transition:background-color .8s}
+.im-palco[data-luz="1"]{--bg-rgb:43,26,8;--luz-rgb:255,154,60}
+.im-palco[data-luz="2"]{--bg-rgb:7,32,15;--luz-rgb:61,220,122}
+.im-palco[data-luz="3"]{--bg-rgb:27,10,38;--luz-rgb:255,95,224}
+.im-palco[data-luz="4"]{--bg-rgb:10,26,46;--luz-rgb:125,184,240}
+.im-palco:has([data-efeito="linha-tempo:decadas"])::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:0;background:radial-gradient(60% 40% at 70% 20%,rgba(var(--luz-rgb),.22),transparent 70%),radial-gradient(circle,rgba(var(--luz-rgb),.35) 1px,transparent 1.6px) 0 0/30px 30px}
+.im-palco:has([data-efeito="linha-tempo:decadas"]) .im-ato{z-index:1}
+.im-palco:has([data-efeito="linha-tempo:decadas"]) .im-texto{background:rgba(var(--bg-rgb),.96);border-left:3px solid rgb(var(--luz-rgb));padding:1.25rem 1.5rem;transition:background-color .8s,border-color .8s}
+.im-palco:has([data-efeito="linha-tempo:decadas"]) .im-texto h2{font-family:var(--sg-serif,'Fraunces',Georgia,serif);font-weight:600;font-size:clamp(1.8rem,4vw,3rem);line-height:1.1;margin:0 0 .75rem;color:#EDE6D3}
+.im-palco:has([data-efeito="linha-tempo:decadas"]) .im-texto p{margin:0;color:#EDE6D3}
+.im-palco:has([data-efeito="linha-tempo:decadas"]) .im-cena:not(.im-trilho){background:var(--papel);padding:1rem;color:var(--tinta)}
+.im-palco:has([data-efeito="linha-tempo:decadas"]) .im-estacao{background:var(--papel);color:var(--tinta);border:0;border-top:6px solid rgb(var(--luz-rgb))}
+.im-palco:has([data-efeito="linha-tempo:decadas"]) .im-estacao-titulo{font-family:var(--sg-serif,'Fraunces',Georgia,serif);font-weight:600;color:var(--tinta)}
+.im-palco:has([data-efeito="linha-tempo:decadas"]) .im-estacao a{color:#8F2412}
+.im-palco:has([data-efeito="linha-tempo:decadas"]) .im-decada{color:#8F2412}
+.js .im-palco:has([data-efeito="linha-tempo:decadas"]) .im-trilho--ativo .im-estacao{opacity:.8}
+.js .im-palco:has([data-efeito="linha-tempo:decadas"]) .im-trilho--ativo .im-estacao.on{opacity:1;background:var(--papel)}
+.im-pausa{position:fixed;top:.75rem;right:.75rem;z-index:30;font:600 .8rem/1 ui-monospace,Menlo,monospace;color:#EDE6D3;background:rgba(var(--bg-rgb,42,32,20),.95);border:1px solid rgb(var(--luz-rgb,230,196,143));border-radius:99px;padding:.6rem .9rem;min-height:2.25rem;cursor:pointer}
+.im-pausa:hover{background:rgba(var(--luz-rgb,230,196,143),.25)}
+.im-pausa[disabled]{display:none}
+/* Balões de conversa na década azul (2000+): só decoração, parados quando pausado. */
+.im-palco[data-luz="4"]::after{content:"";position:absolute;right:6%;top:30%;width:9rem;height:4rem;border-radius:2rem;background:rgba(var(--luz-rgb),.18);box-shadow:-5rem 6rem 0 -.5rem rgba(var(--luz-rgb),.14),-2rem 14rem 0 .5rem rgba(var(--luz-rgb),.12);pointer-events:none;z-index:0;animation:im-balao 9s ease-in-out infinite alternate}
+@keyframes im-balao{from{transform:translateY(0)}to{transform:translateY(-1.5rem)}}
+.im-palco.im-pausado::after,.im-palco.im-pausado .im-estacao-arte .im-camada{animation:none!important}
+.im-palco.im-pausado .im-estacao{transition:none!important}
+@media (prefers-reduced-motion:reduce){.im-palco::after{animation:none!important}.im-palco{transition:none!important}.im-texto{transition:none!important}}

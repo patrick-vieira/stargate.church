@@ -6,16 +6,38 @@ registar("linha-tempo:decadas", ({ el, parametros, reduzido, progresso }) => {
   const trilho = el.querySelector(".im-trilho");
   if (!trilho) return;
   const estacoes = [...trilho.querySelectorAll(".im-estacao")];
+  const palco = el.closest(".im-palco");
+  // Luz por década: sépia (1920) → âmbar → verde → magenta → azul (2000+, com balões).
+  const luzDe = (d) => (d < 1950 ? 0 : d < 1980 ? 1 : d < 1990 ? 2 : d < 2000 ? 3 : 4);
+  const acender = (e) => {
+    if (palco && e) palco.dataset.luz = String(luzDe(Number(e.dataset.decada)));
+  };
+  if (palco && estacoes[0]) acender(estacoes[0]);
   if (reduzido) {
     estacoes.forEach((e) => e.classList.add("on"));
     return;
   }
+  let pausado = false;
+  const btn = document.createElement("button");
+  btn.type = "button";
+  btn.className = "im-pausa";
+  btn.setAttribute("aria-pressed", "false");
+  btn.textContent = "Pausar movimento";
+  btn.addEventListener("click", () => {
+    pausado = !pausado;
+    btn.setAttribute("aria-pressed", String(pausado));
+    btn.textContent = pausado ? "Retomar movimento" : "Pausar movimento";
+    if (palco) palco.classList.toggle("im-pausado", pausado);
+    if (!pausado) pedir();
+  });
+  el.parentNode.insertBefore(btn, el);
   const k = typeof parametros.intensidade === "number" ? parametros.intensidade : 0.5;
   trilho.classList.add("im-trilho--ativo");
   let empurra = 0;
   let agendado = false;
   const aplicar = () => {
     agendado = false;
+    if (pausado) return;
     const tr = trilho.getBoundingClientRect();
     const centro = tr.left + tr.width / 2;
     for (const e of estacoes) {
@@ -38,7 +60,10 @@ registar("linha-tempo:decadas", ({ el, parametros, reduzido, progresso }) => {
   });
   const obs = new IntersectionObserver(
     (entradas) => {
-      for (const en of entradas) en.target.classList.toggle("on", en.isIntersecting);
+      for (const en of entradas) {
+        en.target.classList.toggle("on", en.isIntersecting);
+        if (en.isIntersecting) acender(en.target);
+      }
     },
     { root: trilho, threshold: 0.6 },
   );
