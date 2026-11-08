@@ -24,5 +24,10 @@ def lab_spike(request):
 def imersivo(request, slug):
     """Post imersivo: atos em dados, efeitos pelo motor JS."""
     post = get_object_or_404(PostImersivo.publicados(), slug=slug)
-    contexto = {"post": post, "atos": post.atos.all(), "libs": libs_opcionais()}
+    contexto = {
+        "post": post,
+        "atos": post.atos.all(),
+        "libs": libs_opcionais(),
+        "publicados": set(PostImersivo.publicados().values_list("slug", flat=True)),
+    }
     return render(request, "core/imersivo.html", contexto)

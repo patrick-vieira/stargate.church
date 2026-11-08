@@ -15,6 +15,12 @@ Um post imersivo é feito de **atos** guardados em dados (`core.PostImersivo` e 
 4. **Markup**: acrescentar o ramo `{% elif %}` no template com o HTML/SVG/canvas do efeito.
 5. **Teste**: `core/tests/test_imersivo.py` (validação do efeito, render dos atributos) e, se mexer na UI, rodar `scripts/spike/medir-imersivo.js`.
 
+## Efeito `linha-tempo:decadas` (STAR-40, hub «Do Golem ao ChatGPT»)
+- Parâmetros: `intensidade` (0–1) e `estacoes`, lista não vazia de `{decada: 1920..2020, titulo, slug?, texto?}` (validador `_estacoes`; décadas em ordem cronológica, não precisam ser únicas).
+- Markup: `<ol class="im-linha">` dentro de `.im-trilho` (`tabindex=0`, `role=region`, `aria-label`). Cada `li.im-estacao[data-decada]` traz camadas SVG geométricas (papel, válvulas, fósforo, pixels, vidro, conforme a época; `Ato.estacoes` calcula a forma). O título só vira link `core:imersivo` se o slug estiver em `publicados` (contexto da view).
+- CSS/JS: sem JS ou com movimento reduzido a lista é vertical e cronológica. Com JS, trilho horizontal com `scroll-snap`, parallax por variável `--d` (scroll do trilho + progresso vertical da página) e classe `.on` na estação visível (`IntersectionObserver`). Sem GSAP/Lenis, Three ou Rive.
+- Fixture do hub: `core/fixtures/imersivo_hub.json` (`ia-na-ficcao`; textos originais, sem imagens de obras).
+
 ## Régua de direitos
 - Proibido: imagens, personagens, cartazes, fotogramas e logos de obras.
 - Citações: 1 a 2 frases, sempre com fonte.

@@ -23,6 +23,23 @@
 .js .im-passo{stroke-dashoffset:var(--len,200);transition:stroke-dashoffset .6s}
 .js .im-passo.on{stroke-dashoffset:0}
 
+
+/* Linha do tempo por décadas: vertical e cronológica por padrão (sem JS / reduzido). */
+.im-trilho{min-width:0;max-width:100%}
+.im-linha{list-style:none;margin:0;padding:0;display:grid;gap:1rem;min-width:0}
+.im-estacao{min-width:0;max-width:100%;box-sizing:border-box;border:1px solid #1F1914;padding:1rem;display:grid;gap:.5rem;overflow:hidden}
+.im-estacao-arte{position:relative;aspect-ratio:5/3;max-height:9rem;overflow:hidden;background:#F3E6D3}
+.im-estacao-arte .im-camada{inset:0;height:100%}
+.im-decada{font-weight:700;color:#B3321A}
+.im-estacao-titulo{margin:0;overflow-wrap:anywhere}
+.im-estacao p{margin:0}
+.js .im-trilho--ativo{overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;padding-bottom:.5rem}
+.js .im-trilho--ativo:focus-visible{outline:3px solid #EB5A3C;outline-offset:2px}
+.js .im-trilho--ativo .im-linha{display:flex;gap:1rem;width:max-content}
+.js .im-trilho--ativo .im-estacao{flex:0 0 min(80vw,20rem);scroll-snap-align:center;opacity:.55;transition:opacity .4s,background-color .4s}
+.js .im-trilho--ativo .im-estacao.on{opacity:1;background:#fff}
+.js .im-trilho--ativo .im-estacao-arte .im-camada{transform:translateX(calc(var(--d,0px) * var(--v,.4)))}
+
 /* View Transitions entre posts: só onde há suporte. */
 @supports (view-transition-name:none){
   @view-transition{navigation:auto}
@@ -32,6 +49,7 @@
   .im-ato--omitir{display:none}
   .js .im-revela:not(.im-revela--on) .im-forma{opacity:1;transform:none}
   .im-forma,.js .im-passo{transition:none}
+  .js .im-trilho--ativo .im-estacao{transition:none;opacity:1}
   .js .im-passo{stroke-dashoffset:0}
   .im-camada{transform:none!important}
   ::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}
