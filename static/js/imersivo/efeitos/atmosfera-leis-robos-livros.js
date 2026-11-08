@@ -55,10 +55,18 @@ function progresso(){
 }
 function visib(r1,r2){
   const v=(e,on)=>e.classList.toggle('lr-off',!on);
-  v(faces.tipos,r1<90); v(faces.f1,r1<90); v(faces.v1,r1>=90&&r2<90);
+  v(faces.tipos,r1<172); v(faces.f1,r1<90); v(faces.v1,r1>=90&&r2<90);
   v(faces.f2,r1>2&&r2<90); v(faces.v2,r2>=90); v(faces.a3,r2>2);
 }
+/* STAR-45 (retoques): a capa do livro fechado abre aos ~8 % do scroll da página; estática (fechada) no reduzido e no modo linear */
+const capa=$('#lr-capa');
+function capaAtualiza(){
+  if(!capa||reduzido||linear) return;
+  const h=Math.max(1,document.documentElement.scrollHeight-innerHeight);
+  capa.style.setProperty('--c',(-ease(clamp(scrollY/(h*.08)))*165).toFixed(1)+'deg');
+}
 function livroAtualiza(){
+  capaAtualiza();
   if(reduzido){ alinha(1); reescreve(1); desenhaRede(1); return }
   const p=progresso();
   if(p===pAtual) return; pAtual=p;
@@ -131,7 +139,7 @@ function liga(){ if(!raf&&!pausado&&!document.hidden) raf=requestAnimationFrame(
 addEventListener('scroll',()=>{ if(ag) return; ag=true; requestAnimationFrame(()=>{ag=false; if(pausado){ if(linear){alvoMovel();linearAtualiza()}else livroAtualiza(); luz() }}) },{passive:true});
 document.addEventListener('visibilitychange',()=>{ if(document.hidden){if(raf){cancelAnimationFrame(raf);raf=0}} else liga() });
 const bt=$('#lr-pausa');
-function rotulo(){bt.textContent=reduzido?'movimento pausado (modo reduzido)':(pausado?'retomar movimento':'pausar movimento');bt.setAttribute('aria-pressed',String(pausado));root.classList.toggle('lr-pausado',pausado)}
+function rotulo(){bt.textContent=reduzido?'movimento pausado':(pausado?'retomar movimento':'pausar movimento');bt.setAttribute('aria-pressed',String(pausado));root.classList.toggle('lr-pausado',pausado)}
 if(reduzido) bt.disabled=true;
 bt.addEventListener('click',()=>{ if(reduzido) return; pausado=!pausado; rotulo(); if(pausado){if(raf){cancelAnimationFrame(raf);raf=0}} else liga() });
 rotulo();

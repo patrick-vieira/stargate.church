@@ -20,7 +20,7 @@
   background:radial-gradient(circle,rgba(255,176,0,.34),rgba(255,176,0,.12) 38%,transparent 68%)}
 
 /* ---- barra de baixo (o cabeçalho do site ocupa o topo) ---- */
-.lr-topo{position:fixed;bottom:0;left:0;right:0;z-index:40;display:flex;align-items:center;gap:16px;padding:8px 20px;background:rgba(241,232,212,.96);border-top:1px solid rgba(27,26,34,.22);font:600 12px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase}
+.lr-topo{position:fixed;bottom:0;left:0;right:0;z-index:40;display:flex;align-items:center;gap:16px;padding:8px 20px;background:#F1E8D4;border-top:1px solid rgba(27,26,34,.3);font:600 12px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase}
 .lr-topo a{color:var(--azul);text-decoration:none;white-space:nowrap}
 .lr-topo .lr-curto{display:none}
 .lr-btn-pausa{margin-left:auto;font:600 12px/1 var(--mono);letter-spacing:.06em;text-transform:none;color:var(--tinta);background:transparent;border:1px solid var(--tinta);border-radius:99px;padding:9px 14px;cursor:pointer;min-height:36px}
@@ -49,6 +49,17 @@
 .lr-hero h1 em{color:var(--corr)}
 .lr-hero .lr-lead{max-width:50ch;margin:24px 0 0;padding:16px 22px}
 .lr-rolar{margin-top:26px;font:600 12px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--suave)}
+
+/* STAR-45 (retoques): livro fechado em 3D à direita do título; a capa abre com o scroll (JS). */
+.lr-capa-cena{flex:none;margin-left:auto;width:clamp(240px,22vw,420px);aspect-ratio:3/4;perspective:1800px}
+.lr-capa-livro{position:relative;width:100%;height:100%;transform-style:preserve-3d;transform:rotateY(-26deg) rotateX(5deg);--c:0deg}
+.lr-capa-livro>i{position:absolute;display:block}
+.lr-capa-fundo{inset:0;transform:translateZ(-28px);background:#1B3049;border-radius:3px 6px 6px 3px;box-shadow:12px 18px 40px rgba(27,26,34,.35)}
+.lr-capa-folhas{top:6px;bottom:6px;left:6px;right:6px;transform:translateZ(-14px);background:repeating-linear-gradient(0deg,#F4EBD6 0 3px,#DCCFB0 3px 4px);border-radius:2px}
+.lr-capa-lado{top:6px;bottom:6px;right:0;width:28px;transform-origin:right center;transform:translateZ(-14px) rotateY(90deg) translateZ(14px);background:repeating-linear-gradient(90deg,#F4EBD6 0 3px,#CDBE9A 3px 4px)}
+.lr-capa-frente{inset:0;transform-origin:left center;transform:rotateY(var(--c));background:linear-gradient(100deg,#2B4D73,var(--azul) 14%,#1C3752);border:1px solid rgba(255,255,255,.14);border-radius:3px 6px 6px 3px;backface-visibility:hidden;-webkit-backface-visibility:hidden;box-shadow:inset 0 0 0 10px rgba(255,255,255,.04)}
+.lr-capa-frente b{position:absolute;left:18%;right:12%;top:20%;height:34%;border:2px solid rgba(230,196,143,.7);border-radius:2px;box-shadow:0 0 0 6px rgba(230,196,143,.15)}
+.lr-raiz.lr-linear .lr-capa-cena{display:none}
 
 /* ---- o livro ---- */
 .lr-pista{position:relative;height:560vh}
@@ -153,6 +164,8 @@
 @media (max-width:899px){
   .lr-topo{padding:8px 12px;gap:8px}
   .lr-topo .lr-longo{display:none}.lr-topo .lr-curto{display:inline}
+  /* STAR-45 (retoques): a orbe do narrador (48 px + 8) não tapa a margem direita dos cartões */
+  .lr-conteudo{padding-right:40px}
   .lr-hero{padding-top:50px;min-height:auto}
   .lr-veu{padding:16px 16px}.lr-veu h2{font-size:25px}.lr-veu p{font-size:16px}
   .lr-oficina{padding:60px 0 30px}

@@ -10,7 +10,7 @@
 <div class="lr-mesa" aria-hidden="true"><div class="lr-lamp" id="lr-lamp"></div></div>
 
 <div class="lr-topo">
-  <a href="{% url 'core:home' %}"><span class="lr-longo">A IA na ficção · 5</span><span class="lr-curto">Ficção · 5</span></a>
+  <a href="{% url 'core:home' %}"><span class="lr-longo">A IA na ficção · 5</span><span class="lr-curto">Post 5</span></a>
   <button class="lr-btn-pausa" id="lr-pausa" type="button" aria-pressed="false">pausar movimento</button>
 </div>
 
@@ -21,6 +21,12 @@
       <h1 id="lr-t-post">Leis, robôs e <em>livros</em></h1>
       <p class="lr-lead lr-folha">{{ ato.texto }}</p>
       <p class="lr-rolar" aria-hidden="true">Role: o livro se abre &nbsp;·&nbsp; a página vira</p>
+    </div>
+    <div class="lr-capa-cena" aria-hidden="true">
+      <div class="lr-capa-livro" id="lr-capa">
+        <i class="lr-capa-fundo"></i><i class="lr-capa-folhas"></i><i class="lr-capa-lado"></i>
+        <i class="lr-capa-frente"><b></b></i>
+      </div>
     </div>
   </section>
 
