@@ -50,7 +50,7 @@ Decisão do Patrick: o motor fica **sem GSAP e sem Lenis** (e sem rede). Ordem d
 
 ### Narrador Rive (`rive:narrador`, STAR-38)
 
-Glifo comum a **todos os posts imersivos** (`core/_narrador.html`, incluído nos 4 templates). Runtime Rive 2.35.0 vendorizado em `static/lab/vendor/` (nada de CDN) e `static/rive/narrador.riv` (fonte STAR-37, ViewModel `Narrador`: `progresso` 0–100, `era` 0–6, `humor` 0–2, `cor`).
+Glifo comum a **todos os posts imersivos** (`core/_narrador.html`, incluído nos 6 templates). Runtime Rive 2.35.0 vendorizado em `static/lab/vendor/` (nada de CDN) e `static/rive/narrador.riv` (fonte STAR-37, ViewModel `Narrador`: `progresso` 0–100, `era` 0–6, `humor` 0–2, `cor`).
 
 - `static/js/imersivo/efeitos/rive-narrador.js` liga `progresso` ao scroll da página (`progressoPagina(cb)` no contexto do motor) e põe a `era` vinda de `data-parametros`; a `cor` sai da tabela de eras.
 - Era por post: tabela `ERA_NARRADOR` em `core/views.py` (slug → era); fora da tabela vale 6. Post novo = uma linha na tabela.

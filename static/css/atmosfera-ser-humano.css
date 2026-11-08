@@ -149,3 +149,5 @@
 .sh-raiz.sh-estatico .sh-refl{display:none}
 .sh-raiz.sh-estatico .sh-ops label,.sh-raiz.sh-estatico .sh-obs circle,.sh-raiz.sh-estatico .sh-sala{transition:none}
 @media (prefers-reduced-motion:reduce){.sh-ops label,.sh-obs circle,.sh-sala{transition:none}}
+/* STAR-38: narrador acima da barra fixa .sh-topo (cerca de 53 px, no fundo). */
+body:has(.sh-raiz){--nr-base:72px}
