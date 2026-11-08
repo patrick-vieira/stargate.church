@@ -104,6 +104,10 @@
 .am-fluxo .am-cartao:nth-child(3){align-self:flex-end}
 .am-fluxo .am-seta{display:none}
 
+/* o fundo escuro chega ao rodapé: sem a faixa creme da margem do rodapé */
+.sg-rodape{margin-top:0}
+.am-raiz.am-lampada-atras .am-bulbo,.am-raiz.am-lampada-atras .am-cabo{z-index:1}
+
 /* ato 3 · a interação */
 .am-ato3{position:relative;z-index:2;padding:110px 0 80px}
 .am-palco{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:34px;align-items:start;margin-top:34px}
@@ -158,6 +162,7 @@
   .am-palco{grid-template-columns:minmax(0,1fr)}
   .am-medidor{position:static}
   .am-passo{top:78px;right:12px}
+  .am-rolar span{display:block}.am-rolar .am-ponto{display:none}
   .am-ato3{padding:70px 0 60px}
   .am-painel{padding:18px}
 }

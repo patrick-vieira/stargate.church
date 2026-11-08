@@ -139,6 +139,9 @@
 .em-fecho a,.em-prox{font:700 17px/1.3 var(--sans);display:inline-block;padding:12px 14px;margin:2px 0;background:rgba(13,16,34,.95);border-radius:8px}
 .em-fecho p.em-fontes{display:block;margin:26px auto 0;max-width:72ch;font:12px/1.6 var(--mono);color:#CFCBE6;padding:8px 12px}
 
+/* o fundo escuro chega ao rodapé: sem a faixa creme da margem do rodapé */
+.sg-rodape{margin-top:0}
+
 /* versão linear: 390, reduzido e quando o leitor pede */
 .em-so-inter{display:block}
 .em-so-lin{display:none}
@@ -147,6 +150,7 @@
 .em-raiz.em-linear .em-conseq[hidden]{display:block}
 .em-raiz.em-linear .em-final-item .em-tx{display:block}
 .em-raiz.em-linear .em-sel{display:none}
+.em-raiz.em-linear .em-contador{display:none}
 
 @media (max-width:899px){
   .em-topo{padding:8px 12px;gap:8px}

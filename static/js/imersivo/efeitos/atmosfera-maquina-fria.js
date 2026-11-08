@@ -420,6 +420,14 @@ registar("atmosfera:maquina-fria", async ({ el, reduzido }) => {
   );
   if (!reduzido) io.observe(ato2);
 
+  // a lâmpada fixa fica atrás do conteúdo enquanto o ato 3 está em vista (não cobre o medidor)
+  const ato3Viva = $("#am-ato3");
+  if (ato3Viva) {
+    new IntersectionObserver((es) => {
+      for (const x of es) raiz.classList.toggle("am-lampada-atras", x.isIntersecting);
+    }).observe(ato3Viva);
+  }
+
   // ---------- a interação do ato 3: três níveis e o medidor de risco ----------
   const NIV = {
     rec: ["Só mostra os dados, sem sugerir nada.", "Sugere uma opção, sem justificar.", "Sugere e explica o motivo.", "Sugere e ordena todas as opções."],
