@@ -5,10 +5,7 @@
 {% for ato in atos %}{% if ato.efeito == "atmosfera:ia-afetiva" %}
 <div class="aa-raiz" id="principal" data-imersivo data-libs="{{ libs }}">
 <div class="aa-cidade" id="aa-cidade" aria-hidden="true">
-  <div class="aa-ceu-glow"></div><div class="aa-sol"></div>
-  <div class="aa-cam aa-l3" id="aa-l3"></div><div class="aa-cam aa-z aa-l3" id="aa-l3z"></div>
-  <div class="aa-cam aa-l2" id="aa-l2"></div><div class="aa-cam aa-z aa-l2" id="aa-l2z"></div>
-  <div class="aa-cam aa-l1" id="aa-l1"></div><div class="aa-cam aa-z aa-l1" id="aa-l1z"></div>
+  <canvas class="aa-cam" id="aa-cidade-cv"></canvas>
   <div class="aa-janela" id="aa-janela"><div class="aa-luz"></div><div class="aa-cort"></div><div class="aa-trav"></div><div class="aa-trav aa-h"></div></div>
 </div>
 <button class="aa-btn-pausa" id="aa-pausa" type="button" aria-pressed="false">pausar movimento</button>

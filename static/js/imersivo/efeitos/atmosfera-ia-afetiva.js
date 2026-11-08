@@ -17,24 +17,63 @@ registar("atmosfera:ia-afetiva", async ({ el, reduzido }) => {
     const x = Math.sin(i * 91.7 + 13.3) * 43758.5453;
     return x - Math.floor(x);
   };
-  function monta(id, n, wmin, wmax, hmin, hmax, seed) {
-    let x = -2;
-    let h1 = "";
-    let h2 = "";
-    for (let i = 0; i < n; i++) {
-      const w = wmin + rnd(seed + i) * (wmax - wmin);
-      const h = hmin + rnd(seed + i + 40) * (hmax - hmin);
-      const g = `left:${x.toFixed(1)}%;width:${w.toFixed(1)}%;height:${h.toFixed(0)}%;--o:${(0.35 + rnd(seed + i + 80) * 0.65).toFixed(2)};--an:${rnd(seed + i + 120) < 0.5 ? 0 : 90}deg;--gp:${28 + Math.floor(rnd(seed + i + 7) * 34)}px`;
-      h1 += `<div class="aa-pred" style="${g}"></div>`;
-      h2 += `<div class="aa-pred aa-z" style="${g}"></div>`;
-      x += w * (0.55 + rnd(seed + i + 9) * 0.5);
-    }
-    $(id).innerHTML = h1;
-    $(id + "z").innerHTML = h2;
+  // Desenhada UMA vez em <canvas> (prédios + janelas acesas), refeita só no resize. Antes eram 6
+  // camadas DOM com 3 mask-image + composite por prédio: em software custavam ~15 fps a 1920.
+  // O brilho que cresce com o scroll refaz as janelas em passos de 0,05 (≤ 15 redesenhos numa
+  // rolagem inteira) em vez de um véu de tela cheia, que custava uma composição enorme por frame.
+  const COR = ["#3a1d1a", "#2b1512", "#1c0e0b"];
+  // As 3 profundidades vão para UM canvas (uma só camada a compor, com a altura do prédio mais
+  // alto): em software o custo por frame é a área das camadas sob o conteúdo que rola.
+  const CAMADAS = [
+    [20, 7, 12, 38, 78, 1],
+    [16, 8, 13, 26, 60, 100],
+    [12, 9, 15, 14, 40, 200],
+  ];
+  const FR = 0.8;
+  let bDes = 1;
+  function desenha(brilhoJ) {
+    if (brilhoJ !== undefined) bDes = brilhoJ;
+    const cv = $("#aa-cidade-cv");
+    const W = Math.max(1, Math.round(cv.clientWidth));
+    const Hc = Math.max(1, Math.round(cv.clientHeight));
+    // 10vh de chão extra: o paralaxe sobe o canvas até ~11vh no fim da página e não pode abrir fresta
+    const pad = Math.round(innerHeight * 0.1);
+    const H = Math.round((Hc - pad) / FR);
+    cv.width = W;
+    cv.height = Hc;
+    const c = cv.getContext("2d");
+    c.translate(0, Hc - pad - H);
+    CAMADAS.forEach(([n, wmin, wmax, hmin, hmax, seed], k) => {
+      let x = -2;
+      for (let i = 0; i < n; i++) {
+        const w = wmin + rnd(seed + i) * (wmax - wmin);
+        const h = hmin + rnd(seed + i + 40) * (hmax - hmin);
+        const o = 0.35 + rnd(seed + i + 80) * 0.65;
+        const an = rnd(seed + i + 120) < 0.5 ? 0 : 90;
+        const gp = 28 + Math.floor(rnd(seed + i + 7) * 34);
+        const px = (x / 100) * W;
+        const pw = (w / 100) * W;
+        const ph = (h / 100) * H;
+        const py = H - ph;
+        c.fillStyle = COR[k];
+        c.fillRect(px, py, pw, ph + pad);
+        // janelas: a grade 5×6 (passo 12×15) dentro de inset 10/7/6, cortada pelas faixas gp
+        c.fillStyle = `rgba(244,194,107,${(o * 0.7 * bDes).toFixed(3)})`;
+        const x0 = px + 7;
+        const x1 = px + pw - 7;
+        const yTopo = py + 10;
+        const yBase = py + ph - 6;
+        for (let jx = x0; jx + 5 <= x1; jx += 12) {
+          for (let jy = yTopo; jy + 6 <= yBase; jy += 15) {
+            const faixa = an === 0 ? yBase - (jy + 6) : jx - x0;
+            if (faixa % gp < 26) c.fillRect(jx, jy, 5, 6);
+          }
+        }
+        x += w * (0.55 + rnd(seed + i + 9) * 0.5);
+      }
+    });
   }
-  monta("#aa-l3", 20, 7, 12, 38, 78, 1);
-  monta("#aa-l2", 16, 8, 13, 26, 60, 100);
-  monta("#aa-l1", 12, 9, 15, 14, 40, 200);
+  desenha();
 
   // ---------- a conversa (diálogo inventado) ----------
   const MSG = [
@@ -128,10 +167,10 @@ registar("atmosfera:ia-afetiva", async ({ el, reduzido }) => {
   });
 
   // ---------- a luz da janela ilumina os componentes vindos da direção dela ----------
-  const cid = $("#aa-cidade");
   const jan = $("#aa-janela");
-  const cam = ["#aa-l3", "#aa-l3z", "#aa-l2", "#aa-l2z", "#aa-l1", "#aa-l1z"].map((s) => $(s));
-  const K = [0.5, 0.5, 0.9, 0.9, 1.5, 1.5];
+  const cam = [$("#aa-cidade-cv")];
+  const K = [0.9];
+  const tUlt = [""];
   let quentes = [];
   let WX = 0;
   let WY = 0;
@@ -149,6 +188,7 @@ registar("atmosfera:ia-afetiva", async ({ el, reduzido }) => {
     const f = h > 0 ? scrollY / h : 1;
     return reduzido ? 1 : 0.25 + 0.75 * clamp(f * 1.15);
   }
+  const PROPS = ["--lx", "--ly", "--li", "--sx", "--sy"];
   function luz() {
     const vh = innerHeight;
     const b = bAtual < 0 ? 1 : bAtual;
@@ -165,11 +205,20 @@ registar("atmosfera:ia-afetiva", async ({ el, reduzido }) => {
       const ex = Math.max(r.left - WX, 0, WX - r.right);
       const ey = Math.max(r.top - WY, 0, WY - r.bottom);
       const de = Math.hypot(ex, ey);
-      s.setProperty("--lx", (WX - r.left).toFixed(0) + "px");
-      s.setProperty("--ly", (WY - r.top).toFixed(0) + "px");
-      s.setProperty("--li", (Math.pow(Math.max(0, 1 - de / 1100), 0.9) * clamp(b * 1.1, 0.3, 1)).toFixed(2));
-      s.setProperty("--sx", Math.round(((dx / d) * m) / 3) * 3 + "px");
-      s.setProperty("--sy", Math.round(((dy / d) * m * 0.6 + 6) / 3) * 3 + "px");
+      const v = [
+        Math.round((WX - r.left) / 8) * 8 + "px",
+        Math.round((WY - r.top) / 8) * 8 + "px",
+        (Math.round(Math.pow(Math.max(0, 1 - de / 1100), 0.9) * clamp(b * 1.1, 0.3, 1) * 20) / 20).toFixed(2),
+        Math.round(((dx / d) * m) / 3) * 3 + "px",
+        Math.round(((dy / d) * m * 0.6 + 6) / 3) * 3 + "px",
+      ];
+      const ult = e._aa || (e._aa = []);
+      for (let k = 0; k < 5; k++) {
+        if (ult[k] !== v[k]) {
+          ult[k] = v[k];
+          s.setProperty(PROPS[k], v[k]);
+        }
+      }
     }
   }
   function progressoAto1() {
@@ -191,9 +240,13 @@ registar("atmosfera:ia-afetiva", async ({ el, reduzido }) => {
   );
   function atualiza(force) {
     const b = brilho();
-    if (force || Math.abs(b - bAtual) > 0.004) {
+    if (force || Math.abs(b - bAtual) > 0.015) {
       bAtual = b;
-      cid.style.setProperty("--b", b.toFixed(3));
+      // brilho: opacity direta na janela e janelas dos prédios redesenhadas por passos. Um --b herdado
+      // na .aa-cidade invalidava o estilo de todos os prédios a cada frame.
+      jan.style.opacity = (0.35 + 0.65 * b).toFixed(2);
+      const q = Math.round(b * 20) / 20;
+      if (q !== bDes) desenha(q);
     }
     if (force || scrollY !== sY) {
       sY = scrollY;
@@ -214,7 +267,12 @@ registar("atmosfera:ia-afetiva", async ({ el, reduzido }) => {
       cx += (PX - cx) * 0.08;
       const dx = (cx / innerWidth - 0.5) * 2;
       cam.forEach((c, i) => {
-        c.style.transform = `translate3d(${(-dx * K[i] * 10).toFixed(1)}px,${(-scrollY * 0.02 * K[i]).toFixed(1)}px,0)`;
+        // passos de 2 px: só recompõe a camada quando o deslocamento muda de fato
+        const t = `translate3d(${Math.round((-dx * K[i] * 10) / 2) * 2}px,${Math.round((-scrollY * 0.02 * K[i]) / 2) * 2}px,0)`;
+        if (t !== tUlt[i]) {
+          tUlt[i] = t;
+          c.style.transform = t;
+        }
       });
     }
     raf = requestAnimationFrame(frame);
@@ -262,6 +320,7 @@ registar("atmosfera:ia-afetiva", async ({ el, reduzido }) => {
   });
   rotulo();
   addEventListener("resize", () => {
+    desenha();
     medeJanela();
     quentes = $$(".aa-quente", raiz);
     atualiza(true);
