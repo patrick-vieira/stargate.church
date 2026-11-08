@@ -170,3 +170,5 @@
   .em-no-btn,.em-arvore .em-r,.em-quente{transition:none}
   .em-nv{will-change:auto}
 }
+/* STAR-38: narrador acima da barra fixa de baixo (.em-topo). */
+.nr-narrador{--nr-base:76px}

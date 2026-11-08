@@ -84,6 +84,16 @@ async function iniciarAto(el, registo, libs) {
         ouvintes.add(f);
         f();
       },
+      // Progresso da página inteira (0 no topo, 1 no fim), para elementos fixos.
+      progressoPagina(cb) {
+        const f = () => {
+          const de = document.documentElement;
+          const max = de.scrollHeight - window.innerHeight;
+          cb(max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0);
+        };
+        ouvintes.add(f);
+        f();
+      },
     };
     await fn(ctx);
     registo.ok = true;
