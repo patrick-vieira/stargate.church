@@ -13,6 +13,7 @@ TEMPLATES_ATMOSFERA = {
     Ato.Efeito.ATMOSFERA_SER_HUMANO: "core/imersivo_ser_humano.html",
     Ato.Efeito.ATMOSFERA_ESCOLHAS: "core/imersivo_escolhas.html",
     Ato.Efeito.ATMOSFERA_IA_AFETIVA: "core/imersivo_ia_afetiva.html",
+    Ato.Efeito.ATMOSFERA_LEIS_ROBOS_LIVROS: "core/imersivo_leis_robos_livros.html",
 }
 
 
