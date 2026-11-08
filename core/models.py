@@ -69,6 +69,8 @@ PARAMETROS_POR_EFEITO = {
     "atmosfera:maquina-fria": {},
     # Atmosfera do post 2 (STAR-42): HUD, glitch e scanlines; conteúdo no template.
     "atmosfera:guerra-maquinas": {},
+    # Atmosfera do post 6 (STAR-46): narrativa ramificada, estado no cliente.
+    "atmosfera:escolhas": {},
 }
 
 
@@ -104,6 +106,10 @@ class Ato(models.Model):
         ATMOSFERA_GUERRA = (
             "atmosfera:guerra-maquinas",
             "Atmosfera «Guerra das máquinas»",
+        )
+        ATMOSFERA_ESCOLHAS = (
+            "atmosfera:escolhas",
+            "Atmosfera «Escolhas da máquina»",
         )
 
     class Reduzido(models.TextChoices):
