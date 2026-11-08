@@ -26,6 +26,8 @@ def imersivo(request, slug):
     post = get_object_or_404(PostImersivo.publicados(), slug=slug)
     atos = post.atos.all()
     contexto = {"post": post, "atos": atos, "libs": libs_opcionais()}
+    if any(a.efeito == Ato.Efeito.ATMOSFERA for a in atos):
+        return render(request, "core/imersivo_maquina_fria.html", contexto)
     if any(a.efeito == Ato.Efeito.ATMOSFERA_IA_AFETIVA for a in atos):
         return render(request, "core/imersivo_ia_afetiva.html", contexto)
     return render(request, "core/imersivo.html", contexto)

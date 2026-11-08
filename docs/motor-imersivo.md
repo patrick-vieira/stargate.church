@@ -4,7 +4,7 @@ Um post imersivo é feito de **atos** guardados em dados (`core.PostImersivo` e 
 
 ## Como funciona
 - O template `core/templates/core/imersivo.html` renderiza cada ato como `<article class="im-ato" data-ato data-efeito data-parametros data-reduzido>` com `h2` e `p`. As camadas do parallax, as formas, o diagrama e os canvas são markup inline (formas geométricas; nenhuma imagem).
-- `static/js/imersivo/motor.js` (módulo ES) percorre os `[data-ato]` e, quando o ato chega perto do viewport (`IntersectionObserver`, `rootMargin: 100% 0px`), importa `efeitos/<efeito com : trocado por ->.js` e chama a função registada com `{ el, parametros, reduzido, libs, progresso(cb) }`. `progresso(cb)` chama `cb(0..1)` a cada scroll (via `requestAnimationFrame`).
+- `static/js/imersivo/motor.js` (módulo ES) percorre os `[data-ato]` e, quando o ato chega perto do viewport (`IntersectionObserver`, `rootMargin: 100% 0px`; nos efeitos pesados `three:*` e `rive:*` é `0px`, para a lib só baixar quando o ato entra em vista), importa `efeitos/<efeito com : trocado por ->.js` e chama a função registada com `{ el, parametros, reduzido, libs, progresso(cb) }`. `progresso(cb)` chama `cb(0..1)` a cada scroll (via `requestAnimationFrame`).
 - O estado fica em `window.__imersivoEstado = { atos: [{ efeito, ok, erro }], reduzido }` (usado por `scripts/spike/medir-imersivo.js`).
 - Sem JS o texto fica legível; o diagrama e as formas aparecem completos (o CSS só os esconde com a classe `js`).
 
@@ -61,3 +61,14 @@ Efeito de página inteira (protótipo aprovado no STAR-51, revisão 5). Se o pos
 - **Movimento reduzido**: `reduzido` põe `.aa-estatico` (sem respiração da janela, sem cursor a piscar, diálogo completo e cartões visíveis); o botão «pausar movimento» pausa o resto.
 - **Áudio**: desligado; o «som (em breve)» é uma caixa desactivada.
 - **Medições (browser)**: ver o registo da entrega no STAR-44 (fps com «load» anotado, contraste AA, 390 px sem scroll horizontal).
+
+## Atmosfera «Máquina fria» (`atmosfera:maquina-fria`, STAR-41)
+Efeito de página inteira (protótipo aprovado no STAR-51). Se o post tiver um ato com este efeito, `core/views.py` renderiza o template próprio `core/templates/core/imersivo_maquina_fria.html` em vez do genérico.
+- **Peças**: lâmpada que segue o cursor, console que escreve ao rolar (Console 7), corredor 3D (three) com camadas e medidor de risco. Tudo escopado em `.am-raiz`.
+- **Ficheiros**: `static/js/imersivo/efeitos/atmosfera-maquina-fria.js`, `static/css/atmosfera-maquina-fria.css`, fixtures `core/fixtures/maquina_fria.json` (slug `a-maquina-fria`) e `maquina_fria_provisorio.json`.
+- **Parâmetros**: nenhum (`PARAMETROS_POR_EFEITO["atmosfera:maquina-fria"] = {}`).
+- **Fonte**: títulos em Fraunces 600 local (`static/fonts/fraunces/`), via `--serif: var(--sg-serif)`; nada vem de CDN.
+- **three**: só baixa quando o corredor entra em vista; no 1.º carregamento não vem.
+- **Movimento reduzido**: `reduzido` põe `.am-estatico` (sem poeira, sem grão animado, sem three); o botão «pausar movimento» pausa o resto.
+- **Acessibilidade**: contraste AA medido no browser a 1920 e 390 px: 23 seletores de texto, 0 falhas; o mais baixo é `p.am-n` com 4,98:1 (mínimo 4,5). Terminal e corredor são `aria-hidden`; o texto do console vai num `.am-sr`.
+- **Desempenho**: fps medido com WebGL por software (swiftshader); com a máquina carregada vale a paridade com o protótipo (ver o registo no STAR-41).

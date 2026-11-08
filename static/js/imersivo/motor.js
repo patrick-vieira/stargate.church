@@ -93,6 +93,12 @@ async function iniciarAto(el, registo, libs) {
   }
 }
 
+// Efeitos pesados (three, rive) só baixam a lib quando o ato entra de facto em vista;
+// os leves arrancam com 1 viewport de antecedência.
+function margemDoEfeito(efeito) {
+  return /^(three|rive):/.test(efeito || "") ? "0px" : "100% 0px";
+}
+
 async function principal() {
   const palco = document.querySelector("[data-imersivo]");
   const atos = [...document.querySelectorAll("[data-ato]")];
@@ -111,7 +117,7 @@ async function principal() {
         obs.disconnect();
         iniciarAto(el, registos[i], libs).then(fim);
       },
-      { rootMargin: "100% 0px" },
+      { rootMargin: margemDoEfeito(el.dataset.efeito) },
     );
     obs.observe(el);
   }));
