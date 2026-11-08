@@ -1,0 +1,24 @@
+[
+  {
+    "model": "core.serie",
+    "pk": 1,
+    "fields": {
+      "slug": "ia-na-ficcao",
+      "titulo": "A IA na ficção",
+      "resumo": "Da máquina fria dos anos 1960 ao placar do presente: oito estações sobre o que a ficção imaginou da inteligência artificial.",
+      "capa": "",
+      "ordem": 1,
+      "publicado": true,
+      "hub": 40
+    }
+  },
+  {"model": "core.episodio", "pk": 1, "fields": {"serie": 1, "numero": 0, "slug": "a-serie", "titulo": "A IA na ficção", "post": 40, "publicado": true}},
+  {"model": "core.episodio", "pk": 2, "fields": {"serie": 1, "numero": 1, "slug": "a-maquina-fria", "titulo": "A máquina fria", "post": 3, "publicado": true}},
+  {"model": "core.episodio", "pk": 3, "fields": {"serie": 1, "numero": 2, "slug": "o-medo-da-guerra-das-maquinas", "titulo": "A guerra das máquinas", "post": 4, "publicado": true}},
+  {"model": "core.episodio", "pk": 4, "fields": {"serie": 1, "numero": 3, "slug": "o-que-e-ser-humano", "titulo": "O que é ser humano", "post": 5, "publicado": true}},
+  {"model": "core.episodio", "pk": 5, "fields": {"serie": 1, "numero": 4, "slug": "a-ia-afetiva", "titulo": "A IA afetiva", "post": 44, "publicado": true}},
+  {"model": "core.episodio", "pk": 6, "fields": {"serie": 1, "numero": 5, "slug": "leis-robos-e-livros", "titulo": "Leis, robôs e livros", "post": null, "publicado": false}},
+  {"model": "core.episodio", "pk": 7, "fields": {"serie": 1, "numero": 6, "slug": "escolhas-da-maquina", "titulo": "Escolhas da máquina", "post": 6, "publicado": true}},
+  {"model": "core.episodio", "pk": 8, "fields": {"serie": 1, "numero": 7, "slug": "o-quase-presente", "titulo": "O quase-presente", "post": null, "publicado": false}},
+  {"model": "core.episodio", "pk": 9, "fields": {"serie": 1, "numero": 8, "slug": "o-placar", "titulo": "O placar", "post": null, "publicado": false}}
+]

@@ -13,7 +13,7 @@ class HomeTests(TestCase):
         self.energia = criar_tema("Energia")
 
     def get(self, **params):
-        return self.client.get(reverse("core:home"), params)
+        return self.client.get(reverse("noticias:home"), params)
 
     def test_home_200_em_pt_br_com_data_em_minuscula(self):
         resposta = self.get()
@@ -295,7 +295,7 @@ class FixtureDemoTests(TestCase):
         self.assertEqual(NumeroDestaque.objects.count(), 4)
 
     def test_home_com_a_fixture(self):
-        resposta = self.client.get(reverse("core:home"))
+        resposta = self.client.get(reverse("noticias:home"))
         self.assertEqual(resposta.status_code, 200)
         self.assertEqual(
             resposta.context["manchete"].titulo,

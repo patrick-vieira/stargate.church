@@ -384,9 +384,27 @@ class HubTests(TestCase):
     fixtures = ["imersivo_hub"]
 
     def setUp(self):
-        PostImersivo.objects.create(slug="a-maquina-fria", titulo="A", publicado=True)
-        PostImersivo.objects.create(slug="o-placar", titulo="P", publicado=False)
-        self.r = self.client.get(reverse("core:imersivo", args=["ia-na-ficcao"]))
+        from core.models import Episodio, Serie
+
+        fria = PostImersivo.objects.create(
+            slug="a-maquina-fria", titulo="A", publicado=True
+        )
+        placar = PostImersivo.objects.create(
+            slug="o-placar", titulo="P", publicado=False
+        )
+        serie = Serie.objects.create(
+            slug="ia-na-ficcao",
+            titulo="S",
+            publicado=True,
+            hub=PostImersivo.objects.get(slug="ia-na-ficcao"),
+        )
+        Episodio.objects.create(
+            serie=serie, numero=1, slug="a-maquina-fria", post=fria, publicado=True
+        )
+        Episodio.objects.create(
+            serie=serie, numero=8, slug="o-placar", post=placar, publicado=True
+        )
+        self.r = self.client.get("/series/ia-na-ficcao/")
         self.html = self.r.content.decode()
 
     def test_fixture_valida(self):
@@ -413,9 +431,10 @@ class HubTests(TestCase):
         self.assertEqual(decadas[0], 1920)
 
     def test_link_so_para_publicado(self):
-        self.assertContains(self.r, 'href="/imersivo/a-maquina-fria/"')
-        self.assertNotContains(self.r, 'href="/imersivo/o-placar/"')
-        self.assertNotContains(self.r, 'href="/imersivo/o-quase-presente/"')
+        self.assertContains(self.r, 'href="/series/ia-na-ficcao/a-maquina-fria/"')
+        self.assertNotContains(self.r, 'href="/imersivo/')
+        self.assertNotContains(self.r, 'href="/series/ia-na-ficcao/o-placar/"')
+        self.assertNotContains(self.r, 'href="/series/ia-na-ficcao/o-quase-presente/"')
         self.assertContains(self.r, "O placar")
 
     def test_sem_imagens(self):

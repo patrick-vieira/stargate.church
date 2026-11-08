@@ -3,6 +3,7 @@ import re
 
 from django.core.exceptions import ValidationError
 from django.db import models
+from django.urls import reverse
 
 
 def _numero(valor, minimo=None, maximo=None):
@@ -219,7 +220,11 @@ class Ato(models.Model):
         if not isinstance(lista, list):
             return []
         return [
-            {**e, "forma": self._forma(e["decada"])}
+            {
+                **e,
+                "forma": self._forma(e["decada"]),
+                "url": getattr(self, "urls_episodios", {}).get(e.get("slug")),
+            }
             for e in lista
             if isinstance(e, dict) and isinstance(e.get("decada"), int)
         ]
@@ -247,3 +252,119 @@ class Ato(models.Model):
                 )
         if erros:
             raise ValidationError({"parametros": erros})
+
+
+class Serie(models.Model):
+    slug = models.SlugField("slug", unique=True)
+    titulo = models.CharField("título", max_length=200)
+    resumo = models.TextField("resumo", blank=True)
+    capa = models.CharField(
+        "capa",
+        max_length=200,
+        blank=True,
+        help_text="Caminho estático da imagem de capa (opcional).",
+    )
+    ordem = models.PositiveIntegerField("ordem", default=0)
+    publicado = models.BooleanField("publicado", default=False)
+    hub = models.ForeignKey(
+        PostImersivo,
+        on_delete=models.PROTECT,
+        null=True,
+        blank=True,
+        related_name="series_hub",
+        verbose_name="página da série (hub)",
+        help_text="Post imersivo renderizado em /series/<série>/.",
+    )
+
+    trailer = models.FileField(
+        "trailer (16:9)", upload_to="series/trailer/", blank=True, max_length=200
+    )
+    trailer_poster = models.FileField(
+        "poster do trailer", upload_to="series/trailer/", blank=True, max_length=200
+    )
+    trailer_legenda = models.FileField(
+        "legenda do trailer (VTT)",
+        upload_to="series/trailer/",
+        blank=True,
+        max_length=200,
+    )
+
+    class Meta:
+        verbose_name = "série"
+        verbose_name_plural = "séries"
+        ordering = ["ordem", "titulo"]
+
+    def __str__(self):
+        return self.titulo
+
+    def get_absolute_url(self):
+        return reverse("core:serie", args=[self.slug])
+
+
+class Episodio(models.Model):
+    serie = models.ForeignKey(
+        Serie,
+        on_delete=models.CASCADE,
+        related_name="episodios",
+        verbose_name="série",
+    )
+    numero = models.PositiveIntegerField("número")
+    slug = models.SlugField("slug")
+    titulo = models.CharField("título", max_length=200, blank=True)
+    post = models.OneToOneField(
+        PostImersivo,
+        on_delete=models.PROTECT,
+        null=True,
+        blank=True,
+        related_name="episodio",
+        verbose_name="conteúdo imersivo",
+    )
+    publicado = models.BooleanField("publicado", default=False)
+    video = models.FileField(
+        "vídeo 16:9", upload_to="episodios/", blank=True, max_length=200
+    )
+    video_vertical = models.FileField(
+        "vídeo 9:16 (opcional, com voz)",
+        upload_to="episodios/",
+        blank=True,
+        max_length=200,
+    )
+    poster = models.FileField(
+        "poster do vídeo", upload_to="episodios/", blank=True, max_length=200
+    )
+    audio = models.FileField(
+        "áudio da narração (MP3)", upload_to="episodios/", blank=True, max_length=200
+    )
+    audio_ogg = models.FileField(
+        "áudio da narração (Opus/OGG, opcional)",
+        upload_to="episodios/",
+        blank=True,
+        max_length=200,
+    )
+    legenda = models.FileField(
+        "legenda (VTT)", upload_to="episodios/", blank=True, max_length=200
+    )
+    transcricao = models.TextField("transcrição", blank=True)
+
+    class Meta:
+        verbose_name = "episódio"
+        verbose_name_plural = "episódios"
+        ordering = ["serie", "numero"]
+        constraints = [
+            models.UniqueConstraint(
+                fields=["serie", "numero"], name="episodio_numero_unico_na_serie"
+            ),
+            models.UniqueConstraint(
+                fields=["serie", "slug"], name="episodio_slug_unico_na_serie"
+            ),
+        ]
+
+    def __str__(self):
+        return f"{self.serie.slug} · {self.numero}. {self.titulo or self.slug}"
+
+    def get_absolute_url(self):
+        return reverse("core:episodio", args=[self.serie.slug, self.slug])
+
+    @property
+    def tem_midia(self):
+        return bool(self.video or self.audio)
