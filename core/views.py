@@ -1,7 +1,6 @@
+from django.db.models import Prefetch
 from django.http import Http404, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
-
-from noticias.views import home as home_noticias
 
 from .imersivo import libs_opcionais
 from .models import Ato, Episodio, PostImersivo, Serie
@@ -29,8 +28,13 @@ ERA_NARRADOR = {
 
 
 def home(request):
-    """A home é a das notícias; o nome `core:home` continua valendo."""
-    return home_noticias(request)
+    """Portal das séries (STAR-58); as notícias vivem em /noticias/."""
+    episodios = Episodio.objects.filter(publicado=True, post__publicado=True)
+    series = Serie.objects.filter(publicado=True).select_related("hub")
+    series = series.prefetch_related(
+        Prefetch("episodios", queryset=episodios, to_attr="episodios_publicados")
+    )
+    return render(request, "core/portal.html", {"series": series})
 
 
 def saude(request):
