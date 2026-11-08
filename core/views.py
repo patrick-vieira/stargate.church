@@ -50,6 +50,7 @@ def imersivo(request, slug):
         "post": post,
         "atos": atos,
         "libs": libs_opcionais(),
+        "publicados": set(PostImersivo.publicados().values_list("slug", flat=True)),
         "narrador_era": ERA_NARRADOR.get(post.slug, 6),
     }
     for a in atos:

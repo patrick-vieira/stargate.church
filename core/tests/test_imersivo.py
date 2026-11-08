@@ -151,7 +151,7 @@ class FixtureDemoTests(TestCase):
         self.assertEqual(post.atos.count(), 5)
         self.assertEqual(
             set(post.atos.values_list("efeito", flat=True)),
-            set(Ato.Efeito.values) - EFEITOS_MAQUINA_FRIA,
+            set(Ato.Efeito.values) - EFEITOS_MAQUINA_FRIA - {"linha-tempo:decadas"},
         )
         for a in post.atos.all():
             a.full_clean()
@@ -341,6 +341,92 @@ class CssTests(TestCase):
         self.assertIn("@view-transition", css)
         self.assertIn("@supports", css)
         self.assertIn("prefers-reduced-motion", css)
+
+
+ESTACAO = {"decada": 1960, "titulo": "A máquina fria"}
+
+
+class EstacoesTests(TestCase):
+    def test_validas(self):
+        ato("linha-tempo:decadas", {"intensidade": 0.5, "estacoes": [ESTACAO]}).clean()
+        ato(
+            "linha-tempo:decadas",
+            {"estacoes": [{**ESTACAO, "slug": "a-maquina-fria", "texto": "x"}]},
+        ).clean()
+
+    def test_invalidas(self):
+        ruins = [
+            [],
+            "texto",
+            [1],
+            [{"titulo": "sem década"}],
+            [{"decada": 1900, "titulo": "t"}],
+            [{"decada": 2030, "titulo": "t"}],
+            [{"decada": "1960", "titulo": "t"}],
+            [{"decada": True, "titulo": "t"}],
+            [{"decada": 1960, "titulo": " "}],
+            [{"decada": 1960}],
+            [{**ESTACAO, "slug": "com espaço"}],
+            [{**ESTACAO, "texto": 3}],
+            [{**ESTACAO, "extra": 1}],
+        ]
+        for ruim in ruins:
+            with self.subTest(valor=ruim), self.assertRaises(ValidationError):
+                ato("linha-tempo:decadas", {"estacoes": ruim}).clean()
+
+    def test_intensidade_fora_da_faixa(self):
+        with self.assertRaises(ValidationError):
+            ato("linha-tempo:decadas", {"intensidade": 2}).clean()
+
+
+class HubTests(TestCase):
+    fixtures = ["imersivo_hub"]
+
+    def setUp(self):
+        PostImersivo.objects.create(slug="a-maquina-fria", titulo="A", publicado=True)
+        PostImersivo.objects.create(slug="o-placar", titulo="P", publicado=False)
+        self.r = self.client.get(reverse("core:imersivo", args=["ia-na-ficcao"]))
+        self.html = self.r.content.decode()
+
+    def test_fixture_valida(self):
+        post = PostImersivo.objects.get(slug="ia-na-ficcao")
+        self.assertTrue(post.publicado)
+        self.assertEqual(post.atos.count(), 3)
+        for a in post.atos.all():
+            a.full_clean()
+            self.assertEqual(a.reduzido, "estatico")
+
+    def test_lista_e_atributos(self):
+        self.assertEqual(self.r.status_code, 200)
+        self.assertContains(self.r, '<ol class="im-linha">')
+        self.assertContains(self.r, 'data-efeito="linha-tempo:decadas"')
+        self.assertContains(self.r, 'tabindex="0" role="region" aria-label=')
+        self.assertContains(self.r, 'class="im-estacao"', count=10)
+
+    def test_ordem_das_decadas(self):
+        import re
+
+        decadas = [int(d) for d in re.findall(r'data-decada="(\d+)"', self.html)]
+        self.assertEqual(len(decadas), 10)
+        self.assertEqual(decadas, sorted(decadas))
+        self.assertEqual(decadas[0], 1920)
+
+    def test_link_so_para_publicado(self):
+        self.assertContains(self.r, 'href="/imersivo/a-maquina-fria/"')
+        self.assertNotContains(self.r, 'href="/imersivo/o-placar/"')
+        self.assertNotContains(self.r, 'href="/imersivo/o-quase-presente/"')
+        self.assertContains(self.r, "O placar")
+
+    def test_sem_imagens(self):
+        self.assertNotIn("<img", self.html)
+
+    def test_peso_do_efeito(self):
+        from pathlib import Path
+
+        raiz = Path(__file__).resolve().parents[2] / "static"
+        total = (raiz / "js/imersivo/efeitos/linha-tempo-decadas.js").stat().st_size
+        total += (raiz / "css/imersivo.css").stat().st_size
+        self.assertLess(total, 50 * 1024)
 
 
 class MaquinaFriaTests(TestCase):
