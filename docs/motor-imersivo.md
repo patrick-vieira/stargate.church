@@ -113,6 +113,16 @@ Post 3 da série. Mesmo padrão: `TEMPLATES_ATMOSFERA` aponta para `core/templat
 - **Acessibilidade medida no browser** (Playwright, `_provas/star43.py`): 24–25 seletores de texto a 1920 e a 390 px, 0 falhas; o mais baixo é `.sh-chip` com 5,67:1. Sem scroll horizontal a 390 px.
 - **Desempenho**: fps em Chromium headless sem GPU, com o teste e o scroll a correr: média 40–42, p5 ≈ 30 (`backdrop-filter` por software); o protótipo marcava ≈ 59 com GPU. Se a média cair, a classe `.sh-sem-blur` tira o desfoque sozinha.
 - **Direitos**: o teste é original e não copia o Voight-Kampff; sala, painéis e silhuetas genéricos; fontes (AFI, A24, HBO, NIST) no fim do post.
+## Atmosfera «Leis, robôs e livros» (`atmosfera:leis-robos-livros`, STAR-45)
+Post 5 da série. `TEMPLATES_ATMOSFERA` aponta para `core/templates/core/imersivo_leis_robos_livros.html`. Tudo escopado em `.lr-raiz` com o prefixo `.lr-` (ids incluídos).
+- **Peças**: mesa de papel com lâmpada âmbar que segue o cursor e acende as «folhas»; livro aberto cuja página vira em 3D ao rolar (CSS 3D, `.lr-palco-sticky` de 560 vh, 2 folhas, 6 faces); tipos móveis «r o b ô» que se alinham; 3 regras que se riscam e se reescrevem; mapa de rede original (14 nós, 3 grandes); oficina «Escreva uma regra e confira o que falta» (conferência só no cliente).
+- **Ficheiros**: `static/js/imersivo/efeitos/atmosfera-leis-robos-livros.js`, `static/css/atmosfera-leis-robos-livros.css`, fixture `core/fixtures/leis_robos_livros.json` (slug `leis-robos-e-livros`, post pk 7, ato pk 18), migration `core/0011_alter_ato_efeito`.
+- **Parâmetros**: nenhum (`PARAMETROS_POR_EFEITO["atmosfera:leis-robos-livros"] = {}`); as faixas de scroll são constantes no JS (tipos 0,08–0,28; 1.ª virada 0,30–0,40; regras 0,42–0,72; 2.ª virada 0,74–0,84; rede 0,84–0,99). Sem biblioteca, sem imagens.
+- **Sticky**: `top:76px` (cabeçalho do site); o progresso do livro vem de `.lr-pista` descontando esses 76 px. Barra de baixo «A IA na ficção · 5» (390 px: «Ficção · 5»). Raiz com `overflow-x:clip`, nunca `hidden` no body.
+- **Modo linear** (`.lr-linear`: 390, tablet ≤ 899 px e movimento reduzido): o livro vira 6 cartões em coluna, sem 3D nem sticky.
+- **Movimento reduzido**: `.lr-estatico` + linear; estado final (`alinha(1); reescreve(1); desenhaRede(1)`), lâmpada parada, sem loop. `linearAtualiza()` e `livroAtualiza()` começam por `if (reduzido) { …(1); return; }` para o scroll e o resize não desfazerem o estado final (retoque 1 da revisão 7). O botão «pausar movimento» pausa o resto.
+- **Direitos**: nunca o texto das Três Leis; as 3 regras são originais da série, com o selo «Regras desta série · não as leis do livro»; sem capas nem imagens de obras. As regras, a oficina e os textos são rascunho a rever pelo Orochimaru.
+
 ## Atmosfera «Escolhas da máquina» (`atmosfera:escolhas`, STAR-46)
 Post 6 da série. `TEMPLATES_ATMOSFERA` aponta para `core/templates/core/imersivo_escolhas.html`. Tudo escopado em `.em-raiz` com o prefixo `.em-`.
 - **Peças**: paisagem azul-noite (arte + névoa em 2 camadas com parallax), dois caminhos que se prolongam ao rolar, trilhas de dados cuja velocidade segue o scroll, escolha 1 (A/B), escolha 2 dependente da 1.ª, 4 finais (A1, A2, B1, B2) todos abríveis, árvore dos finais e contador «N de 4 finais vistos».

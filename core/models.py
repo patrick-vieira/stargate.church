@@ -108,6 +108,8 @@ PARAMETROS_POR_EFEITO = {
     "atmosfera:escolhas": {},
     # Atmosfera inteira (STAR-44/STAR-51): o conteúdo vive no template.
     "atmosfera:ia-afetiva": {},
+    # Atmosfera do post 5 (STAR-45): livro que vira em 3D, regras que se reescrevem.
+    "atmosfera:leis-robos-livros": {},
 }
 
 
@@ -154,6 +156,10 @@ class Ato(models.Model):
             "Atmosfera «Escolhas da máquina»",
         )
         ATMOSFERA_IA_AFETIVA = "atmosfera:ia-afetiva", "Atmosfera «IA afetiva»"
+        ATMOSFERA_LEIS_ROBOS_LIVROS = (
+            "atmosfera:leis-robos-livros",
+            "Atmosfera «Leis, robôs e livros»",
+        )
 
     class Reduzido(models.TextChoices):
         ESTATICO = "estatico", "Estático"

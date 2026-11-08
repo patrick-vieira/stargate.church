@@ -16,6 +16,7 @@ EFEITOS_MAQUINA_FRIA = {
     "atmosfera:ser-humano",
     "atmosfera:escolhas",
     "atmosfera:ia-afetiva",
+    "atmosfera:leis-robos-livros",
 }
 
 
@@ -890,3 +891,89 @@ class AtmosferaIaAfetivaTests(TestCase):
         self.assertIn("reduzido", js)
         self.assertNotIn("http", js)
         self.assertNotIn('import("three")', js)
+
+
+class AtmosferaLeisRobosLivrosTests(TestCase):
+    fixtures = ["leis_robos_livros"]
+
+    def _raiz(self):
+        from pathlib import Path
+
+        return Path(__file__).resolve().parents[2]
+
+    def test_efeito_sem_parametros(self):
+        ato("atmosfera:leis-robos-livros").clean()
+        with self.assertRaises(ValidationError):
+            ato("atmosfera:leis-robos-livros", {"fixar": True}).clean()
+
+    def test_fixture_valida(self):
+        post = PostImersivo.objects.get(slug="leis-robos-e-livros")
+        self.assertEqual(post.pk, 7)
+        self.assertEqual(post.atos.count(), 1)
+        for a in post.atos.all():
+            self.assertEqual(a.pk, 18)
+            self.assertEqual(a.reduzido, "estatico")
+            a.full_clean()
+
+    def test_renderiza_o_template_da_atmosfera(self):
+        r = self.client.get(reverse("core:imersivo", args=["leis-robos-e-livros"]))
+        self.assertEqual(r.status_code, 200)
+        self.assertTemplateUsed(r, "core/imersivo_leis_robos_livros.html")
+        self.assertTemplateNotUsed(r, "core/imersivo_escolhas.html")
+        self.assertContains(r, 'data-efeito="atmosfera:leis-robos-livros"')
+        self.assertContains(r, "css/atmosfera-leis-robos-livros.css")
+        self.assertContains(r, "js/imersivo/motor.js")
+        self.assertContains(r, 'id="lr-pista"')
+        self.assertContains(r, 'id="lr-regra"')
+        self.assertContains(r, "Ficção · 5")
+        self.assertContains(r, "A IA na ficção · 5")
+        self.assertContains(r, "Regras desta série · não as leis do livro")
+        self.assertContains(r, "Conferir a regra")
+        self.assertContains(r, "pausar movimento")
+        self.assertContains(r, reverse("core:imersivo", args=["escolhas-da-maquina"]))
+        self.assertNotContains(r, "cdn.")
+        self.assertNotContains(r, "Georgia")
+        self.assertNotContains(r, "http://")
+
+    def test_narrador_na_era_0_de_1920(self):
+        r = self.client.get(reverse("core:imersivo", args=["leis-robos-e-livros"]))
+        self.assertContains(r, 'data-era="0"')
+        self.assertContains(r, "data-parametros='{\"era\": 0}'")
+
+    def test_sem_gravacao_no_servidor(self):
+        r = self.client.get(reverse("core:imersivo", args=["leis-robos-e-livros"]))
+        self.assertNotContains(r, "csrfmiddlewaretoken")
+        self.assertNotContains(r, "action=")
+
+    def test_css_escopado_e_reduzido(self):
+        css = (self._raiz() / "static/css/atmosfera-leis-robos-livros.css").read_text()
+        self.assertIn("--serif:var(--sg-serif)", css)
+        self.assertNotIn("Georgia", css)
+        self.assertNotIn(":root", css)
+        self.assertNotIn("overflow-x:hidden", css)
+        self.assertIn("overflow-x:clip", css)
+        self.assertIn("prefers-reduced-motion:reduce", css)
+        self.assertIn(".lr-raiz.lr-linear", css)
+        self.assertIn(".lr-estatico", css)
+        self.assertIn("top:76px", css)
+        self.assertIn(".lr-fecho p.lr-fontes", css)
+
+    def test_js_reduzido_e_sem_rede(self):
+        js = (
+            self._raiz() / "static/js/imersivo/efeitos/atmosfera-leis-robos-livros.js"
+        ).read_text()
+        self.assertIn('registar("atmosfera:leis-robos-livros"', js)
+        self.assertIn("reduzido", js)
+        self.assertEqual(
+            js.count("if(reduzido){ alinha(1); reescreve(1); desenhaRede(1); return }"),
+            2,
+        )
+        self.assertIn("pausar movimento", js)
+        self.assertNotIn("fetch(", js)
+        self.assertNotIn("XMLHttpRequest", js)
+        self.assertNotIn("http", js)
+        self.assertNotIn("import(", js)
+
+    def test_sem_imagens_de_obras(self):
+        pasta = self._raiz() / "static/img/leis-robos-livros"
+        self.assertFalse(pasta.exists() and list(pasta.glob("*")))
