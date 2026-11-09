@@ -152,7 +152,9 @@ class FixtureDemoTests(TestCase):
         self.assertEqual(post.atos.count(), 5)
         self.assertEqual(
             set(post.atos.values_list("efeito", flat=True)),
-            set(Ato.Efeito.values) - EFEITOS_MAQUINA_FRIA - {"linha-tempo:decadas"},
+            set(Ato.Efeito.values)
+            - EFEITOS_MAQUINA_FRIA
+            - {"linha-tempo:decadas", "filtro:chips", "grelha:posts"},
         )
         for a in post.atos.all():
             a.full_clean()
@@ -475,6 +477,157 @@ class HubTests(TestCase):
         total = (raiz / "js/imersivo/efeitos/linha-tempo-decadas.js").stat().st_size
         total += (raiz / "css/imersivo.css").stat().st_size
         self.assertLess(total, 50 * 1024)
+
+    def test_cinco_chips(self):
+        self.assertContains(self.r, 'class="im-chip"', count=5)
+        self.assertContains(self.r, 'aria-pressed="false"', count=5)
+        for rotulo in ("Quem manda?", "Quem luta?", "Quem sente?", "Quem cuida?"):
+            self.assertContains(self.r, rotulo)
+        self.assertContains(self.r, "Quem vê tudo?")
+        self.assertContains(self.r, 'aria-live="polite"')
+        self.assertContains(self.r, 'data-slugs="a-ia-afetiva o-que-e-ser-humano"')
+
+    def test_data_slug_nas_estacoes(self):
+        self.assertEqual(self.html.count('<li class="im-estacao'), 10)
+        self.assertEqual(self.html.count('data-slug=""'), 2)
+        self.assertContains(self.r, 'data-slug="a-maquina-fria"')
+
+    def test_sem_formas_de_demonstracao(self):
+        self.assertNotIn("im-forma", self.html)
+        self.assertNotIn("im-passo", self.html)
+        self.assertNotIn("/serie/fichas/", self.html)
+        self.assertNotContains(self.r, 'data-efeito="scroll:revela"')
+        self.assertNotContains(self.r, 'data-efeito="diagrama:constroi"')
+
+    def test_grelha_links_e_em_breve(self):
+        grelha = self.html.split('class="im-grelha"')[1].split("</ol>")[0]
+        self.assertEqual(grelha.count("<li "), 2)
+        self.assertIn('href="/series/ia-na-ficcao/a-maquina-fria/"', grelha)
+        self.assertNotIn("o-placar", grelha)
+        self.assertEqual(grelha.count("em breve"), 1)
+        self.assertEqual(grelha.count("<a "), 1)
+
+    def test_grelha_sem_o_hub_nem_noveno(self):
+        grelha = self.html.split('class="im-grelha"')[1].split("</ol>")[0]
+        self.assertNotIn('class="im-post-num">0<', grelha)
+        self.assertNotIn('class="im-post-num">9<', grelha)
+
+    def test_comecar_pelo_post_1(self):
+        self.assertContains(
+            self.r,
+            '<a class="im-comecar" href="/series/ia-na-ficcao/a-maquina-fria/">'
+            "Começar pelo post 1 →</a>",
+        )
+
+    def test_previa_svg_acessivel(self):
+        self.assertContains(self.r, 'role="img" aria-labelledby="im-previa-t-403"')
+        self.assertContains(self.r, '<title id="im-previa-t-403">', count=1)
+        svg = self.html.split('aria-labelledby="im-previa-t-403"')[1].split("</svg>")[0]
+        self.assertEqual(svg.count("<circle"), 3)
+        self.assertContains(self.r, "no post 8")
+
+    def test_tabelas_acessiveis(self):
+        self.assertContains(self.r, "<caption>", count=2)
+        self.assertContains(self.r, 'scope="col"', count=6)
+        self.assertContains(self.r, "disponível")
+        self.assertContains(self.r, "R.U.R. (1920)")
+
+    def test_css_hub(self):
+        from pathlib import Path
+
+        css = (
+            Path(__file__).resolve().parents[2] / "static/css/imersivo.css"
+        ).read_text()
+        self.assertIn("im-estacao--fora", css)
+        self.assertRegex(
+            css,
+            r"prefers-reduced-motion:no-preference\)\{\s*@supports[^{]*\{\s*"
+            r"@view-transition",
+        )
+
+
+class HubSemEpisodiosTests(TestCase):
+    fixtures = ["imersivo_hub"]
+
+    def test_grelha_vazia_sem_link_de_comecar(self):
+        from core.models import Serie
+
+        Serie.objects.create(
+            slug="ia-na-ficcao",
+            titulo="S",
+            publicado=True,
+            hub=PostImersivo.objects.get(slug="ia-na-ficcao"),
+        )
+        r = self.client.get("/series/ia-na-ficcao/")
+        self.assertEqual(r.status_code, 200)
+        self.assertNotContains(r, "Começar pelo post 1")
+        self.assertNotContains(r, 'class="im-grelha"')
+
+
+PERGUNTA = {"id": "manda", "rotulo": "Quem manda?", "slugs": ["a-maquina-fria"]}
+PONTO = {"obra": "R.U.R. (1920)", "x": 25, "y": 70}
+
+
+class FiltroChipsValidacaoTests(TestCase):
+    def test_validas(self):
+        ato("filtro:chips", {"perguntas": [PERGUNTA]}).clean()
+        ato("filtro:chips", {"perguntas": [{**PERGUNTA, "slugs": []}]}).clean()
+
+    def test_invalidas(self):
+        ruins = [
+            [],
+            "texto",
+            [1],
+            [{**PERGUNTA, "id": "com espaço"}],
+            [{**PERGUNTA, "rotulo": " "}],
+            [{**PERGUNTA, "rotulo": "x" * 41}],
+            [{**PERGUNTA, "slugs": "a-maquina-fria"}],
+            [{**PERGUNTA, "slugs": ["com espaço"]}],
+            [{**PERGUNTA, "extra": 1}],
+            [{"id": "a", "rotulo": "A"}],
+            [PERGUNTA, PERGUNTA],
+            [{**PERGUNTA, "id": str(i)} for i in range(9)],
+        ]
+        for ruim in ruins:
+            with self.subTest(valor=ruim), self.assertRaises(ValidationError):
+                ato("filtro:chips", {"perguntas": ruim}).clean()
+
+    def test_chave_desconhecida(self):
+        with self.assertRaises(ValidationError):
+            ato("filtro:chips", {"intensidade": 1}).clean()
+
+
+class GrelhaPostsValidacaoTests(TestCase):
+    def test_validas(self):
+        ato("grelha:posts", {"previa": [PONTO, {**PONTO, "x": 0, "y": 100}]}).clean()
+
+    def test_invalidas(self):
+        ruins = [
+            [],
+            "texto",
+            [1],
+            [{**PONTO, "x": 101}],
+            [{**PONTO, "y": -1}],
+            [{**PONTO, "x": "25"}],
+            [{**PONTO, "x": True}],
+            [{**PONTO, "obra": ""}],
+            [{**PONTO, "extra": 1}],
+            [{"obra": "A", "x": 1}],
+            [PONTO] * 7,
+        ]
+        for ruim in ruins:
+            with self.subTest(valor=ruim), self.assertRaises(ValidationError):
+                ato("grelha:posts", {"previa": ruim}).clean()
+
+    def test_pontos_em_coordenadas_do_svg(self):
+        pontos = ato(
+            "grelha:posts", {"previa": [PONTO, {**PONTO, "x": 100}]}
+        ).previa_pontos
+        self.assertEqual(pontos[0]["ancora"], "start")
+        self.assertEqual(pontos[1]["ancora"], "end")
+        self.assertTrue(
+            all(50 <= p["cx"] <= 380 and 20 <= p["cy"] <= 210 for p in pontos)
+        )
 
 
 class MaquinaFriaTests(TestCase):
