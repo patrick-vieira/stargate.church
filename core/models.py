@@ -1,7 +1,9 @@
 import json
 import re
 
+from django.conf import settings
 from django.core.exceptions import ValidationError
+from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 from django.urls import reverse
 
@@ -65,10 +67,20 @@ def _perguntas(valor):
 
 
 def _previa(valor):
-    """Lista de 1 a 6 pontos {obra, x, y} com x e y entre 0 e 100."""
+    """Lista de 1 a 6 pontos da prévia do placar.
+
+    Cada ponto é {id} (uma obra de core/dados/placar.json, a forma preferida) ou
+    {obra, x, y} com x e y entre 0 e 100 (forma escrita à mão, mantida).
+    """
+    from . import placar
+
     if not isinstance(valor, list) or not 1 <= len(valor) <= 6:
         return False
     for p in valor:
+        if isinstance(p, dict) and set(p) == {"id"}:
+            if not isinstance(p["id"], str) or placar.obra(p["id"]) is None:
+                return False
+            continue
         if not isinstance(p, dict) or set(p) != {"obra", "x", "y"}:
             return False
         if not _texto(p["obra"]) or len(p["obra"]) > 60:
@@ -131,7 +143,8 @@ PARAMETROS_POR_EFEITO = {
     "grelha:posts": {
         "previa": (
             _previa,
-            "uma lista de 1 a 6 objetos {obra, x: 0..100, y: 0..100}",
+            "uma lista de 1 a 6 objetos {id: id de uma obra do placar} "
+            "ou {obra, x: 0..100, y: 0..100}",
         ),
     },
     "terminal:fala": {
@@ -158,6 +171,8 @@ PARAMETROS_POR_EFEITO = {
     "atmosfera:ia-afetiva": {},
     # Atmosfera do post 5 (STAR-45): livro que vira em 3D, regras que se reescrevem.
     "atmosfera:leis-robos-livros": {},
+    # Atmosfera do post 8 (STAR-48): placar; as obras vêm de core/dados/placar.json.
+    "atmosfera:placar": {},
     # Atmosfera do post 7 (STAR-47): cidade de vigilância, celular que racha.
     "atmosfera:quase-presente": {},
 }
@@ -216,6 +231,7 @@ class Ato(models.Model):
             "atmosfera:quase-presente",
             "Atmosfera «O quase-presente»",
         )
+        ATMOSFERA_PLACAR = "atmosfera:placar", "Atmosfera «O placar»"
 
     class Reduzido(models.TextChoices):
         ESTATICO = "estatico", "Estático"
@@ -305,10 +321,16 @@ class Ato(models.Model):
         lista = params.get("previa") if isinstance(params, dict) else None
         if not isinstance(lista, list):
             return []
+        from . import placar
+
         pontos = []
         for p in lista:
             if not isinstance(p, dict):
                 continue
+            if set(p) == {"id"}:
+                p = placar.ponto_previa(p["id"])
+                if p is None:
+                    continue
             if not (_numero(p.get("x")) and _numero(p.get("y"))):
                 continue
             cx = round(50 + p["x"] * 3.3, 1)
@@ -464,3 +486,34 @@ class Episodio(models.Model):
     @property
     def tem_midia(self):
         return bool(self.video or self.audio)
+
+
+class VotoPlacar(models.Model):
+    """Voto de um leitor numa obra do placar (STAR-48): uma linha por leitor e obra."""
+
+    utilizador = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="votos_placar",
+        verbose_name="leitor",
+    )
+    obra = models.SlugField("obra", max_length=60)
+    proximidade = models.PositiveSmallIntegerField(
+        "perto", validators=[MinValueValidator(0), MaxValueValidator(5)]
+    )
+    preocupacao = models.PositiveSmallIntegerField(
+        "preocupação", validators=[MinValueValidator(0), MaxValueValidator(5)]
+    )
+    atualizado_em = models.DateTimeField("atualizado em", auto_now=True)
+
+    class Meta:
+        verbose_name = "voto no placar"
+        verbose_name_plural = "votos no placar"
+        constraints = [
+            models.UniqueConstraint(
+                fields=["utilizador", "obra"], name="voto_placar_unico_por_obra"
+            )
+        ]
+
+    def __str__(self):
+        return f"{self.utilizador} · {self.obra}: {self.proximidade}/{self.preocupacao}"

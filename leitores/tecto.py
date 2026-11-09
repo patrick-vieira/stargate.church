@@ -1,4 +1,4 @@
-"""Tecto diário por utilizador e tipo (conversa, comentário)."""
+"""Tecto diário por utilizador e tipo (conversa, comentário, voto)."""
 
 from functools import wraps
 
@@ -16,6 +16,8 @@ def limite(tipo: str) -> int:
         return settings.STARGATE_TECTO_CONVERSA
     if tipo == UsoDiario.COMENTARIO:
         return settings.STARGATE_TECTO_COMENTARIO
+    if tipo == UsoDiario.VOTO:
+        return settings.STARGATE_TECTO_VOTO
     raise ValueError(f"tipo desconhecido: {tipo}")
 
 

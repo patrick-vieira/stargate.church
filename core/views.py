@@ -1,9 +1,17 @@
+import json
+
 from django.db.models import Prefetch
 from django.http import Http404, JsonResponse
+from django.middleware.csrf import get_token
 from django.shortcuts import get_object_or_404, redirect, render
+from django.urls import reverse
+from django.views.decorators.http import require_POST
 
+from leitores.tecto import exige_tecto
+
+from . import placar
 from .imersivo import libs_opcionais
-from .models import Ato, Episodio, PostImersivo, Serie
+from .models import Ato, Episodio, PostImersivo, Serie, VotoPlacar
 
 # Efeito de página inteira → template próprio (STAR-41, STAR-42).
 TEMPLATES_ATMOSFERA = {
@@ -13,6 +21,7 @@ TEMPLATES_ATMOSFERA = {
     Ato.Efeito.ATMOSFERA_ESCOLHAS: "core/imersivo_escolhas.html",
     Ato.Efeito.ATMOSFERA_IA_AFETIVA: "core/imersivo_ia_afetiva.html",
     Ato.Efeito.ATMOSFERA_LEIS_ROBOS_LIVROS: "core/imersivo_leis_robos_livros.html",
+    Ato.Efeito.ATMOSFERA_PLACAR: "core/imersivo_placar.html",
     Ato.Efeito.ATMOSFERA_QUASE_PRESENTE: "core/imersivo_quase_presente.html",
 }
 
@@ -27,6 +36,7 @@ ERA_NARRADOR = {
     "o-que-e-ser-humano": 3,
     "a-ia-afetiva": 5,
     "leis-robos-e-livros": 0,
+    "o-placar": 6,
 }
 
 
@@ -111,9 +121,93 @@ def _renderizar_post(request, post, serie=None, episodio=None):
         "narrador_era": ERA_NARRADOR.get(post.slug, 6),
     }
     for a in atos:
+        if a.efeito == Ato.Efeito.ATMOSFERA_PLACAR:
+            contexto.update(_contexto_placar(request))
         if a.efeito in TEMPLATES_ATMOSFERA:
             return render(request, TEMPLATES_ATMOSFERA[a.efeito], contexto)
     return render(request, "core/imersivo.html", contexto)
+
+
+def _contexto_placar(request):
+    """Obras, médias reais dos leitores e estado do voto para a página do placar."""
+    # Garante o cookie csrftoken: o JS envia o voto com o cabeçalho X-CSRFToken.
+    get_token(request)
+    logado = request.user.is_authenticated
+    meus = {}
+    if logado:
+        meus = {
+            v.obra: [v.proximidade, v.preocupacao]
+            for v in VotoPlacar.objects.filter(utilizador=request.user)
+        }
+    obras = placar.obras()
+    medias = placar.medias()
+    return {
+        "placar": obras,
+        "placar_dados": {
+            "obras": obras,
+            "medias": medias,
+            "meus": meus,
+            "logado": logado,
+            "voto_url": reverse("core:placar_voto"),
+        },
+        "placar_logado": logado,
+        "placar_total_votos": sum(m["n"] for m in medias.values()),
+    }
+
+
+def _ler_voto(request):
+    """Lê (obra, proximidade, preocupacao) do corpo (JSON ou form); None se inválido."""
+    if request.content_type == "application/json":
+        try:
+            bruto = json.loads(request.body or b"{}")
+        except ValueError:
+            return None
+        if not isinstance(bruto, dict):
+            return None
+    else:
+        bruto = request.POST
+    obra = bruto.get("obra")
+    if not isinstance(obra, str) or placar.obra(obra) is None:
+        return None
+    notas = []
+    for chave in ("proximidade", "preocupacao"):
+        v = bruto.get(chave)
+        if isinstance(v, bool):
+            return None
+        if isinstance(v, str) and v.isascii() and v.isdigit():
+            v = int(v)
+        if not isinstance(v, int) or not 0 <= v <= 5:
+            return None
+        notas.append(v)
+    return obra, notas[0], notas[1]
+
+
+@exige_tecto("voto")
+def _gravar_voto(request, obra, proximidade, preocupacao):
+    VotoPlacar.objects.update_or_create(
+        utilizador=request.user,
+        obra=obra,
+        defaults={"proximidade": proximidade, "preocupacao": preocupacao},
+    )
+    return JsonResponse(
+        {"obra": obra, "voto": [proximidade, preocupacao], **placar.media_da_obra(obra)}
+    )
+
+
+@require_POST
+def placar_voto(request):
+    """Voto do leitor numa obra do placar (STAR-48), com o tecto diário «voto».
+
+    O pedido é validado ANTES de gastar o tecto: obra desconhecida ou nota fora de
+    0..5 dá 400 e não consome nada. O anónimo recebe 401 (decidido no tecto) e o
+    tecto esgotado 429. Votar de novo na mesma obra atualiza o voto, sem linha nova.
+    """
+    voto = _ler_voto(request)
+    if voto is None and request.user.is_authenticated:
+        return JsonResponse({"erro": "voto inválido"}, status=400)
+    if voto is None:
+        return JsonResponse({"erro": "login"}, status=401)
+    return _gravar_voto(request, *voto)
 
 
 def imersivo(request, slug):

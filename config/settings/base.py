@@ -90,6 +90,7 @@ LOGOUT_REDIRECT_URL = "core:home"
 # Tecto diário por utilizador (F3: conversa e comentários).
 STARGATE_TECTO_CONVERSA = env.int("STARGATE_TECTO_CONVERSA", default=20)
 STARGATE_TECTO_COMENTARIO = env.int("STARGATE_TECTO_COMENTARIO", default=10)
+STARGATE_TECTO_VOTO = env.int("STARGATE_TECTO_VOTO", default=30)
 
 # EasyON (agentes alugados): ver noticias/easyon.py.
 # A chave vem de um ficheiro em modo 600.
