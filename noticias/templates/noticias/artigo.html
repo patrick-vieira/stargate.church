@@ -33,7 +33,7 @@
 </label>{% if form_comentario.texto.errors %}<p class="sg-erro" role="alert" id="erro-texto">{{ form_comentario.texto.errors|join:" " }}</p>{% endif %}
 <p class="sg-meta luz-tecto"><span class="sg-selo sg-selo--neutro"><strong><span data-uso>{{ comentarios_restantes }}</span> de {{ comentarios_teto }} restantes hoje</strong></span><span>comentários de hoje</span></p>
 <button class="sg-btn sg-btn--coral" type="submit" data-luz="botao">Publicar comentário</button></form>
-{% else %}<p class="sg-meta">Comentar pede conta. Ler e ouvir continua livre.</p>
+{% else %}<p class="sg-meta">Comentar pede conta. Ler e ouvir continuam livres.</p>
 <p><a class="sg-btn sg-btn--coral" data-luz="botao" href="{% url 'leitores:entrar' %}?next={{ request.path|urlencode }}%23comentarios">Entrar para comentar</a></p>
 <p class="sg-meta">Ainda não tem conta? <a href="{% url 'leitores:criar' %}">Criar conta</a></p>{% endif %}
 </div></section>
