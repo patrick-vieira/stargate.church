@@ -53,9 +53,32 @@ class RotasTests(TestCase):
         # R.U.R., Asimov e Turing, O quase-presente, O placar.
         self.assertContains(r, 'class="im-breve">em breve</span>', count=4)
 
+    def test_hub_svg_sem_virgula_decimal(self):
+        import re
+
+        from django.utils import translation
+
+        with translation.override("pt-br"):
+            html = self.client.get("/series/ia-na-ficcao/").content.decode()
+        self.assertIsNone(re.search(r'\b(cx|cy|x)="\d+,\d', html))
+
+    def test_hub_contagem_bate_com_a_grelha(self):
+        import re
+
+        html = self.client.get("/series/ia-na-ficcao/").content.decode()
+        n = int(re.search(r"Série · (\d+) posts", html).group(1))
+        grelha = html.split('class="im-grelha"')[1].split("</ol>")[0]
+        self.assertEqual(n, grelha.count("<li "))
+
+    def test_hub_cartao_do_post_1_leva_a_capa(self):
+        html = self.client.get("/series/ia-na-ficcao/").content.decode()
+        self.assertEqual(html.count("im-post--capa-1"), 1)
+        r = self.client.get("/series/ia-na-ficcao/a-maquina-fria/")
+        self.assertContains(r, "view-transition-name:capa-post-1", count=1)
+
     def test_hub_sobrolho_e_h1_da_serie(self):
         r = self.client.get("/series/ia-na-ficcao/")
-        self.assertContains(r, "Série · 9 posts · 1920 → 2026")
+        self.assertContains(r, "Série · 8 posts · 1920 → 2026")
         self.assertNotContains(r, "Post imersivo")
         self.assertContains(r, '<h1 class="im-titulo-hub">')
 

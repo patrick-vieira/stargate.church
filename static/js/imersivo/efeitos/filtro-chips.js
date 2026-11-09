@@ -20,9 +20,20 @@ registar("filtro:chips", ({ el }) => {
       contagem.textContent = n === 1 ? "1 estação" : n + " estações";
     }
   };
+  const trilho = document.querySelector(".im-trilho");
+  const rolarAteA1a = () => {
+    const primeira = estacoes.find((e) => !e.classList.contains("im-estacao--fora"));
+    if (!trilho || !primeira) return;
+    const reduz = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const alvo =
+      trilho.scrollLeft + primeira.getBoundingClientRect().left - trilho.getBoundingClientRect().left;
+    trilho.scrollTo({ left: Math.max(0, alvo), behavior: reduz ? "auto" : "smooth" });
+  };
   for (const c of chips) {
     c.addEventListener("click", () => {
-      aplicar(c.getAttribute("aria-pressed") === "true" ? null : c);
+      const limpar = c.getAttribute("aria-pressed") === "true";
+      aplicar(limpar ? null : c);
+      if (!limpar) rolarAteA1a();
     });
   }
   aplicar(null);

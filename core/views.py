@@ -103,6 +103,7 @@ def _renderizar_post(request, post, serie=None, episodio=None):
         "post": post,
         "atos": atos,
         "serie": serie,
+        "n_posts": len(lista),
         "episodio": episodio,
         "midia": _midia(post, serie, episodio),
         "libs": libs_opcionais(),

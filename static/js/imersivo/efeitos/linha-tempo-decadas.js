@@ -52,25 +52,13 @@ registar("linha-tempo:decadas", ({ el, parametros, reduzido, progresso }) => {
       requestAnimationFrame(aplicar);
     }
   };
-  // A luz segue a estação mais próxima de um ponto de referência que vai da
-  // borda esquerda (scroll 0 → primeira estação) à direita (fim → última),
-  // para que a 1920, com várias estações visíveis, todas as luzes apareçam.
+  // A luz segue a fracção de scroll do trilho mapeada para o índice da estação
+  // (0 → primeira, fim → última). A qualquer largura (1920 com várias estações
+  // visíveis, 390 com uma) percorre 0→1→2→3→4 sem saltar a luz 3.
   const luzPorScroll = () => {
-    const tr = trilho.getBoundingClientRect();
     const max = trilho.scrollWidth - trilho.clientWidth;
     const f = max > 0 ? Math.min(1, Math.max(0, trilho.scrollLeft / max)) : 0;
-    const ref = tr.left + f * tr.width;
-    let melhor = null;
-    let dist = Infinity;
-    for (const e of estacoes) {
-      const r = e.getBoundingClientRect();
-      const d = Math.abs(r.left + r.width / 2 - ref);
-      if (d < dist) {
-        dist = d;
-        melhor = e;
-      }
-    }
-    acender(melhor);
+    acender(estacoes[Math.round(f * (estacoes.length - 1))]);
   };
   trilho.addEventListener("scroll", luzPorScroll, { passive: true });
   trilho.addEventListener("scroll", pedir, { passive: true });
