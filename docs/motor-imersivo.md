@@ -162,6 +162,6 @@ Post 7 da série. `TEMPLATES_ATMOSFERA` aponta para `core/templates/core/imersiv
 - **Pausa**: botão «Pausar movimento» (≥ 44 px, `aria-pressed`) pára o loop (tremor, parallax, mira suave); o scroll continua a atualizar. Em movimento reduzido o botão fica oculto.
 - **Movimento reduzido**: `.qp-estatico` (JS) e `@media (prefers-reduced-motion:reduce)` (CSS): celular rachado, faixa completa, 7 avisos visíveis, espelho a 100 %, varredura parada, sem tremor nem loop; pista e palco deixam de ser sticky.
 - **390 px**: colunas únicas, parallax desligado; retoque 3 da revisão 7: o celular do ato 3 é escalado a 60 % (`transform:scale(.6)` com `margin-bottom:-240px`) para não ocupar quase um ecrã sem texto.
-- **Fecho**: «Próxima estação: O placar» é um `<span>` até o post 8 ser publicado; depois troca-se por `<a href="{% url 'core:imersivo' 'o-placar' %}">`.
+- **Fecho**: «Próxima estação: O placar» é um `<a>` para o post 8 (`core:episodio` com `serie`, senão `core:imersivo`); «Voltar» aponta ao hub `core:serie 'ia-na-ficcao'` (STAR-47). Idem no post 6 → 7. O fecho do post 8 liga ao hub e ao post 7 e mostra o índice dos 9 pontos da série (links aos publicados, texto nos restantes).
 - **Vídeo e narração**: o bloco «Ver e ouvir» (`_midia.html`) vem do episódio 7; o `importar_midia` do STAR-59 já preenche o episódio 7 (só dados).
 - **Direitos**: celular genérico (moldura lisa, sem marca); nenhum aviso imita alerta de sistema; todos os dados são «fictícios». Os avisos, as salvaguardas, as frases de registro e a nota do painel são rascunho a rever pelo Orochimaru.
