@@ -17,6 +17,7 @@ EFEITOS_MAQUINA_FRIA = {
     "atmosfera:escolhas",
     "atmosfera:ia-afetiva",
     "atmosfera:leis-robos-livros",
+    "atmosfera:quase-presente",
 }
 
 
@@ -1131,3 +1132,103 @@ class AtmosferaLeisRobosLivrosTests(TestCase):
     def test_sem_imagens_de_obras(self):
         pasta = self._raiz() / "static/img/leis-robos-livros"
         self.assertFalse(pasta.exists() and list(pasta.glob("*")))
+
+
+class AtmosferaQuasePresenteTests(TestCase):
+    fixtures = ["quase_presente"]
+
+    def _raiz(self):
+        from pathlib import Path
+
+        return Path(__file__).resolve().parents[2]
+
+    def test_efeito_sem_parametros(self):
+        ato("atmosfera:quase-presente").clean()
+        with self.assertRaises(ValidationError):
+            ato("atmosfera:quase-presente", {"fixar": True}).clean()
+
+    def test_fixture_valida(self):
+        post = PostImersivo.objects.get(slug="o-quase-presente")
+        self.assertEqual(post.pk, 8)
+        self.assertEqual(post.atos.count(), 1)
+        for a in post.atos.all():
+            self.assertEqual(a.pk, 19)
+            self.assertEqual(a.reduzido, "estatico")
+            self.assertEqual(a.parametros, {})
+            a.full_clean()
+
+    def test_renderiza_o_template_da_atmosfera(self):
+        r = self.client.get(reverse("core:imersivo", args=["o-quase-presente"]))
+        self.assertEqual(r.status_code, 200)
+        self.assertTemplateUsed(r, "core/imersivo_quase_presente.html")
+        self.assertContains(r, 'data-efeito="atmosfera:quase-presente"')
+        self.assertContains(r, "css/atmosfera-quase-presente.css")
+        self.assertContains(r, "js/imersivo/motor.js")
+        self.assertContains(r, "Ficção · 7")
+        self.assertContains(r, "A IA na ficção · 7")
+        self.assertContains(r, 'id="qp-rachas"')
+        self.assertContains(r, 'href="#qp-rachas"')
+        self.assertContains(r, 'id="qp-pausa"')
+        self.assertContains(r, "Próxima estação: <em>O placar</em>")
+        self.assertNotContains(r, "/imersivo/o-placar")
+        self.assertNotContains(r, "nesta onda")
+        self.assertNotContains(r, "cdn.")
+        self.assertNotContains(r, "Georgia")
+        self.assertNotContains(r, "http://")
+
+    def test_sem_gravacao_no_servidor(self):
+        r = self.client.get(reverse("core:imersivo", args=["o-quase-presente"]))
+        self.assertNotContains(r, "csrfmiddlewaretoken")
+        self.assertNotContains(r, "action=")
+
+    def test_template_sem_sinks(self):
+        html = (
+            self._raiz() / "core/templates/core/imersivo_quase_presente.html"
+        ).read_text()
+        self.assertNotIn("|safe", html)
+        self.assertNotIn("mark_safe", html)
+        self.assertNotIn("javascript:", html)
+        self.assertNotRegex(html, r"\son[a-z]+\s*=")
+
+    def test_css_escopado_e_reduzido(self):
+        css = (self._raiz() / "static/css/atmosfera-quase-presente.css").read_text()
+        self.assertIn("--serif:var(--sg-serif)", css)
+        self.assertNotIn("Georgia", css)
+        self.assertNotIn(":root", css)
+        self.assertNotIn("overflow-x:hidden", css)
+        self.assertIn("overflow-x:clip", css)
+        self.assertIn("prefers-reduced-motion:reduce", css)
+        self.assertIn(".qp-estatico", css)
+        self.assertIn("top:76px", css)
+        self.assertIn("top:96px", css)
+        self.assertIn("scale(.6)", css)
+        self.assertIn(".qp-fecho p.qp-fontes", css)
+        self.assertNotRegex(css, r"(?m)^(html|body)\b")
+
+    def test_js_local_sem_rede_nem_sinks(self):
+        js = (
+            self._raiz() / "static/js/imersivo/efeitos/atmosfera-quase-presente.js"
+        ).read_text()
+        self.assertIn('registar("atmosfera:quase-presente"', js)
+        for proibido in (
+            "fetch(",
+            "XMLHttpRequest",
+            "http",
+            "import(",
+            "innerHTML",
+            "insertAdjacentHTML",
+            "document.documentElement",
+            "localStorage",
+        ):
+            with self.subTest(proibido=proibido):
+                self.assertNotIn(proibido, js)
+        self.assertIn("aria-pressed", js)
+        self.assertIn("reduzido", js)
+        self.assertIn("qp-estatico", js)
+
+    def test_peso_do_efeito(self):
+        raiz = self._raiz() / "static"
+        js = raiz / "js/imersivo/efeitos/atmosfera-quase-presente.js"
+        total = js.stat().st_size
+        total += (raiz / "css/atmosfera-quase-presente.css").stat().st_size
+        self.assertLess(total, 60 * 1024)

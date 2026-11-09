@@ -140,6 +140,7 @@ class PlayerTests(TestCase):
             (3, "o-que-e-ser-humano"),
             (4, "a-ia-afetiva"),
             (6, "escolhas-da-maquina"),
+            (7, "o-quase-presente"),
         ]:
             self._com_midia(n)
             with self.subTest(slug=slug):
@@ -153,6 +154,7 @@ class PlayerTests(TestCase):
             (3, "o-que-e-ser-humano"),
             (4, "a-ia-afetiva"),
             (6, "escolhas-da-maquina"),
+            (7, "o-quase-presente"),
         ]:
             self._com_midia(n)
             with self.subTest(slug=slug):

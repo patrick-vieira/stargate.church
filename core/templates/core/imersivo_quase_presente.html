@@ -1,0 +1,144 @@
+{% extends "noticias/base.html" %}
+{% load static %}
+{% block clima %}padrao{% endblock %}
+{% block fundo_vt %}<style>html{background:#0D1220;--vt-fundo:#0D1220}body{background:#0D1220}</style>{% endblock %}
+{% block titulo %}{{ post.titulo }} — A IA na ficção — Stargate{% endblock %}
+{% block conteudo %}
+{% include "core/_narrador.html" %}
+{% for ato in atos %}{% if ato.efeito == "atmosfera:quase-presente" %}
+<div class="qp-raiz" id="principal" data-imersivo data-libs="{{ libs }}">
+<svg class="qp-defs" width="0" height="0" aria-hidden="true" focusable="false">
+  <defs>
+    <mask id="qp-mk"><rect width="284" height="582" fill="#fff"/><rect x="14" y="90" width="256" height="318" fill="#000"/></mask>
+    <g id="qp-rachas" mask="url(#qp-mk)">
+      <path pathLength="1" d="M250 34L205 92L168 150L128 232L88 322L44 430L16 540"/>
+      <path pathLength="1" d="M250 34L180 12L120 0"/>
+      <path pathLength="1" d="M250 34L284 80"/>
+      <path pathLength="1" d="M168 150L226 168L284 176"/>
+      <path pathLength="1" d="M88 322L30 300L0 306"/>
+      <path pathLength="1" d="M44 430L110 452L190 490L240 582"/>
+      <path pathLength="1" d="M205 92L232 58"/>
+    </g>
+  </defs>
+</svg>
+<div class="qp-cidade" aria-hidden="true">
+  <div class="qp-cam qp-l3" id="qp-l3"></div><div class="qp-cam qp-l2" id="qp-l2"></div><div class="qp-cam qp-l1" id="qp-l1"></div>
+  <div class="qp-varre" id="qp-varre"></div>
+</div>
+
+<div class="qp-topo">
+  <a href="{% url 'core:home' %}"><span class="qp-longo">A IA na ficção · 7</span><span class="qp-curto">Ficção · 7</span></a>
+  <button class="qp-btn-pausa" id="qp-pausa" type="button" aria-pressed="false">Pausar movimento</button>
+</div>
+
+<div class="qp-conteudo" data-ato data-efeito="atmosfera:quase-presente" data-parametros="{{ ato.parametros_json }}" data-reduzido="{{ ato.reduzido }}">
+  <section class="qp-hero" aria-labelledby="qp-t-post">
+    <div>
+      <p class="qp-sobrolho">Post 7 · Minority Report, Person of Interest, Black Mirror</p>
+      <h1 id="qp-t-post">O quase-<em>presente</em></h1>
+      <p class="qp-lead qp-vig">{{ ato.texto }}</p>
+      <p class="qp-rolar" aria-hidden="true">Role: a luz de vigilância desce &nbsp;·&nbsp; a tela racha</p>
+    </div>
+  </section>
+{% include "core/_midia.html" %}
+
+  <section class="qp-pista1" id="qp-pista1" aria-labelledby="qp-t-ato1">
+    <div class="qp-stage">
+      <div class="qp-veu qp-vig">
+        <p class="qp-sobrolho">Ato 1 · Incerteza</p>
+        <h2 id="qp-t-ato1">Uma previsão não é uma sentença.</h2>
+        <p><em>Minority Report</em> leva a previsão do crime ao limite: punir antes do ato. Ferramentas atuais podem pontuar risco ou detectar padrões, mas uma pontuação não é conhecimento do futuro. Erros distribuídos de forma desigual tornam o limite decisivo.</p>
+        <table class="qp-tabela">
+          <caption class="qp-sr">Pontuação de exemplo e faixa de incerteza, dados fictícios</caption>
+          <thead><tr><th scope="col">Medida (dados fictícios)</th><th scope="col">Valor</th></tr></thead>
+          <tbody><tr><th scope="row">Ponto</th><td>0,62</td></tr><tr><th scope="row">Mínimo</th><td>0,35</td></tr><tr><th scope="row">Máximo</th><td>0,89</td></tr></tbody>
+        </table>
+        <p class="qp-fonte qp-mt12">Fonte: Minority Report, AFI</p>
+      </div>
+      <div class="qp-celular" id="qp-cel1" role="img" aria-label="Celular de exemplo com pontuação 0,62 e faixa de incerteza de 0,35 a 0,89; a tela está rachada.">
+        <div class="qp-tela">
+          <div class="qp-cartao"><span class="qp-rot">Pontuação de exemplo</span><span class="qp-num qp-grande">0,62</span>
+            <div class="qp-faixa"><i class="qp-enche"></i><i class="qp-pt"></i></div>
+            <div class="qp-nums"><span class="qp-num qp-p35">0,35</span><span class="qp-num qp-p62">0,62</span><span class="qp-num qp-p89">0,89</span></div>
+            <span class="qp-fic">DADOS FICTÍCIOS</span></div>
+          <svg class="qp-racha" id="qp-rk1" viewBox="0 0 284 582" preserveAspectRatio="none"><use href="#qp-rachas"/></svg>
+          <div class="qp-brilho"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="qp-ato" id="qp-ato2" aria-labelledby="qp-t-ato2">
+    <div class="qp-miolo qp-a2">
+      <div class="qp-veu qp-vig">
+        <p class="qp-sobrolho">Ato 2 · Registros</p>
+        <h2 id="qp-t-ato2">Ser visto sem perceber.</h2>
+        <p><em>Person of Interest</em> dramatiza a ligação de câmeras, registros e decisões em uma máquina de vigilância. O paralelo real está na coleta e combinação de dados, com usos e salvaguardas diferentes conforme o contexto.</p>
+        <p class="qp-fonte">Fonte: Person of Interest, CBS · Registros de exemplo: dados fictícios</p>
+      </div>
+      <div class="qp-grafo qp-vig">
+        <svg id="qp-grafo" viewBox="0 0 460 330" role="img" aria-label="Grafo de exemplo: seis registros fictícios ligam-se a um perfil de exemplo; uma mira percorre os registros."></svg>
+        <ul class="qp-regs" id="qp-regs"></ul>
+      </div>
+      <div class="qp-avisos" id="qp-avisos">
+        <div class="qp-cab"><span id="qp-n-av" aria-live="polite">7 avisos de exemplo</span><button class="qp-btn qp-sec" id="qp-restaura" type="button">Restaurar avisos</button></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="qp-ato" id="qp-ato3" aria-labelledby="qp-t-ato3">
+    <div class="qp-miolo qp-a3">
+      <div>
+        <div class="qp-veu qp-vig qp-mb26">
+          <p class="qp-sobrolho">Ato 3 · O espelho social</p>
+          <h2 id="qp-t-ato3">O espelho social.</h2>
+          <p><em>Black Mirror</em> concentra consequências humanas da tecnologia. Seus episódios não são um calendário de invenções: são perguntas sobre incentivos, dependência e poder. A saída da série é pedir evidência, escolha e reparação.</p>
+          <p class="qp-fonte">Fonte: Black Mirror, Netflix</p>
+        </div>
+        <form class="qp-painel qp-vig" id="qp-salv" novalidate aria-labelledby="qp-t-f">
+          <h3 id="qp-t-f">Uma salvaguarda prioritária</h3>
+          <p class="qp-nota">Escolha uma: o espelho devolve o que ela muda. Nada sai desta página.</p>
+          <fieldset><legend>A salvaguarda mais urgente</legend>
+            <div class="qp-esc">
+              <label><input type="radio" name="qp-sv" value="evidencia"><span>Evidência: mostrar dados, método e erros</span></label>
+              <label><input type="radio" name="qp-sv" value="escolha"><span>Escolha: poder recusar a coleta</span></label>
+              <label><input type="radio" name="qp-sv" value="reparacao"><span>Reparação: corrigir o registro e o dano</span></label>
+            </div></fieldset>
+          <div class="qp-campo"><label for="qp-f-dec">Que decisão você quer poder contestar? (opcional)</label><input id="qp-f-dec" type="text" placeholder="Ex.: uma pontuação de crédito" autocomplete="off"></div>
+          <div class="qp-campo"><label for="qp-f-quem">Quem deve poder pedir revisão?</label>
+            <select id="qp-f-quem"><option>A pessoa afetada</option><option>Um órgão independente</option><option>A empresa que usa o sistema</option></select></div>
+          <label class="qp-chk"><input id="qp-f-ex" type="checkbox" checked> Quero ver um exemplo fictício de cada caso</label>
+          <div class="qp-btns"><button class="qp-btn qp-prim" type="button" id="qp-registrar">Registrar minha prioridade</button><button class="qp-btn qp-sec" type="button" id="qp-limpar">Limpar</button></div>
+          <p class="qp-registro" id="qp-registro" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+      <div class="qp-celular" id="qp-cel2" role="img" aria-label="Celular de exemplo cuja tela virou espelho; o reflexo segue o cursor e a rachadura continua visível.">
+        <div class="qp-tela">
+          <div class="qp-espelho" id="qp-espelho"><div class="qp-reflexo" id="qp-reflexo"></div></div>
+          <div class="qp-eco" id="qp-eco" aria-hidden="true"></div>
+          <svg class="qp-racha" id="qp-rk2" viewBox="0 0 284 582" preserveAspectRatio="none"><use href="#qp-rachas"/></svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="qp-fecho" aria-label="Próxima estação">
+    <div class="qp-miolo">
+      <p class="qp-vig">Pedir evidência, escolha e reparação é o começo de uma saída.</p><br>
+      {# O post 8 ainda não existe: sem link até ser publicado (depois: <a href="{% url 'core:imersivo' 'o-placar' %}">). #}
+      <span class="qp-prox">Próxima estação: <em>O placar</em></span><br>
+      <a href="{% url 'core:home' %}">← Voltar à página inicial</a>
+      <p class="qp-fontes qp-vig">Fontes: Minority Report, AFI · Person of Interest, CBS · Black Mirror, Netflix · NIST AI Risk Management Framework. Todos os dados, avisos e registros são fictícios e marcados como exemplo; nenhum aviso imita um alerta real de sistema. O celular é original.</p>
+    </div>
+  </section>
+</div>
+</div>
+{% endif %}{% endfor %}
+{% endblock %}
+{% block newsletter %}{% endblock %}
+{% block scripts %}
+<link rel="stylesheet" href="{% static 'css/atmosfera-quase-presente.css' %}">
+<script>document.documentElement.classList.add("js")</script>
+{# Tudo local, sem biblioteca: o efeito é CSS, SVG e JS próprio. Nada é guardado nem enviado. #}
+<script type="module" src="{% static 'js/imersivo/motor.js' %}"></script>
+{% endblock %}

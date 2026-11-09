@@ -158,6 +158,8 @@ PARAMETROS_POR_EFEITO = {
     "atmosfera:ia-afetiva": {},
     # Atmosfera do post 5 (STAR-45): livro que vira em 3D, regras que se reescrevem.
     "atmosfera:leis-robos-livros": {},
+    # Atmosfera do post 7 (STAR-47): cidade de vigilância, celular que racha.
+    "atmosfera:quase-presente": {},
 }
 
 
@@ -209,6 +211,10 @@ class Ato(models.Model):
         ATMOSFERA_LEIS_ROBOS_LIVROS = (
             "atmosfera:leis-robos-livros",
             "Atmosfera «Leis, robôs e livros»",
+        )
+        ATMOSFERA_QUASE_PRESENTE = (
+            "atmosfera:quase-presente",
+            "Atmosfera «O quase-presente»",
         )
 
     class Reduzido(models.TextChoices):
