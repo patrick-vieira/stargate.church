@@ -5,6 +5,7 @@
 {% block titulo %}{{ post.titulo }} — A IA na ficção — Stargate{% endblock %}
 {% block conteudo %}
 {% include "core/_narrador.html" %}
+<style>.nr-narrador{--nr-base:76px}@media (max-width:600px){.nr-narrador{--nr-base:72px}}</style>
 {% for ato in atos %}{% if ato.efeito == "atmosfera:placar" %}
 <div class="pl-raiz" id="principal" data-imersivo data-libs="{{ libs }}">
 
