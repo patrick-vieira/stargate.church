@@ -129,7 +129,15 @@
   <section class="pl-fecho" aria-label="Fecho da série">
     <div class="pl-miolo">
       <p>A melhor pergunta não é se a ficção acertou o futuro inteiro. É qual escolha ela nos ajuda a fazer agora.</p>
-      <a href="{% url 'core:home' %}">Voltar à página inicial →</a>
+      <a href="{% url 'core:serie' 'ia-na-ficcao' %}">← Voltar ao hub da série</a>
+      <a href="{% if serie %}{% url 'core:episodio' serie.slug 'o-quase-presente' %}{% else %}{% url 'core:imersivo' 'o-quase-presente' %}{% endif %}">← Post anterior: <em>O quase-presente</em></a>
+      <nav class="pl-indice" aria-label="Os 9 pontos da série">
+        <ol>
+          <li><a href="{% url 'core:serie' 'ia-na-ficcao' %}">O hub da série</a></li>
+          {% for e in ato.episodios_serie %}<li>{% if e.url %}<a href="{{ e.url }}">{{ e.titulo }}</a>{% else %}{{ e.titulo }}{% endif %}</li>
+          {% endfor %}
+        </ol>
+      </nav>
       <p class="pl-fontes">Fontes: as notas e as justificativas vêm do placar editorial da série ({{ placar|length }} obras). As médias dos leitores são reais, mas vêm de uma amostra pequena que se escolheu sozinha: não é pesquisa científica. Nenhuma imagem de obra é reproduzida.</p>
     </div>
   </section>

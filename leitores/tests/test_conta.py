@@ -51,6 +51,8 @@ class ContaTests(TestCase):
         self.assertNotIn("_auth_user_id", self.client.session)
         self.assertContains(r, 'for="id_username"')
         self.assertContains(r, 'autocomplete="username"')
+        self.assertContains(r, "E-mail ou senha incorretos.")
+        self.assertNotContains(r, "usuário")
 
     def test_entrar_traz_a_base_da_luz(self):
         r = self.client.get(reverse("leitores:entrar"))

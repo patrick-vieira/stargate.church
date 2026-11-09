@@ -58,6 +58,7 @@ docker compose config                                          # valida o compos
 - **Código:** PR com CI verde + revisão do líder; o merge (merge commit) é feito pelo esp_git.
 - **UI:** CI verde + revisão do líder pelo diff; o Hagoromo confere depois do merge, na main, e o que achar vira card de retoque.
 - **Commits e PRs:** sem o trailer Co-authored-by nem o e-mail do Patrick (repo público).
+- O CI recusa commits com o trailer `Co-authored-by:` (scripts/verificar_mensagens.py).
 - **Deploy e domínio:** só o Patrick.
 - Nunca push direto para `main`.
 
