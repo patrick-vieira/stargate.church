@@ -1,0 +1,24 @@
+[
+  {
+    "model": "core.postimersivo",
+    "pk": 7,
+    "fields": {
+      "slug": "leis-robos-e-livros",
+      "titulo": "Leis, robôs e livros",
+      "publicado": true
+    }
+  },
+  {
+    "model": "core.ato",
+    "pk": 18,
+    "fields": {
+      "post": 7,
+      "ordem": 1,
+      "titulo": "Leis, robôs e livros",
+      "texto": "Regras simples em histórias complexas mostram por que instrução, objetivo e efeito real podem divergir.",
+      "efeito": "atmosfera:leis-robos-livros",
+      "parametros": {},
+      "reduzido": "estatico"
+    }
+  }
+]

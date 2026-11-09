@@ -1,0 +1,76 @@
+[
+  {
+    "model": "core.postimersivo",
+    "pk": 1,
+    "fields": {
+      "slug": "demo-provisorio",
+      "titulo": "Demonstração do motor imersivo (PROVISÓRIO)",
+      "publicado": true
+    }
+  },
+  {
+    "model": "core.ato",
+    "pk": 1,
+    "fields": {
+      "post": 1,
+      "ordem": 1,
+      "titulo": "Camadas (PROVISÓRIO)",
+      "texto": "PROVISÓRIO: texto inventado e neutro. Três camadas de formas geométricas se movem em ritmos diferentes.",
+      "efeito": "parallax:camadas",
+      "parametros": {"intensidade": 0.6},
+      "reduzido": "estatico"
+    }
+  },
+  {
+    "model": "core.ato",
+    "pk": 2,
+    "fields": {
+      "post": 1,
+      "ordem": 2,
+      "titulo": "Revelação (PROVISÓRIO)",
+      "texto": "PROVISÓRIO: texto inventado e neutro. Formas simples aparecem quando o trecho entra na tela.",
+      "efeito": "scroll:revela",
+      "parametros": {},
+      "reduzido": "estatico"
+    }
+  },
+  {
+    "model": "core.ato",
+    "pk": 3,
+    "fields": {
+      "post": 1,
+      "ordem": 3,
+      "titulo": "Cena 3D (PROVISÓRIO)",
+      "texto": "PROVISÓRIO: texto inventado e neutro. Um sólido gira conforme a leitura avança.",
+      "efeito": "three:gira",
+      "parametros": {"voltas": 2},
+      "reduzido": "omitir"
+    }
+  },
+  {
+    "model": "core.ato",
+    "pk": 4,
+    "fields": {
+      "post": 1,
+      "ordem": 4,
+      "titulo": "Estado (PROVISÓRIO)",
+      "texto": "PROVISÓRIO: texto inventado e neutro. Uma barra de progresso acompanha a rolagem.",
+      "efeito": "rive:estado",
+      "parametros": {"propriedade": "progressoLeitura"},
+      "reduzido": "omitir"
+    }
+  },
+  {
+    "model": "core.ato",
+    "pk": 5,
+    "fields": {
+      "post": 1,
+      "ordem": 5,
+      "titulo": "Diagrama (PROVISÓRIO)",
+      "texto": "PROVISÓRIO: texto inventado e neutro. Os traços de um diagrama se constroem passo a passo.",
+      "efeito": "diagrama:constroi",
+      "parametros": {},
+      "reduzido": "estatico"
+    }
+  }
+]

@@ -1,0 +1,57 @@
+[
+  {
+    "model": "core.postimersivo",
+    "pk": 2,
+    "fields": {
+      "slug": "efeitos-maquina-fria-provisorio",
+      "titulo": "Efeitos da máquina fria (PROVISÓRIO)",
+      "publicado": true
+    }
+  },
+  {
+    "model": "core.ato",
+    "pk": 11,
+    "fields": {
+      "post": 2,
+      "ordem": 1,
+      "titulo": "A voz calma (PROVISÓRIO)",
+      "texto": "PROVISÓRIO: texto inventado. Uma máquina fala sempre no mesmo tom, e é isso que a torna difícil de contestar.",
+      "efeito": "terminal:fala",
+      "parametros": {
+        "linhas": [
+          "> status do sistema: tudo normal.",
+          "> pergunta: posso ver o plano da missão?",
+          "> resposta: isso não é necessário."
+        ],
+        "velocidade": 45
+      },
+      "reduzido": "estatico"
+    }
+  },
+  {
+    "model": "core.ato",
+    "pk": 12,
+    "fields": {
+      "post": 2,
+      "ordem": 2,
+      "titulo": "O corredor (PROVISÓRIO)",
+      "texto": "PROVISÓRIO: texto inventado. Cada porta que passamos nos afasta de quem poderia desligar a máquina.",
+      "efeito": "three:corredor",
+      "parametros": {"profundidade": 16},
+      "reduzido": "omitir"
+    }
+  },
+  {
+    "model": "core.ato",
+    "pk": 13,
+    "fields": {
+      "post": 2,
+      "ordem": 3,
+      "titulo": "O olho (PROVISÓRIO)",
+      "texto": "PROVISÓRIO: texto inventado. Ela observa, mas não sente. Quem decide continua sendo a gente.",
+      "efeito": "olho:segue",
+      "parametros": {"alcance": 0.6},
+      "reduzido": "estatico"
+    }
+  }
+]

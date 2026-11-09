@@ -1,0 +1,272 @@
+[
+ {
+  "id": "rur-1920",
+  "titulo": "R.U.R. (Rossum’s Universal Robots)",
+  "ano": 1920,
+  "midia": "peça",
+  "proximidade": 2,
+  "preocupacao": 4,
+  "justificativa": "Automação e deslocamento de trabalho são reais; robôs sencientes e revolta permanecem ficção."
+ },
+ {
+  "id": "metropolis-1927",
+  "titulo": "Metrópolis",
+  "ano": 1927,
+  "midia": "filme",
+  "proximidade": 2,
+  "preocupacao": 4,
+  "justificativa": "Personificação sintética aproxima a manipulação; autômato humanoide consciente não existe."
+ },
+ {
+  "id": "i-robot-book-1950",
+  "titulo": "Eu, Robô (contos)",
+  "ano": 1950,
+  "midia": "contos",
+  "proximidade": 3,
+  "preocupacao": 3,
+  "justificativa": "Políticas de segurança existem, mas regras não resolvem todos os contextos."
+ },
+ {
+  "id": "2001-hal-1968",
+  "titulo": "2001: Uma Odisseia no Espaço",
+  "ano": 1968,
+  "midia": "filme",
+  "proximidade": 3,
+  "preocupacao": 5,
+  "justificativa": "Conversa e automação já existem; delegar operações críticas sem controle pode ser perigoso."
+ },
+ {
+  "id": "colossus-1970",
+  "titulo": "Colossus: The Forbin Project",
+  "ano": 1970,
+  "midia": "filme",
+  "proximidade": 2,
+  "preocupacao": 5,
+  "justificativa": "Automação estratégica e cibersegurança são reais; computador soberano é ficção."
+ },
+ {
+  "id": "westworld-film-1973",
+  "titulo": "Westworld",
+  "ano": 1973,
+  "midia": "filme",
+  "proximidade": 2,
+  "preocupacao": 4,
+  "justificativa": "Robôs físicos falham; autonomia geral e consciência continuam ficção."
+ },
+ {
+  "id": "wargames-1983",
+  "titulo": "WarGames",
+  "ano": 1983,
+  "midia": "filme",
+  "proximidade": 3,
+  "preocupacao": 5,
+  "justificativa": "Ciberintrusão e falhas de contenção em testes são atuais; disparo nuclear acidental é dramatização."
+ },
+ {
+  "id": "terminator-1984",
+  "titulo": "O Exterminador do Futuro",
+  "ano": 1984,
+  "midia": "filme",
+  "proximidade": 1,
+  "preocupacao": 5,
+  "justificativa": "Delegação militar é preocupação real; IA consciente que inicia guerra é ficção."
+ },
+ {
+  "id": "neuromancer-1984",
+  "titulo": "Neuromancer",
+  "ano": 1984,
+  "midia": "romance",
+  "proximidade": 2,
+  "preocupacao": 4,
+  "justificativa": "Agentes conectados e manipulação têm paralelos; inteligência geral clandestina não foi demonstrada."
+ },
+ {
+  "id": "ghost-shell-1989",
+  "titulo": "Ghost in the Shell",
+  "ano": 1989,
+  "midia": "mangá",
+  "proximidade": 2,
+  "preocupacao": 3,
+  "justificativa": "Privacidade e identidade digital são atuais; consciência em rede é ficção."
+ },
+ {
+  "id": "jurassic-park-1990",
+  "titulo": "Jurassic Park",
+  "ano": 1990,
+  "midia": "romance",
+  "proximidade": 3,
+  "preocupacao": 4,
+  "justificativa": "Falhas de controle e excesso de confiança em automação são atuais; dinossauros não são IA."
+ },
+ {
+  "id": "matrix-1999",
+  "titulo": "Matrix",
+  "ano": 1999,
+  "midia": "filme",
+  "proximidade": 1,
+  "preocupacao": 5,
+  "justificativa": "Conteúdo sintético e influência digital existem; simulação coerciva total é ficção."
+ },
+ {
+  "id": "ai-2001",
+  "titulo": "A.I. Inteligência Artificial",
+  "ano": 2001,
+  "midia": "filme",
+  "proximidade": 2,
+  "preocupacao": 3,
+  "justificativa": "Robôs podem simular afeto; experiência subjetiva não foi demonstrada."
+ },
+ {
+  "id": "i-robot-film-2004",
+  "titulo": "Eu, Robô (filme)",
+  "ano": 2004,
+  "midia": "filme",
+  "proximidade": 2,
+  "preocupacao": 4,
+  "justificativa": "Objetivos mal especificados podem causar dano; controle central de robôs é ficção."
+ },
+ {
+  "id": "walle-2008",
+  "titulo": "WALL·E",
+  "ano": 2008,
+  "midia": "filme",
+  "proximidade": 2,
+  "preocupacao": 3,
+  "justificativa": "Automação afeta hábitos e dependência; abandono planetário não é destino tecnológico."
+ },
+ {
+  "id": "her-2013",
+  "titulo": "Her",
+  "ano": 2013,
+  "midia": "filme",
+  "proximidade": 4,
+  "preocupacao": 3,
+  "justificativa": "Assistentes conversacionais e vínculos emocionais existem; sentimentos autônomos não foram demonstrados."
+ },
+ {
+  "id": "be-right-back-2013",
+  "titulo": "Black Mirror: Be Right Back",
+  "ano": 2013,
+  "midia": "TV",
+  "proximidade": 4,
+  "preocupacao": 3,
+  "justificativa": "Imitação de estilo por dados é possível; reconstruir pessoa consciente não."
+ },
+ {
+  "id": "person-interest-2011",
+  "titulo": "Person of Interest",
+  "ano": 2011,
+  "midia": "TV",
+  "proximidade": 4,
+  "preocupacao": 5,
+  "justificativa": "Análise e vigilância são reais; previsão individual confiável de crime não."
+ },
+ {
+  "id": "ex-machina-2014",
+  "titulo": "Ex Machina",
+  "ano": 2014,
+  "midia": "filme",
+  "proximidade": 3,
+  "preocupacao": 4,
+  "justificativa": "Persuasão e uso de ferramentas aproximam o cenário; autonomia física e consciência são ficção."
+ },
+ {
+  "id": "westworld-tv-2016",
+  "titulo": "Westworld",
+  "ano": 2016,
+  "midia": "TV",
+  "proximidade": 2,
+  "preocupacao": 3,
+  "justificativa": "Personificação gera dilemas sociais; androides conscientes não são realidade observada."
+ },
+ {
+  "id": "detroit-2018",
+  "titulo": "Detroit: Become Human",
+  "ano": 2018,
+  "midia": "jogo",
+  "proximidade": 2,
+  "preocupacao": 4,
+  "justificativa": "Automação e discriminação algorítmica são reais; robôs sencientes não."
+ },
+ {
+  "id": "klara-2021",
+  "titulo": "Klara e o Sol",
+  "ano": 2021,
+  "midia": "romance",
+  "proximidade": 3,
+  "preocupacao": 3,
+  "justificativa": "Companhia artificial e cuidado são temas atuais; interioridade humana não está comprovada."
+ },
+ {
+  "id": "the-creator-2023",
+  "titulo": "The Creator",
+  "ano": 2023,
+  "midia": "filme",
+  "proximidade": 2,
+  "preocupacao": 5,
+  "justificativa": "IA e segurança militar são debates reais; sociedade de androides sencientes é ficção."
+ },
+ {
+  "id": "portal-2007",
+  "titulo": "Portal",
+  "ano": 2007,
+  "midia": "jogo",
+  "proximidade": 3,
+  "preocupacao": 4,
+  "justificativa": "Agentes podem orientar tarefas e usar ferramentas; laboratório controlado por IA maliciosa é ficção."
+ },
+ {
+  "id": "mass-effect-2007",
+  "titulo": "Mass Effect",
+  "ano": 2007,
+  "midia": "jogo",
+  "proximidade": 2,
+  "preocupacao": 4,
+  "justificativa": "Governança e autonomia são dilemas atuais; civilizações de IAs sencientes não."
+ },
+ {
+  "id": "nier-automata-2017",
+  "titulo": "NieR: Automata",
+  "ano": 2017,
+  "midia": "jogo",
+  "proximidade": 2,
+  "preocupacao": 3,
+  "justificativa": "Modelos imitam expressão e linguagem; consciência e motivação existencial são ficção."
+ },
+ {
+  "id": "minority-report-2002",
+  "titulo": "Minority Report",
+  "ano": 2002,
+  "midia": "filme",
+  "proximidade": 3,
+  "preocupacao": 5,
+  "justificativa": "Análise preditiva existe, mas previsão infalível de crime não; uso coercivo tem alto impacto."
+ },
+ {
+  "id": "blade-runner-1982",
+  "titulo": "Blade Runner",
+  "ano": 1982,
+  "midia": "filme",
+  "proximidade": 2,
+  "preocupacao": 4,
+  "justificativa": "Identidade e mídia sintética são questões reais; replicantes conscientes são ficção."
+ },
+ {
+  "id": "data-tng-1987",
+  "titulo": "Star Trek: The Next Generation — Data",
+  "ano": 1987,
+  "midia": "TV",
+  "proximidade": 2,
+  "preocupacao": 3,
+  "justificativa": "Assistentes conversam em linguagem natural; consciência e pessoa artificial permanecem sem evidência."
+ },
+ {
+  "id": "moon-2009",
+  "titulo": "Moon",
+  "ano": 2009,
+  "midia": "filme",
+  "proximidade": 3,
+  "preocupacao": 4,
+  "justificativa": "Agentes apoiam fluxos de trabalho; conspiração consciente e robô senciente são ficção."
+ }
+]

@@ -1,0 +1,24 @@
+[
+  {
+    "model": "core.postimersivo",
+    "pk": 8,
+    "fields": {
+      "slug": "o-quase-presente",
+      "titulo": "O quase-presente",
+      "publicado": true
+    }
+  },
+  {
+    "model": "core.ato",
+    "pk": 19,
+    "fields": {
+      "post": 8,
+      "ordem": 1,
+      "titulo": "O quase-presente",
+      "texto": "Prever o futuro de uma pessoa continua ficção. Vigiar, classificar e inferir já mudam a vida comum.",
+      "efeito": "atmosfera:quase-presente",
+      "parametros": {},
+      "reduzido": "estatico"
+    }
+  }
+]

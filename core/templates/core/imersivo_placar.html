@@ -1,0 +1,147 @@
+{% extends "noticias/base.html" %}
+{% load static %}
+{% block clima %}padrao{% endblock %}
+{% block fundo_vt %}<style>html{background:#F6F1E6;--vt-fundo:#F6F1E6}body{background:#F6F1E6}</style>{% endblock %}
+{% block titulo %}{{ post.titulo }} — A IA na ficção — Stargate{% endblock %}
+{% block conteudo %}
+{% include "core/_narrador.html" %}
+{% for ato in atos %}{% if ato.efeito == "atmosfera:placar" %}
+<div class="pl-raiz" id="principal" data-imersivo data-libs="{{ libs }}">
+
+<div class="pl-topo" id="pl-topo">
+  <a href="{% url 'core:home' %}"><span class="pl-longo">A IA na ficção · 8</span><span class="pl-curto">Ficção · 8</span></a>
+  <button class="pl-btn-pausa" id="pl-pausa" type="button" aria-pressed="false">pausar movimento</button>
+</div>
+
+<div class="pl-conteudo" data-ato data-efeito="atmosfera:placar" data-parametros="{{ ato.parametros_json }}" data-reduzido="{{ ato.reduzido }}">
+  <section class="pl-hero" id="pl-hero" aria-labelledby="pl-t-post">
+    <div class="pl-miolo">
+      <p class="pl-sobrolho">Post 8 · Perto, longe, preocupação</p>
+      <h1 id="pl-t-post">O placar</h1>
+      <p class="pl-lead">{{ ato.texto }}</p>
+      <p class="pl-rolar" aria-hidden="true">Role: a luz sobe e o mapa assenta</p>
+    </div>
+  </section>
+  <div class="pl-noite">{% include "core/_midia.html" %}</div>
+  <div class="pl-alvorada" aria-hidden="true"></div>
+
+  <div class="pl-miolo pl-corpo">
+    <div class="pl-col-t">
+      <section class="pl-bloco" id="pl-b1" aria-labelledby="pl-t-a1">
+        <p class="pl-sobrolho">Ato 1 · Como ler o mapa</p>
+        <h2 id="pl-t-a1">Como ler o mapa.</h2>
+        <p>À direita, elementos que já reconhecemos em 2026. Acima, consequências que exigem mais cuidado. Pontos diferentes da mesma obra podem ocupar lugares diferentes; o mapa resume a sua hipótese central, explicada na ficha.</p>
+        <div class="pl-cartao pl-notas">
+          <h3>Como ler as notas (0–5)</h3>
+          <p><b>Perto</b> mede a correspondência de uma capacidade ou consequência específica com tecnologia documentada até 2026 (0 = sem paralelo; 5 = já comum).</p>
+          <p><b>Preocupação</b> mede o dano plausível do mecanismo retratado (0 = baixo; 5 = severo). Não é uma previsão de probabilidade nem um juízo sobre a qualidade da obra.</p>
+        </div>
+        <p class="pl-cont" id="pl-cont">{{ placar|length }} de {{ placar|length }} · todos os anos</p>
+        <p class="pl-fonte">Fonte: pesquisa editorial da série; o mapa usa os mesmos dados das fichas.</p>
+      </section>
+      <section class="pl-bloco" id="pl-b2" aria-labelledby="pl-t-a2">
+        <p class="pl-sobrolho">Ato 2 · Filtros e destaques</p>
+        <h2 id="pl-t-a2">O que mudou de lugar?</h2>
+        <p>As conversas íntimas e a imitação de uma voz se aproximaram rápido. Consciência artificial, transferência de mente e simulações totais continuam sem demonstração. Vigilância e decisões automáticas pedem atenção mesmo sem robôs de cinema.</p>
+        <div class="pl-filtros" role="group" aria-label="Destaque">
+          <button class="pl-chip" type="button" data-f="1" aria-pressed="false">Se aproximaram</button>
+          <button class="pl-chip" type="button" data-f="2" aria-pressed="false">Sem demonstração</button>
+          <button class="pl-chip" type="button" data-f="3" aria-pressed="false">Pedem atenção</button>
+        </div>
+        <p class="pl-cont" id="pl-dest" aria-live="polite">Destaque: nenhum</p>
+        <p class="pl-fonte">Os filtros ao lado do mapa mudam o que aparece, nunca as notas.</p>
+      </section>
+      <section class="pl-bloco" id="pl-b3" aria-labelledby="pl-t-a3">
+        <p class="pl-sobrolho">Ato 3 · Seu voto</p>
+        <h2 id="pl-t-a3">Sua régua, nossa responsabilidade.</h2>
+        <p>Mova um ponto: dê as suas notas a uma obra e veja onde os leitores a colocam. A média vem de votos reais de leitores com conta, mas de uma amostra pequena, que se escolheu sozinha. Por isso ela é uma conversa, não um veredito. Volte às fichas antes de concluir.</p>
+        <div class="pl-cartao pl-painel" id="pl-painel">
+          <h3 id="pl-t-fv">Mova um ponto</h3>
+          {% if placar_logado %}
+          <form id="pl-voto" novalidate aria-labelledby="pl-t-fv">
+            <p class="pl-nota">Escolha uma obra e dê as suas notas de 0 a 5. Votar de novo na mesma obra troca o seu voto.</p>
+            <div class="pl-campo"><label for="pl-f-obra">Obra</label><select id="pl-f-obra" name="obra">{% for o in placar %}<option value="{{ o.id }}">{{ o.titulo }} ({{ o.ano }})</option>{% endfor %}</select></div>
+            <div class="pl-campo"><label for="pl-f-x">Perto: <span class="pl-val" id="pl-o-x">3</span></label><input id="pl-f-x" name="proximidade" type="range" min="0" max="5" step="1" value="3"></div>
+            <div class="pl-campo"><label for="pl-f-y">Preocupação: <span class="pl-val" id="pl-o-y">3</span></label><input id="pl-f-y" name="preocupacao" type="range" min="0" max="5" step="1" value="3"></div>
+            <div class="pl-btns"><button class="pl-btn pl-prim" type="submit" id="pl-enviar">Registrar meu voto</button></div>
+          </form>
+          {% else %}
+          <p class="pl-nota">Para votar, entre na sua conta. Sem conta, você vê a média dos leitores no mapa, só não registra voto.</p>
+          <div class="pl-btns"><a class="pl-btn pl-prim" id="pl-entrar" href="{% url 'leitores:entrar' %}?next={{ request.path|urlencode }}">Entrar para votar</a></div>
+          {% endif %}
+          <label class="pl-chk"><input id="pl-f-camada" type="checkbox"> Mostrar a média dos leitores no mapa</label>
+          <p class="pl-registro" id="pl-registro" role="status" aria-live="polite"></p>
+          <p class="pl-aviso-l" id="pl-aviso">Média real dos votos de leitores com conta: <span id="pl-n-votos">{{ placar_total_votos }}</span> {% if placar_total_votos == 1 %}voto{% else %}votos{% endif %} até agora. A amostra é pequena e se escolheu sozinha. Isto não é pesquisa científica. Cada pessoa conta uma vez por obra; só guardamos as notas, sem texto livre.</p>
+        </div>
+      </section>
+    </div>
+
+    <div class="pl-cartao pl-grafico-cx" id="pl-graf">
+      <div class="pl-plot-wrap" id="pl-pw">
+        <svg class="pl-plot" id="pl-plot" viewBox="0 0 700 610" role="group" aria-label="Gráfico de dispersão: proximidade de 2026 no eixo horizontal e preocupação no eixo vertical, {{ placar|length }} obras. Há uma tabela equivalente abaixo."></svg>
+        <div class="pl-ficha" id="pl-ficha" hidden role="dialog" aria-label="Ficha da obra">
+          <button class="pl-fechar" type="button" id="pl-f-fechar" aria-label="Fechar a ficha">×</button>
+          <h4 id="pl-fi-t"></h4><p id="pl-fi-m"></p><p id="pl-fi-n"></p><p id="pl-fi-j"></p>
+          <p class="pl-nota-f" id="pl-fi-l"></p>
+          <p class="pl-nota-f">Nota editorial da série.</p>
+        </div>
+      </div>
+      <ul class="pl-legenda" aria-label="Legenda das mídias">
+        <li><svg viewBox="-8 -8 16 16" aria-hidden="true"><circle r="6" fill="#0072B2"/></svg><span>Filme</span></li>
+        <li><svg viewBox="-8 -8 16 16" aria-hidden="true"><rect x="-6" y="-6" width="12" height="12" fill="#C2410C"/></svg><span>TV</span></li>
+        <li><svg viewBox="-8 -8 16 16" aria-hidden="true"><path d="M0-7L7 6L-7 6Z" fill="#7B3FA0"/></svg><span>Jogo</span></li>
+        <li><svg viewBox="-8 -8 16 16" aria-hidden="true"><path d="M0-7L7 0L0 7L-7 0Z" fill="#2E7D32"/></svg><span>Página e palco</span></li>
+        <li><svg viewBox="-8 -8 16 16" aria-hidden="true"><circle r="6" fill="none" stroke="#1F1A17" stroke-width="1.6" stroke-dasharray="3 2"/></svg><span>Leitores (média dos votos)</span></li>
+      </ul>
+      <div class="pl-filtros" role="group" aria-label="Filtros do mapa">
+        <button class="pl-chip" type="button" data-m="filme" aria-pressed="true">Filme</button>
+        <button class="pl-chip" type="button" data-m="tv" aria-pressed="true">TV</button>
+        <button class="pl-chip" type="button" data-m="jogo" aria-pressed="true">Jogo</button>
+        <button class="pl-chip" type="button" data-m="pag" aria-pressed="true">Página e palco</button>
+        <label class="pl-sr" for="pl-f-dec">Década</label>
+        <select id="pl-f-dec"><option value="">Todas as décadas</option><option value="a">Até 1979</option><option value="b">1980 a 1999</option><option value="c">2000 a 2026</option></select>
+        <button class="pl-chip" type="button" id="pl-b-tab" aria-pressed="true" aria-controls="pl-tab-sec">Ocultar a tabela</button>
+      </div>
+    </div>
+  </div>
+
+  {# A tabela vem pronta do servidor (sem JS todas as linhas ficam visíveis); o JS só a filtra, ordena e esconde. #}
+  <section class="pl-miolo pl-tab-sec" id="pl-tab-sec" aria-labelledby="pl-t-tab">
+    <h2 id="pl-t-tab">A tabela equivalente</h2>
+    <div class="pl-cartao pl-tabela-cx">
+      <table class="pl-tab" id="pl-tab">
+        <caption class="pl-sr">As {{ placar|length }} obras com proximidade e preocupação, ordenável por coluna</caption>
+        <thead><tr>
+          <th scope="col" aria-sort="none"><button type="button" data-k="titulo">Obra</button></th>
+          <th scope="col" aria-sort="ascending"><button type="button" data-k="ano">Ano</button></th>
+          <th scope="col" aria-sort="none"><button type="button" data-k="midia">Mídia</button></th>
+          <th scope="col" aria-sort="none"><button type="button" data-k="proximidade">Perto</button></th>
+          <th scope="col" aria-sort="none"><button type="button" data-k="preocupacao">Preocupação</button></th>
+          <th scope="col">Por quê</th></tr></thead>
+        <tbody>
+          {% for o in placar|dictsort:"ano" %}<tr data-id="{{ o.id }}"><th scope="row" class="pl-obra">{{ o.titulo }}</th><td class="pl-n">{{ o.ano }}</td><td>{{ o.midia }}</td><td class="pl-n">{{ o.proximidade }}</td><td class="pl-n">{{ o.preocupacao }}</td><td>{{ o.justificativa }}</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="pl-fecho" aria-label="Fecho da série">
+    <div class="pl-miolo">
+      <p>A melhor pergunta não é se a ficção acertou o futuro inteiro. É qual escolha ela nos ajuda a fazer agora.</p>
+      <a href="{% url 'core:home' %}">Voltar à página inicial →</a>
+      <p class="pl-fontes">Fontes: as notas e as justificativas vêm do placar editorial da série ({{ placar|length }} obras). As médias dos leitores são reais, mas vêm de uma amostra pequena que se escolheu sozinha: não é pesquisa científica. Nenhuma imagem de obra é reproduzida.</p>
+    </div>
+  </section>
+</div>
+{{ placar_dados|json_script:"pl-dados" }}
+</div>
+{% endif %}{% endfor %}
+{% endblock %}
+{% block newsletter %}{% endblock %}
+{% block scripts %}
+<link rel="stylesheet" href="{% static 'css/atmosfera-placar.css' %}">
+<script>document.documentElement.classList.add("js")</script>
+{# Sem biblioteca: SVG gerado pelo JS a partir do json_script. A única rede é o POST do voto. #}
+<script type="module" src="{% static 'js/imersivo/motor.js' %}"></script>
+{% endblock %}

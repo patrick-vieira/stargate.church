@@ -35,12 +35,12 @@ class RenderTests(TestCase):
         self.artigo = criar_artigo(titulo="Rede *acesa* hoje", destaque=True)
 
     def test_manchete_da_home_tem_realce_e_card_nao(self):
-        resposta = self.client.get(reverse("core:home"))
+        resposta = self.client.get(reverse("noticias:home"))
         self.assertContains(resposta, H1_REALCE)
 
     def test_card_nao_mostra_asteriscos(self):
         outro = criar_artigo(titulo="Outro *destaque* aqui")
-        resposta = self.client.get(reverse("core:home"))
+        resposta = self.client.get(reverse("noticias:home"))
         self.assertContains(resposta, "<h3>Outro destaque aqui</h3>")
         self.assertNotContains(resposta, "*destaque*")
         self.assertTrue(outro.pk)

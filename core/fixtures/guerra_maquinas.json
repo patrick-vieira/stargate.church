@@ -1,0 +1,24 @@
+[
+  {
+    "model": "core.postimersivo",
+    "pk": 4,
+    "fields": {
+      "slug": "o-medo-da-guerra-das-maquinas",
+      "titulo": "O medo da guerra das máquinas",
+      "publicado": true
+    }
+  },
+  {
+    "model": "core.ato",
+    "pk": 15,
+    "fields": {
+      "post": 4,
+      "ordem": 1,
+      "titulo": "O medo da guerra das máquinas",
+      "texto": "Guerra automática e mundo simulado são imagens extremas; a questão atual está no controle humano de sistemas de decisão e de conteúdo.",
+      "efeito": "atmosfera:guerra-maquinas",
+      "parametros": {},
+      "reduzido": "estatico"
+    }
+  }
+]

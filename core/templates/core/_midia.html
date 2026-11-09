@@ -1,0 +1,46 @@
+{% load static %}{% if midia %}
+<section class="md-midia" aria-label="{{ midia.titulo }}: vídeo e narração" data-midia>
+<link rel="stylesheet" href="{% static 'css/midia.css' %}">
+<h2 class="md-sobrolho">Ver e ouvir</h2>
+{% if midia.video %}
+<video controls preload="none" playsinline{% if midia.poster %} poster="{{ midia.poster.url }}"{% endif %}>
+  <source src="{{ midia.video.url }}" type="video/mp4">
+  {% if midia.legenda %}<track kind="captions" src="{{ midia.legenda.url }}" srclang="pt-BR" label="Português" default>{% endif %}
+  Seu navegador não reproduz vídeo.
+</video>
+{% endif %}
+{% if midia.audio %}
+<button class="md-btn" type="button" data-md-ouvir aria-pressed="false">Ouvir este episódio</button>
+<audio preload="none" data-md-audio>
+  <source src="{{ midia.audio.url }}" type="audio/mpeg">
+  {% if midia.audio_ogg %}<source src="{{ midia.audio_ogg.url }}" type="audio/ogg; codecs=opus">{% endif %}
+</audio>
+{% endif %}
+{% if midia.vertical %}
+<details>
+  <summary>Versão vertical (9:16)</summary>
+  <video class="md-vert" controls preload="none" playsinline><source src="{{ midia.vertical.url }}" type="video/mp4"></video>
+</details>
+{% endif %}
+{% if midia.transcricao %}
+<details>
+  <summary>Transcrição</summary>
+  <p class="md-transc">{{ midia.transcricao }}</p>
+</details>
+{% endif %}
+<script>
+(function(){
+  var raiz=document.currentScript.parentNode, b=raiz.querySelector('[data-md-ouvir]'), a=raiz.querySelector('[data-md-audio]');
+  if(!b||!a)return;
+  function pausaVideos(){raiz.querySelectorAll('video').forEach(function(v){v.pause();});}
+  b.addEventListener('click',function(){
+    if(a.paused){pausaVideos();a.play();}else{a.pause();}
+  });
+  a.addEventListener('play',function(){b.setAttribute('aria-pressed','true');b.textContent='Pausar a narração';});
+  a.addEventListener('pause',function(){b.setAttribute('aria-pressed','false');b.textContent='Ouvir este episódio';});
+  a.addEventListener('ended',function(){b.setAttribute('aria-pressed','false');b.textContent='Ouvir este episódio';});
+  raiz.querySelectorAll('video').forEach(function(v){v.addEventListener('play',function(){a.pause();});});
+})();
+</script>
+</section>
+{% endif %}

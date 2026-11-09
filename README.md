@@ -36,7 +36,7 @@ Para rodar o projeto localmente com o banco SQLite padrão, siga os passos abaix
    ```
 4. **Carregue os dados de demonstração (fixture):**
    ```bash
-   python manage.py loaddata stargate_demo --settings=config.settings.dev
+   python manage.py loaddata stargate_demo maquina_fria guerra_maquinas escolhas --settings=config.settings.dev
    ```
 5. **Inicie o servidor de desenvolvimento:**
    ```bash
@@ -92,5 +92,6 @@ As configurações do projeto suportam as seguintes variáveis através do arqui
 | `DJANGO_CSRF_COOKIE_SECURE`    | Não                 | `True` (False em staging)                       |
 | `STARGATE_TECTO_CONVERSA`      | Não                 | `20`                                            |
 | `STARGATE_TECTO_COMENTARIO`    | Não                 | `10`                                            |
+| `STARGATE_TECTO_VOTO`          | Não                 | `30`                                            |
 | `EASYON_API_URL`               | Não                 | `https://api.exemplo.com/v1`                    |
 | `EASYON_API_KEY_FILE`          | Não                 | `/caminho/para/chave-easyon.txt`                |

@@ -1,0 +1,135 @@
+{% extends "noticias/base.html" %}
+{% load static %}
+{% block clima %}padrao{% endblock %}
+{% block fundo_vt %}<style>html{background:#F1E8D4;--vt-fundo:#F1E8D4}body{background:#F1E8D4}</style>{% endblock %}
+{% block titulo %}{{ post.titulo }} — A IA na ficção — Stargate{% endblock %}
+{% block conteudo %}
+{% include "core/_narrador.html" %}
+{% for ato in atos %}{% if ato.efeito == "atmosfera:leis-robos-livros" %}
+<div class="lr-raiz" id="principal" data-imersivo data-libs="{{ libs }}">
+<div class="lr-mesa" aria-hidden="true"><div class="lr-lamp" id="lr-lamp"></div></div>
+
+<div class="lr-topo">
+  <a href="{% url 'core:home' %}"><span class="lr-longo">A IA na ficção · 5</span><span class="lr-curto">Post 5</span></a>
+  <button class="lr-btn-pausa" id="lr-pausa" type="button" aria-pressed="false">pausar movimento</button>
+</div>
+
+<div class="lr-conteudo" data-ato data-efeito="atmosfera:leis-robos-livros" data-parametros="{{ ato.parametros_json }}" data-reduzido="{{ ato.reduzido }}">
+  <section class="lr-hero" aria-labelledby="lr-t-post">
+    <div>
+      <p class="lr-sobrolho">Post 5 · R.U.R., I, Robot, Neuromancer</p>
+      <h1 id="lr-t-post">Leis, robôs e <em>livros</em></h1>
+      <p class="lr-lead lr-folha">{{ ato.texto }}</p>
+      <p class="lr-rolar" aria-hidden="true">Role: o livro se abre &nbsp;·&nbsp; a página vira</p>
+    </div>
+    <div class="lr-capa-cena" aria-hidden="true">
+      <div class="lr-capa-livro" id="lr-capa">
+        <i class="lr-capa-fundo"></i><i class="lr-capa-folhas"></i><i class="lr-capa-lado"></i>
+        <i class="lr-capa-frente"><b></b></i>
+      </div>
+    </div>
+  </section>
+
+  <section class="lr-pista" id="lr-pista" aria-label="O livro: três atos">
+    <div class="lr-palco-sticky">
+      <div class="lr-livro" id="lr-livro">
+        <div class="lr-pg lr-esq" id="lr-pg-tipos">
+          <p class="lr-sobrolho">Ato 1 · Tipos móveis</p>
+          <h2>A palavra, peça por peça</h2>
+          <div class="lr-regua" id="lr-tipos" role="img" aria-label="A palavra robô montada em quatro blocos de tipo móvel">
+            <span class="lr-tipo" aria-hidden="true">r</span><span class="lr-tipo" aria-hidden="true">o</span><span class="lr-tipo" aria-hidden="true">b</span><span class="lr-tipo" aria-hidden="true">ô</span>
+          </div>
+          <p class="lr-legenda">Quatro blocos formam a palavra «robô». Role: eles se alinham.</p>
+        </div>
+
+        <div class="lr-leaf lr-l1" id="lr-l1">
+          <div class="lr-face lr-frente lr-f-a1" id="lr-f1">
+            <p class="lr-sobrolho">Ato 1 · O nome do trabalhador</p>
+            <h2>O nome do trabalhador</h2>
+            <p><em>R.U.R.</em> criou o termo «robô» para trabalhadores fabricados e dramatizou exploração e revolta. O robô atual não é esse ser biológico da peça. A pergunta sobre quem recebe os ganhos e quem suporta o custo da automação permanece.</p>
+            <p class="lr-nota-h">Nota histórica: a peça é de 1920 e «robô» vem de uma palavra tcheca para trabalho forçado.</p>
+            <p class="lr-fonte">Fonte: R.U.R., Biblioteca do Congresso</p>
+          </div>
+          <div class="lr-face lr-verso lr-f-cartoes" id="lr-v1">
+            <p class="lr-sobrolho">Ato 2 · Regras que se reescrevem</p>
+            <p class="lr-selo-rg">Regras desta série · não as leis do livro</p>
+            <div class="lr-rg" style="--rot:-1.6deg;--tx:0px"><span class="lr-antiga">Cumpra a instrução.<i class="lr-risco"></i></span>
+              <span class="lr-nova"><span class="lr-sr">Cumpra a instrução e pergunte quando o objetivo e a instrução discordarem.</span><span aria-hidden="true"><b class="lr-ok"></b><i class="lr-res" style="font-style:inherit"></i></span></span></div>
+            <div class="lr-rg" style="--rot:1.2deg;--tx:12px"><span class="lr-antiga">Evite o erro.<i class="lr-risco"></i></span>
+              <span class="lr-nova"><span class="lr-sr">Evite o erro previsto e avise sobre o que não dá para prever.</span><span aria-hidden="true"><b class="lr-ok"></b><i class="lr-res" style="font-style:inherit"></i></span></span></div>
+            <div class="lr-rg" style="--rot:-.6deg;--tx:-6px"><span class="lr-antiga">Registre o que fez.<i class="lr-risco"></i></span>
+              <span class="lr-nova"><span class="lr-sr">Registre o que fez, por quê, e quem pode contestar.</span><span aria-hidden="true"><b class="lr-ok"></b><i class="lr-res" style="font-style:inherit"></i></span></span></div>
+          </div>
+          <i class="lr-sombra"></i>
+        </div>
+
+        <div class="lr-leaf lr-l2" id="lr-l2">
+          <div class="lr-face lr-frente lr-f-a2" id="lr-f2">
+            <p class="lr-sobrolho">Ato 2 · Três leis não são um manual</p>
+            <h2>Três leis não são um manual.</h2>
+            <p>As histórias de Asimov usam leis de proteção para produzir conflitos entre ordens, definições e consequências. Elas continuam brilhantes como dispositivo literário; sistemas reais exigem avaliação, limites de uso, documentação e responsabilização específicos.</p>
+            <p class="lr-fonte">Fonte: Eu, Robô, ISFDB · as regras ao lado são originais</p>
+          </div>
+          <div class="lr-face lr-verso lr-noite lr-f-rede" id="lr-v2">
+            <p class="lr-sobrolho">Ato 3 · Mapa de rede (original)</p>
+            <svg class="lr-mapa" id="lr-mapa" viewBox="0 0 520 300" role="img" aria-label="Mapa de rede original: três nós grandes de infraestrutura ligam-se a onze nós menores."></svg>
+            <p class="lr-fonte">Três nós de infraestrutura ligam-se a onze menores: o poder está na ligação, não no desenho.</p>
+          </div>
+        </div>
+
+        <div class="lr-pg lr-dir lr-noite" id="lr-pg-ato3">
+          <p class="lr-sobrolho">Ato 3 · O espaço da rede</p>
+          <h2>O espaço da rede.</h2>
+          <p><em>Neuromancer</em> antecipa uma cultura de redes e agentes digitais, mas seu ciberespaço visual não é a interface dominante de hoje. A previsão fecunda está no poder concentrado em informação e infraestrutura.</p>
+          <p class="lr-fonte">Fonte: Neuromancer, William Gibson</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="lr-oficina" id="lr-oficina" aria-labelledby="lr-t-of">
+    <div class="lr-miolo">
+      <div class="lr-veu lr-folha">
+        <p class="lr-sobrolho">Oficina · Sua regra</p>
+        <h2 id="lr-t-of">Escreva uma regra e confira o que falta.</h2>
+        <p>Escreva uma instrução e o efeito que você espera. A folha aponta o que ainda separa a ordem do resultado.</p>
+      </div>
+      <div class="lr-palco">
+        <form class="lr-painel lr-folha" id="lr-regra" novalidate aria-labelledby="lr-t-form">
+          <h3 id="lr-t-form">Uma regra para um sistema</h3>
+          <p class="lr-nota">Nada sai desta página: a conferência acontece aqui.</p>
+          <div class="lr-campo"><label for="lr-f-ins">Instrução</label><input id="lr-f-ins" type="text" placeholder="Ex.: Responda a todas as mensagens" autocomplete="off"></div>
+          <div class="lr-campo"><label for="lr-f-efe">Efeito esperado</label><input id="lr-f-efe" type="text" placeholder="Ex.: Ninguém fica sem resposta útil" autocomplete="off"></div>
+          <div class="lr-campo"><label for="lr-f-res">Quem responde se o efeito for outro?</label>
+            <select id="lr-f-res"><option>Quem escreveu a regra</option><option>A equipe que usa o sistema</option><option>Ainda não definido</option></select></div>
+          <label class="lr-chk"><input id="lr-f-reg" type="checkbox" checked> Registrar o que o sistema fez, passo a passo</label>
+          <div class="lr-btns"><button class="lr-btn lr-prim" type="button" id="lr-checar">Conferir a regra</button><button class="lr-btn lr-sec" type="button" id="lr-limpar">Limpar</button></div>
+          <p class="lr-registro" id="lr-registro" role="status" aria-live="polite"></p>
+        </form>
+        <div class="lr-trio">
+          <div class="lr-cr lr-folha" id="lr-c-ins"><b>Instrução</b><span>O que foi pedido, palavra por palavra.</span></div>
+          <div class="lr-cr lr-folha" id="lr-c-obj"><b>Objetivo</b><span>O que se queria de fato ao pedir.</span></div>
+          <div class="lr-cr lr-folha" id="lr-c-efe"><b>Efeito real</b><span>O que aconteceu no mundo depois, e quem responde por isso.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="lr-fecho" aria-label="Próxima estação">
+    <div class="lr-miolo">
+      <p class="lr-folha">Nenhuma regra simples cobre uma história complexa. Escrever, medir e corrigir cobre mais.</p><br>
+      <a href="{% url 'core:imersivo' 'escolhas-da-maquina' %}">Próxima estação: Escolhas da máquina →</a>
+      <p class="lr-fontes lr-folha">Fontes: R.U.R., Biblioteca do Congresso · Eu, Robô (contos), ISFDB · Neuromancer, William Gibson · NIST AI 600-1, Generative AI Profile. As regras e o mapa são originais; nenhuma lei de obra, capa ou trecho é reproduzido. Sem áudio nesta onda.</p>
+    </div>
+  </section>
+</div>
+</div>
+{% endif %}{% endfor %}
+{% endblock %}
+{% block newsletter %}{% endblock %}
+{% block scripts %}
+<link rel="stylesheet" href="{% static 'css/atmosfera-leis-robos-livros.css' %}">
+<script>document.documentElement.classList.add("js")</script>
+{# Tudo local, sem biblioteca: o efeito é CSS e JS próprio. Nada é guardado nem enviado. #}
+<script type="module" src="{% static 'js/imersivo/motor.js' %}"></script>
+{% endblock %}
