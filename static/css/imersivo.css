@@ -73,7 +73,7 @@
 @media (prefers-reduced-motion:no-preference){
   @supports (view-transition-name:none){
     @view-transition{navigation:auto}
-    .im-comecar{view-transition-name:capa-post-1}
+    .im-post--capa-1{view-transition-name:capa-post-1}
   }
 }
 
