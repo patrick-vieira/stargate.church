@@ -149,8 +149,8 @@
   <section class="em-fecho" aria-label="Próxima estação">
     <div class="em-miolo">
       <p class="em-quente">Quem escreve as opções também escolhe.</p><br>
-      <span class="em-prox">Próxima estação: <em>O quase-presente</em></span><br>
-      <a href="{% url 'core:home' %}">← Voltar à página inicial</a>
+      <a class="em-prox" href="{% if serie %}{% url 'core:episodio' serie.slug 'o-quase-presente' %}{% else %}{% url 'core:imersivo' 'o-quase-presente' %}{% endif %}">Próxima estação: <em>O quase-presente</em> →</a><br>
+      <a href="{% url 'core:serie' 'ia-na-ficcao' %}">← Voltar ao hub da série</a>
       <p class="em-fontes em-quente">Fontes: Ghost in the Shell, Kodansha · Portal, Valve · Mass Effect, BioWare · Detroit: Become Human, Quantic Dream · NieR: Automata, Square Enix · Anthropic, agentes confiáveis. Nós, trilhas e finais são originais; nenhuma interface, personagem ou fala de jogo é reproduzida. Sem áudio nesta onda.</p>
     </div>
   </section>
