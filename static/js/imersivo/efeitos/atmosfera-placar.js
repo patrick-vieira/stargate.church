@@ -125,8 +125,8 @@ function abre(i){
 }
 function fecha(){ aberto=-1; ficha.hidden=true; pts.forEach(p=>p.classList.remove('pl-sel')) }
 pts.forEach((p,i)=>{
-  p.addEventListener('click',e=>{e.stopPropagation(); aberto===i?fecha():abre(i)});
-  p.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){e.preventDefault(); aberto===i?fecha():abre(i)} else if(e.key==='Escape') fecha() });
+  p.addEventListener('click',e=>{e.stopPropagation(); if(aberto!==i) abre(i)});
+  p.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){e.preventDefault(); if(aberto!==i) abre(i)} else if(e.key==='Escape') fecha() });
   p.addEventListener('mouseenter',()=>{ if(!movel()&&!ficha.matches(':hover')) abre(i) });
 });
 $('#pl-plot').addEventListener('mouseleave',()=>{ if(!movel()&&document.activeElement.closest&&!document.activeElement.closest('.pl-pt')) fecha() });
@@ -156,7 +156,7 @@ function camada(){
   const g=$('#pl-leitores'); let h='';
   Object.keys(medias).forEach(id=>{ const k=idx(id); if(k<0) return; const m=medias[id], p=POS[k], x=clamp(px(m.proximidade),X0+14,X1-14), y=clamp(py(m.preocupacao),Y0+14,Y1-14);
     h+=`<line class="pl-leitor-lig" x1="${p.x.toFixed(1)}" y1="${p.y.toFixed(1)}" x2="${x.toFixed(1)}" y2="${y.toFixed(1)}"/><circle class="pl-leitor" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="13"><title>Média dos leitores em ${esc(D[k].titulo)}: perto ${f1(m.proximidade)}, preocupação ${f1(m.preocupacao)} (${m.n} ${m.n===1?'voto':'votos'})</title></circle>` });
-  g.innerHTML=h; g.hidden=!$('#pl-f-camada').checked;
+  g.innerHTML=h; g.toggleAttribute('hidden',!$('#pl-f-camada').checked);
 }
 $('#pl-f-camada').addEventListener('change',camada);
 function avisoVotos(){

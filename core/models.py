@@ -323,7 +323,7 @@ class Ato(models.Model):
             return []
         from . import placar
 
-        pontos = []
+        base = []
         for p in lista:
             if not isinstance(p, dict):
                 continue
@@ -335,14 +335,57 @@ class Ato(models.Model):
                 continue
             cx = round(50 + p["x"] * 3.3, 1)
             cy = round(210 - p["y"] * 1.9, 1)
-            fim = cx > 260
+            base.append((p, cx, cy))
+
+        def caixa(cx, cy, ancora, w, lado):
+            # Caixa (x0, y0, x1, y1) do rótulo; o texto de 13 px tem ~16 px de altura.
+            if lado == "v":
+                x0 = cx - w / 2
+                return (x0, cy - 30, x0 + w, cy - 14)
+            if lado == "b":
+                x0 = cx - w / 2
+                return (x0, cy + 11, x0 + w, cy + 27)
+            x0 = cx + 10 if ancora == "start" else cx - 10 - w
+            return (x0, cy - 12, x0 + w, cy + 4)
+
+        def cruza(a, b):
+            return a[0] < b[2] and b[0] < a[2] and a[1] < b[3] and b[1] < a[3]
+
+        discos = [(cx - 9, cy - 9, cx + 9, cy + 9) for _, cx, cy in base]
+        ocupadas = []
+        pontos = []
+        for i, (p, cx, cy) in enumerate(base):
+            w = len(str(p["obra"])) * 7.4  # ~13 px em fonte sem serifa
+            pref = "end" if cx > 260 else "start"
+            outro = "start" if pref == "end" else "end"
+            opcoes = [(pref, "h"), (outro, "h"), ("middle", "v"), ("middle", "b")]
+
+            def livre(o, i=i, cx=cx, cy=cy, w=w):
+                c = caixa(cx, cy, o[0], w, o[1])
+                return (
+                    c[0] >= 52
+                    and c[2] <= 380
+                    and c[1] >= 22
+                    and c[3] <= 208
+                    and not any(cruza(c, d) for k, d in enumerate(discos) if k != i)
+                    and not any(cruza(c, d) for d in ocupadas)
+                )
+
+            esc = next((o for o in opcoes if livre(o)), opcoes[0])
+            c = caixa(cx, cy, esc[0], w, esc[1])
+            ocupadas.append(c)
+            if esc[1] != "h":
+                tx = cx
+            else:
+                tx = cx + 10 if esc[0] == "start" else cx - 10
             pontos.append(
                 {
                     **p,
                     "cx": cx,
                     "cy": cy,
-                    "tx": round(cx - 10 if fim else cx + 10, 1),
-                    "ancora": "end" if fim else "start",
+                    "tx": round(tx, 1),
+                    "ty": round(c[1] + 12, 1),
+                    "ancora": esc[0],
                 }
             )
         return pontos
