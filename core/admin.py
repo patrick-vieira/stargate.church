@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Ato, Episodio, PostImersivo, Serie
+from .models import Ato, Episodio, PostImersivo, Serie, VotoPlacar
 
 
 class AtoInline(admin.StackedInline):
@@ -50,3 +50,11 @@ class EpisodioAdmin(admin.ModelAdmin):
     list_display = ("__str__", "serie", "numero", "publicado")
     list_filter = ("serie", "publicado")
     search_fields = ("titulo", "slug")
+
+
+@admin.register(VotoPlacar)
+class VotoPlacarAdmin(admin.ModelAdmin):
+    list_display = ("obra", "utilizador", "proximidade", "preocupacao", "atualizado_em")
+    list_filter = ("obra",)
+    search_fields = ("obra",)
+    raw_id_fields = ("utilizador",)

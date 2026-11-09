@@ -92,5 +92,6 @@ As configurações do projeto suportam as seguintes variáveis através do arqui
 | `DJANGO_CSRF_COOKIE_SECURE`    | Não                 | `True` (False em staging)                       |
 | `STARGATE_TECTO_CONVERSA`      | Não                 | `20`                                            |
 | `STARGATE_TECTO_COMENTARIO`    | Não                 | `10`                                            |
+| `STARGATE_TECTO_VOTO`          | Não                 | `30`                                            |
 | `EASYON_API_URL`               | Não                 | `https://api.exemplo.com/v1`                    |
 | `EASYON_API_KEY_FILE`          | Não                 | `/caminho/para/chave-easyon.txt`                |

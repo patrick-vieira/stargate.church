@@ -67,9 +67,9 @@
       "efeito": "grelha:posts",
       "parametros": {
         "previa": [
-          {"obra": "R.U.R. (1920)", "x": 25, "y": 70},
-          {"obra": "Asimov, Eu, Robô (1950)", "x": 50, "y": 35},
-          {"obra": "Série de 2020", "x": 85, "y": 55}
+          {"id": "rur-1920"},
+          {"id": "i-robot-book-1950"},
+          {"id": "her-2013"}
         ]
       },
       "reduzido": "estatico"

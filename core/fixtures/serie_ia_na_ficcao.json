@@ -20,5 +20,5 @@
   {"model": "core.episodio", "pk": 6, "fields": {"serie": 1, "numero": 5, "slug": "leis-robos-e-livros", "titulo": "Leis, robôs e livros", "post": 7, "publicado": true}},
   {"model": "core.episodio", "pk": 7, "fields": {"serie": 1, "numero": 6, "slug": "escolhas-da-maquina", "titulo": "Escolhas da máquina", "post": 6, "publicado": true}},
   {"model": "core.episodio", "pk": 8, "fields": {"serie": 1, "numero": 7, "slug": "o-quase-presente", "titulo": "O quase-presente", "post": 8, "publicado": true}},
-  {"model": "core.episodio", "pk": 9, "fields": {"serie": 1, "numero": 8, "slug": "o-placar", "titulo": "O placar", "post": null, "publicado": false}}
+  {"model": "core.episodio", "pk": 9, "fields": {"serie": 1, "numero": 8, "slug": "o-placar", "titulo": "O placar", "post": 9, "publicado": true}}
 ]

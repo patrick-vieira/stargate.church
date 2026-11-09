@@ -17,6 +17,7 @@ EFEITOS_MAQUINA_FRIA = {
     "atmosfera:escolhas",
     "atmosfera:ia-afetiva",
     "atmosfera:leis-robos-livros",
+    "atmosfera:placar",
     "atmosfera:quase-presente",
 }
 
@@ -531,7 +532,8 @@ class HubTests(TestCase):
         self.assertContains(self.r, "<caption>", count=2)
         self.assertContains(self.r, 'scope="col"', count=6)
         self.assertContains(self.r, "disponível")
-        self.assertContains(self.r, "R.U.R. (1920)")
+        # A fixture do hub aponta para obras do placar (ids), não para pontos à mão.
+        self.assertContains(self.r, "R.U.R. (Rossum")
 
     def test_css_hub(self):
         from pathlib import Path
@@ -968,6 +970,126 @@ class AtmosferaEscolhasTests(TestCase):
         for f in arquivos:
             with self.subTest(f=f.name):
                 self.assertLessEqual(f.stat().st_size, 70 * 1024)
+
+
+class AtmosferaPlacarTests(TestCase):
+    fixtures = ["placar_post"]
+
+    def _raiz(self):
+        from pathlib import Path
+
+        return Path(__file__).resolve().parents[2]
+
+    def test_efeito_sem_parametros(self):
+        ato("atmosfera:placar").clean()
+        with self.assertRaises(ValidationError):
+            ato("atmosfera:placar", {"fixar": True}).clean()
+
+    def test_fixture_valida(self):
+        post = PostImersivo.objects.get(slug="o-placar")
+        self.assertEqual(post.pk, 9)
+        self.assertTrue(post.publicado)
+        for a in post.atos.all():
+            self.assertEqual(a.pk, 20)
+            self.assertEqual(a.reduzido, "estatico")
+            a.full_clean()
+
+    def test_renderiza_o_template_da_atmosfera(self):
+        r = self.client.get(reverse("core:imersivo", args=["o-placar"]))
+        self.assertEqual(r.status_code, 200)
+        self.assertTemplateUsed(r, "core/imersivo_placar.html")
+        self.assertTemplateNotUsed(r, "core/imersivo_escolhas.html")
+        self.assertContains(r, 'data-efeito="atmosfera:placar"')
+        self.assertContains(r, "css/atmosfera-placar.css")
+        self.assertContains(r, "js/imersivo/motor.js")
+        self.assertContains(r, 'class="pl-raiz"')
+        self.assertContains(r, "Ficção · 8")
+        self.assertContains(r, "Perto ou longe de 2026? E quanto preocupar?")
+        self.assertContains(r, "Se aproximaram")
+        self.assertNotContains(r, "Aproximaram-se")
+        self.assertNotContains(r, "cdn.")
+        self.assertNotContains(r, "Georgia")
+        self.assertNotContains(r, "simulad")
+        self.assertNotContains(r, "<img")
+
+    def test_dados_30_obras(self):
+        from core import placar
+
+        obras = placar.obras()
+        self.assertEqual(len(obras), 30)
+        self.assertEqual(len({o["id"] for o in obras}), 30)
+        for o in obras:
+            with self.subTest(id=o["id"]):
+                self.assertIn(o["midia"], placar.GRUPOS)
+                for k in ("proximidade", "preocupacao"):
+                    self.assertIsInstance(o[k], int)
+                    self.assertTrue(0 <= o[k] <= 5)
+                self.assertTrue(o["titulo"] and o["justificativa"])
+        self.assertIn("be-right-back-2013", {o["id"] for o in obras})
+        self.assertNotIn("black-mirror-be-right-back-2013", {o["id"] for o in obras})
+        # Os destaques por fase do JS apontam para obras que existem.
+        js = (
+            self._raiz() / "static/js/imersivo/efeitos/atmosfera-placar.js"
+        ).read_text()
+        for id_ in re.findall(r"'([a-z0-9-]+-\d{4})'", js):
+            self.assertIn(id_, {o["id"] for o in obras})
+
+    def test_dados_no_json_script(self):
+        r = self.client.get(reverse("core:imersivo", args=["o-placar"]))
+        self.assertContains(r, '<script id="pl-dados" type="application/json">')
+        self.assertEqual(len(r.context["placar_dados"]["obras"]), 30)
+
+    def test_tabela_no_html(self):
+        r = self.client.get(reverse("core:imersivo", args=["o-placar"]))
+        html = r.content.decode()
+        tbody = html.split("<tbody>")[1].split("</tbody>")[0]
+        self.assertEqual(tbody.count("<tr "), 30)
+        self.assertEqual(tbody.count('<th scope="row"'), 30)
+        self.assertIn("Black Mirror: Be Right Back", tbody)
+        self.assertIn("R.U.R.", tbody)
+        # Sem JS a tabela está visível: não vem com o atributo hidden.
+        self.assertNotRegex(html, r'<section[^>]*id="pl-tab-sec"[^>]*hidden')
+
+    def test_css_escopado_e_reduzido(self):
+        css = (self._raiz() / "static/css/atmosfera-placar.css").read_text()
+        self.assertIn("--serif:var(--sg-serif)", css)
+        self.assertNotIn("Georgia", css)
+        self.assertNotIn(":root", css)
+        # Sem imagens: o único url() é o da fonte Fraunces.
+        for u in re.findall(r"url\(([^)]*)\)", css):
+            self.assertIn("fraunces", u)
+        self.assertIn("overflow-x:clip", css)
+        self.assertNotIn("overflow-x:hidden", css)
+        self.assertIn("prefers-reduced-motion:reduce", css)
+        self.assertIn(".pl-estatico", css)
+        self.assertIn(".pl-tab-sec[hidden]{display:block}", css)
+        # Todo seletor fora de @font-face/@media vive em .pl-raiz.
+        for seletor in re.findall(r"(?m)^\s*([^@{}/\s][^{}]*)\{", css):
+            for parte in seletor.split(","):
+                with self.subTest(seletor=parte.strip()):
+                    self.assertTrue(parte.strip().startswith(".pl-raiz"))
+
+    def test_js_dados_do_servidor_e_so_o_voto_na_rede(self):
+        js = (
+            self._raiz() / "static/js/imersivo/efeitos/atmosfera-placar.js"
+        ).read_text()
+        self.assertIn('registar("atmosfera:placar"', js)
+        self.assertIn("reduzido", js)
+        self.assertIn("JSON.parse($('#pl-dados').textContent)", js)
+        # Exceção só deste ficheiro: o POST do voto usa fetch( (uma única chamada,
+        # para o voto_url que o servidor entrega no json_script). Os dados das
+        # obras nunca são pedidos por rede; continuam proibidos http, import( e
+        # XMLHttpRequest.
+        self.assertEqual(js.count("fetch("), 1)
+        self.assertIn("fetch(DADOS.voto_url", js)
+        self.assertIn("X-CSRFToken", js)
+        self.assertNotIn("XMLHttpRequest", js)
+        self.assertNotIn("http", js)
+        self.assertNotIn("import(", js)
+        self.assertNotIn("localStorage", js)
+        # Escape e cliques escopados à raiz, sem listeners globais em document.
+        self.assertIn("root.addEventListener('keydown'", js)
+        self.assertNotIn("document.addEventListener", js)
 
 
 class AtmosferaIaAfetivaTests(TestCase):

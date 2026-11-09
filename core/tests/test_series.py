@@ -12,6 +12,7 @@ FIXTURES = [
     "escolhas",
     "quase_presente",
     "leis_robos_livros",
+    "placar_post",
     "serie_ia_na_ficcao",
 ]
 
@@ -44,7 +45,7 @@ class RotasTests(TestCase):
         self.assertContains(r, 'href="/series/ia-na-ficcao/escolhas-da-maquina/"')
         self.assertContains(r, 'href="/series/ia-na-ficcao/o-quase-presente/"')
         self.assertNotContains(r, 'href="/imersivo/')
-        self.assertNotContains(r, "/series/ia-na-ficcao/o-placar/")
+        self.assertContains(r, 'href="/series/ia-na-ficcao/o-placar/"')
 
     def test_hub_post_5_entrou_com_link(self):
         r = self.client.get("/series/ia-na-ficcao/")
@@ -52,8 +53,8 @@ class RotasTests(TestCase):
 
     def test_hub_estacoes_sem_destino_dizem_em_breve(self):
         r = self.client.get("/series/ia-na-ficcao/")
-        # R.U.R., Asimov e Turing, O placar (o quase-presente já está publicado).
-        self.assertContains(r, 'class="im-breve">em breve</span>', count=3)
+        # R.U.R., Asimov e Turing; o quase-presente e o placar já têm link.
+        self.assertContains(r, 'class="im-breve">em breve</span>', count=2)
 
     def test_hub_sobrolho_e_h1_da_serie(self):
         r = self.client.get("/series/ia-na-ficcao/")
@@ -75,6 +76,7 @@ class RotasTests(TestCase):
             ("o-que-e-ser-humano", "core/imersivo_ser_humano.html"),
             ("a-ia-afetiva", "core/imersivo_ia_afetiva.html"),
             ("escolhas-da-maquina", "core/imersivo_escolhas.html"),
+            ("o-placar", "core/imersivo_placar.html"),
             ("o-quase-presente", "core/imersivo_quase_presente.html"),
         ]:
             with self.subTest(slug=slug):
@@ -111,6 +113,7 @@ class RotasTests(TestCase):
         self.assertEqual(self.client.get("/series/ia-na-ficcao/x/").status_code, 404)
 
     def test_404_episodio_sem_post_ou_nao_publicado(self):
+        Episodio.objects.filter(slug="o-placar").update(publicado=False)
         r = self.client.get("/series/ia-na-ficcao/o-placar/")
         self.assertEqual(r.status_code, 404)
 
