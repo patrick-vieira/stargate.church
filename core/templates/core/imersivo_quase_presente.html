@@ -125,9 +125,8 @@
   <section class="qp-fecho" aria-label="Próxima estação">
     <div class="qp-miolo">
       <p class="qp-vig">Pedir evidência, escolha e reparação é o começo de uma saída.</p><br>
-      {# O post 8 ainda não existe: sem link até ser publicado (depois: <a href="{% url 'core:imersivo' 'o-placar' %}">). #}
-      <span class="qp-prox">Próxima estação: <em>O placar</em></span><br>
-      <a href="{% url 'core:home' %}">← Voltar à página inicial</a>
+      <a class="qp-prox" href="{% if serie %}{% url 'core:episodio' serie.slug 'o-placar' %}{% else %}{% url 'core:imersivo' 'o-placar' %}{% endif %}">Próxima estação: <em>O placar</em> →</a><br>
+      <a href="{% url 'core:serie' 'ia-na-ficcao' %}">← Voltar ao hub da série</a>
       <p class="qp-fontes qp-vig">Fontes: Minority Report, AFI · Person of Interest, CBS · Black Mirror, Netflix · NIST AI Risk Management Framework. Todos os dados, avisos e registros são fictícios e marcados como exemplo; nenhum aviso imita um alerta real de sistema. O celular é original.</p>
     </div>
   </section>

@@ -25,6 +25,7 @@ class EntrarForm(BaseA11yFormMixin, AuthenticationForm):
     error_messages = {
         **AuthenticationForm.error_messages,
         "invalid_login": "E-mail ou senha incorretos.",
+        "inactive": "Esta conta está inativa.",
     }
 
 

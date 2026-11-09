@@ -930,7 +930,7 @@ class AtmosferaEscolhasTests(TestCase):
         for f in ("A1", "A2", "B1", "B2"):
             self.assertContains(r, f'data-f="{f}"')
         self.assertContains(r, "Limpar caminho")
-        self.assertContains(r, "Guardar meu caminho neste aparelho")
+        self.assertContains(r, "Salvar meu caminho neste aparelho")
         self.assertNotContains(r, "cdn.")
         self.assertNotContains(r, "Georgia")
 
@@ -1291,8 +1291,12 @@ class AtmosferaQuasePresenteTests(TestCase):
         self.assertContains(r, 'id="qp-rachas"')
         self.assertContains(r, 'href="#qp-rachas"')
         self.assertContains(r, 'id="qp-pausa"')
-        self.assertContains(r, "Próxima estação: <em>O placar</em>")
-        self.assertNotContains(r, "/imersivo/o-placar")
+        url_placar = reverse("core:imersivo", args=["o-placar"])
+        self.assertContains(
+            r,
+            f'href="{url_placar}">Próxima estação: <em>O placar</em>',
+        )
+        self.assertContains(r, 'href="/series/ia-na-ficcao/">← Voltar ao hub da série')
         self.assertNotContains(r, "nesta onda")
         self.assertNotContains(r, "cdn.")
         self.assertNotContains(r, "Georgia")
@@ -1354,3 +1358,46 @@ class AtmosferaQuasePresenteTests(TestCase):
         total = js.stat().st_size
         total += (raiz / "css/atmosfera-quase-presente.css").stat().st_size
         self.assertLess(total, 60 * 1024)
+
+
+class NavegacaoEntrePostsTests(TestCase):
+    """STAR-47: fechos 6→7→8, 8→7 e «Voltar» ao hub da série."""
+
+    fixtures = [
+        "imersivo_hub",
+        "maquina_fria",
+        "guerra_maquinas",
+        "ser_humano",
+        "ia_afetiva",
+        "escolhas",
+        "quase_presente",
+        "leis_robos_livros",
+        "placar_post",
+        "serie_ia_na_ficcao",
+    ]
+
+    def _passo(self, origem, destino):
+        r = self.client.get(f"/series/ia-na-ficcao/{origem}/")
+        self.assertEqual(r.status_code, 200)
+        self.assertContains(r, f'href="/series/ia-na-ficcao/{destino}/"')
+        self.assertContains(r, 'href="/series/ia-na-ficcao/">')
+        self.assertNotContains(r, "Voltar à página inicial")
+        self.assertEqual(
+            self.client.get(f"/series/ia-na-ficcao/{destino}/").status_code, 200
+        )
+        return r
+
+    def test_6_para_7(self):
+        self._passo("escolhas-da-maquina", "o-quase-presente")
+
+    def test_7_para_8(self):
+        self._passo("o-quase-presente", "o-placar")
+
+    def test_8_para_7_e_indice(self):
+        r = self._passo("o-placar", "o-quase-presente")
+        self.assertContains(r, 'aria-label="Os 9 pontos da série"')
+        self.assertContains(r, "A máquina fria")
+        self.assertContains(
+            r,
+            'href="/series/ia-na-ficcao/o-quase-presente/">O quase-presente</a></li>',
+        )

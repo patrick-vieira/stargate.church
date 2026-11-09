@@ -19,7 +19,7 @@ function pintaContagem(v){
   cntEl.textContent=pad(Math.max(0,Math.round(v)));
   hud.classList.toggle('ag-zero',!parado&&Math.round(v)<=0);
   const n=Math.round(v);
-  pst.textContent=parado?`contagem parada em ${pad(n)}: o leitor interrompeu`:(n<=0?'contagem em 00: ninguém interveio':`contagem a correr: ${pad(n)}`);
+  pst.textContent=parado?`contagem parada em ${pad(n)}: o leitor interrompeu`:(n<=0?'contagem em 00: ninguém interveio':`contagem em andamento: ${pad(n)}`);
 }
 $('#ag-para').addEventListener('click',()=>{parado=!parado;hud.classList.toggle('ag-parado',parado);$('#ag-para').textContent=parado?'Retomar a contagem':'Parar a contagem';pintaContagem(valor)});
 

@@ -7,6 +7,7 @@ from .forms import CriarContaForm, EntrarForm
 
 class Entrar(LoginView):
     template_name = "leitores/entrar.html"
+    authentication_form = EntrarForm
     form_class = EntrarForm
     redirect_authenticated_user = True
 
