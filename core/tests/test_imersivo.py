@@ -1291,10 +1291,10 @@ class AtmosferaQuasePresenteTests(TestCase):
         self.assertContains(r, 'id="qp-rachas"')
         self.assertContains(r, 'href="#qp-rachas"')
         self.assertContains(r, 'id="qp-pausa"')
+        url_placar = reverse("core:imersivo", args=["o-placar"])
         self.assertContains(
             r,
-            'href="%s">Próxima estação: <em>O placar</em>'
-            % reverse("core:imersivo", args=["o-placar"]),
+            f'href="{url_placar}">Próxima estação: <em>O placar</em>',
         )
         self.assertContains(r, 'href="/series/ia-na-ficcao/">← Voltar ao hub da série')
         self.assertNotContains(r, "nesta onda")
@@ -1397,4 +1397,7 @@ class NavegacaoEntrePostsTests(TestCase):
         r = self._passo("o-placar", "o-quase-presente")
         self.assertContains(r, 'aria-label="Os 9 pontos da série"')
         self.assertContains(r, "A máquina fria")
-        self.assertContains(r, 'href="/series/ia-na-ficcao/o-quase-presente/">O quase-presente</a></li>')
+        self.assertContains(
+            r,
+            'href="/series/ia-na-ficcao/o-quase-presente/">O quase-presente</a></li>',
+        )
