@@ -1,5 +1,7 @@
 import importlib.util
+import io
 import tomllib
+from contextlib import redirect_stdout
 from pathlib import Path
 from types import SimpleNamespace
 from unittest import mock
@@ -22,7 +24,8 @@ class TestarCadeiraTests(SimpleTestCase):
         with mock.patch(
             "subprocess.run", return_value=SimpleNamespace(returncode=0)
         ) as run:
-            rc = modulo.main(["core.tests.test_a", "core.tests.test_b"])
+            with redirect_stdout(io.StringIO()):
+                rc = modulo.main(["core.tests.test_a", "core.tests.test_b"])
         self.assertEqual(rc, 0)
         comandos = [c.args[0] for c in run.call_args_list]
         self.assertEqual(len(comandos), 4)
@@ -45,6 +48,36 @@ class TestarCadeiraTests(SimpleTestCase):
             "subprocess.run",
             side_effect=lambda *a, **k: SimpleNamespace(returncode=next(rcs)),
         ) as run:
-            rc = modulo.main([])
+            with redirect_stdout(io.StringIO()) as saida:
+                rc = modulo.main([])
         self.assertNotEqual(rc, 0)
         self.assertEqual(run.call_count, 4)
+        self.assertIn("[FALHOU] ruff check (rc=1)", saida.getvalue())
+
+    def test_um_so_resumo_com_rc_real_de_cada_passo(self):
+        modulo = _carregar()
+        rcs = iter([0, 2, 0, 3])
+        with mock.patch(
+            "subprocess.run",
+            side_effect=lambda *a, **k: SimpleNamespace(returncode=next(rcs)),
+        ):
+            with redirect_stdout(io.StringIO()) as saida:
+                rc = modulo.main([])
+        texto = saida.getvalue()
+        self.assertEqual(rc, 1)
+        self.assertEqual(texto.count("== resumo"), 1)
+        self.assertIn("[OK] ruff check (rc=0)", texto)
+        self.assertIn("[FALHOU] ruff format --check (rc=2)", texto)
+        self.assertIn("[FALHOU] test (rc=3)", texto)
+
+    def test_raiz_tem_manage_py_sem_src(self):
+        modulo = _carregar()
+        self.assertEqual(modulo.RAIZ, SCRIPT.parents[1])
+        self.assertTrue((modulo.RAIZ / "manage.py").is_file())
+        with mock.patch(
+            "subprocess.run", return_value=SimpleNamespace(returncode=0)
+        ) as run:
+            with redirect_stdout(io.StringIO()):
+                modulo.main([])
+        for chamada in run.call_args_list:
+            self.assertEqual(chamada.kwargs["cwd"], modulo.RAIZ)

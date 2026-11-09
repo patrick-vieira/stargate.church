@@ -34,12 +34,14 @@ def passos(modulos: list[str]) -> list[tuple[str, list[str]]]:
 
 def main(argv: list[str] | None = None) -> int:
     modulos = list(sys.argv[1:] if argv is None else argv)
-    falhou = False
+    resultados = []
     for nome, comando in passos(modulos):
         rc = subprocess.run(comando, cwd=RAIZ).returncode
+        resultados.append((nome, rc))
+    print("== resumo testar_cadeira ==")
+    for nome, rc in resultados:
         print(f"[{'OK' if rc == 0 else 'FALHOU'}] {nome} (rc={rc})")
-        falhou = falhou or rc != 0
-    return 1 if falhou else 0
+    return 1 if any(rc != 0 for _, rc in resultados) else 0
 
 
 if __name__ == "__main__":
