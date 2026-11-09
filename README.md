@@ -60,6 +60,23 @@ Você pode utilizar o `docker-compose.yml` para rodar a aplicação junto com o 
 
 O ambiente de staging utiliza as configurações de produção (`config.settings.staging`, que estende `prod.py`), mas difere do ambiente local ou de produção estrita por ser configurado para rodar em HTTP na LAN atrás de um proxy. Dessa forma, as variáveis que forçam HTTPS e cookies seguros (`DJANGO_SECURE_SSL_REDIRECT`, `DJANGO_SESSION_COOKIE_SECURE`, `DJANGO_CSRF_COOKIE_SECURE`) são definidas como `False`.
 
+## Pré-deploy local (STAR-67)
+
+`python scripts/predeploy_star67.py <pasta>` prova que a main sobe limpa num SQLite NOVO
+(env falso, `config.settings.prod`, sem servidor nem porta): `migrate`,
+`makemigrations --check`, `loaddata`, `check --deploy`, `collectstatic` e o fumo HTTP
+(`django.test.Client`, DEBUG=False).
+
+Ordem das fixtures que funciona (os episódios apontam para os posts, por isso a série vai por último):
+
+```bash
+python manage.py loaddata maquina_fria guerra_maquinas ser_humano escolhas \
+  leis_robos_livros quase_presente placar_post ia_afetiva imersivo_hub serie_ia_na_ficcao
+```
+
+`check --deploy` deixa só `security.W005` (HSTS subdomínios) e `security.W021` (HSTS preload):
+opt-in deliberado (STAR-30/31), aceites.
+
 ## Testes e Qualidade
 
 O projeto possui comandos dedicados para assegurar a qualidade do código:
