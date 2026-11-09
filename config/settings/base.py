@@ -74,8 +74,12 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = "static/"
-STATIC_ROOT = BASE_DIR / "staticfiles"
+STATIC_ROOT = Path(env("STATIC_ROOT", default=str(BASE_DIR / "staticfiles")))
 STATICFILES_DIRS = [BASE_DIR / "static"] if (BASE_DIR / "static").is_dir() else []
+
+# Mídia (vídeos e narrações): fora do src e fora do git; servida só em DEBUG.
+MEDIA_URL = "midia/"
+MEDIA_ROOT = Path(env("MEDIA_ROOT", default=str(BASE_DIR.parent / "stargate-media")))
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
@@ -86,6 +90,7 @@ LOGOUT_REDIRECT_URL = "core:home"
 # Tecto diário por utilizador (F3: conversa e comentários).
 STARGATE_TECTO_CONVERSA = env.int("STARGATE_TECTO_CONVERSA", default=20)
 STARGATE_TECTO_COMENTARIO = env.int("STARGATE_TECTO_COMENTARIO", default=10)
+STARGATE_TECTO_VOTO = env.int("STARGATE_TECTO_VOTO", default=30)
 
 # EasyON (agentes alugados): ver noticias/easyon.py.
 # A chave vem de um ficheiro em modo 600.

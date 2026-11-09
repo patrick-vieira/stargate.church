@@ -13,7 +13,7 @@ class HomeTests(TestCase):
         self.energia = criar_tema("Energia")
 
     def get(self, **params):
-        return self.client.get(reverse("core:home"), params)
+        return self.client.get(reverse("noticias:home"), params)
 
     def test_home_200_em_pt_br_com_data_em_minuscula(self):
         resposta = self.get()
@@ -78,6 +78,27 @@ class HomeTests(TestCase):
         self.assertNotIn('type="submit"', texto)
         self.assertIn('type="button" disabled', texto)
 
+    def test_base_da_luz_ligada_na_home(self):
+        texto = self.get().content.decode()
+        self.assertIn("css/luz.css", texto)
+        self.assertIn("js/luz.js", texto)
+        # o luz.css vem depois do stargate.css
+        self.assertLess(texto.index("css/stargate.css"), texto.index("css/luz.css"))
+
+    def test_botoes_e_cartoes_com_data_luz_e_desativado_sem(self):
+        criar_artigo(titulo="Manchete")
+        criar_artigo(titulo="Cartão com luz")
+        texto = self.get().content.decode()
+        # cabeçalho uniforme: Assinar e Entrar levam data-luz="botao"
+        self.assertIn('class="sg-btn sg-btn--coral" data-luz="botao" href', texto)
+        self.assertIn('data-luz="botao" href', texto)
+        self.assertIn('data-luz="cartao"', texto)
+        # o botão desativado da newsletter nunca leva data-luz
+        self.assertIn(
+            '<button class="sg-btn sg-btn--coral" type="button" disabled>Quero receber',
+            texto,
+        )
+
     def test_rodape_mantem_aviso_ficticio(self):
         self.assertContains(self.get(), "Todo o conteúdo deste protótipo é fictício")
 
@@ -92,6 +113,27 @@ class HomeTests(TestCase):
         resposta = self.get()
         self.assertEqual(resposta.status_code, 200)
         self.assertNotContains(resposta, "sg-manchete")
+        self.assertNotContains(resposta, "luz-ceu")
+
+    def test_home_com_manchete_tem_a_atmosfera(self):
+        criar_artigo(titulo="Manchete com céu")
+        texto = self.get().content.decode()
+        self.assertIn('<div class="luz-ceu" data-luz="ceu" data-fase="tarde">', texto)
+        self.assertEqual(texto.count("<i data-f="), 5)
+        for fase in ("madrugada", "manha", "tarde", "crepusculo", "noite"):
+            self.assertIn(f'<i data-f="{fase}">', texto)
+        # o céu embrulha a manchete e fecha depois dela
+        self.assertLess(texto.index("luz-ceu"), texto.index("sg-manchete"))
+        self.assertLess(texto.index("sg-manchete"), texto.index("</section></div>"))
+
+    def test_fase_posta_antes_da_pintura_por_script_sem_defer(self):
+        criar_artigo(titulo="Manchete com céu")
+        texto = self.get().content.decode()
+        inicio = texto.index("document.currentScript.parentNode.setAttribute")
+        abertura = texto.rindex("<script", 0, inicio)
+        # sem src nem defer
+        self.assertEqual(texto[abertura : abertura + 8], "<script>")
+        self.assertLess(inicio, texto.index("sg-manchete"))
 
     def test_nav_de_temas_com_links(self):
         resposta = self.get()
@@ -253,7 +295,7 @@ class FixtureDemoTests(TestCase):
         self.assertEqual(NumeroDestaque.objects.count(), 4)
 
     def test_home_com_a_fixture(self):
-        resposta = self.client.get(reverse("core:home"))
+        resposta = self.client.get(reverse("noticias:home"))
         self.assertEqual(resposta.status_code, 200)
         self.assertEqual(
             resposta.context["manchete"].titulo,

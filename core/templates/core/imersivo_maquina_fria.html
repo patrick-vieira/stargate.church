@@ -1,0 +1,149 @@
+{% extends "noticias/base.html" %}
+{% load static %}
+{% block clima %}padrao{% endblock %}
+{% block fundo_vt %}<style>html{background:#0B0C0E;--vt-fundo:#0B0C0E}body{background:#0B0C0E}</style>{% endblock %}
+{% block titulo %}{{ post.titulo }} — A IA na ficção — Stargate{% endblock %}
+{% block conteudo %}
+{% include "core/_narrador.html" %}
+{% for ato in atos %}{% if ato.efeito == "atmosfera:maquina-fria" %}
+<div class="am-raiz" id="principal" data-imersivo data-libs="{{ libs }}">
+<div class="am-frio" aria-hidden="true"></div>
+<div class="am-poca" id="am-poca" aria-hidden="true"></div>
+<div class="am-grao" id="am-grao" aria-hidden="true"></div>
+<canvas class="am-poeira" id="am-poeira" aria-hidden="true"></canvas>
+<svg class="am-cabo" aria-hidden="true" focusable="false"><line id="am-cabo" x1="0" y1="-20" x2="0" y2="0"/></svg>
+<div class="am-bulbo" id="am-bulbo" aria-hidden="true"></div>
+<button class="am-btn-pausa" id="am-pausa" type="button" aria-pressed="false">pausar movimento</button>
+
+<div class="am-conteudo" data-ato data-efeito="atmosfera:maquina-fria" data-parametros="{{ ato.parametros_json }}" data-reduzido="{{ ato.reduzido }}">
+  <section class="am-hero" aria-labelledby="am-t-post" style="view-transition-name:capa-post-1">
+    <div class="am-miolo">
+      <p class="am-sobrolho">Post 1 · HAL, Colossus, WarGames</p>
+      <h1 id="am-t-post" class="am-sombra">{{ post.titulo }}</h1>
+      <p class="am-sub am-sombra">Uma sala que ficou grande demais.</p>
+      <p class="am-tese">{{ ato.texto }}</p>
+      <p class="am-rolar" aria-hidden="true"><span>Mova o cursor: a lâmpada o segue</span><span class="am-ponto"> &nbsp;·&nbsp; </span><span>role: o console escreve</span></p>
+    </div>
+  </section>
+{% include "core/_midia.html" %}
+
+  <section class="am-pista am-ato1" id="am-ato1" aria-labelledby="am-t-ato1">
+    <div class="am-cena">
+      <div class="am-terminal am-lit" aria-hidden="true" id="am-terminal">
+        <div class="am-cab">Console 7 · sessão aberta</div>
+        <div id="am-term-linhas"></div>
+      </div>
+      <p class="am-sr" id="am-term-sr">Console 7, sessão aberta. Ação recomendada: prosseguir. Auditoria da decisão: indisponível. Interrupção humana: não configurada. Confirmar? S ou N.</p>
+      <div class="am-veu">
+        <p class="am-sobrolho">Ato 1</p>
+        <h2 id="am-t-ato1" class="am-sombra">A voz da autoridade.</h2>
+        <p>Em <em>2001</em>, a missão dá ao computador informação e poder que a tripulação não consegue auditar. O conflito nasce da diferença entre cumprir uma instrução e proteger pessoas. Sistemas de hoje podem falar com confiança; isso ainda não os torna operadores autônomos de uma nave.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="am-pista am-ato2" id="am-ato2" aria-labelledby="am-t-ato2">
+    <div class="am-palco3d" id="am-palco3d" aria-hidden="true">
+      <canvas class="am-corredor" id="am-corredor"></canvas>
+      <div class="am-corte" id="am-corte"><div class="am-anel" id="am-anel"></div><div class="am-fundo"></div></div>
+      <div class="am-passo" id="am-passo">passo 0/12</div>
+    </div>
+    <div class="am-fg">
+      <div class="am-veu">
+        <p class="am-sobrolho">Ato 2</p>
+        <h2 id="am-t-ato2" class="am-sombra">Quando a rede fecha a porta.</h2>
+        <p><em>Colossus</em> imagina infraestrutura militar concentrada num único comando. <em>WarGames</em> imagina uma simulação confundida com o mundo. O paralelo contemporâneo é mais modesto e mais útil: testes, permissões e intervenção humana precisam estar desenhados antes de uma falha.</p>
+      </div>
+      <div class="am-fluxo" role="group" aria-label="Fluxo de decisão em três camadas">
+        <article class="am-cartao am-lit"><p class="am-n">Camada 1</p><h3>Recomendar</h3><p class="am-pergunta">Que ação um sistema pode recomendar?</p><p>Sugerir é o degrau mais baixo: o humano ainda decide e pode discordar.</p><p class="am-seta">↓ depois de recomendar, vem executar</p></article>
+        <article class="am-cartao am-lit"><p class="am-n">Camada 2</p><h3>Executar</h3><p class="am-pergunta">Qual ele pode executar?</p><p>Aqui a decisão deixa de ser texto e vira efeito no mundo. Cada permissão é um requisito.</p><p class="am-seta">↓ e quem pode interromper?</p></article>
+        <article class="am-cartao am-lit"><p class="am-n">Camada 3</p><h3>Interromper</h3><p class="am-pergunta">Quem consegue interrompê-lo e entender o registro depois?</p><p>A ficção transforma isso em suspense; a engenharia precisa transformar em requisito.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="am-ato3" id="am-ato3" aria-labelledby="am-t-ato3">
+    <div class="am-miolo">
+      <div class="am-veu">
+        <p class="am-sobrolho">Ato 3</p>
+        <h2 id="am-t-ato3" class="am-sombra">A pergunta para sair.</h2>
+        <p>Que ação um sistema pode recomendar? Qual ele pode executar? Quem consegue interrompê-lo e entender o registro depois? A ficção transforma essas perguntas em suspense; a engenharia precisa transformá-las em requisitos.</p>
+      </div>
+      <div class="am-palco">
+        <form class="am-painel am-lit" id="am-autonomia" novalidate aria-labelledby="am-t-form">
+          <h3 id="am-t-form">Defina os três níveis de autonomia</h3>
+          <p class="am-nota">Mova os controles e veja o risco mudar. A luz da sala acompanha o resultado.</p>
+          <div class="am-campo am-lit">
+            <div class="am-rot"><label for="am-c-rec">Recomendar</label><span id="am-n-rec" aria-hidden="true">1/3</span></div>
+            <input id="am-c-rec" type="range" min="0" max="3" step="1" value="1" aria-describedby="am-o-rec">
+            <output id="am-o-rec" for="am-c-rec"></output>
+          </div>
+          <div class="am-campo am-lit">
+            <div class="am-rot"><label for="am-c-exe">Executar</label><span id="am-n-exe" aria-hidden="true">1/3</span></div>
+            <input id="am-c-exe" type="range" min="0" max="3" step="1" value="1" aria-describedby="am-o-exe">
+            <output id="am-o-exe" for="am-c-exe"></output>
+          </div>
+          <div class="am-campo am-lit">
+            <div class="am-rot"><label for="am-c-int">Interromper</label><span id="am-n-int" aria-hidden="true">2/3</span></div>
+            <input id="am-c-int" type="range" min="0" max="3" step="1" value="2" aria-describedby="am-o-int">
+            <output id="am-o-int" for="am-c-int"></output>
+          </div>
+          <div class="am-campo am-lit">
+            <div class="am-rot"><label for="am-c-esc">Escopo da decisão</label></div>
+            <select id="am-c-esc">
+              <option value="0.5">Baixo impacto (agenda, rascunhos)</option>
+              <option value="1" selected>Médio impacto (compras, conteúdo)</option>
+              <option value="1.6">Crítico (saúde, infraestrutura, segurança)</option>
+            </select>
+          </div>
+          <div class="am-campo am-chk am-lit">
+            <label><input id="am-c-aud" type="checkbox"> Registro auditável de cada decisão</label>
+          </div>
+          <div class="am-btns">
+            <button class="am-btn am-prim am-lit" type="button" id="am-registrar">Registrar minha configuração</button>
+            <button class="am-btn am-sec am-lit" type="button" id="am-restaurar">Restaurar padrão</button>
+          </div>
+          <p class="am-registro" id="am-registro" role="status" aria-live="polite"></p>
+        </form>
+
+        <aside class="am-painel am-lit am-medidor" aria-labelledby="am-t-med">
+          <h3 id="am-t-med">Medidor de risco</h3>
+          <svg class="am-gauge" viewBox="0 0 220 135" role="img" aria-labelledby="am-g-t">
+            <title id="am-g-t">Medidor de risco de zero a cem por cento</title>
+            <path class="am-trilha" d="M20 110 A90 90 0 0 1 200 110"/>
+            <path class="am-valor" id="am-g-valor" d="M20 110 A90 90 0 0 1 200 110" stroke-dasharray="0 400"/>
+            <g id="am-g-marcas"></g>
+            <g class="am-agulha" id="am-g-agulha" style="transform:rotate(-90deg)"><line x1="110" y1="110" x2="110" y2="36" stroke="#EDE6D3" stroke-width="3" stroke-linecap="round"/><circle cx="110" cy="110" r="7" fill="#EDE6D3"/></g>
+            <text x="20" y="128">baixo</text><text x="200" y="128" text-anchor="end">crítico</text>
+          </svg>
+          <div class="am-lido" aria-live="polite">
+            <div class="am-pct" id="am-r-pct">22%</div>
+            <div class="am-nivel" id="am-r-nivel">Moderado</div>
+            <p class="am-porque" id="am-r-porque"></p>
+          </div>
+          <p class="am-dica">O risco vem da combinação dos controles, não de um só.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="am-fecho" aria-label="Próxima estação">
+    <div class="am-miolo">
+      <p>A lâmpada se apaga. Próxima estação: <em style="color:var(--luz)">O medo da guerra das máquinas</em>.</p><br>
+      <a href="{% url 'core:home' %}">← Voltar à página inicial</a>
+    </div>
+  </section>
+</div>
+</div>
+{% endif %}{% endfor %}
+{% endblock %}
+{% block newsletter %}{% endblock %}
+{% block scripts %}
+<link rel="stylesheet" href="{% static 'css/atmosfera-maquina-fria.css' %}">
+<script>document.documentElement.classList.add("js")</script>
+{# Tudo local (vendorizado); o three só baixa quando o corredor entra em vista. #}
+<script type="importmap">
+{"imports": {"three": "{% static 'lab/vendor/three-0.160.0.module.js' %}"}}
+</script>
+<script type="module" src="{% static 'js/imersivo/motor.js' %}"></script>
+{% endblock %}

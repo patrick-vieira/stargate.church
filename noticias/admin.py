@@ -1,7 +1,25 @@
 from django.contrib import admin, messages
 from django.core.exceptions import ValidationError
 
-from .models import Artigo, Autor, Fonte, NumeroDestaque, Tema
+from .models import Artigo, Autor, Comentario, Fonte, NumeroDestaque, Tema
+
+
+@admin.register(Comentario)
+class ComentarioAdmin(admin.ModelAdmin):
+    list_display = ("nome", "artigo", "estado", "criado_em")
+    list_filter = ("estado",)
+    search_fields = ("nome", "texto")
+    actions = ["publicar", "ocultar"]
+
+    @admin.action(description="Publicar comentários selecionados")
+    def publicar(self, request, queryset):
+        n = queryset.update(estado=Comentario.Estado.PUBLICADO)
+        self.message_user(request, f"{n} comentário(s) publicado(s).")
+
+    @admin.action(description="Ocultar comentários selecionados")
+    def ocultar(self, request, queryset):
+        n = queryset.update(estado=Comentario.Estado.OCULTO)
+        self.message_user(request, f"{n} comentário(s) ocultado(s).")
 
 
 @admin.register(Tema)

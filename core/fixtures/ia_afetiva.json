@@ -1,0 +1,24 @@
+[
+  {
+    "model": "core.postimersivo",
+    "pk": 44,
+    "fields": {
+      "slug": "a-ia-afetiva",
+      "titulo": "A IA afetiva",
+      "publicado": true
+    }
+  },
+  {
+    "model": "core.ato",
+    "pk": 441,
+    "fields": {
+      "post": 44,
+      "ordem": 1,
+      "titulo": "A IA afetiva",
+      "texto": "O vínculo mediado por software é o acerto mais próximo; reciprocidade, memória e consentimento seguem em aberto.",
+      "efeito": "atmosfera:ia-afetiva",
+      "parametros": {},
+      "reduzido": "estatico"
+    }
+  }
+]

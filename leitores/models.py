@@ -7,7 +7,8 @@ class UsoDiario(models.Model):
 
     CONVERSA = "conversa"
     COMENTARIO = "comentario"
-    TIPOS = [(CONVERSA, "Conversa"), (COMENTARIO, "Comentário")]
+    VOTO = "voto"
+    TIPOS = [(CONVERSA, "Conversa"), (COMENTARIO, "Comentário"), (VOTO, "Voto")]
 
     utilizador = models.ForeignKey(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="usos_diarios"

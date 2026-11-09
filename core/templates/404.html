@@ -1,0 +1,133 @@
+{% load static %}<!doctype html>
+<html lang="pt-BR" data-clima="padrao">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>html{background:#070914;--vt-fundo:#070914}body{background:#070914}</style>
+<title>Página não encontrada · Stargate</title>
+<meta name="description" content="A página que você procurava saiu da órbita ou nunca existiu.">
+<style>
+@font-face{font-family:'Fraunces';font-weight:600;font-style:normal;font-display:swap;src:url('{% static "fonts/fraunces/fraunces-latin-600-normal.woff2" %}') format('woff2')}
+:root{
+  --bg:#070914; --txt:#EDE6D3; --mut:#C3BFCB; --sinal:#8FC1FF; --sinal-rgb:143,193,255; --coral:#FFB59E;
+  --serif:'Fraunces',Georgia,'Times New Roman',serif;
+  --sans:'Instrument Sans',system-ui,-apple-system,'Segoe UI',Roboto,'Noto Sans',Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono","Cascadia Mono","DejaVu Sans Mono",Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html{overflow-x:clip}
+body{margin:0;background:var(--bg);color:var(--txt);font:18px/1.6 var(--sans);min-height:100vh;min-height:100svh;position:relative;overflow-x:clip}
+a{color:inherit}
+:focus-visible{outline:3px solid #FFD27A;outline-offset:3px;border-radius:999px}
+.espaco{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(1.5px 1.5px at 8% 18%,#fff,transparent),radial-gradient(1px 1px at 22% 72%,#cfd8ff,transparent),radial-gradient(1.5px 1.5px at 35% 30%,#fff,transparent),
+    radial-gradient(1px 1px at 47% 84%,#fff,transparent),radial-gradient(1.5px 1.5px at 61% 12%,#cfd8ff,transparent),radial-gradient(1px 1px at 74% 66%,#fff,transparent),
+    radial-gradient(1.5px 1.5px at 88% 28%,#fff,transparent),radial-gradient(1px 1px at 93% 80%,#cfd8ff,transparent),radial-gradient(1px 1px at 14% 44%,#fff,transparent),
+    radial-gradient(70% 55% at var(--sx,68%) var(--sy,42%),rgba(var(--sinal-rgb),.13),transparent 70%),
+    linear-gradient(180deg,#070914,#0B1022 70%,#070914)}
+#sinal{position:fixed;inset:0;width:100%;height:100%;z-index:1;display:block;pointer-events:none}
+#emissor{position:fixed;z-index:1;left:68%;top:42%;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;background:var(--sinal);
+  box-shadow:0 0 0 6px rgba(var(--sinal-rgb),.18),0 0 28px 8px rgba(var(--sinal-rgb),.45);pointer-events:none}
+/* o bloco de texto fica centrado na vertical e sem caixa: um halo do próprio céu (sem borda) mantém o contraste */
+.pagina{position:relative;z-index:2;min-height:100vh;min-height:100svh;display:flex;align-items:center;padding:48px clamp(20px,6vw,96px)}
+.texto{position:relative;max-width:34rem}
+.texto::before{content:"";position:absolute;z-index:-1;inset:-48px -64px;pointer-events:none;
+  background:radial-gradient(closest-side,rgba(7,9,20,.78) 55%,rgba(7,9,20,0))}
+.sobrolho{font:700 13px/1.4 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--sinal);margin:0 0 14px}
+h1{font:600 clamp(2.4rem,6vw,4.6rem)/1.06 var(--serif);letter-spacing:-.02em;margin:0 0 18px}
+h1 em{font-style:italic;color:var(--coral)}
+.lead{margin:0 0 12px;font-size:clamp(1.05rem,1.6vw,1.3rem);color:var(--txt)}
+.dica{margin:0 0 28px;font-size:1rem;color:var(--mut)}
+.acoes{display:flex;flex-wrap:wrap;gap:14px 16px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:14px 26px;border-radius:999px;border:2px solid #EDE6D3;color:var(--txt);
+  font:600 1.0625rem/1.2 var(--sans);text-decoration:none;background:transparent}
+.btn:hover{background:rgba(237,230,211,.14)}
+.btn--cheio{background:#FBF5EA;border-color:#FBF5EA;color:#1F1914}
+.btn--cheio:hover{background:#FFFFFF;border-color:#FFFFFF}
+@media (max-width:760px){
+  #emissor{left:50%;top:22%}
+  .espaco{--sx:50%;--sy:22%}
+  .pagina{align-items:flex-end;padding-bottom:36px}
+  .texto::before{inset:-32px -20px}
+}
+</style>
+<link rel="preload" href="{% static 'fonts/fraunces/fraunces-latin-600-normal.woff2' %}" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="{% static 'css/transicao.css' %}">
+<script src="{% static 'js/transicao.js' %}"></script>
+</head>
+<body>
+<div class="espaco" aria-hidden="true"></div>
+<canvas id="sinal" aria-hidden="true" data-sinal="0.15"></canvas>
+<i id="emissor" aria-hidden="true"></i>
+<main class="pagina" id="principal">
+  <div class="texto">
+    <p class="sobrolho">Página não encontrada</p>
+    <h1>Esse <em>sinal</em> se perdeu no espaço</h1>
+    <p class="lead">A página que você procurava saiu da órbita ou nunca existiu. Ainda dá para voltar por um destes caminhos.</p>
+    <p class="dica">Mova o cursor, ou toque na tela, para tentar afinar o sinal.</p>
+    <div class="acoes">
+      <a class="btn btn--cheio" href="{% url 'core:home' %}" id="volta">Voltar para a página inicial</a>
+      <a class="btn" href="{% url 'core:home' %}#temas" id="temas">Ver os temas</a>
+    </div>
+  </div>
+</main>
+<script>
+/* o sinal: cinco linhas de onda que passam pelo emissor. Perto do cursor (ou do último toque) ficam limpas e fortes; longe, viram ruído.
+   canvas.dataset.sinal = o nível atual, de 0 (perdido) a 1 (afinado). Em reduced-motion o sinal fica parado (um quadro, nível .5). */
+(function () {
+  'use strict';
+  var cv = document.getElementById('sinal'), cx = cv.getContext('2d'), em = document.getElementById('emissor');
+  var reduz = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var W = 0, H = 0, ex = 0, ey = 0, nivel = reduz ? .5 : .15, alvo = nivel, px = null, py = null, vivo = true, sem = 7;
+  function rnd() { sem = (sem * 16807) % 2147483647; return sem / 2147483647; }     // ruído determinístico (o quadro parado é sempre o mesmo)
+  function mede() {
+    var d = Math.min(window.devicePixelRatio || 1, 1.25);
+    W = innerWidth; H = innerHeight; cv.width = Math.round(W * d); cv.height = Math.round(H * d); cx.setTransform(d, 0, 0, d, 0, 0);
+    var r = em.getBoundingClientRect(); ex = r.left + r.width / 2; ey = r.top + r.height / 2;
+    document.querySelector('.espaco').style.setProperty('--sx', (ex / W * 100).toFixed(1) + '%');
+    document.querySelector('.espaco').style.setProperty('--sy', (ey / H * 100).toFixed(1) + '%');
+  }
+  function define() {
+    if (px === null) { alvo = reduz ? .5 : .15; return; }
+    var d = Math.hypot(px - ex, py - ey) / (Math.hypot(W, H) * .55);
+    alvo = Math.max(0, Math.min(1, 1 - d));
+  }
+  function desenha(t) {
+    cx.clearRect(0, 0, W, H);
+    var a = nivel, ruido = (1 - a) * 26, amp = 8 + 34 * a, i, x;
+    cx.lineWidth = 2; cx.lineJoin = 'round';
+    for (i = 0; i < 5; i++) {
+      cx.beginPath();
+      cx.strokeStyle = 'rgba(143,193,255,' + (.25 + .6 * a - i * .04).toFixed(2) + ')';
+      for (x = 0; x <= W; x += 8) {
+        var env = Math.exp(-Math.abs(x - ex) / (W * .55));
+        var y = ey + (i - 2) * 22 + Math.sin(x * .018 - t * 2.2 + i * .9) * amp * env + (rnd() - .5) * ruido;
+        if (x === 0) cx.moveTo(x, y); else cx.lineTo(x, y);
+      }
+      cx.stroke();
+    }
+    for (i = 0; i < 3; i++) {                           // anéis que saem do emissor, mais nítidos quando afinado
+      var r = ((t * 46 + i * 70) % 210) + 10;
+      cx.beginPath(); cx.arc(ex, ey, r, 0, 6.2832);
+      cx.strokeStyle = 'rgba(143,193,255,' + (a * .35 * (1 - r / 220)).toFixed(3) + ')'; cx.lineWidth = 1.5; cx.stroke();
+    }
+  }
+  function quadro(ms) {
+    nivel += (alvo - nivel) * .08;
+    cv.dataset.sinal = nivel.toFixed(2);
+    desenha(ms / 1000);
+    if (vivo) requestAnimationFrame(quadro);
+  }
+  mede(); define();
+  addEventListener('resize', function () { mede(); if (reduz) desenha(0); });
+  if (reduz) { cv.dataset.sinal = nivel.toFixed(2); desenha(0); return; }       // parado: nada reage ao cursor
+  function aponta(e) { px = e.clientX; py = e.clientY; define(); }
+  addEventListener('pointermove', aponta, { passive: true });
+  addEventListener('pointerdown', aponta, { passive: true });
+  document.addEventListener('visibilitychange', function () { if (!document.hidden && !vivo) { vivo = true; requestAnimationFrame(quadro); } else if (document.hidden) vivo = false; });
+  requestAnimationFrame(quadro);
+}());
+</script>
+</body>
+</html>

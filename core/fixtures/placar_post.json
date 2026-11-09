@@ -1,0 +1,24 @@
+[
+  {
+    "model": "core.postimersivo",
+    "pk": 9,
+    "fields": {
+      "slug": "o-placar",
+      "titulo": "O placar",
+      "publicado": true
+    }
+  },
+  {
+    "model": "core.ato",
+    "pk": 20,
+    "fields": {
+      "post": 9,
+      "ordem": 1,
+      "titulo": "O placar",
+      "texto": "Perto ou longe de 2026? E quanto preocupar?",
+      "efeito": "atmosfera:placar",
+      "parametros": {},
+      "reduzido": "estatico"
+    }
+  }
+]

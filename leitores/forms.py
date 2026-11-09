@@ -5,8 +5,35 @@ from django.contrib.auth.password_validation import validate_password
 from django.core.exceptions import ValidationError
 
 
-class CriarContaForm(forms.Form):
-    email = forms.EmailField(label="E-mail")
+class BaseA11yFormMixin:
+    def full_clean(self):
+        super().full_clean()
+        for field_name in self.errors:
+            if field_name in self.fields:
+                self.fields[field_name].widget.attrs["aria-describedby"] = (
+                    f"erro-{field_name}"
+                )
+        # Erro non-field (ex.: «e-mail ou senha incorretos»): não aponta para um campo,
+        # por isso todos os campos ficam inválidos e ligados ao aviso geral. Sem JS.
+        if self.non_field_errors():
+            for campo in self.fields.values():
+                campo.widget.attrs["aria-invalid"] = "true"
+                campo.widget.attrs["aria-describedby"] = "erro-geral"
+
+
+class EntrarForm(BaseA11yFormMixin, AuthenticationForm):
+    error_messages = {
+        **AuthenticationForm.error_messages,
+        "invalid_login": "E-mail ou senha incorretos.",
+        "inactive": "Esta conta está inativa.",
+    }
+
+
+class CriarContaForm(BaseA11yFormMixin, forms.Form):
+    email = forms.EmailField(
+        label="E-mail",
+        error_messages={"invalid": "Informe um e-mail válido."},
+    )
     senha = forms.CharField(label="Senha", widget=forms.PasswordInput)
 
     def clean_email(self):
@@ -31,10 +58,3 @@ class CriarContaForm(forms.Form):
         return get_user_model().objects.create_user(
             username=email, email=email, password=self.cleaned_data["senha"]
         )
-
-
-class EntrarForm(AuthenticationForm):
-    error_messages = {
-        "invalid_login": "E-mail ou senha incorretos.",
-        "inactive": "Esta conta está inativa.",
-    }

@@ -1,0 +1,123 @@
+{% extends "noticias/base.html" %}
+{% load static %}
+{% block titulo %}{{ post.titulo }} — A IA na ficção — Stargate{% endblock %}
+{% block conteudo %}
+{% include "core/_narrador.html" %}
+{% for ato in atos %}{% if ato.efeito == "atmosfera:ser-humano" %}
+<div class="sh-raiz" id="principal" data-imersivo data-libs="{{ libs }}">
+<div class="sh-sala" id="sh-sala" aria-hidden="true">
+  <div class="sh-arte"></div>
+  <div class="sh-sil" style="left:58%;width:15vw;height:62vh;--v:.5"></div>
+  <div class="sh-sil" style="left:78%;width:9vw;height:40vh;--v:.8"></div>
+  <div class="sh-pane" style="left:34%;width:12vw;--v:.6"></div>
+  <div class="sh-pane" style="left:54%;width:18vw;--v:1"></div>
+  <div class="sh-pane" style="left:76%;width:12vw;--v:.4"></div>
+</div>
+<div class="sh-refl" id="sh-refl" aria-hidden="true"></div>
+
+<div class="sh-topo">
+  <a href="{% url 'core:home' %}"><span class="sh-longo">A IA na ficção · 3</span><span class="sh-curto">Ficção · 3</span></a>
+  <button class="sh-btn-pausa" id="sh-pausa" type="button" aria-pressed="false">pausar movimento</button>
+</div>
+
+<div class="sh-conteudo" data-ato data-efeito="atmosfera:ser-humano" data-parametros="{{ ato.parametros_json }}" data-reduzido="{{ ato.reduzido }}">
+  <section class="sh-hero" aria-labelledby="sh-t-post">
+    <div>
+      <p class="sh-sobrolho">Post 3 · Blade Runner, Ex Machina, Westworld</p>
+      <h1 id="sh-t-post">O que é <em>ser humano?</em></h1>
+      <p class="sh-lead sh-vidro">{{ ato.texto }}</p>
+      <p class="sh-rolar" aria-hidden="true"><span>Mova o cursor: o vidro reflete</span><span class="sh-ponto"> · </span><span>role: os painéis deslizam</span></p>
+    </div>
+  </section>
+{% include "core/_midia.html" %}
+
+  <section class="sh-ato" id="sh-ato1" aria-labelledby="sh-t-ato1">
+    <div class="sh-miolo sh-duas">
+      <div class="sh-veu sh-vidro">
+        <p class="sh-sobrolho">Ato 1 · Quem está sendo examinado?</p>
+        <h2 id="sh-t-ato1">Três perguntas sobre quem observa.</h2>
+        <p><em>Blade Runner</em> (1982) mede empatia para separar humanos de replicantes. A cena nos devolve uma dúvida sobre os critérios, não uma ferramenta que possamos aplicar a alguém. Com sistemas conversacionais, fluência também pode nos levar a atribuir interioridade sem evidência.</p>
+        <p class="sh-fonte">Fonte: Blade Runner, AFI. O teste ao lado é original e mede a sua confiança, não a de ninguém mais. Nada é guardado nem enviado.</p>
+      </div>
+      <form class="sh-teste sh-vidro sh-sticky" id="sh-teste" novalidate aria-labelledby="sh-t-teste">
+        <h3 id="sh-t-teste">Teste sobre a confiança de quem observa</h3>
+        <p class="sh-nota">Responda no seu ritmo: a sala muda de luz e o ato 2 reordena o texto.</p>
+        <fieldset class="sh-campo"><legend>1. Uma resposta rápida e fluente aumenta a sua confiança em quem responde?</legend>
+          <div class="sh-ops"><label><input type="radio" name="sh-q1" value="0"><span>Sim</span></label><label><input type="radio" name="sh-q1" value="1"><span>Depende</span></label><label><input type="radio" name="sh-q1" value="2"><span>Não</span></label></div></fieldset>
+        <fieldset class="sh-campo"><legend>2. Palavras bonitas sobre um sentimento provam que ele existe?</legend>
+          <div class="sh-ops"><label><input type="radio" name="sh-q2" value="0"><span>Provam</span></label><label><input type="radio" name="sh-q2" value="1"><span>Não sei</span></label><label><input type="radio" name="sh-q2" value="2"><span>Não provam</span></label></div></fieldset>
+        <fieldset class="sh-campo"><legend>3. Você pediria evidência de que há alguém «lá» antes de confiar?</legend>
+          <div class="sh-ops"><label><input type="radio" name="sh-q3" value="0"><span>Não preciso</span></label><label><input type="radio" name="sh-q3" value="1"><span>Talvez</span></label><label><input type="radio" name="sh-q3" value="2"><span>Sim</span></label></div></fieldset>
+        <div class="sh-prog" id="sh-prog" role="status" aria-live="polite"><i></i><i></i><i></i><span id="sh-pt">0/3 respondidas</span></div>
+        <label class="sh-chk"><input type="checkbox" id="sh-chk-todos"> Mostrar os três finais, sem refazer o teste</label>
+        <div class="sh-btns">
+          <button class="sh-btn sh-prim" type="button" id="sh-ver">Ver meu final</button>
+          <button class="sh-btn sh-sec" type="button" id="sh-refazer">Refazer o teste</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section class="sh-ato" id="sh-ato2" aria-labelledby="sh-t-ato2">
+    <div class="sh-miolo sh-duas">
+      <div class="sh-veu sh-vidro">
+        <p class="sh-sobrolho">Ato 2 · A persuasão da máquina</p>
+        <h2 id="sh-t-ato2">A ordem muda com o seu tom.</h2>
+        <div class="sh-chip" id="sh-chip">tom: aguardando respostas</div>
+        <p>Em <em>Ex Machina</em> (2014), o teste é atravessado por desejo, poder e manipulação. Em <em>Westworld</em> (2016), corpos artificiais reforçam o engano. Hoje, avatares e modelos podem simular diálogo; isso não prova que tenham experiência subjetiva.</p>
+        <p class="sh-fonte" id="sh-nota-ordem">Fontes: Ex Machina, A24 · Westworld, HBO. Os três parágrafos ao lado trocam de ordem conforme o tom do seu teste.</p>
+      </div>
+      <div>
+        <div class="sh-reord" id="sh-reord">
+          <article class="sh-vidro" data-k="a"><b>A · DESEJO E PODER</b><p><em>Ex Machina</em> (2014): o teste é atravessado por desejo, poder e manipulação.</p></article>
+          <article class="sh-vidro" data-k="b"><b>B · O ENGANO NO CORPO</b><p><em>Westworld</em> (2016): corpos artificiais reforçam o engano.</p></article>
+          <article class="sh-vidro" data-k="c"><b>C · O QUE NÃO SE PROVA</b><p>Hoje, avatares e modelos podem simular diálogo; isso não prova que tenham experiência subjetiva.</p></article>
+        </div>
+        <div class="sh-obs sh-vidro">
+          <svg viewBox="0 0 240 150" role="img" aria-labelledby="sh-obs-t"><title id="sh-obs-t">Dois círculos, observador e observado, que se alinham, se afastam ou se sobrepõem conforme o tom</title>
+            <circle id="sh-o1" cx="90" cy="75" r="42" fill="none" stroke="#BFD8DC" stroke-width="3"/>
+            <circle id="sh-o2" cx="150" cy="75" r="42" fill="none" stroke="#E8B66A" stroke-width="3"/></svg>
+          <p class="sh-fonte" id="sh-obst">sem respostas ainda</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sh-ato" id="sh-ato3" aria-labelledby="sh-t-ato3">
+    <div class="sh-miolo">
+      <div class="sh-veu sh-vidro">
+        <p class="sh-sobrolho">Ato 3 · Três finais, uma cautela</p>
+        <h2 id="sh-t-ato3">Seu final.</h2>
+      </div>
+      <div class="sh-final-caixa">
+        <article class="sh-final sh-vidro" id="sh-fin" aria-live="polite"><h3 id="sh-fint">não sei</h3><p id="sh-finp">A incerteza é uma resposta honesta.</p></article>
+        <p class="sh-comum sh-vidro">Em todos os casos, direitos de pessoas reais e transparência sobre sistemas continuam imediatos.</p>
+        <button class="sh-btn sh-prim" type="button" id="sh-outros" aria-expanded="false" aria-controls="sh-todos">Ler os outros finais</button>
+      </div>
+      <div class="sh-portas" id="sh-todos" hidden>
+        <article class="sh-porta sh-vidro" data-t="confiar"><span class="sh-rot">CONFIAR</span><h3>Confiança</h3><p>Sua confiança mostra como uma interface produz vínculo.</p></article>
+        <article class="sh-porta sh-vidro" data-t="duvidar"><span class="sh-rot">DUVIDAR</span><h3>Dúvida</h3><p>Sua dúvida protege contra inferências apressadas.</p></article>
+        <article class="sh-porta sh-vidro" data-t="nao_sei"><span class="sh-rot">NÃO SEI</span><h3>Incerteza</h3><p>A incerteza é uma resposta honesta.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sh-fecho" aria-label="Próxima estação">
+    <div class="sh-miolo">
+      <p class="sh-vidro">A melhor dúvida é a que protege pessoas, não a que humilha máquinas.</p><br>
+      <span class="sh-prox">Próxima estação: <em>A IA afetiva</em></span><br>
+      <a href="{% url 'core:home' %}">← Voltar à página inicial</a>
+      <p class="sh-fontes sh-vidro">Fontes: Blade Runner, AFI · Ex Machina, A24 · Westworld, HBO · NIST AI 600-1, Generative AI Profile. O teste é original: não reproduz o da obra nem diagnostica ninguém. Sala, painéis e silhuetas são desenhos originais.</p>
+    </div>
+  </section>
+</div>
+</div>
+{% endif %}{% endfor %}
+{% endblock %}
+{% block newsletter %}{% endblock %}
+{% block scripts %}
+<link rel="stylesheet" href="{% static 'css/atmosfera-ser-humano.css' %}">
+<script>document.documentElement.classList.add("js")</script>
+{# Tudo local, sem biblioteca: o efeito é CSS e JS próprio. #}
+<script type="module" src="{% static 'js/imersivo/motor.js' %}"></script>
+{% endblock %}

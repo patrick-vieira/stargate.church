@@ -1,0 +1,24 @@
+[
+  {
+    "model": "core.postimersivo",
+    "pk": 3,
+    "fields": {
+      "slug": "a-maquina-fria",
+      "titulo": "A máquina fria",
+      "publicado": true
+    }
+  },
+  {
+    "model": "core.ato",
+    "pk": 14,
+    "fields": {
+      "post": 3,
+      "ordem": 1,
+      "titulo": "A máquina fria",
+      "texto": "A falha dramática não exige uma máquina má; basta delegar uma decisão crítica sem uma forma clara de contestá-la.",
+      "efeito": "atmosfera:maquina-fria",
+      "parametros": {},
+      "reduzido": "estatico"
+    }
+  }
+]

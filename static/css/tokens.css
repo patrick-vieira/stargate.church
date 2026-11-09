@@ -6,7 +6,8 @@
   /* tinta */
   --sg-tinta:#1F1914; --sg-tinta-2:#4A4038; --sg-tinta-3:#6B5F54; /* 3 = 5.6:1 sobre creme */
   /* acento principal: coral nascer-do-sol */
-  --sg-coral:#EB5A3C;      /* só acento, formas e texto grande */
+  /* --sg-coral nunca em color: de texto; texto a coral = --sg-coral-ink */
+  --sg-coral:#EB5A3C;      /* só acento e formas (não texto) */
   --sg-coral-ink:#B3321A;  /* texto pequeno AA (6:1) */
   --sg-coral-bg:#FDE3D8;
   --sg-sol:#F7B84B;        /* amarelo-sol, só decoração */

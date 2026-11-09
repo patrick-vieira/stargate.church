@@ -90,3 +90,19 @@ class PlayerTests(TestCase):
         r = self.client.get(sem.get_absolute_url())
         self.assertNotContains(r, "<audio")
         self.assertNotContains(r, "voz gerada por IA")
+
+    def test_escapamento_audio_url_com_aspas(self):
+        com = criar_artigo(audio_url='https://cdn.test/a.mp3" onload="alert(1)')
+        r = self.client.get(com.get_absolute_url())
+        # Should be escaped, e.g. &quot;
+        self.assertContains(
+            r, 'src="https://cdn.test/a.mp3&quot; onload=&quot;alert(1)"'
+        )
+        self.assertContains(r, '<audio controls preload="none"')
+        self.assertContains(r, "Ouvir na voz de")
+        self.assertContains(r, "voz gerada por IA")
+
+        sem = criar_artigo(audio_url="")
+        r = self.client.get(sem.get_absolute_url())
+        self.assertNotContains(r, "<audio")
+        self.assertNotContains(r, "voz gerada por IA")

@@ -1,0 +1,63 @@
+{% extends "noticias/base.html" %}
+{% load static %}
+{% block titulo %}Laboratório · spike de scroll — Stargate{% endblock %}
+{% block conteudo %}
+<section class="sg-sec"><div class="sg-wrap">
+<span class="sg-sobrolho">Laboratório · STAR-19</span>
+<h1>Página de prova: cena 3D, Rive e diagrama ao scroll</h1>
+<p>Base técnica dos posts-experiência. Role a página: cada ato muda o efeito.</p>
+<p class="sg-meta" id="lab-modo" role="status">Carregando…</p>
+</div></section>
+
+<div class="lab-palco" data-lab-palco>
+  <div class="lab-fixo" aria-hidden="true">
+    <canvas id="lab-three" class="lab-canvas" width="640" height="360"></canvas>
+    <canvas id="lab-rive" class="lab-canvas lab-canvas--rive" width="400" height="160"
+            data-riv-src="{% static 'lab/rive/stargate-leitura.riv' %}"
+            data-riv-js="{% static 'lab/vendor/rive-canvas-2.35.0.js' %}"
+            data-riv-wasm="{% static 'lab/vendor/rive-2.35.0.wasm' %}"
+            data-riv-prop="progressoLeitura"></canvas>
+  </div>
+  <div class="lab-atos">
+    <article class="lab-ato" data-ato="1" data-efeito="three:gira"><h2>Ato 1 · a cena acorda</h2><p>A cena three.js gira conforme o scroll avança.</p></article>
+    <article class="lab-ato" data-ato="2" data-efeito="rive:estado"><h2>Ato 2 · o Rive muda de estado</h2><p>O progresso do scroll alimenta a máquina de estados do Rive.</p></article>
+    <article class="lab-ato" data-ato="3" data-efeito="diagrama:constroi"><h2>Ato 3 · o diagrama se constrói</h2><p>Os traços do diagrama aparecem durante a leitura.</p></article>
+  </div>
+</div>
+
+<section class="sg-sec"><div class="sg-wrap">
+<figure class="lab-diagrama" data-lab-diagrama>
+<svg viewBox="0 0 400 120" role="img" aria-label="Diagrama: ideia, protótipo, post">
+<g fill="none" stroke="#1F1914" stroke-width="3">
+<rect class="lab-passo" x="10" y="30" width="100" height="60" rx="8"/>
+<path class="lab-passo" d="M110 60 H150"/>
+<rect class="lab-passo" x="150" y="30" width="100" height="60" rx="8"/>
+<path class="lab-passo" d="M250 60 H290"/>
+<rect class="lab-passo" x="290" y="30" width="100" height="60" rx="8"/>
+</g>
+<g font-size="14" text-anchor="middle" fill="#1F1914"><text x="60" y="65">Ideia</text><text x="200" y="65">Protótipo</text><text x="340" y="65">Post</text></g>
+</svg>
+<figcaption class="sg-meta">Sem JS, o diagrama aparece completo.</figcaption>
+</figure>
+</div></section>
+{% endblock %}
+{% block scripts %}
+<style>
+.lab-palco{position:relative;max-width:100%}
+.lab-fixo{position:sticky;top:0;height:50vh;display:flex;gap:1rem;justify-content:center;align-items:center;background:#FBF6EE;z-index:1;max-width:100%;min-width:0;box-sizing:border-box;padding-inline:var(--sg-gutter,1rem)}
+.lab-canvas{flex:1 1 0;min-width:0;max-width:100%;height:auto;background:#fff;border:1px solid #1F1914;box-sizing:border-box}
+.lab-canvas--rive{flex:0 1 40%;max-width:40%}
+.lab-diagrama svg{max-width:100%;height:auto}
+.lab-ato{min-height:70vh;padding:2rem var(--sg-gutter,1rem)}
+.lab-passo{stroke-dasharray:var(--len,200);stroke-dashoffset:0}
+.js .lab-passo{stroke-dashoffset:var(--len,200);transition:stroke-dashoffset .6s}
+.js .lab-passo.on{stroke-dashoffset:0}
+@media (prefers-reduced-motion:reduce){.js .lab-passo{stroke-dashoffset:0;transition:none}}
+</style>
+<script>document.documentElement.classList.add("js")</script>
+{# Tudo local (vendorizado), versões fixas; troque aqui e em docs/spike-star-19.md. #}
+<script type="importmap">
+{"imports": {"three": "{% static 'lab/vendor/three-0.160.0.module.js' %}"}}
+</script>
+<script type="module" src="{% static 'js/lab-spike.js' %}"></script>
+{% endblock %}

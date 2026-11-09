@@ -26,6 +26,7 @@ python manage.py check                                         # verificações 
 python manage.py test --settings=config.settings.test          # testes (SQLite)
 ruff check . && ruff format --check .                          # lint e formato
 python scripts/testar_cadeira.py [modulo ...]                  # o portão do executor: ruff, format, makemigrations --check e test (rc por passo)
+DJANGO_SETTINGS_MODULE=config.settings.prod DJANGO_SECRET_KEY=<chave-ficticia-longa> DJANGO_ALLOWED_HOSTS=exemplo.test python manage.py check --deploy  # settings de produção; valores fictícios só na linha de comando, nunca .env nem segredos reais. Avisos esperados: W005 (HSTS subdomínios) e W021 (HSTS preload), opt-in deliberado em prod.py
 pre-commit run --all-files                                     # todos os ganchos
 docker compose config                                          # valida o compose
 ```
@@ -55,7 +56,8 @@ docker compose config                                          # valida o compos
 
 ## Portões
 - **Código:** PR com CI verde + revisão do líder; o merge (merge commit) é feito pelo esp_git.
-- **UI:** APROVADO do Hagoromo em pares mock | entregue, a 1920 e 390 px.
+- **UI:** CI verde + revisão do líder pelo diff; o Hagoromo confere depois do merge, na main, e o que achar vira card de retoque.
+- **Commits e PRs:** sem o trailer Co-authored-by nem o e-mail do Patrick (repo público).
 - **Deploy e domínio:** só o Patrick.
 - Nunca push direto para `main`.
 
