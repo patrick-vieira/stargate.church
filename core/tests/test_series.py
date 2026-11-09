@@ -10,6 +10,7 @@ FIXTURES = [
     "ser_humano",
     "ia_afetiva",
     "escolhas",
+    "quase_presente",
     "leis_robos_livros",
     "serie_ia_na_ficcao",
 ]
@@ -41,6 +42,7 @@ class RotasTests(TestCase):
         r = self.client.get("/series/ia-na-ficcao/")
         self.assertContains(r, 'href="/series/ia-na-ficcao/a-maquina-fria/"')
         self.assertContains(r, 'href="/series/ia-na-ficcao/escolhas-da-maquina/"')
+        self.assertContains(r, 'href="/series/ia-na-ficcao/o-quase-presente/"')
         self.assertNotContains(r, 'href="/imersivo/')
         self.assertNotContains(r, "/series/ia-na-ficcao/o-placar/")
 
@@ -50,8 +52,8 @@ class RotasTests(TestCase):
 
     def test_hub_estacoes_sem_destino_dizem_em_breve(self):
         r = self.client.get("/series/ia-na-ficcao/")
-        # R.U.R., Asimov e Turing, O quase-presente, O placar.
-        self.assertContains(r, 'class="im-breve">em breve</span>', count=4)
+        # R.U.R., Asimov e Turing, O placar (o quase-presente já está publicado).
+        self.assertContains(r, 'class="im-breve">em breve</span>', count=3)
 
     def test_hub_sobrolho_e_h1_da_serie(self):
         r = self.client.get("/series/ia-na-ficcao/")
@@ -73,6 +75,7 @@ class RotasTests(TestCase):
             ("o-que-e-ser-humano", "core/imersivo_ser_humano.html"),
             ("a-ia-afetiva", "core/imersivo_ia_afetiva.html"),
             ("escolhas-da-maquina", "core/imersivo_escolhas.html"),
+            ("o-quase-presente", "core/imersivo_quase_presente.html"),
         ]:
             with self.subTest(slug=slug):
                 r = self.client.get(f"/series/ia-na-ficcao/{slug}/")
