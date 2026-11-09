@@ -50,4 +50,4 @@ class LuzContaTests(TestCase):
         linha = next(
             ln for ln in css.splitlines() if ln.startswith(".sg-form--conta input:not")
         )
-        self.assertIn("border:1px solid var(--sg-tinta-3)", linha)
+        self.assertIn("border:1px solid var(--sg-campo-borda)", linha)
