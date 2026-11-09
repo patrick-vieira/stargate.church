@@ -250,7 +250,7 @@ registar("atmosfera:quase-presente", ({ el, reduzido, progresso }) => {
       return;
     }
     const d = $("#qp-f-dec").value.trim();
-    out.textContent = R[v][1] + (d ? " Decisão a contestar: " + d + "." : "") + " Pode pedir revisão: " + $("#qp-f-quem").value.toLowerCase() + "." + ($("#qp-f-ex").checked ? " " + R[v][2] : "");
+    out.textContent = R[v][1] + (d ? " Decisão para contestar: " + d + "." : "") + " Pode pedir revisão: " + $("#qp-f-quem").value.toLowerCase() + "." + ($("#qp-f-ex").checked ? " " + R[v][2] : "");
   });
   $("#qp-limpar").addEventListener("click", () => {
     $$("input[name=qp-sv]").forEach((i) => (i.checked = false));

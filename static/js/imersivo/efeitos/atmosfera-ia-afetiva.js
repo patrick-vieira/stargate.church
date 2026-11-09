@@ -154,7 +154,7 @@ registar("atmosfera:ia-afetiva", async ({ el, reduzido }) => {
     const l = limite();
     const n = $("#aa-f-nome").value.trim();
     $("#aa-registro").textContent = l
-      ? `Registrado nesta página: ${n ? n + " deve " : "o assistente deve "}${ROT[l]}. Conversa: ${$("#aa-f-quando").value.toLowerCase()}${$("#aa-f-aval").checked ? "; pede aval antes de guardar algo novo" : ""}.`
+      ? `Registrado nesta página: ${n ? n + " deve " : "o assistente deve "}${ROT[l]}. Conversa: ${$("#aa-f-quando").value.toLowerCase()}${$("#aa-f-aval").checked ? "; pede aval antes de salvar algo novo" : ""}.`
       : "Escolha primeiro o limite mais importante.";
   });
   $("#aa-limpar").addEventListener("click", () => {

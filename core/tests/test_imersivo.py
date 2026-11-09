@@ -930,7 +930,7 @@ class AtmosferaEscolhasTests(TestCase):
         for f in ("A1", "A2", "B1", "B2"):
             self.assertContains(r, f'data-f="{f}"')
         self.assertContains(r, "Limpar caminho")
-        self.assertContains(r, "Guardar meu caminho neste aparelho")
+        self.assertContains(r, "Salvar meu caminho neste aparelho")
         self.assertNotContains(r, "cdn.")
         self.assertNotContains(r, "Georgia")
 
