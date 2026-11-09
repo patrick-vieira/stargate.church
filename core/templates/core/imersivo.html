@@ -86,7 +86,7 @@
         <text transform="translate(16 115) rotate(-90)" text-anchor="middle" font-size="13" fill="#1F1A17">preocupação</text>
         {% for p in ato.previa_pontos %}
         <circle cx="{{ p.cx }}" cy="{{ p.cy }}" r="7" fill="#EB5A3C" stroke="#1F1A17" stroke-width="1.5"/>
-        <text x="{{ p.tx }}" y="{{ p.cy }}" dy="4" text-anchor="{{ p.ancora }}" font-size="13" fill="#1F1A17">{{ p.obra }}</text>
+        <text x="{{ p.tx }}" y="{{ p.ty }}" text-anchor="{{ p.ancora }}" font-size="13" fill="#1F1A17">{{ p.obra }}</text>
         {% endfor %}
       </svg>
       {% endlocalize %}
