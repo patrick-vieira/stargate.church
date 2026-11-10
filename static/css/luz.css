@@ -99,7 +99,7 @@
 .luz-ceu::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
   background:radial-gradient(circle 280px at var(--luz-x) var(--luz-y),rgba(var(--luz-sol),calc(.16*var(--luz-i))),transparent 72%)}
 .luz-ceu .sg-sobrolho{color:var(--ceu-ac)}
-.luz-ceu .sg-manchete h1{color:var(--ceu-tx)}
+.luz-ceu h1,.luz-ceu .sg-manchete h1{color:var(--ceu-tx)}
 .luz-ceu .sg-manchete h1 em{color:var(--ceu-ac)}
 .luz-ceu .sg-lede{color:var(--ceu-tx2)}
 .luz-ceu .sg-meta{color:var(--ceu-tx3)}

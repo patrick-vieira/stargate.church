@@ -4,7 +4,7 @@ from django.urls import reverse
 from core.models import Episodio, PostImersivo, Serie
 
 FIXTURES = [
-    "imersivo_hub",
+    "imersivo_hub_decadas",  # hub genérico; o hub «atmosfera:hub» tem testes próprios
     "maquina_fria",
     "guerra_maquinas",
     "ser_humano",

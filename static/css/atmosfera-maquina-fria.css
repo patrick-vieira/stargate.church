@@ -133,7 +133,7 @@
 .am-btn.am-prim:hover{filter:brightness(1.1)}
 .am-btn.am-lit::before{border-radius:6px}
 .am-registro{margin:16px 0 0;font:600 14px/1.5 var(--mono);color:var(--txt);min-height:2.6em}
-.am-medidor{position:sticky;top:20px}
+.am-medidor{position:sticky;top:92px}
 .am-gauge{display:block;width:100%;max-width:420px;margin:6px auto 0;overflow:visible}
 .am-gauge .am-trilha{fill:none;stroke:#2b3037;stroke-width:16;stroke-linecap:butt}
 .am-gauge .am-valor{fill:none;stroke:var(--luz);stroke-width:16;transition:stroke-dasharray .5s ease}

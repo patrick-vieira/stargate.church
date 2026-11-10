@@ -19,6 +19,7 @@ EFEITOS_MAQUINA_FRIA = {
     "atmosfera:leis-robos-livros",
     "atmosfera:placar",
     "atmosfera:quase-presente",
+    "atmosfera:hub",
 }
 
 
@@ -413,7 +414,10 @@ class EstacoesTests(TestCase):
 
 
 class HubTests(TestCase):
-    fixtures = ["imersivo_hub"]
+    # Hub genérico (linha-tempo:decadas + filtro:chips + grelha:posts). O hub da série
+    # usa agora a atmosfera «Hub» (STAR-70, imersivo_hub.json); estes efeitos continuam
+    # disponíveis no template genérico e testam-se com a fixture legada.
+    fixtures = ["imersivo_hub_decadas"]
 
     def setUp(self):
         from core.models import Episodio, Serie
@@ -550,7 +554,7 @@ class HubTests(TestCase):
 
 
 class HubSemEpisodiosTests(TestCase):
-    fixtures = ["imersivo_hub"]
+    fixtures = ["imersivo_hub_decadas"]
 
     def test_grelha_vazia_sem_link_de_comecar(self):
         from core.models import Serie
@@ -1401,3 +1405,166 @@ class NavegacaoEntrePostsTests(TestCase):
             r,
             'href="/series/ia-na-ficcao/o-quase-presente/">O quase-presente</a></li>',
         )
+
+
+class AtmosferaHubTests(TestCase):
+    fixtures = ["imersivo_hub"]
+
+    def _raiz(self):
+        from pathlib import Path
+
+        return Path(__file__).resolve().parents[2]
+
+    def _url(self):
+        return reverse("core:imersivo", args=["ia-na-ficcao"])
+
+    def test_efeito_sem_parametros(self):
+        ato("atmosfera:hub").clean()
+        with self.assertRaises(ValidationError):
+            ato("atmosfera:hub", {"fixar": True}).clean()
+
+    def test_fixture_valida(self):
+        post = PostImersivo.objects.get(slug="ia-na-ficcao")
+        self.assertEqual(post.pk, 40)
+        self.assertTrue(post.publicado)
+        self.assertEqual(post.atos.count(), 1)
+        for a in post.atos.all():
+            self.assertEqual(a.efeito, "atmosfera:hub")
+            self.assertEqual(a.reduzido, "estatico")
+            self.assertEqual(a.parametros, {})
+            a.full_clean()
+
+    def test_renderiza_o_template_da_atmosfera(self):
+        r = self.client.get(self._url())
+        self.assertEqual(r.status_code, 200)
+        self.assertTemplateUsed(r, "core/imersivo_hub.html")
+        self.assertContains(r, 'data-efeito="atmosfera:hub"')
+        self.assertContains(r, "css/atmosfera-hub.css")
+        self.assertContains(r, "js/imersivo/motor.js")
+        self.assertContains(r, 'id="hb-faixa"')
+        self.assertContains(r, 'id="hb-pausa"')
+        self.assertContains(r, "A IA na ficção")
+        self.assertContains(r, 'data-post="', count=8)
+        self.assertNotContains(r, "cdn.")
+        self.assertNotContains(r, "Georgia")
+        self.assertNotContains(r, "Preocupar-se")
+
+    def test_cartoes_entrar_so_para_publicados(self):
+        PostImersivo.objects.create(slug="a-maquina-fria", titulo="A", publicado=True)
+        PostImersivo.objects.create(slug="o-placar", titulo="P", publicado=False)
+        r = self.client.get(self._url())
+        url_fria = reverse("core:imersivo", args=["a-maquina-fria"])
+        self.assertContains(r, f'<a class="hb-ent" href="{url_fria}">Entrar →</a>')
+        self.assertContains(r, 'class="hb-ent"', count=1)
+        self.assertContains(r, 'class="hb-breve">Em breve</span>', count=7)
+        self.assertNotContains(r, "Abrir o placar")
+
+    def test_sem_posts_publicados_todos_em_breve(self):
+        r = self.client.get(self._url())
+        self.assertNotContains(r, 'class="hb-ent"')
+        self.assertContains(r, 'class="hb-breve">Em breve</span>', count=8)
+
+    def test_com_serie_liga_ao_episodio(self):
+        from core.models import Episodio, Serie
+
+        fria = PostImersivo.objects.create(
+            slug="a-maquina-fria", titulo="A", publicado=True
+        )
+        placar = PostImersivo.objects.create(
+            slug="o-placar", titulo="P", publicado=True
+        )
+        serie = Serie.objects.create(
+            slug="ia-na-ficcao",
+            titulo="S",
+            publicado=True,
+            hub=PostImersivo.objects.get(slug="ia-na-ficcao"),
+        )
+        Episodio.objects.create(
+            serie=serie, numero=1, slug="a-maquina-fria", post=fria, publicado=True
+        )
+        Episodio.objects.create(
+            serie=serie, numero=8, slug="o-placar", post=placar, publicado=True
+        )
+        r = self.client.get("/series/ia-na-ficcao/")
+        self.assertEqual(r.status_code, 200)
+        self.assertTemplateUsed(r, "core/imersivo_hub.html")
+        self.assertContains(r, "Série · 2 posts · 1920 → 2026")
+        self.assertContains(r, 'href="/series/ia-na-ficcao/a-maquina-fria/"')
+        self.assertContains(r, "Abrir o placar")
+        self.assertNotContains(r, 'href="/imersivo/')
+
+    def test_sem_gravacao_no_servidor(self):
+        r = self.client.get(self._url())
+        self.assertNotContains(r, "csrfmiddlewaretoken")
+        self.assertNotContains(r, "action=")
+        self.assertNotContains(r, "<form")
+
+    def test_css_escopado_e_reduzido(self):
+        css = (self._raiz() / "static/css/atmosfera-hub.css").read_text()
+        self.assertIn("--serif:var(--sg-serif)", css)
+        self.assertIn("fonts/fraunces/fraunces-latin-600-normal.woff2", css)
+        self.assertNotIn("Georgia", css)
+        self.assertNotIn(":root", css)
+        self.assertNotIn("overflow-x:hidden", css)
+        self.assertIn("overflow-x:clip", css)
+        self.assertIn("prefers-reduced-motion:reduce", css)
+        self.assertIn(".hb-estatico", css)
+        self.assertIn(".hb-raiz:not(.hb-faixa-on)", css)
+        self.assertNotIn("@view-transition", css)
+
+    def test_js_estado_na_raiz_e_sem_rede(self):
+        js = (self._raiz() / "static/js/imersivo/efeitos/atmosfera-hub.js").read_text()
+        self.assertIn('registar("atmosfera:hub"', js)
+        self.assertIn("reduzido", js)
+        self.assertIn("root.style", js)
+        self.assertNotIn("document.documentElement", js)
+        self.assertNotIn("document.body", js)
+        self.assertNotIn("reduzido=1", js)
+        self.assertNotIn("fetch(", js)
+        self.assertNotIn("XMLHttpRequest", js)
+        self.assertNotIn("http", js)
+        self.assertNotIn("import(", js)
+
+
+class HubLigacoesDosPostsTests(TestCase):
+    """STAR-70: «← Voltar à linha do tempo» dos posts 1 a 5 leva à faixa do hub."""
+
+    fixtures = [
+        "imersivo_hub",
+        "maquina_fria",
+        "guerra_maquinas",
+        "ser_humano",
+        "ia_afetiva",
+        "leis_robos_livros",
+    ]
+
+    def test_voltar_aponta_para_a_faixa_do_hub(self):
+        for slug in (
+            "a-maquina-fria",
+            "o-medo-da-guerra-das-maquinas",
+            "o-que-e-ser-humano",
+            "a-ia-afetiva",
+            "leis-robos-e-livros",
+        ):
+            with self.subTest(slug=slug):
+                r = self.client.get(reverse("core:imersivo", args=[slug]))
+                self.assertContains(
+                    r,
+                    'href="/imersivo/ia-na-ficcao/#hb-faixa">← Voltar à linha do tempo',
+                )
+                self.assertNotContains(r, "Voltar à página inicial")
+
+    def test_fontes_do_fecho_com_especificidade_certa(self):
+        from pathlib import Path
+
+        css = Path(__file__).resolve().parents[2] / "static/css"
+        for ficheiro, regra in (
+            ("atmosfera-guerra-maquinas.css", ".ag-fecho p.ag-fontes{"),
+            ("atmosfera-ser-humano.css", ".sh-fecho p.sh-fontes{"),
+            ("atmosfera-ia-afetiva.css", ".aa-fecho p.aa-fontes{"),
+            ("atmosfera-leis-robos-livros.css", ".lr-fecho p.lr-fontes{"),
+            ("atmosfera-escolhas.css", ".em-fecho p.em-fontes{"),
+            ("atmosfera-quase-presente.css", ".qp-fecho p.qp-fontes{"),
+        ):
+            with self.subTest(ficheiro=ficheiro):
+                self.assertIn(regra, (css / ficheiro).read_text())

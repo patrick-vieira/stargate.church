@@ -104,8 +104,9 @@
   <section class="aa-fecho" aria-label="Próxima estação">
     <div class="aa-miolo">
       <p class="aa-quente">Cuidar de alguém é também deixá-lo livre para ir.</p><br>
-      <a href="{% url 'core:home' %}">← Voltar à página inicial</a>
-      <p class="aa-fontes aa-quente">Fontes: Her, Warner Bros. · Black Mirror, Netflix · Klara and the Sun, Faber · NIST AI 600-1, Generative AI Profile. O diálogo é texto original inventado; nenhuma interface de assistente real é copiada. Sem áudio nesta onda.</p>
+      <a class="aa-prox" href="{% if serie %}{% url 'core:episodio' serie.slug 'leis-robos-e-livros' %}{% else %}{% url 'core:imersivo' 'leis-robos-e-livros' %}{% endif %}">Próxima estação: <em>Leis, robôs e livros</em> →</a><br>
+      <a href="{% url 'core:imersivo' 'ia-na-ficcao' %}#hb-faixa">← Voltar à linha do tempo</a>
+      <p class="aa-fontes aa-quente">Fontes: Her, Warner Bros. · Black Mirror, Netflix · Klara and the Sun, Faber · NIST AI 600-1, Generative AI Profile. O diálogo é texto original inventado; nenhuma interface de assistente real é copiada.</p>
     </div>
   </section>
 </div>

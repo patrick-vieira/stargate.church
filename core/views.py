@@ -23,6 +23,7 @@ TEMPLATES_ATMOSFERA = {
     Ato.Efeito.ATMOSFERA_LEIS_ROBOS_LIVROS: "core/imersivo_leis_robos_livros.html",
     Ato.Efeito.ATMOSFERA_PLACAR: "core/imersivo_placar.html",
     Ato.Efeito.ATMOSFERA_QUASE_PRESENTE: "core/imersivo_quase_presente.html",
+    Ato.Efeito.ATMOSFERA_HUB: "core/imersivo_hub.html",
 }
 
 
@@ -123,6 +124,11 @@ def _renderizar_post(request, post, serie=None, episodio=None):
     for a in atos:
         if a.efeito == Ato.Efeito.ATMOSFERA_PLACAR:
             contexto.update(_contexto_placar(request))
+        if a.efeito == Ato.Efeito.ATMOSFERA_HUB:
+            # Cartões «Entrar →» só para posts publicados; os outros dizem «Em breve».
+            contexto["publicados"] = set(
+                PostImersivo.publicados().values_list("slug", flat=True)
+            )
         if a.efeito in TEMPLATES_ATMOSFERA:
             return render(request, TEMPLATES_ATMOSFERA[a.efeito], contexto)
     return render(request, "core/imersivo.html", contexto)

@@ -175,6 +175,8 @@ PARAMETROS_POR_EFEITO = {
     "atmosfera:placar": {},
     # Atmosfera do post 7 (STAR-47): cidade de vigilância, celular que racha.
     "atmosfera:quase-presente": {},
+    # Atmosfera do hub (STAR-70): névoa, luz por década e faixa; cartões no template.
+    "atmosfera:hub": {},
 }
 
 
@@ -232,6 +234,7 @@ class Ato(models.Model):
             "Atmosfera «O quase-presente»",
         )
         ATMOSFERA_PLACAR = "atmosfera:placar", "Atmosfera «O placar»"
+        ATMOSFERA_HUB = "atmosfera:hub", "Atmosfera «Hub»"
 
     class Reduzido(models.TextChoices):
         ESTATICO = "estatico", "Estático"

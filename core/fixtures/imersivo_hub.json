@@ -14,64 +14,10 @@
     "fields": {
       "post": 40,
       "ordem": 1,
-      "titulo": "Prólogo — Dar nome à máquina",
-      "texto": "Em 1920, R.U.R. pôs em cena trabalhadores artificiais. Um século depois, escrevemos para sistemas que respondem em segundos. Entre os dois pontos não há uma profecia cumprida: há várias perguntas que mudaram de forma.",
-      "efeito": "linha-tempo:decadas",
-      "parametros": {
-        "intensidade": 0.6,
-        "estacoes": [
-          {"decada": 1920, "titulo": "R.U.R. — o nome «robô»"},
-          {"decada": 1950, "titulo": "Asimov e Turing"},
-          {"decada": 1960, "titulo": "A máquina fria", "slug": "a-maquina-fria"},
-          {"decada": 1980, "titulo": "A guerra das máquinas", "slug": "o-medo-da-guerra-das-maquinas"},
-          {"decada": 1990, "titulo": "O que é ser humano", "slug": "o-que-e-ser-humano"},
-          {"decada": 2010, "titulo": "A IA afetiva", "slug": "a-ia-afetiva"},
-          {"decada": 2010, "titulo": "Leis, robôs e livros", "slug": "leis-robos-e-livros"},
-          {"decada": 2010, "titulo": "Escolhas da máquina", "slug": "escolhas-da-maquina"},
-          {"decada": 2020, "titulo": "O quase-presente", "slug": "o-quase-presente"},
-          {"decada": 2020, "titulo": "O placar", "slug": "o-placar"}
-        ]
-      },
-      "reduzido": "estatico"
-    }
-  },
-  {
-    "model": "core.ato",
-    "pk": 402,
-    "fields": {
-      "post": 40,
-      "ordem": 2,
-      "titulo": "Mapa — Cinco perguntas",
-      "texto": "Quem manda? Quem luta? Quem sente? Quem cuida? Quem vê tudo? Escolha uma pergunta ou percorra a linha inteira. Em cada parada, separaremos a invenção que não chegou do efeito social que já podemos medir.",
-      "efeito": "filtro:chips",
-      "parametros": {
-        "perguntas": [
-          {"id": "manda", "rotulo": "Quem manda?", "slugs": ["a-maquina-fria", "escolhas-da-maquina", "o-quase-presente"]},
-          {"id": "luta", "rotulo": "Quem luta?", "slugs": ["o-medo-da-guerra-das-maquinas"]},
-          {"id": "sente", "rotulo": "Quem sente?", "slugs": ["a-ia-afetiva", "o-que-e-ser-humano"]},
-          {"id": "cuida", "rotulo": "Quem cuida?", "slugs": ["leis-robos-e-livros", "a-ia-afetiva"]},
-          {"id": "ve-tudo", "rotulo": "Quem vê tudo?", "slugs": ["o-quase-presente", "o-placar"]}
-        ]
-      },
-      "reduzido": "estatico"
-    }
-  },
-  {
-    "model": "core.ato",
-    "pk": 403,
-    "fields": {
-      "post": 40,
-      "ordem": 3,
-      "titulo": "Convite — Seu próprio placar",
-      "texto": "No fim, você poderá mover cada obra no mapa perto/longe × preocupação. Nossa pontuação é uma hipótese explicada, não um veredito.",
-      "efeito": "grelha:posts",
-      "parametros": {
-        "previa": [
-          {"id": "rur-1920"},
-          {"id": "i-robot-book-1950"},
-          {"id": "her-2013"}
-        ]
-      },
+      "titulo": "Do Golem ao ChatGPT",
+      "texto": "A ficção imaginou máquinas que pensam há cem anos. Quanto disso chegou, e quanto devemos nos preocupar?",
+      "efeito": "atmosfera:hub",
+      "parametros": {},
       "reduzido": "estatico"
     }
   }
