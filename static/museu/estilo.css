@@ -216,3 +216,22 @@ html[data-modo=sobrio] .visita ol{max-height:10rem;margin:.25rem 0 .5rem;overflo
 .series-museu nav a:hover,.series-museu nav a:focus-visible{background:#efe8d7;text-decoration:underline}
 html[data-modo=ludico] .series-museu nav{background:#111720;color:var(--cr);border-color:#f1e9d255}
 html[data-modo=ludico] .series-museu nav a:hover,html[data-modo=ludico] .series-museu nav a:focus-visible{background:#263243}
+
+/* STAR-72: HUD ancorada no rodapé; a cena e a placa ficam desimpedidas. */
+html[data-modo=ludico] .hud{bottom:10px;display:flex;flex-direction:column;justify-content:flex-end;gap:8px;}
+html[data-modo=ludico] .hud .cartao{flex:1 1 280px;min-height:0;max-height:min(42vh,26rem);}
+html[data-modo=ludico] .hud-baixo{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:end;gap:8px;}
+html[data-modo=ludico] .hud-baixo .dica{grid-column:1;grid-row:1;justify-self:start;max-width:34rem;}
+html[data-modo=ludico] .hud-baixo .ctrl{grid-column:2;grid-row:1;justify-self:center;}
+html[data-modo=ludico] .hud-baixo .mapa-peq{grid-column:3;grid-row:1;justify-self:end;}
+html[data-modo=ludico] .visita{order:2;align-self:stretch;}
+html[data-modo=ludico] .hud-baixo{order:3;}
+@media(max-width:640px){
+  html[data-modo=ludico] .hud{left:8px;right:8px;bottom:8px;gap:6px;}
+  html[data-modo=ludico] .hud .cartao{flex-basis:180px;max-height:34vh;}
+  html[data-modo=ludico] .hud-baixo{grid-template-columns:minmax(0,1fr) auto;gap:6px;}
+  html[data-modo=ludico] .hud-baixo .dica{grid-column:1/-1;grid-row:1;max-width:none;}
+  html[data-modo=ludico] .hud-baixo .ctrl{grid-column:1/-1;grid-row:2;justify-self:center;}
+  html[data-modo=ludico] .hud-baixo .mapa-peq{grid-column:2;grid-row:2;width:72px;}
+  html[data-modo=ludico] .hud-baixo .ctrl .btn{width:40px;min-width:40px;min-height:40px;}
+}
