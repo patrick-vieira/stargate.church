@@ -1,35 +1,60 @@
 """Cliente mínimo do ImageTools (S3 com API) para os vídeos dos episódios.
 
-Configuração só por variáveis de ambiente (nunca com valor no código):
-  IMAGETOOLS_API_URL  base da API, sem barra final
-  IMAGETOOLS_API_KEY  chave de acesso (Bearer)
+Autentica por cabeçalho `X-API-Key` com um `User-Agent` (o Bearer é recusado).
+
+Configuração (nunca com valor no código), por ordem de precedência:
+  IMAGETOOLS_API_URL / IMAGETOOLS_API_KEY  base da API (sem barra final) e chave
+  IMAGETOOLS_CREDENCIAIS  caminho de um JSON com os campos `url` e `token`,
+                          lido só para o que as variáveis acima não definem
 """
 
+import json
 import os
 from pathlib import Path
 
 TAGS = "stargate"
 TIMEOUT_S = 600  # vídeos de dezenas de MB
+USER_AGENT = "stargate.church/importar_midia"
 
 
 class ImageToolsErro(Exception):
     """Falha de configuração ou de comunicação com o ImageTools."""
 
 
+def _ler_credenciais(caminho):
+    """(url, token) do JSON em `caminho`; nunca inclui o token nos erros."""
+    try:
+        dados = json.loads(Path(caminho).read_text())
+    except (OSError, ValueError) as exc:
+        raise ImageToolsErro(
+            f"IMAGETOOLS_CREDENCIAIS não pôde ser lido ({type(exc).__name__})."
+        ) from None
+    if not isinstance(dados, dict):
+        raise ImageToolsErro("IMAGETOOLS_CREDENCIAIS: o JSON deve ser um objeto.")
+    url = str(dados.get("url") or "").strip().rstrip("/")
+    token = str(dados.get("token") or "").strip()
+    return url, token
+
+
 def configuracao():
-    """(url_base, chave) vindos de os.environ; erro claro se faltar algo."""
+    """(url_base, chave): variáveis de ambiente, depois o JSON das credenciais."""
     url = os.environ.get("IMAGETOOLS_API_URL", "").strip().rstrip("/")
     chave = os.environ.get("IMAGETOOLS_API_KEY", "").strip()
+    caminho = os.environ.get("IMAGETOOLS_CREDENCIAIS", "").strip()
+    if caminho and not (url and chave):
+        url_j, chave_j = _ler_credenciais(caminho)
+        url = url or url_j
+        chave = chave or chave_j
     faltam = [
         nome
         for nome, valor in (
-            ("IMAGETOOLS_API_URL", url),
-            ("IMAGETOOLS_API_KEY", chave),
+            ("IMAGETOOLS_API_URL (ou `url` em IMAGETOOLS_CREDENCIAIS)", url),
+            ("IMAGETOOLS_API_KEY (ou `token` em IMAGETOOLS_CREDENCIAIS)", chave),
         )
         if not valor
     ]
     if faltam:
-        raise ImageToolsErro("Faltam variáveis de ambiente: " + ", ".join(faltam))
+        raise ImageToolsErro("Falta configurar: " + ", ".join(faltam))
     return url, chave
 
 
@@ -37,7 +62,7 @@ def _http(metodo, url, chave, ficheiro=None):
     """ÚNICO ponto que toca a rede (os testes substituem-no). Devolve o JSON."""
     import httpx  # import tardio: só quem envia precisa dele
 
-    cabecalhos = {"Authorization": f"Bearer {chave}"}
+    cabecalhos = {"X-API-Key": chave, "User-Agent": USER_AGENT}
     try:
         if ficheiro is None:
             resp = httpx.request(metodo, url, headers=cabecalhos, timeout=60)

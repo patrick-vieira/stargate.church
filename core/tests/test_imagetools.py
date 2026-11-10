@@ -16,7 +16,7 @@ from .test_series import FIXTURES
 HTTP = "core.servicos.imagetools._http"
 BASE = "https://it.invalid"  # domínio reservado: nunca resolve
 AMBIENTE = {"IMAGETOOLS_API_URL": BASE + "/", "IMAGETOOLS_API_KEY": "chave-de-teste"}
-SEM_AMBIENTE = {k: "" for k in AMBIENTE}
+SEM_AMBIENTE = {k: "" for k in (*AMBIENTE, "IMAGETOOLS_CREDENCIAIS")}
 
 
 class ClienteTests(SimpleTestCase):
@@ -83,6 +83,69 @@ class ClienteTests(SimpleTestCase):
             with self.assertRaises(imagetools.ImageToolsErro) as ctx:
                 imagetools.configuracao()
         self.assertNotIn("IMAGETOOLS_API_URL", str(ctx.exception))
+
+    def _credenciais(self, conteudo):
+        caminho = Path(tempfile.mkdtemp(prefix="it-cred-")) / "cred.json"
+        caminho.write_text(conteudo)
+        return str(caminho)
+
+    def test_le_credenciais_do_json(self):
+        cred = self._credenciais('{"url": "https://j.invalid/", "token": "tok-falso"}')
+        amb = {**SEM_AMBIENTE, "IMAGETOOLS_CREDENCIAIS": cred}
+        with mock.patch.dict(os.environ, amb):
+            self.assertEqual(
+                imagetools.configuracao(), ("https://j.invalid", "tok-falso")
+            )
+
+    def test_variaveis_tem_precedencia_sobre_o_json(self):
+        cred = self._credenciais('{"url": "https://j.invalid", "token": "tok-json"}')
+        amb = {**AMBIENTE, "IMAGETOOLS_CREDENCIAIS": cred}
+        with mock.patch.dict(os.environ, amb):
+            self.assertEqual(imagetools.configuracao(), (BASE, "chave-de-teste"))
+        parcial = {
+            **SEM_AMBIENTE,
+            "IMAGETOOLS_API_KEY": "so-chave",
+            "IMAGETOOLS_CREDENCIAIS": cred,
+        }
+        with mock.patch.dict(os.environ, parcial):
+            self.assertEqual(
+                imagetools.configuracao(), ("https://j.invalid", "so-chave")
+            )
+
+    def test_json_incompleto_diz_o_que_falta_sem_token(self):
+        cred = self._credenciais('{"token": "segredo-nunca-impresso"}')
+        amb = {**SEM_AMBIENTE, "IMAGETOOLS_CREDENCIAIS": cred}
+        with mock.patch.dict(os.environ, amb):
+            with self.assertRaises(imagetools.ImageToolsErro) as ctx:
+                imagetools.configuracao()
+        self.assertIn("IMAGETOOLS_API_URL", str(ctx.exception))
+        self.assertNotIn("segredo-nunca-impresso", str(ctx.exception))
+
+    def test_json_invalido_ou_ausente_e_erro_sem_conteudo(self):
+        cred = self._credenciais("token=segredo-nunca-impresso")
+        for caminho in (cred, cred + ".nao-existe"):
+            amb = {**SEM_AMBIENTE, "IMAGETOOLS_CREDENCIAIS": caminho}
+            with mock.patch.dict(os.environ, amb):
+                with self.assertRaises(imagetools.ImageToolsErro) as ctx:
+                    imagetools.configuracao()
+            self.assertNotIn("segredo-nunca-impresso", str(ctx.exception))
+
+    def test_cabecalhos_enviados(self):
+        import sys
+        import types
+
+        resp = mock.Mock()
+        resp.json.return_value = {}
+        falso = types.ModuleType("httpx")  # o venv de teste não precisa do httpx
+        falso.HTTPError = type("HTTPError", (Exception,), {})
+        falso.request = mock.Mock(return_value=resp)
+        with mock.patch.dict(sys.modules, {"httpx": falso}):
+            imagetools._http("GET", BASE + "/x", "chave-de-teste")
+        req = falso.request
+        cab = req.call_args.kwargs["headers"]
+        self.assertEqual(cab["X-API-Key"], "chave-de-teste")
+        self.assertEqual(cab["User-Agent"], "stargate.church/importar_midia")
+        self.assertNotIn("Authorization", cab)
 
     def test_codigo_sem_valores_de_configuracao(self):
         fonte = Path(imagetools.__file__).read_text()
