@@ -1,6 +1,7 @@
 import tempfile
 from io import StringIO
 from pathlib import Path
+from unittest import mock
 
 from django.core.management import call_command
 from django.core.management.base import CommandError
@@ -199,3 +200,123 @@ class PlayerTests(TestCase):
         self.assertEqual(settings.MEDIA_URL, "/midia/")
         src = str(settings.BASE_DIR / "core")
         self.assertFalse(str(settings.MEDIA_ROOT).startswith(src))
+
+
+MOD = "core.management.commands.importar_midia"
+
+
+def _falso(caminho, tamanho):
+    """Ficheiro esparso com o tamanho exacto (sem escrever bytes)."""
+    with open(caminho, "wb") as f:
+        f.truncate(tamanho)
+
+
+@override_settings(MEDIA_ROOT=TMP)
+class MultiOrigemERecompressaoTests(TestCase):
+    fixtures = FIXTURES
+
+    def setUp(self):
+        self.a = Path(tempfile.mkdtemp(prefix="origem-a-"))
+        self.b = Path(tempfile.mkdtemp(prefix="origem-b-"))
+
+    def _cmd(self, origens, **kw):
+        out = StringIO()
+        args = [x for o in origens for x in ("--origem", str(o))]
+        call_command(
+            "importar_midia",
+            *args,
+            stdout=out,
+            stderr=StringIO(),
+            **kw,
+        )
+        return out.getvalue()
+
+    def _pasta(self, raiz, *partes):
+        p = raiz.joinpath(*partes)
+        p.mkdir(parents=True)
+        return p
+
+    def test_layout_entrega_videos_direto(self):
+        pasta = self._pasta(self.a, "videos", "ia-ficcao-00")
+        (pasta / "video.mp4").write_bytes(b"hub")
+        self._cmd([self.a])
+        self.assertEqual(
+            Episodio.objects.get(serie__slug="ia-na-ficcao", numero=0).video.name,
+            "episodios/ia-na-ficcao/00/video.mp4",
+        )
+
+    def test_tres_layouts_em_origens_repetidas(self):
+        pastas = (
+            self._pasta(self.a, "videos", "ia-ficcao-01"),
+            self._pasta(self.b, "STAR-49", "videos", "ia-ficcao-02"),
+            self._pasta(self.b, "STAR-50", "saida", "star-post5"),
+        )
+        for p in pastas:
+            (p / "video.mp4").write_bytes(b"v")
+        self._cmd([self.a, self.b])
+        for n in (1, 2, 5):
+            self.assertTrue(Episodio.objects.get(numero=n).video, n)
+        self.assertFalse(Episodio.objects.get(numero=3).video)
+
+    def test_primeira_origem_vale(self):
+        for raiz, conteudo in ((self.a, b"A"), (self.b, b"B")):
+            p = self._pasta(raiz, "videos", "ia-ficcao-01")
+            (p / "video.mp4").write_bytes(conteudo)
+        self._cmd([self.a, self.b])
+        copiado = Path(TMP) / "episodios/ia-na-ficcao/01/video.mp4"
+        self.assertEqual(copiado.read_bytes(), b"A")
+
+    def test_no_limite_copia_sem_recomprimir(self):
+        p = self._pasta(self.a, "videos", "ia-ficcao-01")
+        _falso(p / "video.mp4", 1024 * 1024)  # == limite de 1 MB: não passa
+        with mock.patch(f"{MOD}.recomprimir_ffmpeg") as rec:
+            self._cmd([self.a], limite_mb=1)
+        rec.assert_not_called()
+
+    def test_acima_do_limite_recomprime_e_original_fica(self):
+        p = self._pasta(self.a, "videos", "ia-ficcao-01")
+        original = p / "video.mp4"
+        _falso(original, 1024 * 1024 + 1)
+
+        def falso_ffmpeg(src, dst, alvo):
+            Path(dst).write_bytes(b"pequeno")
+
+        with mock.patch(f"{MOD}.recomprimir_ffmpeg", side_effect=falso_ffmpeg) as rec:
+            self._cmd([self.a], limite_mb=1, alvo_mb=1)
+        rec.assert_called_once()
+        src, dst, alvo = rec.call_args.args
+        self.assertEqual(Path(src), original.resolve())
+        self.assertEqual(alvo, 1024 * 1024)
+        self.assertEqual(original.stat().st_size, 1024 * 1024 + 1)
+        self.assertEqual(Path(dst).read_bytes(), b"pequeno")
+
+    def test_dry_run_nao_recomprime(self):
+        p = self._pasta(self.a, "videos", "ia-ficcao-01")
+        _falso(p / "video.mp4", 1024 * 1024 + 1)
+        with mock.patch(f"{MOD}.recomprimir_ffmpeg") as rec:
+            saida = self._cmd([self.a], limite_mb=1, dry_run=True)
+        rec.assert_not_called()
+        self.assertIn("[recomprimir]", saida)
+
+    def test_falha_do_ffmpeg_vira_erro_de_comando(self):
+        p = self._pasta(self.a, "videos", "ia-ficcao-01")
+        _falso(p / "video.mp4", 1024 * 1024 + 1)
+        with mock.patch(
+            f"{MOD}.recomprimir_ffmpeg", side_effect=FileNotFoundError("x")
+        ):
+            with self.assertRaises(CommandError):
+                self._cmd([self.a], limite_mb=1)
+
+    def test_funcao_ffmpeg_monta_comando_sem_executar(self):
+        from core.management.commands.importar_midia import recomprimir_ffmpeg
+
+        sonda = mock.Mock(stdout="100.0\n")
+        with mock.patch(f"{MOD}.subprocess.run", return_value=sonda) as run:
+            recomprimir_ffmpeg("/x/in.mp4", "/y/out.mp4", 40 * 1024 * 1024)
+        self.assertEqual(run.call_count, 2)
+        cmd = run.call_args_list[1].args[0]
+        self.assertEqual(cmd[0], "ffmpeg")
+        for trecho in ("libx264", "+faststart", "/x/in.mp4"):
+            self.assertIn(trecho, cmd)
+        self.assertEqual(cmd[-1], "/y/out.mp4")
+        self.assertIn("scale=-2:'min(1080,ih)'", cmd)
