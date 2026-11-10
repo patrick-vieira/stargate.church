@@ -1,0 +1,36 @@
+{% load static %}<!doctype html>
+<html lang="pt-BR" data-modo="sobrio">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Museu interativo · Stargate</title>
+<meta name="description" content="Protótipo da página inicial lúdica do Stargate: um labirinto 2D de blocos com escolhas, como num livro-jogo, e a versão sóbria do mesmo conteúdo.">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="{% static 'museu/estilo.css' %}">
+{{ dados|json_script:"dados" }}
+</head>
+<body>
+<a class="skip" href="#principal">Pular para o conteúdo</a>
+<header class="topo" role="banner">
+  <a class="logo" href="#principal">Stargate</a>
+  {% if series %}<details class="series-museu">
+    <summary>Séries <span aria-hidden="true">({{ series|length }})</span></summary>
+    <nav aria-label="Escolher uma série">
+      {% for serie in series %}<a href="?serie={{ serie.slug }}">{{ serie.titulo }}</a>{% endfor %}
+    </nav>
+  </details>{% endif %}
+  <nav class="prim" aria-label="Principal"><a href="#series">Séries</a><a href="#livro-jogo">Livro-jogo</a><a href="/">Portal</a><a href="#mapa">Mapa do site</a></nav>
+  <div class="controlos">
+    <button id="pausa" type="button" class="btn" aria-pressed="false" hidden>Pausar movimento</button>
+    <button id="som" type="button" class="btn modo" role="switch" aria-checked="false" hidden><span class="chave" aria-hidden="true"></span><span class="rot">Som: desligado</span></button>
+    <button id="modo" type="button" class="btn modo" role="switch" aria-checked="false" hidden><span class="chave" aria-hidden="true"></span><span class="rot">Modo lúdico</span></button>
+  </div>
+</header>
+<div id="cena" role="region" aria-label="Labirinto do Stargate (cena decorativa; o mesmo conteúdo está no modo sóbrio)"></div>
+<main id="principal" tabindex="-1"><div class="wrap"><h1>Museu do Stargate · MOCK</h1>{% for no in nos %}<article class="bloco" id="n{{ no.id }}"><h2>{{ no.titulo }}</h2>{% for texto in no.texto %}<p>{{ texto }}</p>{% endfor %}{% if no.narracao_audio_endpoint %}<button type="button" class="btn ouvir" data-audio-endpoint="{{ no.narracao_audio_endpoint }}">Ouvir a narração</button>{% endif %}{% if no.tipo == "video" %}<p>Vídeo em preparação. Continue pelo texto.</p>{% endif %}{% for camada in no.camadas %}<details><summary>{{ camada.rotulo }}</summary><p>{{ camada.texto }}</p></details>{% endfor %}{% if no.dialogo %}<h3>{{ no.dialogo.personagem.nome }}</h3><p>{{ no.dialogo.personagem.papel }}</p>{% for fala in no.dialogo.falas %}<p>{{ fala }}</p>{% endfor %}{% for resposta in no.dialogo.respostas %}<p><a href="#n{{ resposta.vai }}">{{ resposta.texto }}</a></p>{% endfor %}{% endif %}<nav aria-label="Escolhas do bloco {{ no.id }}">{% for escolha in no.escolhas %}<p><a href="#n{{ escolha.destino }}">{{ escolha.rotulo }}</a></p>{% endfor %}</nav>{% for fonte in no.fontes %}<p><a href="{{ fonte.url }}" rel="noopener noreferrer">{{ fonte.titulo }}</a>{% if not fonte.verificada %} · por verificar{% endif %}</p>{% endfor %}</article>{% empty %}<p>O museu está sendo preparado. Volte em breve.</p>{% endfor %}</div></main>
+<footer><div class="wrap">Museu interativo do Stargate. Conteúdo de exemplo marcado <span class="etiqueta">[MOCK]</span>: rascunho, não publicado.</div></footer>
+<div id="cortina" aria-hidden="true"></div>
+<div id="aviso" role="status" aria-live="polite"></div>
+<script type="module" src="{% static 'museu/app.js' %}"></script>
+</body>
+</html>

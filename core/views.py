@@ -5,7 +5,7 @@ from django.http import Http404, JsonResponse
 from django.middleware.csrf import get_token
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
-from django.views.decorators.http import require_POST
+from django.views.decorators.http import require_GET, require_POST
 
 from leitores.tecto import exige_tecto
 
@@ -256,3 +256,155 @@ def episodio(request, serie, episodio):
     if obj.post_id == obj.serie.hub_id:
         return redirect(obj.serie.get_absolute_url(), permanent=True)
     return _renderizar_post(request, obj.post, obj.serie, obj)
+
+
+def museu(request):
+    from .models import GrafoMuseu, Serie
+    from .servicos.museu import apresentar
+
+    todas_series = list(
+        Serie.objects.filter(publicado=True)
+        .prefetch_related("episodios__post")
+        .order_by("ordem", "titulo")
+    )
+    grafos = list(
+        GrafoMuseu.objects.filter(serie__publicado=True)
+        .select_related("serie")
+        .order_by("serie__titulo")
+    )
+    apresentados = [apresentar(g.serie, g.dados) for g in grafos]
+    pacote_por_slug = {pacote["grafo"]["serie"]: pacote for pacote in apresentados}
+    series_json = []
+    for serie_obj in todas_series:
+        pacote = pacote_por_slug.get(serie_obj.slug)
+        serie_json = (
+            pacote["series"][0]
+            if pacote
+            else {
+                "slug": serie_obj.slug,
+                "titulo": serie_obj.titulo,
+                "resumo": serie_obj.resumo,
+                "mock": False,
+                "episodios": [
+                    {
+                        "numero": ep.numero,
+                        "titulo": ep.titulo or ep.slug,
+                        "url": ep.get_absolute_url()
+                        if ep.publicado and ep.post and ep.post.publicado
+                        else "",
+                    }
+                    for ep in serie_obj.episodios.all()
+                    if ep.publicado
+                ],
+            }
+        )
+        series_json.append(serie_json)
+    dados = {
+        "series": series_json,
+        "noticias": [],
+        "grafo": None,
+    }
+    if len(apresentados) == 1:
+        dados["grafo"] = apresentados[0]["grafo"]
+    elif apresentados:
+        combinados = []
+        salas = []
+        visitas = []
+        por_serie = {}
+        for pacote in apresentados:
+            grafo = pacote["grafo"]
+            slug = grafo["serie"]
+            prefixo = f"{slug}:"
+            ids = {str(n["id"]): f"{prefixo}{n['id']}" for n in grafo["nos"]}
+            for no in grafo["nos"]:
+                no["id"] = ids[str(no["id"])]
+                no["serie"] = slug
+                no["ligacoes"] = {
+                    t: ids.get(str(destino)) if destino is not None else None
+                    for t, destino in no["ligacoes"].items()
+                }
+                no["sala"] = prefixo + no["sala"]
+                for escolha in no.get("escolhas", []):
+                    destino = escolha["destino"]
+                    escolha["destino"] = ids.get(str(destino), destino)
+                if no.get("dialogo"):
+                    for resposta in no["dialogo"].get("respostas", []):
+                        resposta["vai"] = ids.get(str(resposta["vai"]), resposta["vai"])
+                combinados.append(no)
+            for sala in grafo["salas"]:
+                sala["id"] = prefixo + sala["id"]
+                salas.append(sala)
+            for visita in grafo["visitas"]:
+                visita["passos"] = [ids[str(p)] for p in visita["passos"]]
+                visitas.append(visita)
+            por_serie[slug] = {
+                "entrada": ids[str(grafo["entrada"])],
+                "ids": list(ids.values()),
+            }
+        dados["grafo"] = {
+            "serie": "",
+            "series": por_serie,
+            "nos": combinados,
+            "salas": salas,
+            "visitas": visitas,
+        }
+    return render(
+        request,
+        "core/museu.html",
+        {
+            "dados": dados,
+            "nos": dados["grafo"]["nos"] if dados["grafo"] else [],
+            "series": todas_series,
+        },
+    )
+
+
+def museu_video(request, serie, bloco):
+    from django.http import JsonResponse
+    from django.shortcuts import get_object_or_404
+
+    from .models import GrafoMuseu
+    from .servicos.imagetools import ImageToolsErro, consultar_video
+
+    grafo = get_object_or_404(GrafoMuseu, serie__slug=serie, serie__publicado=True)
+    no = next((n for n in grafo.dados["blocos"] if n["id"] == bloco), {})
+    try:
+        url = consultar_video(no.get("video_imagetools_uuid", ""))
+    except ImageToolsErro:
+        resposta = JsonResponse(
+            {"erro": "Vídeo indisponível no momento. Continue pelo texto."}, status=503
+        )
+    else:
+        resposta = JsonResponse({"url": url})
+    resposta["Cache-Control"] = "no-store"
+    return resposta
+
+
+@require_GET
+def museu_audio(request, serie, bloco, tipo):
+    from django.http import JsonResponse
+
+    from .models import GrafoMuseu
+    from .servicos.imagetools import ImageToolsErro, consultar_audio
+
+    def resposta_audio(dados, status):
+        resposta = JsonResponse(dados, status=status)
+        resposta["Cache-Control"] = "no-store"
+        return resposta
+
+    if tipo not in ("narracao", "som"):
+        return resposta_audio({"erro": "Áudio indisponível."}, 404)
+    grafo = GrafoMuseu.objects.filter(serie__slug=serie, serie__publicado=True).first()
+    if not grafo:
+        return resposta_audio({"erro": "Áudio indisponível."}, 404)
+    no = next((n for n in grafo.dados["blocos"] if n.get("id") == bloco), None)
+    uuid = no.get(f"{tipo}_imagetools_uuid") if no else None
+    if not uuid:
+        return resposta_audio({"erro": "Áudio indisponível."}, 404)
+    try:
+        url = consultar_audio(uuid)
+    except ImageToolsErro:
+        return resposta_audio(
+            {"erro": "Áudio indisponível no momento. Continue pelo texto."}, 503
+        )
+    return resposta_audio({"url": url}, 200)

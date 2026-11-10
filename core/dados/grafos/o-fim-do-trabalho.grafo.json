@@ -1,0 +1,1022 @@
+{
+  "serie": "mock-o-fim-do-trabalho",
+  "tom": "misto (oscilação dialética entre a promessa de abundância, automação do esforço e emancipação pelo lazer criativo, e o risco real de desemprego em massa, precarização algorítmica, perda de sentido existencial e concentração brutal de renda)",
+  "blocos": [
+    {
+      "id": 1,
+      "numero": 1,
+      "tipo": "texto",
+      "polo": "neutro",
+      "profundidade": 0,
+      "titulo": "[MOCK] O Fim do Trabalho: A Grande Encruzilhada da Automação",
+      "texto": "Cena imaginada (ficção): Você entra em um arranha-céu corporativo na Avenida Faria Lima, em São Paulo, às duas da tarde de uma terça-feira ensolarada. O saguão de mármore e vidro, antes fervilhante de advogados, analistas financeiros e consultores com passos apressados e cafés fumegantes, está em silêncio absoluto. Apenas o zumbido suave do ar-condicionado e os feixes de LED azul de servidores em nichos de vidro quebram a penumbra. No andar de cima, um único supervisor humano monitora vinte telas onde dezenas de agentes autônomos de software redigem contratos, executam auditorias e realizam operações financeiras em frações de segundo.\n\nA humanidade alcançou o limiar de uma das suas maiores indagações existenciais e econômicas: o trabalho como eixo organizador da sociedade está chegando ao fim? Pela primeira vez, a automação não ameaça apenas a força muscular de operários ou tarefas mecânicas em fábricas, mas avança vorazmente sobre as funções cognitivas, o raciocínio analítico, a síntese jurídica e até a criação artística. O que nos aguarda do outro lado: uma era de abundância e emancipação criativa, onde as máquinas assumem a carga pesada do sustento, ou uma distopia de exclusão em massa, onde bilhões de seres humanos se tornam economicamente supérfluos?\n\nNeste livro-jogo interativo do Stargate, você não é um mero espectador, mas o navegador dessa transição. Cada nó deste percurso oferece caminhos distintos: você pode testar a euforia dos entusiastas da tecnologia, confrontar o realismo cru dos relatórios de precarização, explorar as incertezas de trabalhadores reais ou descer até o fundo factual dos dados econômicos comprovados e datados.\n\n[MOCK]: Rascunho editorial em teste para o Stargate. Nenhum conteúdo publicado externamente.",
+      "fontes": [],
+      "narracao": "O trabalho moldou a identidade humana por milênios. Agora que os algoritmos pensam e operam mais rápido que nós, faça sua primeira escolha: a promessa de libertação ou a vertigem da obsolescência?",
+      "som": "Passos solitários ecoando em mármore polido seguidos pelo zumbido distante de servidores refrigerados e o clique rítmico, quase imperceptível, de teclados fantasmas.",
+      "visual": "Abertura em plano sequência cinematográfico: a câmera desliza por um escritório moderno em espaço aberto com mesas vazias e cadeiras ergonômicas desocupadas. Monitores ultrafinos continuam acesos, mostrando linhas de código, gráficos em tempo real e fluxos de dados se autogerando sob a luz da tarde.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a transição: Do Braçal ao Cognitivo nos Modelos de Linguagem",
+          "destino": 2
+        },
+        {
+          "tipo": "aprofundar",
+          "rotulo": "Aprofundar nos bastidores econômicos: Ameaça ou Complemento?",
+          "destino": 5
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A promessa da emancipação e o resgate do tempo humano",
+          "destino": 9
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: A esteira da precarização e a gestão algorítmica",
+          "destino": 10
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "numero": 2,
+      "tipo": "video",
+      "polo": "neutro",
+      "profundidade": 0,
+      "titulo": "[MOCK] Do Braçal ao Cognitivo: A Nova Fronteira dos Modelos de Linguagem",
+      "texto": "Historicamente, a tecnologia substituía o músculo: o tear mecânico substituiu o artesão tecelão, o trator reduziu a necessidade de braços no campo e o braço robótico assumiu a solda nas montadoras de automóveis. Contudo, as profissões de colarinho branco acreditavam estar protegidas por uma barreira intransponível: a capacidade de interpretar linguagem, sintetizar conhecimento complexo, criar argumentos persuasivos e exercer o julgamento profissional.\n\nA consolidação dos grandes modelos de linguagem (LLMs) e da inteligência artificial generativa derrubou essa certeza em menos de três anos. Softwares não apenas redigem relatórios corporativos e programam sistemas inteiros a partir de comandos em linguagem natural, mas executam fluxos de raciocínio lógico em etapas que antes exigiam equipes inteiras de analistas juniores. O epicentro da transformação deslocou-se abruptamente das fábricas para os escritórios, redefinindo o que significa qualificação profissional.",
+      "fontes": [],
+      "narracao": "Durante dois séculos, acreditamos que o intelecto era um refúgio seguro contra as máquinas. Hoje, a linha entre a ferramenta e o trabalhador cognitivo desvaneceu-se.",
+      "som": "Trilha sonora eletrônica minimalista com pulsação de sintetizadores graves sobreposta ao som de digitação rápida que acelera até se fundir em um fluxo contínuo de dados digitais.",
+      "visual": "Vídeo conceitual (50s): Começa com imagens de arquivo em preto e branco de operários em linhas de montagem dos anos 1930, operando prensas industriais pesadas. Uma transição fluida por corte gráfico transforma a prensa em um laptop contemporâneo em um café moderno. A câmera foca na tela: um prompt simples de texto ('Gere uma análise de risco de crédito com contrato minutado') desencadeia uma cascata instantânea de parágrafos jurídicos e gráficos estatísticos. A mão do profissional hesita sobre o teclado, percebendo que a tarefa que lhe custaria três dias levou menos de quatro segundos.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para o paradoxo de Keynes: A Ilusão do Lazer Universal",
+          "destino": 3
+        },
+        {
+          "tipo": "aprofundar",
+          "rotulo": "Aprofundar no diálogo com o desenvolvedor de software Lucas Andrade",
+          "destino": 6
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: Aumento de produtividade e ascensão de trabalhadores juniores",
+          "destino": 13
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O choque de 300 milhões de postos expostos",
+          "destino": 14
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "numero": 3,
+      "tipo": "texto que se expande",
+      "polo": "neutro",
+      "profundidade": 0,
+      "titulo": "[MOCK] O Paradoxo da Produtividade e a Ilusão do Lazer Universal",
+      "texto": "Em 1930, em meio à turbulência da Grande Depressão, o economista britânico John Maynard Keynes publicou o célebre ensaio 'Possibilidades Econômicas para nossos Netos'. Keynes fez uma previsão audaciosa: impulsionada pelos avanços tecnológicos e pela acumulação contínua de capital, a humanidade resolveria o seu 'problema econômico' básico em cerca de cem anos. Ele projetou que, por volta de 2030, a jornada de trabalho semanal seria de apenas 15 horas, e o maior dilema dos seres humanos seria como ocupar o vasto tempo livre com arte, filosofia e contemplação sem sucumbir ao tédio.\n\n[EXPANDIR: POR QUE A PREVISÃO DE KEYNES NÃO SE CONCRETIZOU?]\nA realidade desmentiu o otimismo keynesiano com uma ironia cruel. A produtividade global por hora trabalhada multiplicou-se exponencialmente ao longo das décadas seguintes, mas em vez de redução drástica da carga de trabalho, vimos a expansão do consumismo sofisticado, a criação incessante de novas necessidades artificiais e o surgimento do que o antropólogo David Graeber chamou de 'empregos sem sentido' (bullshit jobs) — cargos burocráticos e corporativos criados primariamente para justificar hierarquias e manter os indivíduos ocupados.\n\nAlém disso, a distribuição dos ganhos de produtividade descolou-se dos salários médios a partir da década de 1970. Enquanto os lucros e os rendimentos do capital explodiram, as famílias de classe média precisaram trabalhar mais horas — frequentemente com múltiplos empregos — apenas para arcar com os custos crescentes de moradia, saúde e educação em grandes centros urbanos. Agora, com a inteligência artificial, o debate de Keynes ressurge com urgência renovada: será desta vez que o trabalho deixará de ser obrigatório, ou apenas aprofundaremos a disparidade entre donos de algoritmos e trabalhadores precarizados?",
+      "fontes": [],
+      "narracao": "Keynes nos prometeu semanas de quinze horas de trabalho e lazer ilimitado até 2030. Em vez disso, ganhamos notificações no celular às dez da noite e ansiedade crônica.",
+      "som": "Tic-tac metálico e implacável de um relógio de parede antigo que se acelera gradualmente, sobrepondo-se ao bipe incessante de notificações de mensagens e mensagens corporativas.",
+      "visual": "Arte gráfica dividida em duas eras: à esquerda, uma ilustração em estilo vintage dos anos 1930 retratando cidadãos descansando em parques ensolarados sob a legenda '15 Horas Semanais'; à direita, a fotografia realista contemporânea de um jovem em um apartamento minúsculo trabalhando em frente a três monitores à meia-noite sob luz fria de LED.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a automação física: A Dança dos Robôs Humanoides",
+          "destino": 4
+        },
+        {
+          "tipo": "aprofundar",
+          "rotulo": "Aprofundar no diálogo com a economista Dra. Beatriz Mendes",
+          "destino": 7
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A tese de David Autor e a reconstrução da classe média",
+          "destino": 15
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O ceticismo de Acemoglu sobre os limites do crescimento",
+          "destino": 16
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "numero": 4,
+      "tipo": "video",
+      "polo": "neutro",
+      "profundidade": 0,
+      "titulo": "[MOCK] A Dança dos Robôs Humanoides no Chão de Fábrica",
+      "texto": "A convergência entre visão computacional de alta fidelidade, modelos de inteligência artificial incorporada (embodied AI) e atuadores elétricos biomiméticos de alta precisão deu início a uma nova corrida do ouro na robótica: a criação de robôs bípedes e humanoides operacionais. Empresas industriais e montadoras globais começaram a testar protótipos que não necessitam de trilhos fixos ou jaulas de segurança, caminhando pelos mesmos corredores projetados para seres humanos.\n\nDiferente dos braços mecânicos clássicos que executam apenas uma rotação pré-programada milimetricamente, os novos humanoides aprendem tarefas por imitação e reforço neural. Eles observam vídeos de operadores humanos dobrando peças, encaixando baterias ou manuseando contêineres pesados e replicam os movimentos ajustando a pressão do aperto em tempo real. Se o trabalho de escritório está sendo absorvido pelo software em nuvem, a última fronteira do trabalho manual repetitivo prepara-se para ceder lugar à carcaça de polímero e titânio.",
+      "fontes": [],
+      "narracao": "O chão de fábrica já não precisa de oxigênio ou pausas para o almoço. Quando as máquinas aprendem a andar e carregar caixas como nós, o que resta ao corpo de carne?",
+      "som": "Zumbido ritmado de servomotores elétricos de passo em harmonia mecânica, acompanhado pelo som abafado de pés emborrachados tocando o piso de concreto industrial de forma cadenciada.",
+      "visual": "Vídeo conceitual (45s): Um galpão logístico imenso opera na penumbra — uma fábrica escura ('lights-out factory') onde luzes visíveis são desnecessárias para as máquinas. Dois robôs humanoides esguios, com carcaças em grafite fosco e sensores LIDAR rotativos na cabeça, sincronizam o transporte de caixas pesadas para esteiras automatizadas. A câmera dá um close nas mãos robóticas: dedos multifacetados com almofadas de silicone ajustam a pressão ao levantar uma caixa frágil de vidro com suavidade cirúrgica, sem intervenção humana à vista.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Voltar ao portal inicial: A Grande Encruzilhada",
+          "destino": 1
+        },
+        {
+          "tipo": "aprofundar",
+          "rotulo": "Aprofundar no diálogo com o líder de entregadores Carlos Nogueira",
+          "destino": 8
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A jornada de quatro dias e o ganho real de bem-estar",
+          "destino": 24
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O relatório do Fórum Econômico Mundial sobre perda líquida de empregos",
+          "destino": 19
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "numero": 5,
+      "tipo": "texto que se expande",
+      "polo": "neutro",
+      "profundidade": 1,
+      "titulo": "[MOCK] Ameaça ou Complemento? A Batalha dos Modelos Econômicos",
+      "texto": "Na teoria econômica clássica, toda grande onda de inovação tecnológica desencadeia dois efeitos contraditórios e simultâneos: o 'efeito substituição' (onde máquinas desalojam trabalhadores de tarefas específicas) e o 'efeito capitalização' ou 'efeito produtividade' (onde a redução de custos e o aumento de eficiência expandem a economia geral, barateiam bens e serviços e geram novas indústrias e profissões antes inimagináveis).\n\n[EXPANDIR: A VELOCIDADE DA TRANSIÇÃO E A ASSIMETRIA DE TEMPO]\nO núcleo da discórdia entre economistas contemporâneos reside na variável do tempo. Na Revolução Industrial do século XIX, a transição entre a fiação manual e as indústrias têxteis a vapor durou mais de seis décadas. Esse período permitiu que novas gerações fossem educadas para os novos papéis fabris, embora tenha gerado miséria aguda para a geração de transição (conhecida historicamente como a 'Pausa de Engels').\n\nNa revolução da inteligência artificial, o ciclo de obsolescência não é medido em décadas, mas em trimestres. Um trabalhador de 45 anos especializado em redação técnica, suporte ao cliente ou análise fiscal não possui quarenta anos para se requalificar; as competências que ele levou duas décadas para aperfeiçoar podem ser incorporadas por uma atualização de API em um fim de semana. A questão central não é se novos empregos surgirão em 2050, mas como a sociedade sustentará centenas de milhões de indivíduos e famílias no intervalo brutal entre a destruição das ocupações antigas e a maturação das novas.",
+      "fontes": [],
+      "narracao": "A teoria econômica jura que novos empregos sempre nascem das cinzas dos antigos. Mas ela costuma esquecer que as pessoas precisam comer enquanto esperam a transição.",
+      "som": "Sons cruzados de protestos distantes na rua sobrepostos pelo barulho abafado de um pregão financeiro e o som de páginas de jornais de economia sendo viradas com irritação.",
+      "visual": "Infográfico animado sofisticado: uma balança antiga de dois pratos oscila violentamente. No prato esquerdo, blocos pesados de chumbo com as palavras 'Substituição Direta', 'Compressão Salarial' e 'Desemprego Tecnológico'. No prato direito, penas douradas e moedas que se multiplicam com as inscrições 'Novas Demandas', 'Ganhos de PIB' e 'Emancipação'. A balança inclina-se para a esquerda antes de tremer incerta.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a conversa com o desenvolvedor de software Lucas Andrade",
+          "destino": 6
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para o portal de entrada: A Grande Encruzilhada",
+          "destino": 1
+        },
+        {
+          "tipo": "aprofundar",
+          "rotulo": "Aprofundar no mapeamento global de automação versus aumento da OIT",
+          "destino": 17
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A projeção trilionária de produtividade da McKinsey",
+          "destino": 20
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O abismo de exposição do Fundo Monetário Internacional (FMI)",
+          "destino": 21
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "numero": 6,
+      "tipo": "personagem",
+      "polo": "neutro",
+      "profundidade": 1,
+      "titulo": "[MOCK] Diálogo RPG: Lucas Andrade — Engenheiro de Prompt e Ex-Desenvolvedor Full Stack",
+      "texto": "Você encontra Lucas Andrade em uma cafeteria silenciosa no bairro de Pinheiros, em São Paulo. Ele tem 34 anos, veste uma camiseta preta desbotada e mantém os olhos vidrados na tela de seu laptop de última geração coberto de adesivos de conferências de programação. Há cinco anos, Lucas comandava uma equipe de doze programadores em uma startup de tecnologia financeira; hoje, trabalha quase sozinho prestando consultoria de integração de agentes de IA.\n\nEle toma um gole de café já frio, desvia o olhar da tela e desabafa com um sorriso amarelo: 'As pessoas de fora acham que programar com IA é o paraíso. Dizem que fiquei dez vezes mais rápido. É verdade: o que a minha equipe levava três semanas para entregar em código Python e React, eu gero hoje em uma tarde conversando com três agentes especializados. Mas ninguém fala da outra ponta: os clientes agora querem pagar um décimo do valor, o prazo que era de um mês virou para ontem, e eu não consigo mais abrir vaga para nenhum programador iniciante aprender a profissão.'\n\nComo você deseja responder ao desabafo de Lucas?\n\n• [RESPOSTA 1]: 'Lucas, mas se a sua produtividade multiplicou, isso não abre espaço para você focar na arquitetura e na criatividade de alto nível?'\n➔ Lucas responde: 'Essa é a teoria bonita do LinkedIn. Na prática, a maior parte do tempo você gasta caçando alucinações sutis nos códigos gerados pela IA. Você vira um revisor cansado de textos técnicos produzidos por um robô que não entende o contexto de negócio. A sensação de artesão que constrói algo do zero morreu.'\n\n• [RESPOSTA 2]: 'Você não teme que o seu próprio trabalho de orquestrador de IA seja engolido pela próxima geração de modelos autônomos?'\n➔ Lucas responde: 'Eu não temo: eu tenho certeza matemática. Já estou testando ferramentas onde o próprio cliente digita a ideia em linguagem comum e o sistema cria a infraestrutura, testa e sobe para a nuvem sem precisar de mim. Meu prazo de validade profissional é de, no máximo, três a quatro anos.'\n\n• [RESPOSTA 3]: 'O que aconteceu com os profissionais juniores e estagiários que você costumava contratar e treinar?'\n➔ Lucas responde: 'Esse é o verdadeiro desastre invisível. A esteira de entrada na profissão quebrou. As empresas cortaram os juniores porque o copiloto faz o trabalho básico deles de graça. Mas se você não forma os juniores de hoje, de onde sairão os seniores experientes de amanhã para auditar os sistemas?'",
+      "fontes": [],
+      "narracao": "Lucas viu a profissão de programador desmoronar e renascer em três anos. Para ele, a produtividade infinita é uma bênção que veio acompanhada de um vazio existencial.",
+      "som": "Sons de xícaras de cerâmica tilintando suavemente, o vaporizador de café expresso soltando ar quente e o clique seco e rápido de um touchpad sendo operado sob tensão.",
+      "visual": "Câmera estática média em plano fechado: Lucas olha diretamente para o espectador com iluminação lateral natural. Atrás dele, através da vidraça da cafeteria, pessoas caminham apressadas na calçada com fones de ouvido. Sobre a mesa de madeira, o laptop exibe duas janelas lado a lado: um terminal gerando linhas infinitas de código verde e uma mensagem de cobrança de prazo no Slack.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a conversa com a economista Dra. Beatriz Mendes",
+          "destino": 7
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para o bloco de transição cognitiva",
+          "destino": 2
+        },
+        {
+          "tipo": "aprofundar",
+          "rotulo": "Aprofundar nos dados reais de produtividade: Estudo NBER / Stanford / MIT",
+          "destino": 13
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A reconstrução da classe média através da IA como copiloto",
+          "destino": 15
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O colapso de 300 milhões de ocupações e o choque salarial",
+          "destino": 14
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "numero": 7,
+      "tipo": "personagem",
+      "polo": "neutro",
+      "profundidade": 1,
+      "titulo": "[MOCK] Diálogo RPG: Dra. Beatriz Mendes — Economista e Pesquisadora de Desigualdade Laboral",
+      "texto": "Você é recebido no gabinete da Dra. Beatriz Mendes em uma universidade pública federal. As paredes de concreto aparente estão repletas de prateleiras com livros de história econômica, teorias do desenvolvimento e pilhas de relatórios impressos do IPEA, do Banco Mundial e da OIT. Beatriz tem 52 anos, fala com tom ponderado e didático, mas não disfarça a gravidade de suas preocupações com o futuro do mercado de trabalho.\n\nEla empurra uma pilha de documentos para o lado, oferece um copo de água e diz: 'O debate público sobre IA oscila perigosamente entre a propaganda eufórica do Vale do Silício e o pânico hollywoodiano do desemprego total. Como economistas, precisamos olhar para onde a riqueza realmente está indo: o ganho de produtividade é real, mas a fatia dessa riqueza destinada aos salários está encolhendo, enquanto a fatia apropriada pelo capital e pelas plataformas de infraestrutura digital está atingindo níveis históricos de concentração.'\n\nComo você deseja responder às considerações da Dra. Beatriz?\n\n• [RESPOSTA 1]: 'Dra. Beatriz, a inteligência artificial provocará uma onda súbita de desemprego em massa ou algo mais sutil?'\n➔ A Dra. responde: 'O desemprego aberto e explosivo é improvável no curto prazo porque os mercados de trabalho têm atrito e inércia institucional. O que já estamos observando empiricamente é algo mais insidioso: a estagnação salarial generalizada e o fenômeno do subemprego qualificado. Pessoas com ensino superior que antes ocupavam cargos analíticos médios sendo empurradas para a prestação de serviços precarizados e geridos por aplicativos.'\n\n• [RESPOSTA 2]: 'Historicamente a tecnologia sempre criou mais empregos do que destruiu. Por que deveríamos acreditar que agora será diferente?'\n➔ A Dra. responde: 'Porque o cavalo nunca conseguiu se requalificar para virar motorista de trator. Nas revoluções passadas, quando a máquina substituiu a força física, o ser humano migrou para as habilidades cognitivas e para o setor de serviços. Agora, a IA ataca exatamente a cognição. Se a máquina nos superar no esforço físico E no raciocínio lógico estruturado, para qual santuário produtivo os trabalhadores humanos migrarão?'\n\n• [RESPOSTA 3]: 'A instituição de uma Renda Básica Universal (RBU) seria a saída definitiva para evitar a catástrofe social?'\n➔ A Dra. responde: 'A RBU é uma ferramenta de sobrevivência necessária em um mundo automatizado, mas ela não resolve a questão do poder nem do sentido. Se você dá uma mesada básica para a população enquanto cinco corporações monopolistas globais controlam toda a infraestrutura computacional, modelos e meios de produção, você não criou uma sociedade livre: você criou um neofeudalismo digital financiado por subsídio estatal.'",
+      "fontes": [],
+      "narracao": "Para a economista Beatriz Mendes, o problema do fim do trabalho não é a falta de riqueza produzida, mas quem fica com a chave do cofre.",
+      "som": "Eco abafado de passos nos corredores da faculdade, o ruído rítmico de folhas de papel sendo manuseadas e o som distante de uma sirene de trânsito lá fora.",
+      "visual": "Plano de detalhe cinematográfico: sobre a mesa de madeira rústica, gráficos econômicos impressos revelam a famosa 'curva do elefante' da desigualdade global e uma linha vermelha que mostra a queda vertiginosa da participação do trabalho no PIB em economias avançadas e emergentes nos últimos vinte anos.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a conversa com o líder comunitário de entregadores Carlos Nogueira",
+          "destino": 8
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para o paradoxo de Keynes",
+          "destino": 3
+        },
+        {
+          "tipo": "aprofundar",
+          "rotulo": "Aprofundar nos dados do experimento de Renda Básica do OpenResearch",
+          "destino": 18
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A tese da abundância e o potencial de US$ 4,4 trilhões da McKinsey",
+          "destino": 20
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O diagnóstico do FMI sobre riscos de desigualdade estrutural",
+          "destino": 21
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "numero": 8,
+      "tipo": "personagem",
+      "polo": "neutro",
+      "profundidade": 1,
+      "titulo": "[MOCK] Diálogo RPG: Carlos 'Kadu' Nogueira — Motorista de Aplicativo e Líder Comunitário de Entregadores",
+      "texto": "Você conversa com Carlos Nogueira, conhecido por todos como 'Kadu', em um posto de gasolina na Radial Leste, ponto de encontro tradicional de entregadores de moto e motoristas de aplicativo em São Paulo. Ele tem 41 anos, veste uma jaqueta impermeável surrada, traz uma mochila térmica nas costas e segura dois smartphones acoplados a um suporte no guidão da moto, ambos piscando notificações frenéticas de diferentes plataformas de entrega.\n\nKadu limpa a poeira da viseira do capacete, toma uma garrafa de água e fala com a autoridade de quem roda catorze horas por dia no asfalto: 'Vocês nos escritórios ficam discutindo se a IA vai tirar o emprego de vocês no futuro. Meu amigo, a gente já é chefiado por robô há quase dez anos! Eu nunca apertei a mão de um gerente nem olhei na cara do dono da empresa. É o algoritmo que decide se eu ganho comida hoje, que calcula a rota impossível e que me bloqueia do sistema se eu demorar cinco minutos a mais para respirar.'\n\nComo você deseja responder ao relato de Kadu?\n\n• [RESPOSTA 1]: 'Kadu, como funciona essa gestão pelo algoritmo na prática da sua rotina de entregas?'\n➔ Kadu responde: 'É uma vigilância invisível que você sente no corpo. Se você recusa três corridas mal pagas para não tomar prejuízo na gasolina, o algoritmo te põe de castigo na 'geladeira' sem mandar corrida nova por duas horas. Ele usa psicologia comportamental para te fazer acelerar na chuva e arriscar a vida por causa de uma pontuação de gamificação.'\n\n• [RESPOSTA 2]: 'Quando os carros autônomos e drones de entrega chegarem em escala ao Brasil, o que acontecerá com a sua categoria?'\n➔ Kadu responde: 'Dizem que a tecnologia custa caro e que as ruas esburacadas de São Paulo vão atrasar os carros sem motorista. Pode ser. Mas quando chegar, vai ser um massacre social. São mais de um milhão e meio de famílias vivendo de aplicativo no Brasil. Se tirarem isso sem colocar nada no lugar, as cidades explodem em revolta popular.'\n\n• [RESPOSTA 3]: 'Muitos colegas seus defendem a autonomia do aplicativo contra a carteira assinada tradicional. O que você pensa sobre isso?'\n➔ Kadu responde: 'Autonomia de trabalhar 15 horas sem direito a ficar doente? Isso não é liberdade, é ilusão vendida por propaganda. O trabalhador quer autonomia de verdade, mas quer descanso remunerado, quer segurança contra acidente de trânsito e quer voz para questionar as regras arbitrárias do código que define o seu ganha-pão.'",
+      "fontes": [],
+      "narracao": "Kadu não teme a inteligência artificial do futuro: ele já trabalha para ela todos os dias sob a chuva e o asfalto quente.",
+      "som": "Ruído pesado e contínuo de tráfego de motocicletas acelerando na avenida, o apito estridente de buzinas e o som repetitivo de alertas digitais de corrida recebida nos celulares.",
+      "visual": "Enquadramento realista estilo cinema direto: a luz crepuscular de fim de tarde reflete na poça de óleo no asfalto do posto de gasolina. Kadu encosta na moto enquanto dezenas de outros entregadores ao fundo aguardam alertas luminosos nos telefones presos aos guidões.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a análise da gestão algorítmica e vigilância no trabalho",
+          "destino": 10
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para a análise da robótica humanoide",
+          "destino": 4
+        },
+        {
+          "tipo": "aprofundar",
+          "rotulo": "Aprofundar nos dados do IPEA sobre o mercado de trabalho brasileiro e vulnerabilidade",
+          "destino": 22
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A redução da carga horária no experimento global de 4 dias",
+          "destino": 24
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: A fábrica das sombras do microtrabalho no Sul Global",
+          "destino": 23
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "numero": 9,
+      "tipo": "texto que se expande",
+      "polo": "otimista",
+      "profundidade": 1,
+      "titulo": "[MOCK] A Promessa da Emancipação: Reorganizando o Tempo e o Significado Humano",
+      "texto": "Para os pensadores e cientistas do polo otimista, a obsolescência do trabalho forçado assalariado não representa o fim da humanidade, mas o início da sua verdadeira emancipação civilizatória. Desde as origens agrárias e a Revolução Industrial, a grande maioria dos indivíduos foi compelida a vender um terço das horas ativas de sua vida em troca de subsistência biológica, submetendo talentos singulares a rotinas mecânicas, alienantes e desgastantes.\n\n[EXPANDIR: O RETORNO AO ÓCIO CRIATIVO E À AUTONOMIA COMUNITÁRIA]\nSe sistemas de inteligência artificial e robôs assumirem o encargo da produção material pesada, da distribuição logística e do processamento burocrático, a energia humana poderá ser redirecionada para áreas intrinsecamente relacionais: o cuidado mútuo, a preservação e regeneração ecológica, o ensino personalizado, o artesanato de alto valor expressivo e as manifestações artísticas e científicas desvinculadas da obrigação de monetização imediata.\n\nNessa visão afirmativa, o conceito de 'trabalho' transmuta-se em 'obra' e 'vocação'. O valor de um cidadão deixará de ser aferido pelo seu salário ou cargo corporativo, rompendo com a moral protestante que equipara utilidade econômica a virtude moral. A sociedade ganha a oportunidade histórica de inaugurar um novo humanismo, ancorado na abundância tecnológica e na liberdade soberana sobre o próprio tempo.",
+      "fontes": [],
+      "narracao": "E se a nossa maior conquista como espécie não for trabalhar até o esgotamento, mas construir máquinas capazes de nos devolver o direito de viver?",
+      "som": "Melodia serena executada em violoncelo acústico mesclada com sons da natureza — pássaros cantando em um parque público e risadas espontâneas de crianças brincando.",
+      "visual": "Fotografia artística luminosa em ângulo aberto: uma comunidade urbana sustentável com hortas comunitárias em terraços de edifícios solares. Pessoas de diferentes idades pintam murais, consertam bicicletas manuais e debatem livros em rodas ao ar livre, enquanto robôs de serviço silenciosos limpam as calçadas sem alarde.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a reinvenção da educação e novas competências",
+          "destino": 12
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para a encruzilhada inicial",
+          "destino": 1
+        },
+        {
+          "tipo": "aprofundar",
+          "rotulo": "Aprofundar nos dados reais de elevação de produtividade: Estudo NBER / Stanford",
+          "destino": 13
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A tese pró-trabalhador de David Autor para a classe média",
+          "destino": 15
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O risco de aprisionamento no trabalho precarizado e vigilância",
+          "destino": 10
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "numero": 10,
+      "tipo": "texto que se expande",
+      "polo": "catastrofico",
+      "profundidade": 1,
+      "titulo": "[MOCK] A Esteira da Precarização: Gestão Algorítmica e a Vigilância no Trabalho",
+      "texto": "No extremo oposto das promessas idílicas de emancipação, o polo catastrófico revela que a automação contemporânea raramente liberta o trabalhador: em vez disso, subjuga-o a uma esteira digital hipervigiada. O surgimento de softwares de monitoramento biométrico e de produtividade transformou tanto o trabalho remoto quanto o trabalho presencial em um panóptico algorítmico permanente.\n\n[EXPANDIR: BIOMETRIA, MEDIÇÃO DE CLIQUES E A TAYLORIZAÇÃO DO TRABALHO INTELECTUAL]\nEm empresas de telemarketing, centrais de atendimento e escritórios de auditoria, sistemas de inteligência artificial medem o intervalo entre toques no teclado, rastreiam o movimento dos olhos através da webcam e analisam o tom de voz do operador para detectar 'hesitação' ou 'falta de entusiasmo' em tempo real. O tempo para idas ao banheiro é cronometrado por crachás com sensores de radiofrequência, e algoritmos preditivos de produtividade penalizam automaticamente funcionários que se desviam da média estatística de velocidade.\n\nEssa dinâmica cria a chamada 'taylorização cognitiva': a fragmentação de processos intelectuais complexos em microtarefas simplificadas, que são atribuídas a trabalhadores sob demanda com remunerações ínfimas por tarefa concluída. Longe de ser abolido, o trabalho tornou-se mais denso, estressante, atomizado e desprovido de direitos trabalhistas básicos.",
+      "fontes": [],
+      "narracao": "A inteligência artificial não eliminou o chefe: ela transformou o chefe em um algoritmo invisível que monitora a sua respiração e nunca pisca.",
+      "som": "Som rítmico de teclado mecânico sob alta cadência que de repente é interrompido por um alarme sonoro eletrônico estridente de advertência de tempo esgotado.",
+      "visual": "Perspectiva em primeira pessoa (POV): o usuário está diante de um monitor onde uma moldura vermelha pulsa avisando 'Inatividade detectada: 42 segundos'. Uma janela flutuante no canto superior exibe a própria imagem capturada pela câmera com retângulos de reconhecimento facial em verde e métricas de foco emocional em porcentagem.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a geopolítica do trabalho digital e o Sul Global",
+          "destino": 11
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para a encruzilhada inicial",
+          "destino": 1
+        },
+        {
+          "tipo": "aprofundar",
+          "rotulo": "Aprofundar nos dados da fábrica das sombras: Microtrabalho mal pago no Sul Global",
+          "destino": 23
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A virada para a jornada de 4 dias semanais comprovada",
+          "destino": 24
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O choque de demissões em larga escala projetado pelo WEF",
+          "destino": 19
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "numero": 11,
+      "tipo": "texto",
+      "polo": "catastrofico",
+      "profundidade": 1,
+      "titulo": "[MOCK] A Geopolítica do Trabalho Digital: O Sul Global no Treinamento de Dados Invisível",
+      "texto": "Quando líderes do Vale do Silício apresentam modelos de linguagem aparentemente mágicos capazes de conversar com fluidez polida e respeitosa, ocultam deliberadamente a infraestrutura humana que torna essa mágica possível. Nenhum algoritmo torna-se seguro ou funcional sem milhões de horas de curadoria, rotulagem manual de imagens e filtragem de conteúdo tóxico.\n\nEssa divisão internacional do trabalho digital recria a clássica lógica extrativista colonial. Enquanto a propriedade intelectual e os lucros astronômicos ficam sediados em poucas empresas na Califórnia e em Seattle, o trabalho mais árduo, traumático e mal pago é terceirizado para contingentes de trabalhadores em países como Quênia, Filipinas, Índia, Venezuela e favelas periféricas do Brasil. Milhares de jovens passam oito horas diárias revisando descrições de violência extrema, discurso de ódio e abusos sexuais para rotular dados por centavos de dólar a hora, arcando com sequelas psicológicas severas sem qualquer suporte de saúde mental.",
+      "fontes": [],
+      "narracao": "Por trás da interface limpa e reluzente da inteligência artificial generativa opera uma vasta engrenagem de trabalhadores invisíveis no Sul Global, rotulando o pior da humanidade por centavos de dólar.",
+      "som": "Eco abafado de dezenas de ventiladores de teto barulhentos rodando em um galpão fechado em clima tropical sobreposto ao som repetitivo e ininterrupto de cliques de mouse de plástico barato.",
+      "visual": "Grande plano de conjunto em um cibercafé improvisado em Nairóbi ou Manila: fileiras apertadas de jovens sentados em cadeiras de plástico diante de monitores de tubo ou telas antigas. Eles examinam imagens pixeladas e selecionam caixas de diálogo rapidamente com olhares exaustos sob lâmpadas fluorescentes que piscam.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para o debate da reinvenção da educação",
+          "destino": 12
+        },
+        {
+          "tipo": "aprofundar",
+          "rotulo": "Aprofundar nos dados factuais da Oxford Fairwork e do Banco Mundial sobre microtrabalhadores",
+          "destino": 23
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A promessa da emancipação e recuperação do tempo",
+          "destino": 9
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O relatório do Goldman Sachs sobre 300 milhões de empregos em risco",
+          "destino": 14
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "numero": 12,
+      "tipo": "texto que se expande",
+      "polo": "otimista",
+      "profundidade": 1,
+      "titulo": "[MOCK] A Reinvenção da Educação e o Fim das Credenciais Tradicionais",
+      "texto": "Durante mais de um século, o pacto social da classe média esteve alicerçado na obtenção de credenciais formais: cursar uma faculdade de prestígio, acumular diplomas de especialização e memorizar corpos estáticos de conhecimento técnico constituíam a garantia quase infalível de ascensão econômica e estabilidade empregatícia.\n\n[EXPANDIR: O APRENDIZADO PERSONALIZADO POR TUTORES DE IA E O FIM DO CURRÍCULO FABRIL]\nCom a democratização de assistentes inteligentes que dominam o conhecimento técnico universal sob demanda, o valor da memorização curricular e do diploma enciclopédico despencou. Em contrapartida, a inteligência artificial oferece a oportunidade histórica de universalizar o ensino socrático personalizado: cada criança e adulto no planeta pode dispor de um tutor digital dedicado, adaptado ao seu ritmo individual de compreensão e curiosidade.\n\nA educação formal é forçada a migrar do modelo industrial de retenção de dados para o cultivo de virtudes exclusivamente humanas: pensamento crítico rigoroso, formulação de perguntas profundas, capacidade de colaboração empática, julgamento moral em dilemas ambíguos e flexibilidade cognitiva permanente. O aprendizado deixa de ser um rito de passagem restrito à juventude para tornar-se uma experiência contínua ao longo de toda a vida.",
+      "fontes": [],
+      "narracao": "Quando qualquer telefone celular responde a perguntas técnicas melhor do que um manual acadêmico, o objetivo da escola deixa de ser ensinar a decorar e passa a ser ensinar a pensar.",
+      "som": "Som calmo de um sino tibetano soando no início de uma aula aberta, sucedido pelo murmúrio caloroso de vozes de estudantes debatendo em grupo com risos e entusiasmo.",
+      "visual": "Espaço educacional futurista e acolhedor: sem fileiras de carteiras voltadas para uma lousa. Estudantes de idades variadas desenham modelos conceituais em mesas de vidro sensíveis ao toque, enquanto projeções holográficas translúcidas mostram simulações de biologia molecular e física quântica reagindo aos gestos das mãos dos alunos.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a análise da balança econômica: Ameaça ou Complemento?",
+          "destino": 5
+        },
+        {
+          "tipo": "aprofundar",
+          "rotulo": "Aprofundar nos dados do estudo NBER de Erik Brynjolfsson sobre o nivelamento de aprendizado",
+          "destino": 13
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A tese da reconstrução de classe média de David Autor",
+          "destino": 15
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "numero": 13,
+      "tipo": "texto que se expande",
+      "polo": "otimista",
+      "profundidade": 2,
+      "titulo": "[MOCK] DADO: A Alavanca dos Iniciantes — O Impacto Real da IA na Produtividade (Estudo NBER/Stanford/MIT)",
+      "texto": "Um dos estudos empíricos mais rigorosos e influentes sobre o impacto direto da inteligência artificial generativa no ambiente de trabalho corporativo foi conduzido pelos pesquisadores Erik Brynjolfsson (Stanford), Danielle Li (MIT) e Lindsey Raymond (MIT), publicado inicialmente pelo National Bureau of Economic Research (NBER Working Paper 31161) em abril de 2023 e referendado em publicações econômicas internacionais em 2024 e 2025.\n\n[EXPANDIR: RESULTADOS QUANTITATIVOS E A REDUÇÃO DA CURVA DE APRENDIZADO]\nOs economistas analisaram a implementação escalonada de um assistente conversacional baseado em modelos de linguagem avançados utilizado por mais de 5.000 agentes de suporte ao cliente e assistência técnica de uma multinacional de software. Os resultados comprovaram um aumento médio imediato de produtividade (resolução de chamados por hora trabalhada) de 14% a 15% em toda a base de funcionários.\n\nNo entanto, a grande revelação do estudo reside na disparidade de efeitos conforme o nível de habilidade prévia: enquanto os trabalhadores seniores e mais experientes registraram ganhos modestos (entre 1% e 3%), os trabalhadores novatos, juniores ou menos qualificados experimentaram um salto de produtividade de 34%. O modelo de IA atuou codificando tacitamente as melhores práticas dos profissionais de alta performance e disseminando-as em tempo real para os novatos, reduzindo o tempo necessário para um profissional iniciante alcançar a eficiência de um veterano de seis meses para apenas dois meses, sem queda na qualidade ou aumento na rotatividade de clientes.",
+      "fontes": [
+        {
+          "titulo": "NBER Working Paper 31161: Generative AI at Work (Brynjolfsson, Li & Raymond)",
+          "url": "https://www.nber.org/papers/w31161",
+          "data": "2023-04-24",
+          "verificada": "2026-11-10"
+        },
+        {
+          "titulo": "The Quarterly Journal of Economics / RePEc: Generative AI at Work (Empirical Analysis)",
+          "url": "https://ideas.repec.org/p/nbr/nberwo/31161.html",
+          "data": "2023-04-24",
+          "verificada": "2026-11-10"
+        }
+      ],
+      "narracao": "Os dados mostram que a inteligência artificial não beneficia primeiro as elites, mas encurta o caminho do iniciante: trabalhadores menos experientes ganharam 34% em produtividade.",
+      "som": "Gráficos digitais renderizando na tela com bipes harmônicos de confirmação de dados estatísticos e o som agradável de aplausos contidos em uma apresentação acadêmica.",
+      "visual": "Visualização infográfica científica em alta definição: um gráfico de barras comparativo exibe 'Trabalhadores com Baixa Habilidade' com barra verde ascendente saltando para '+34% de produtividade', ao lado da barra de 'Trabalhadores de Alta Habilidade' estável em '+3%'. Rótulos explicativos detalham 'NBER WP 31161' com intervalo de confiança estatístico de 95%.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a tese de David Autor sobre reconstrução da classe média",
+          "destino": 15
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para o diálogo com o desenvolvedor Lucas Andrade",
+          "destino": 6
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A projeção trilionária de produtividade global da McKinsey",
+          "destino": 20
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O risco de deslocamento de 300 milhões de empregos do Goldman Sachs",
+          "destino": 14
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "numero": 14,
+      "tipo": "texto que se expande",
+      "polo": "catastrofico",
+      "profundidade": 2,
+      "titulo": "[MOCK] DADO: O Choque dos 300 Milhões — A Exposição Global à Automação Segundo o Goldman Sachs",
+      "texto": "Em 27 de março de 2023, os economistas Joseph Briggs e Devesh Kodnani, sob a liderança do economista-chefe Jan Hatzius do Goldman Sachs, publicaram o relatório macroeconômico global 'The Potentially Large Effects of Artificial Intelligence on Economic Growth'. O estudo causou abalo sísmico nos mercados financeiros e nos ministérios do trabalho em todo o planeta ao quantificar a dimensão da exposição ocupacional à nova onda de inteligência artificial.\n\n[EXPANDIR: O QUE SIGNIFICA A EXPOSIÇÃO DE 300 MILHÕES DE POSTOS DE TRABALHO?]\nO relatório analisou bancos de dados detalhados de tarefas ocupacionais nos Estados Unidos e na União Europeia e estimou que aproximadamente dois terços (63%) dos empregos atuais estão expostos a algum grau de automação por IA generativa. No cenário base de extrapolação global, o Goldman Sachs calculou que o equivalente a 300 milhões de empregos em tempo integral poderiam ter tarefas substanciais substituídas ou automatizadas pelo software.\n\nEmbora o banco aponte que a maioria das funções sofrerá 'complementação' em vez de demissão imediata e projete um aumento potencial cumulativo de 7% no PIB global (cerca de US$ 7 trilhões de dólares ao longo de dez anos), o relatório alerta que o choque de transição no emprego é sem precedentes. Setores administrativos, funções jurídicas, suporte contábil e tarefas de escritório enfrentam o maior risco de corte estrutural de pessoal, com até 46% das tarefas administrativas passíveis de automação integral por agentes digitais autônomos.",
+      "fontes": [
+        {
+          "titulo": "Goldman Sachs Global Economics Research: The Potentially Large Effects of Artificial Intelligence on Economic Growth (Briggs & Kodnani)",
+          "url": "https://www.goldmansachs.com/insights/pages/generative-ai-could-raise-global-gdp-by-7-percent.html",
+          "data": "2023-03-27",
+          "verificada": "2026-11-10"
+        },
+        {
+          "titulo": "Goldman Sachs Macro Research: AI and the Global Labor Market Exposure",
+          "url": "https://www.gspublishing.com/content/research/en/reports/2023/03/27/d64e052b-0f6e-45d7-967b-d7be35fabd16.html",
+          "data": "2023-03-27",
+          "verificada": "2026-11-10"
+        }
+      ],
+      "narracao": "Trezentos milhões de empregos em tempo integral expostos ao código. Para o Goldman Sachs, é uma injeção de 7 trilhões no PIB; para milhões de famílias, é a angústia de ser descartável.",
+      "som": "Som estridente e tenso de alertas de mercados de ações em queda em telas de trading em Wall Street sobreposto por respirações pesadas e murmúrios abafados de tensão.",
+      "visual": "Mapa-múndi interativo em 3D brilhando em tons de âmbar e vermelho: manchas de calor em degradê cobrem a América do Norte, Europa e Ásia oriental indicando 'Exposição de Tarefas > 60%'. Um contador numérico digital gira em alta velocidade no canto da tela até travar no número dramático: '300.000.000 de postos equivalentes'.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a análise do ceticismo macroeconômico de Daron Acemoglu",
+          "destino": 16
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para a esteira da precarização e vigilância",
+          "destino": 10
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O saldo líquido negativo de 14 milhões de postos do Fórum Econômico Mundial",
+          "destino": 19
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "numero": 15,
+      "tipo": "texto que se expande",
+      "polo": "otimista",
+      "profundidade": 2,
+      "titulo": "[MOCK] DADO: Reconstruir a Classe Média — A Tese da IA Pró-Trabalhador de David Autor",
+      "texto": "Em fevereiro de 2024, o renomado economista do trabalho do MIT David Autor publicou o paper 'Applying AI to Rebuild Middle Class Jobs' (NBER Working Paper 32140), complementado por ensaio analítico no Noema Magazine, que rapidamente se tornou a pedra fundamental do polo otimista esclarecido. Autor confronta a tese fatalista de que a inteligência artificial inevitavelmente destruirá os empregos de média qualificação e aprofundará o abismo da desigualdade.\n\n[EXPANDIR: O PAPEL DA IA COMO CO-PILOTO DE TOMADA DE DECISÃO]\nAutor recorda que a automação das últimas décadas causou a polarização do mercado de trabalho porque os computadores tradicionais substituíam tarefas rotineiras (cálculos contábeis, arquivamento e montagens fabris), valorizando excessivamente os profissionais com diplomas de elite (médicos especialistas, advogados seniores, PhDs) e empurrando a classe média para empregos manuais de baixa remuneração nos serviços (limpeza, portaria, entregas).\n\nA inteligência artificial generativa opera sob uma dinâmica inversa: ela sintetiza informações complexas e apoia o julgamento e a tomada de decisões em tempo real. Isso permite que profissionais com qualificação técnica intermediária — como técnicos de enfermagem, assistentes jurídicos, programadores sem graduação formal e professores da educação básica — executem com excelência tarefas de alto valor agregado que antes eram exclusividade de especialistas super-remunerados. Conforme a tese demonstrada por David Autor, se orientada por políticas públicas adequadas, a IA tem o potencial histórico de revitalizar o coração da classe média trabalhadora.",
+      "fontes": [
+        {
+          "titulo": "NBER Working Paper 32140: Applying AI to Rebuild Middle Class Jobs (David Autor)",
+          "url": "https://www.nber.org/papers/w32140",
+          "data": "2024-02-12",
+          "verificada": "2026-11-10"
+        },
+        {
+          "titulo": "Noema Magazine / Berggruen Institute: AI Could Actually Help Rebuild The Middle Class (David Autor)",
+          "url": "https://www.noemamag.com/how-ai-could-help-rebuild-the-middle-class/",
+          "data": "2024-02-12",
+          "verificada": "2026-11-10"
+        }
+      ],
+      "narracao": "David Autor sustenta que a inteligência artificial pode fazer o que a internet falhou: democratizar a capacidade de tomar decisões complexas e devolver força à classe média.",
+      "som": "Acorde inspirador em piano acústico com harmonia ascendente, transmitindo clareza conceitual e serenidade analítica.",
+      "visual": "Diagrama animado esquemático: um ampulheta tradicional representando o mercado de trabalho polarizado (topo fino com elites, meio estrangulado, base larga com precários) expande-se pelas bordas centrais sob a injeção de feixes de luz azuis que simbolizam 'IA de Apoio à Decisão', restaurando o formato de um losango equilibrado com classe média ampla.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a análise da OIT sobre a dinâmica de aumento de funções",
+          "destino": 17
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para a conversa com a economista Dra. Beatriz Mendes",
+          "destino": 7
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A jornada de 4 dias comprovada pela Boston College",
+          "destino": 24
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O risco da armadilha do microtrabalho mal remunerado",
+          "destino": 23
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "numero": 16,
+      "tipo": "texto",
+      "polo": "catastrofico",
+      "profundidade": 2,
+      "titulo": "[MOCK] DADO: O Ceticismo Macroeconômico de Daron Acemoglu — O Teto de 0,66% de Produtividade",
+      "texto": "Em maio de 2024, o economista Daron Acemoglu, professor do MIT e coautor do clássico 'Por que as Nações Fracassam', publicou pelo NBER o estudo 'The Simple Macroeconomics of AI' (NBER Working Paper 32487). Acemoglu apresentou um balde de água fria fundamentado sobre as projeções triunfalistas divulgadas por consultorias e empresas de tecnologia que previam saltos monumentais de dois dígitos no PIB mundial com a IA generativa.\n\nAplicando um modelo rigoroso baseado em tarefas e o Teorema de Hulten, Acemoglu calculou que a IA generativa afetará de forma custo-efetiva menos de 5% de todas as tarefas econômicas da força de trabalho dos Estados Unidos nos próximos dez anos. Como consequência, o aumento cumulativo na Produtividade Total dos Fatores (TFP) na próxima década não ultrapassará 0,66% a 0,71% — o que representa uma elevação de crescimento anual inferior a 0,07% ao ano.\n\nAcemoglu ressalva ainda que a maior parte dos sucessos iniciais da IA ocorreu em tarefas de fácil aprendizado e mensuração objetiva (programação básica, resumo de e-mails, redação padronizada). Em tarefas de alto valor que exigem julgamento sob ambiguidade, percepção do mundo físico e responsabilidade moral, os modelos enfrentam retornos decrescentes severos. Pior: ao deslocar bilhões de dólares em capital para datacenters vorazes sem gerar produtividade equivalente, a IA pode concentrar renda nas mãos dos proprietários do capital enquanto achata os salários reais dos trabalhadores.",
+      "fontes": [
+        {
+          "titulo": "NBER Working Paper 32487: The Simple Macroeconomics of AI (Daron Acemoglu)",
+          "url": "https://www.nber.org/papers/w32487",
+          "data": "2024-05-13",
+          "verificada": "2026-11-10"
+        },
+        {
+          "titulo": "RePEc / NBER: The Simple Macroeconomics of AI (Daron Acemoglu)",
+          "url": "https://ideas.repec.org/p/nbr/nberwo/32487.html",
+          "data": "2024-05-13",
+          "verificada": "2026-11-10"
+        }
+      ],
+      "narracao": "Para Acemoglu, o milagre da inteligência artificial não passa de uma miragem estatística: menos de um por cento de ganho real de produtividade em dez anos.",
+      "som": "Som de giz riscando equações densas e complexas em um quadro-negro universitário com pausas pontuadas pelo som seco de um apagador batendo na borda de madeira.",
+      "visual": "Quadro acadêmico repleto de equações macroeconômicas de função de produção Cobb-Douglas e frações de tarefas. Em destaque central com giz vermelho: 'Delta TFP 10y <= 0,66%'. Ao lado, uma linha pontilhada compara o pico histórico da eletrificação industrial com o discreto declive esperado para a IA.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a análise empírica do teste de Renda Básica Universal do OpenResearch",
+          "destino": 18
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para o paradoxo da produtividade e Keynes",
+          "destino": 3
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A tese da aceleração de produtividade de Erik Brynjolfsson",
+          "destino": 13
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O risco de aprofundamento das desigualdades regionais do FMI",
+          "destino": 21
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "numero": 17,
+      "tipo": "texto que se expande",
+      "polo": "neutro",
+      "profundidade": 2,
+      "titulo": "[MOCK] DADO: Automação vs. Aumento — O Mapeamento Ocupacional Global da OIT",
+      "texto": "Em agosto de 2023, a Organização Internacional do Trabalho (OIT), agência especializada das Nações Unidas, publicou o abrangente estudo global 'Generative AI and Jobs: A global analysis of potential effects on job quantity and quality' (ILO Working Paper 96), de autoria dos pesquisadores Pawel Gmyrek, Janine Berg e David Bescond, com ampla cobertura oficial pela UN News.\n\n[EXPANDIR: POR QUE A MAIORIA DAS PROFISSÕES SERÁ COMPLEMENTADA E NÃO DESTRUÍDA?]\nA principal conclusão da OIT desmonta o mito do desemprego generalizado imediato: para a esmagadora maioria das categorias ocupacionais e setores econômicos, a inteligência artificial generativa funcionará como uma ferramenta de complementação e ampliação (augmentation), automatizando apenas tarefas periféricas e rotineiras dentro do cargo, enquanto preserva a necessidade de julgamento, empatia e coordenação humana.\n\nEntretanto, a pesquisa revelou uma exceção crítica com forte recorte de gênero: as funções de apoio administrativo e escritório (clerical work). Cerca de 24% de todas as tarefas de suporte administrativo são consideradas altamente expostas à automação total, e outros 58% apresentam exposição média. Como as mulheres ocupam desproporcionalmente essas vagas em economias de renda média e alta, a proporção de mulheres com empregos sob risco de automação direta é mais do que o dobro da proporção observada entre os homens, exigindo políticas ativas urgentes de transição de carreira.",
+      "fontes": [
+        {
+          "titulo": "RePEc / ILO Working Papers: Generative AI and Jobs — A global analysis of potential effects on job quantity and quality (Gmyrek, Berg & Bescond)",
+          "url": "https://ideas.repec.org/p/ilo/ilowps/995324892702676.html",
+          "data": "2023-08-21",
+          "verificada": "2026-11-10"
+        },
+        {
+          "titulo": "UN News: AI tools like ChatGPT likely to complement jobs, not destroy them — ILO report",
+          "url": "https://news.un.org/en/story/2023/08/1139972",
+          "data": "2023-08-21",
+          "verificada": "2026-11-10"
+        }
+      ],
+      "narracao": "A OIT concluiu que os empregos vão mudar, não evaporar. Mas nas funções administrativas e de escritório, a ameaça da automação atinge as mulheres com o dobro da força.",
+      "som": "Vozes polifônicas de delegados falando idiomas diferentes em uma assembleia geral da ONU com tradução simultânea nos fones e o som metálico de carimbos em tratados oficiais.",
+      "visual": "Gráfico matricial em tela dividida: à esquerda, o setor administrativo com uma barra lilás escura destacando '24% de alta exposição à automação'; à direita, profissões técnicas e gerenciais mostrando faixas esmeralda de 'Aumento de Funções > 80%'. O selo azul das Nações Unidas figura no cabeçalho do documento.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para os dados do experimento de Renda Básica Universal da OpenResearch",
+          "destino": 18
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para a balança de modelos econômicos",
+          "destino": 5
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A tese de complementação pró-trabalhador de David Autor",
+          "destino": 15
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O risco de choque nos 300 milhões de empregos do Goldman Sachs",
+          "destino": 14
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "numero": 18,
+      "tipo": "texto que se expande",
+      "polo": "neutro",
+      "profundidade": 2,
+      "titulo": "[MOCK] DADO: O Teste Empírico da Renda Básica — Os Resultados do OpenResearch de Sam Altman",
+      "texto": "Em 22 de julho de 2024, a instituição de pesquisa independente OpenResearch — fundada e cofinanciada por Sam Altman (CEO da OpenAI) — publicou os resultados definitivos de um dos maiores e mais rigorosos experimentos empíricos com renda básica incondicional já realizados no mundo desenvolvido, com os impactos sobre emprego e trabalho detalhados pelo NBER Working Paper 32719, liderado pela pesquisadora Eva Vivalt e colaboradores, complementando as avaliações de bem-estar coordenadas por Elizabeth Rhodes.\n\n[EXPANDIR: O DINHEIRO INCONDICIONAL CAUSOU PREGUIÇA OU RESILIÊNCIA?]\nO estudo acompanhou 3.000 participantes de baixa renda nos estados de Illinois e Texas durante três anos consecutivos (2020 a 2023). Um grupo de 1.000 indivíduos recebeu US$ 1.000 mensais sem nenhuma condicionalidade ou exigência de contrapartida, enquanto o grupo de controle de 2.000 pessoas recebeu US$ 50 mensais. O objetivo era responder com dados científicos à grande dúvida: as pessoas deixam de trabalhar quando recebem uma renda garantida?\n\nOs dados revelaram que o mito da 'preguiça generalizada' foi refutado: os beneficiários reduziram sua jornada de trabalho em apenas 1,3 a 1,4 horas semanais (uma diminuição modesta de cerca de 4%), utilizando esse tempo para cuidar de dependentes familiares, retomar os estudos ou procurar empregos de melhor qualidade. O dinheiro foi gasto majoritariamente em necessidades vitais (alimentação, aluguel e transporte) e na ajuda a familiares em crise. Contudo, os pesquisadores notaram um alerta: os efeitos benéficos de redução de estresse e melhora da saúde mental foram nítidos no primeiro ano, mas esmaeceram nos anos seguintes, provando que dinheiro incondicional alivia a pobreza extrema, mas não soluciona por si só o sentimento de pertencimento e propósito que o trabalho costuma fornecer.",
+      "fontes": [
+        {
+          "titulo": "NBER Working Paper 32719: The Employment Effects of a Guaranteed Income: Experimental Evidence from Two U.S. States (Vivalt et al. / OpenResearch)",
+          "url": "https://www.nber.org/papers/w32719",
+          "data": "2024-07-22",
+          "verificada": "2026-11-10"
+        },
+        {
+          "titulo": "OpenResearch: An Unconditional Cash Study — Final Results and Working Papers",
+          "url": "https://www.openresearchlab.org/findings",
+          "data": "2024-07-22",
+          "verificada": "2026-11-10"
+        }
+      ],
+      "narracao": "O maior teste de renda básica nos Estados Unidos provou que dar mil dólares por mês não faz as pessoas abandonarem o trabalho, mas dá fôlego para escolherem como viver.",
+      "som": "Sons suaves de caixa registradora de supermercado bipando compras básicas seguidos pelo som reconfortante de uma conversa familiar amena à mesa de jantar.",
+      "visual": "Infográfico sóbrio com dados de orçamento familiar: um gráfico de pizza animado detalha o destino do auxílio mensal: '42% Alimentação e Habitação', '24% Transporte e Saúde', '16% Auxílio a Familiares e Dívidas', '18% Outros Gastos'. Na linha temporal inferior, a curva de horas trabalhadas oscila de 38,5 horas para 37,1 horas semanais.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para os dados do Fórum Econômico Mundial sobre rotatividade no mercado",
+          "destino": 19
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para a conversa com a economista Dra. Beatriz Mendes",
+          "destino": 7
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A promessa da emancipação e recuperação do tempo",
+          "destino": 9
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O diagnóstico do FMI sobre concentração do capital nas plataformas",
+          "destino": 21
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "numero": 19,
+      "tipo": "texto",
+      "polo": "catastrofico",
+      "profundidade": 2,
+      "titulo": "[MOCK] DADO: A Transição do Emprego Global — O Relatório Future of Jobs do Fórum Econômico Mundial",
+      "texto": "No relatório bianual 'Future of Jobs Report 2023', divulgado em 30 de abril de 2023 em Genebra e repercutido amplamente pela cobertura de economia da CNN, o Fórum Econômico Mundial (WEF) mapeou a percepção de mais de 800 empresas líderes globais que empregam diretamente mais de 11,3 milhões de trabalhadores em 45 economias de todos os continentes.\n\nOs dados quantitativos apontam para uma violenta turbulência de rotatividade (churn) no mercado de trabalho no período de 2023 a 2027. Enquanto as novas tecnologias, a transição ecológica e a transformação digital deverão gerar aproximadamente 69 milhões de novos empregos, a automação acelerada, a estagnação econômica e a reestruturação corporativa devem eliminar 83 milhões de postos existentes.\n\nO resultado é um saldo líquido negativo alarmante: a destruição estimada de 14 milhões de empregos em nível mundial, equivalente a 2% do total de empregos analisados. As ocupações com declínio mais acelerado concentram-se justamente em funções administrativas de rotina: caixas bancários, atendentes postais, operadores de telemarketing, digitadores e assistentes contábeis, configurando um processo doloroso de exclusão para profissionais que não conseguirem migrar a tempo para as áreas técnicas emergentes.",
+      "fontes": [
+        {
+          "titulo": "World Economic Forum: The Future of Jobs Report 2023 (Official Report PDF)",
+          "url": "https://www3.weforum.org/docs/WEF_Future_of_Jobs_2023.pdf",
+          "data": "2023-04-30",
+          "verificada": "2026-11-10"
+        },
+        {
+          "titulo": "CNN Business: 14 million jobs worldwide will vanish in the next 5 years, new economic report finds (Julia Horowitz)",
+          "url": "https://edition.cnn.com/2023/04/30/business/automation-jobs-world-economic-forum",
+          "data": "2023-04-30",
+          "verificada": "2026-11-10"
+        }
+      ],
+      "narracao": "Oitenta e três milhões de postos fechados contra sessenta e nove milhões criados. No cálculo frio do Fórum Econômico Mundial, sobram catorze milhões de trabalhadores sem cadeira na dança.",
+      "som": "Barulho característico de uma porta pesada de arquivo de aço sendo trancada com chave, seguido pelo som abafado de caixas de papelão sendo empilhadas em uma demissão em massa.",
+      "visual": "Gráfico de barras divergentes oficial em padrão editorial do WEF: a barra vermelha à esquerda atinge '-83 milhões (Eliminados)', enquanto a barra verde à direita chega a '+69 milhões (Criados)'. No centro, um marcador com destaque sombreado aponta: 'Saldo Líquido: -14 milhões de vagas globais (2023-2027)'.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a projeção de US$ 4,4 trilhões da McKinsey",
+          "destino": 20
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para a esteira da precarização",
+          "destino": 10
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A tese da jornada reduzida como amortecedor de desemprego",
+          "destino": 24
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O choque de 300 milhões de empregos do Goldman Sachs",
+          "destino": 14
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "numero": 20,
+      "tipo": "texto que se expande",
+      "polo": "otimista",
+      "profundidade": 2,
+      "titulo": "[MOCK] DADO: O Potencial de US$ 4,4 Trilhões — A Análise Setorial da McKinsey Global Institute",
+      "texto": "Em junho de 2023, o relatório 'The economic potential of generative AI: The next productivity frontier', conduzido pelo McKinsey Global Institute e analisado por veículos especializados em economia corporativa, mapeou exaustivamente 63 casos de uso específicos de inteligência artificial generativa em 16 funções corporativas e concluiu que a tecnologia tem o potencial de injetar entre US$ 2,6 trilhões e US$ 4,4 trilhões de dólares anualmente na economia global.\n\n[EXPANDIR: OS QUATRO PILARES DE CONCENTRAÇÃO DE VALOR E O SALTO DE PRODUTIVIDADE]\nPara mensurar a magnitude desse número, US$ 4,4 trilhões equivalem aproximadamente a todo o Produto Interno Bruto do Reino Unido somado ao da Argentina. Cerca de 75% de todo esse valor gerado concentra-se em quatro pilares fundamentais das empresas: operações com clientes (customer operations), marketing e vendas, engenharia de software e pesquisa e desenvolvimento (P&D).\n\nA McKinsey calculou que os sistemas atuais já têm capacidade técnica para automatizar tarefas que consomem entre 60% e 70% do tempo dos funcionários atuais, acelerando a data em que metade das ocupações de hoje poderá ser automatizada para a janela entre 2030 e 2060 (com mediana em 2045). Se essa capacidade for revertida em aumento de produtividade e novos modelos de negócios em vez de cortes puros de pessoal, o crescimento do PIB per capita global poderá ser acelerado em até 0,6 ponto percentual ao ano.",
+      "fontes": [
+        {
+          "titulo": "Business Insider: Generative AI Poised to Add .4 Trillion to Global Economy: McKinsey (Sawdah Bhaimiya)",
+          "url": "https://www.businessinsider.com/generative-ai-add-44-trillion-global-economy-mckinsey-2023-6",
+          "data": "2023-06-14",
+          "verificada": "2026-11-10"
+        },
+        {
+          "titulo": "Consultancy.eu: Generative AI can add up to .4 trillion in productivity annually (McKinsey Analysis)",
+          "url": "https://www.consultancy.eu/news/9358/generative-ai-can-add-up-to-44-trillion-in-productivity-annually",
+          "data": "2023-06-19",
+          "verificada": "2026-11-10"
+        }
+      ],
+      "narracao": "Quatro vírgula quatro trilhões de dólares por ano. A promessa da McKinsey é a de um novo salto na riqueza global, desde que saibamos como distribuir essa bonança.",
+      "som": "Trilha suave de piano combinada com ondas sonoras eletrônicas límpidas e reluzentes, transmitindo escala épica e otimismo corporativo arrojado.",
+      "visual": "Gráfico volumétrico em três dimensões: um bloco gigante de ouro e dados translúcidos flutua exibindo '+US$ 4.4 Trilhões / ano'. Quatro colunas sustentam o bloco com as inscrições: 'Engenharia de Software (US$ 900B)', 'Marketing e Vendas (US$ 1.2T)', 'Atendimento ao Cliente (US$ 800B)', 'P&D e Inovação (US$ 1.1T)'.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a análise de riscos de desigualdade do FMI",
+          "destino": 21
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para a balança de modelos econômicos",
+          "destino": 5
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A tese da jornada de 4 dias para desfrutar da abundância",
+          "destino": 24
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O ceticismo de Acemoglu que contesta essas projeções como miragem",
+          "destino": 16
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "numero": 21,
+      "tipo": "texto que se expande",
+      "polo": "catastrofico",
+      "profundidade": 2,
+      "titulo": "[MOCK] DADO: O Dilema de 40% a 60% — A Análise do Fundo Monetário Internacional (FMI)",
+      "texto": "Em 14 de janeiro de 2024, às vésperas da reunião anual do Fórum Econômico Mundial em Davos, o Fundo Monetário Internacional (FMI) lançou a nota técnica 'Gen-AI: Artificial Intelligence and the Future of Work' (Staff Discussion Note SDN/2024/001), assinada pelo economista Mauro Cazzaniga e colegas, com declarações e artigos de fundo da diretora-gerente Kristalina Georgieva amplamente reportados pela imprensa econômica internacional.\n\n[EXPANDIR: O ABISMO ENTRE ECONOMIAS AVANÇADAS E PAÍSES EM DESENVOLVIMENTO]\nO relatório do FMI introduziu um indicador inédito de exposição ocupacional e complementaridade. O documento alertou que aproximadamente 40% do emprego global total está diretamente exposto à IA generativa. Contudo, essa exposição é brutalmente assimétrica entre os blocos econômicos: nas economias avançadas, cerca de 60% dos empregos estão na mira da IA, dos quais metade poderá ser beneficiada por ganhos de produtividade e a outra metade corre o risco real de substituição e compressão de renda.\n\nJá nos mercados emergentes e países em desenvolvimento, a exposição inicial direta é menor (cerca de 40% nos emergentes e apenas 26% nos países de baixa renda), porque essas economias dependem mais de agricultura e trabalho manual. Porém, essa aparente 'proteção' é uma armadilha: sem a infraestrutura computacional, conectividade de ponta e capital humano para adotar as ferramentas, esses países correm o risco crítico de ficar à margem dos ganhos de produtividade globais, ampliando dramaticamente a desigualdade econômica entre as nações ricas e o Sul Global.",
+      "fontes": [
+        {
+          "titulo": "The Guardian: AI will affect 40% of jobs and probably worsen inequality, says IMF head (Dan Milmo)",
+          "url": "https://www.theguardian.com/technology/2024/jan/15/ai-jobs-inequality-imf-kristalina-georgieva",
+          "data": "2024-01-15",
+          "verificada": "2026-11-10"
+        },
+        {
+          "titulo": "CNN Business: IMF chief says AI could disrupt nearly 40% of global employment ahead of Davos (Hanna Ziady)",
+          "url": "https://edition.cnn.com/2024/01/15/tech/imf-global-employment-risk-ai-intl-hnk",
+          "data": "2024-01-15",
+          "verificada": "2026-11-10"
+        }
+      ],
+      "narracao": "O Fundo Monetário Internacional avisa: sessenta por cento dos postos no mundo rico estão expostos à IA. Mas se os países pobres ficarem para trás, a desigualdade planetária se tornará intransponível.",
+      "som": "Toque grave e profundo de um gongo orquestral sobreposto pelo som tenso de teleprompters e cliques de câmeras fotográficas de imprensa em uma coletiva em Washington.",
+      "visual": "Gráfico comparativo de blocos geopolíticos: à esquerda, um cilindro azul alto rotulado 'Economias Avançadas: 60% de Exposição'; ao centro, um cilindro amarelo rotulado 'Emergentes: 40%'; à direita, um cilindro vermelho baixo rotulado 'Baixa Renda: 26%'. Linhas pontilhadas vermelhas mostram a fuga de capitais e o aprofundamento da brecha digital global.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para o diagnóstico do IPEA sobre a vulnerabilidade no Brasil",
+          "destino": 22
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para a conversa com a Dra. Beatriz Mendes",
+          "destino": 7
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A tese de Erik Brynjolfsson sobre empoderamento dos novatos",
+          "destino": 13
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O relatório do Goldman Sachs sobre os 300 milhões de postos",
+          "destino": 14
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "numero": 22,
+      "tipo": "texto",
+      "polo": "neutro",
+      "profundidade": 2,
+      "titulo": "[MOCK] DADO: O Brasil e a Vulnerabilidade Estrutural — O Diagnóstico da Informalidade e da Exposição à IA",
+      "texto": "Análises estruturais do mercado de trabalho brasileiro fundamentadas nos dados da PNAD Contínua do IBGE e em estudos de pesquisadores do FGV IBRE (como os diagnósticos do economista Fernando Veloso em 2024) detalham a anatomia única da vulnerabilidade nacional diante da revolução da inteligência artificial.\n\nDiferente das economias avançadas, onde o mercado é majoritariamente formal e cognitivo, o Brasil possui um contingente estrutural em que a taxa de informalidade atinge 39% a 40% da população ocupada — dezenas de milhões de trabalhadores sem carteira assinada ou em atividades autônomas de subsistência precária. Embora o risco imediato de substituição por robôs físicos sofisticados seja freado pelo baixo custo relativo da mão de obra brasileira e pela defasagem de investimentos de capital, a IA generativa atinge com extrema rapidez o topo e o meio da cadeia de serviços formais: advogados, assistentes contábeis, analistas de suporte, publicitários e operadores de telemarketing.\n\nO grande perigo apontado por economistas especializados em mercado de trabalho é o 'efeito cascata regressivo': profissionais qualificados expulsos ou com remunerações comprimidas pela IA passam a competir por postos de menor complexidade, empurrando os trabalhadores com menor escolaridade para a informalidade total, para o trabalho autônomo por aplicativo ou para a exclusão econômica completa. Sem programas massivos de qualificação da mão de obra, elevação da escolaridade e formação voltada às novas tecnologias, a IA no Brasil corre o risco de aprofundar a histórica fratura social do país.",
+      "fontes": [
+        {
+          "titulo": "G1 Economia: Taxa média de desemprego cai para 6,6% em 2024, menor da história; informalidade atinge 39% (IBGE / PNAD Contínua)",
+          "url": "https://g1.globo.com/economia/noticia/2025/01/31/taxa-media-de-desemprego-cai-para-66percent-em-2024-menor-patamar-da-historia-diz-ibge.ghtml",
+          "data": "2025-01-31",
+          "verificada": "2026-11-10"
+        },
+        {
+          "titulo": "FGV IBRE: Inteligência artificial e mercado de trabalho em perspectiva comparada (Fernando Veloso)",
+          "url": "https://blogdoibre.fgv.br/posts/inteligencia-artificial-e-mercado-de-trabalho-em-perspectiva-comparada",
+          "data": "2024-08-19",
+          "verificada": "2026-11-10"
+        }
+      ],
+      "narracao": "No Brasil de quarenta por cento de informalidade, a IA não precisa substituir o trabalhador braçal para causar estrago: basta fechar as portas dos escritórios para quem buscava subir na vida.",
+      "som": "Sons do trânsito confuso da cidade de São Paulo, ambulantes anunciando produtos com megafones e o eco de uma catraca de metrô girando sem parar na Estação da Sé.",
+      "visual": "Fotografia documental marcante: em primeiro plano, uma jovem com mochila de entregadora de bicicleta aguarda em um semáforo; ao fundo, a fachada de vidro espelhado de uma torre empresarial na Avenida Paulista reflete nuvens densas de chuva sob iluminação de fim de tarde.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a fábrica das sombras do microtrabalho no Sul Global",
+          "destino": 23
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para a conversa com o entregador e motorista Carlos Nogueira",
+          "destino": 8
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A tese da jornada de 4 dias como alívio produtivo",
+          "destino": 24
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O relatório do Fórum Econômico Mundial sobre a perda de 14 milhões de postos",
+          "destino": 19
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "numero": 23,
+      "tipo": "texto",
+      "polo": "catastrofico",
+      "profundidade": 2,
+      "titulo": "[MOCK] DADO: A Fábrica das Sombras — A Economia Oculta dos Microtrabalhadores de Rotulagem de Dados",
+      "texto": "Reportagens investigativas publicadas por veículos de referência internacional como The Guardian e análises econômicas da Divisão de Desenvolvimento Digital do Banco Mundial (como o relatório 'Working Without Borders', de autoria de Namita Datta e colaboradores) revelaram os dados estarrecedores da engrenagem oculta de trabalho humano que alimenta os grandes modelos de IA.\n\nConforme demonstrado pelo Banco Mundial, o trabalho em plataformas digitais (online gig work) cresce em ritmo acelerado em economias em desenvolvimento, envolvendo dezenas de milhões de indivíduos que realizam tarefas fragmentadas de anotação de dados, transcrição e moderação de conteúdo sob extrema volatilidade de renda e ausência de proteção social. Em países do Sul Global como o Quênia (Nairóbi), investigações documentaram trabalhadores terceirizados recebendo remunerações por volta de US$ 1,30 a US$ 2,00 por hora para rotular e filtrar centenas de descrições e imagens diárias de violência extrema, discurso de ódio e abusos para empresas líderes de tecnologia.\n\nOs depoimentos colhidos em ações e petições públicas revelam sintomas severos de transtorno de estresse pós-traumático (TEPT), depressão e ansiedade entre os moderadores, frequentemente contratados sem aviso prévio sobre a brutalidade do conteúdo e demitidos sem suporte contínuo de saúde mental. Os dados provam que, longe de ser pura mágica algorítmica autônoma, a inteligência artificial generativa de ponta é construída sobre uma cadeia global de terceirização precarizada e sofrimento psíquico não indenizado no Sul Global.",
+      "fontes": [
+        {
+          "titulo": "The Guardian: ‘It’s destroyed me completely’: Kenyan moderators decry toll of training of AI models (Niamh Rowe)",
+          "url": "https://www.theguardian.com/technology/2023/aug/02/ai-chatbot-training-human-toll-content-moderator-meta-openai",
+          "data": "2023-08-02",
+          "verificada": "2026-11-10"
+        },
+        {
+          "titulo": "World Bank: Working Without Borders — The Promise and Peril of Online Gig Work (Datta et al.)",
+          "url": "https://openknowledge.worldbank.org/handle/10986/40190",
+          "data": "2023-09-15",
+          "verificada": "2026-11-10"
+        }
+      ],
+      "narracao": "Vinte milhões de pessoas no mundo trabalham nas sombras por menos de dois dólares a hora para que a inteligência artificial pareça mágica na sua tela.",
+      "som": "Zumbido elétrico e estático de lâmpada fluorescente velha queimando devagar sobreposto ao clique compulsivo de centenas de mouses em um ambiente fechado e silencioso.",
+      "visual": "Fotojornalismo investigativo: close na mão com unhas curtas de uma jovem em um teclado encardido. Na tela do computador, ela marca caixas de seleção delimitando rostos e objetos em imagens borradas. No canto inferior da tela, um saldo acumulado de pagamento atualiza: '$1.42 por 1 hora e 20 minutos de trabalho'.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para os dados sobre a jornada de 4 dias como contraponto otimista",
+          "destino": 24
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para a geopolítica do trabalho digital no Sul Global",
+          "destino": 11
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A tese da abundância trilionária da McKinsey",
+          "destino": 20
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O choque de 300 milhões de empregos do Goldman Sachs",
+          "destino": 14
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "numero": 24,
+      "tipo": "texto que se expande",
+      "polo": "otimista",
+      "profundidade": 2,
+      "titulo": "[MOCK] DADO: A Jornada de 4 Dias e a Redução do Tempo — Os Resultados da 4 Day Week Global",
+      "texto": "Em 21 de fevereiro de 2023, pesquisadores do Boston College, da Universidade de Cambridge e da organização 4 Day Week Global divulgaram os resultados consolidados do maior teste controlado de semana de trabalho de quatro dias (32 horas semanais sem redução salarial, sob o modelo 100-80-100: 100% do salário por 80% do tempo mantendo 100% da entrega), envolvendo 61 empresas e cerca de 2.900 funcionários no Reino Unido, com cobertura mundial destacando o salto de bem-estar.\n\n[EXPANDIR: RECEITAS CORPORATIVAS EM ALTA E COLAPSO DO BURNOUT]\nAs conclusões empíricas superaram todas as expectativas céticas: das 61 companhias participantes, 92% (56 empresas) decidiram manter permanentemente a semana de 4 dias após o fim do piloto, e 18 delas oficializaram a mudança em definitivo logo na primeira avaliação. Segundo os dados da pesquisa, as receitas das empresas aumentaram em média 1,4% durante o período do teste e saltaram 35% quando comparadas com períodos idênticos de anos anteriores, comprovando que produtividade não depende de horas presenciais exaustivas.\n\nPara os trabalhadores, o impacto na saúde física e mental foi transformador: 71% dos funcionários relataram redução nos níveis de esgotamento profissional (burnout), 39% disseram sentir-se menos estressados e as faltas por doença caíram cerca de dois terços (65%). Em vez de expulsar trabalhadores pelo excesso de automação, a inteligência artificial integrada a jornadas reduzidas prova ser o catalisador que finalmente pode cumprir a profecia histórica de Keynes: menos tempo vendido à empresa, mais vida para ser vivida.",
+      "fontes": [
+        {
+          "titulo": "The Guardian: Four-day week: ‘major breakthrough’ as most UK firms in trial extend changes (Heather Stewart)",
+          "url": "https://www.theguardian.com/money/2023/feb/21/four-day-week-uk-trial-success-pattern",
+          "data": "2023-02-21",
+          "verificada": "2026-11-10"
+        },
+        {
+          "titulo": "Boston College: A four-day work week? Study of Pilots of Four-Day Work Week (Juliet Schor et al.)",
+          "url": "https://www.bc.edu/bc-web/bcnews/nation-world-society/sociology/-study-pilots-four-day-work-week.html",
+          "data": "2023-02-21",
+          "verificada": "2026-11-10"
+        }
+      ],
+      "narracao": "Noventa e dois por cento das empresas que testaram a semana de quatro dias nunca mais voltaram atrás. A produtividade aumentou, o burnout despencou e a vida voltou a fazer sentido.",
+      "som": "Campainha estridente do relógio de ponto soando às cinco da tarde de uma quinta-feira, seguida pelo murmúrio alegre de despedidas de fim de expediente e o som de uma taça de vinho sendo servida.",
+      "visual": "Infográfico comemorativo vibrante em tons esmeralda e dourado: uma barra de calendário marca 'Sexta-feira: Livre' com ícone de coração e bicicleta. Gráficos circulares de destaque comprovam: '92% de Manutenção do Modelo', '-71% de Casos de Burnout' e '+35% de Receitas Médias'. Ao fundo, funcionários felizes caminham ao ar livre sob um céu limpo de primavera.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Retornar ao início: A Grande Encruzilhada da Automação",
+          "destino": 1
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para a promessa de emancipação e ócio criativo",
+          "destino": 9
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A tese da IA pró-trabalhador de David Autor",
+          "destino": 15
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O risco da vigilância algorítmica e esteira produtiva",
+          "destino": 10
+        }
+      ]
+    }
+  ]
+}
