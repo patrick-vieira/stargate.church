@@ -159,3 +159,21 @@ class AudioGrafoTests(SimpleTestCase):
         self.executar(max_caracteres=0)
         self.assertEqual(post.call_count, 1)
         self.assertEqual(json.loads(self.saida.read_text())["1"]["duracao"], 0.261)
+
+    @mock.patch("httpx.request")
+    @mock.patch("httpx.post")
+    def test_base_com_v1_sem_duplicar_versao(self, post, upload):
+        post.return_value = upload.return_value = self.resposta()
+        self.chaves.write_text(
+            json.dumps(
+                {"api_key": "segredo-ficticio", "base_url": "https://audio.invalid/v1/"}
+            )
+        )
+        self.executar(max_narracoes=1, max_sons=1)
+        self.assertEqual(
+            [chamada.args[0] for chamada in post.call_args_list],
+            [
+                "https://audio.invalid/v1/text-to-speech/voz-teste",
+                "https://audio.invalid/v1/sound-generation",
+            ],
+        )

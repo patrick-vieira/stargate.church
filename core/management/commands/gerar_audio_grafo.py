@@ -140,6 +140,8 @@ class Command(BaseCommand):
             ):
                 raise ValueError("Base inválida.")
             base = base.rstrip("/")
+            if base.endswith("/v1"):
+                base = base[:-3]
             imagetools.configuracao()
         tentativas = dict.fromkeys(limites, 0)
         gerados = acertos = erros = planejados = caracteres = 0
