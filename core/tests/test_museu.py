@@ -77,6 +77,17 @@ class MuseuTests(TestCase):
             for numero in range(1, 25)
         }
 
+    def importar_seis_series(self, **opcoes):
+        pasta = Path(__file__).resolve().parents[1] / "dados" / "grafos"
+        argumentos = []
+        with tempfile.TemporaryDirectory() as temporario:
+            for ficheiro in sorted(pasta.glob("*.grafo.json")):
+                slug = json.loads(ficheiro.read_text(encoding="utf-8"))["serie"]
+                manifesto = Path(temporario) / f"{slug}.json"
+                manifesto.write_text(json.dumps(self.manifesto_ficticio()))
+                argumentos.extend(["--manifesto-audio", f"{slug}={manifesto}"])
+            call_command("importar_series_museu", *argumentos, **opcoes)
+
     def test_importacao_repetivel_e_nao_publica(self):
         self.importar(grafo())
         self.importar(grafo())
@@ -104,8 +115,8 @@ class MuseuTests(TestCase):
 
     def test_importador_das_seis_series_e_repetivel_sem_publicar(self):
         saida = StringIO()
-        call_command("importar_series_museu", stdout=saida)
-        call_command("importar_series_museu", stdout=saida)
+        self.importar_seis_series(stdout=saida)
+        self.importar_seis_series(stdout=saida)
 
         self.assertEqual(GrafoMuseu.objects.count(), 6)
         self.assertFalse(Serie.objects.filter(publicado=True).exists())
@@ -113,11 +124,57 @@ class MuseuTests(TestCase):
 
     def test_importador_preserva_series_publicadas_na_reimportacao(self):
         saida = StringIO()
-        call_command("importar_series_museu", publicar=True, stdout=saida)
-        call_command("importar_series_museu", stdout=saida)
+        self.importar_seis_series(publicar=True, stdout=saida)
+        self.importar_seis_series(stdout=saida)
 
         self.assertEqual(Serie.objects.filter(publicado=True).count(), 6)
         self.assertIn("a publicação existente foi preservada", saida.getvalue())
+
+    def test_manifestos_invalidos_no_lote_nao_importam_serie_alguma(self):
+        pasta = Path(__file__).resolve().parents[1] / "dados" / "grafos"
+        argumentos = []
+        with tempfile.TemporaryDirectory() as temporario:
+            for indice, ficheiro in enumerate(sorted(pasta.glob("*.grafo.json"))):
+                slug = json.loads(ficheiro.read_text(encoding="utf-8"))["serie"]
+                manifesto = self.manifesto_ficticio()
+                if indice == 5:
+                    del manifesto["24"]
+                caminho = Path(temporario) / f"{slug}.json"
+                caminho.write_text(json.dumps(manifesto))
+                argumentos.extend(["--manifesto-audio", f"{slug}={caminho}"])
+            with self.assertRaises(CommandError):
+                call_command("importar_series_museu", *argumentos)
+        self.assertEqual(GrafoMuseu.objects.count(), 0)
+
+    @patch(
+        "core.servicos.imagetools.consultar_audio",
+        return_value="https://cdn.invalid/audio.mp3",
+    )
+    def test_sete_series_importadas_com_audio_em_sala(self, consultar):
+        self.importar_seis_series()
+        dados = self.grafo_energia()
+        manifesto = self.manifesto_ficticio()
+        with tempfile.TemporaryDirectory() as temporario:
+            grafo_path = Path(temporario) / "energia.json"
+            audio_path = Path(temporario) / "energia.audio.json"
+            grafo_path.write_text(json.dumps(dados))
+            audio_path.write_text(json.dumps(manifesto))
+            call_command(
+                "importar_grafo", str(grafo_path), "--manifesto-audio", str(audio_path)
+            )
+
+        self.assertEqual(GrafoMuseu.objects.count(), 7)
+        Serie.objects.update(publicado=True)
+        for serie in Serie.objects.order_by("slug"):
+            with self.subTest(serie=serie.slug):
+                resposta = self.client.get(
+                    reverse("core:museu_audio", args=[serie.slug, 1, "som"])
+                )
+                self.assertEqual(resposta.status_code, 200)
+                self.assertEqual(
+                    resposta.json(), {"url": "https://cdn.invalid/audio.mp3"}
+                )
+        self.assertEqual(consultar.call_count, 7)
 
     def test_lote_invalido_no_sexto_grafo_nao_inicia_escrita(self):
         from core.management.commands import importar_series_museu
@@ -136,34 +193,33 @@ class MuseuTests(TestCase):
             patch.object(
                 importar_series_museu, "validar_grafo", side_effect=invalida_sexto
             ),
-            patch.object(importar_series_museu, "call_command") as importar,
+            patch.object(Serie.objects, "get_or_create") as criar_serie,
+            patch.object(GrafoMuseu.objects, "update_or_create") as gravar_grafo,
         ):
             with self.assertRaises(CommandError):
                 call_command("importar_series_museu", stdout=StringIO())
 
-        importar.assert_not_called()
+        criar_serie.assert_not_called()
+        gravar_grafo.assert_not_called()
         self.assertEqual(GrafoMuseu.objects.count(), 0)
         self.assertEqual(Serie.objects.count(), 0)
 
-    def test_lote_reverte_importacoes_se_o_sexto_comando_falhar(self):
-        from core.management.commands import importar_series_museu
-
-        chamar_real = call_command
+    def test_lote_reverte_importacoes_se_a_sexta_gravacao_falhar(self):
+        atualizar_real = GrafoMuseu.objects.update_or_create
         chamadas = 0
 
-        def falha_sexto(*args, **kwargs):
+        def falha_sexta_gravacao(*args, **kwargs):
             nonlocal chamadas
-            if args[0] == "importar_grafo":
-                chamadas += 1
-                if chamadas == 6:
-                    raise CommandError("falha de importação simulada")
-            return chamar_real(*args, **kwargs)
+            chamadas += 1
+            if chamadas == 6:
+                raise RuntimeError("falha de gravação simulada")
+            return atualizar_real(*args, **kwargs)
 
         with patch.object(
-            importar_series_museu, "call_command", side_effect=falha_sexto
+            GrafoMuseu.objects, "update_or_create", side_effect=falha_sexta_gravacao
         ):
-            with self.assertRaises(CommandError):
-                chamar_real("importar_series_museu", stdout=StringIO())
+            with self.assertRaises(RuntimeError):
+                self.importar_seis_series(stdout=StringIO())
 
         self.assertEqual(chamadas, 6)
         self.assertEqual(GrafoMuseu.objects.count(), 0)

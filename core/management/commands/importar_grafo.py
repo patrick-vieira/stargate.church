@@ -9,6 +9,16 @@ from django.db import transaction
 from core.models import GrafoMuseu, Serie
 from core.servicos.museu import validar_grafo
 
+SERIES_COM_AUDIO = {
+    "mock-energia-sem-fim",
+    "mock-a-escola-que-aprende",
+    "mock-mentes-artificiais",
+    "mock-o-corpo-aumentado",
+    "mock-o-fim-do-trabalho",
+    "mock-planeta-b",
+    "mock-robos-em-casa",
+}
+
 
 class Command(BaseCommand):
     help = "Valida e importa um grafo editorial atomicamente, sem publicar a série."
@@ -48,7 +58,7 @@ def associar_audio(dados, manifesto):
     """Valida o manifesto completo antes de associar apenas UUIDs ao grafo."""
     esperado = {str(numero) for numero in range(1, 25)}
     if (
-        dados.get("serie") != "mock-energia-sem-fim"
+        dados.get("serie") not in SERIES_COM_AUDIO
         or not isinstance(manifesto, dict)
         or set(manifesto) != esperado
     ):
