@@ -54,15 +54,6 @@ html[data-envelope=base][data-estilo="5"] :is(h1,h2,h3){font-weight:700;letter-s
 .sg-estilos__convite[hidden],.sg-estilos button[hidden]{display:none}
 .sg-estilos :focus-visible{outline:3px solid var(--sg-tinta);outline-offset:3px}
 @media(max-width:640px){.sg-estilos{flex-direction:column}.sg-estilos__convite{font-size:.8125rem}.sg-estilos__convite span{width:100%}}
-/* Viagem entre estrelas, usando os mesmos eventos da onda 7. */
-:root:active-view-transition-type(estelar)::view-transition{background:radial-gradient(ellipse at center,#4a6497,#080f24 70%)}
-:root:active-view-transition-type(estelar)::view-transition-old(root){animation:sg-estelar-sai 620ms ease-in both}
-:root:active-view-transition-type(estelar)::view-transition-new(root){animation:sg-estelar-entra 720ms ease-out both}
-@keyframes sg-estelar-sai{to{opacity:0;transform:scale(1.35);filter:blur(8px)}}
-@keyframes sg-estelar-entra{from{opacity:0;transform:scale(.8);filter:blur(8px)}to{opacity:1;transform:none;filter:none}}
-@media(prefers-reduced-motion:reduce){
-  :root:active-view-transition-type(estelar)::view-transition-old(root),:root:active-view-transition-type(estelar)::view-transition-new(root){animation:none}
-}
 
 html[data-envelope=base]:not([data-estilo="0"]) .luz-ceu{--ceu-tx:var(--sg-tinta);--ceu-tx2:var(--sg-tinta-2);--ceu-tx3:var(--sg-tinta-3);--ceu-ac:var(--sg-coral-ink)}
 html[data-envelope=base][data-estilo="3"] .sg-selo{background:#15392c;color:#9be2c1}
