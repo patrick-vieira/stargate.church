@@ -1,10 +1,10 @@
 {% extends "noticias/base.html" %}{% load static %}{% block titulo %}Séries — Stargate{% endblock %}{% block conteudo %}
-<div class="luz-ceu" data-luz="ceu" data-fase="tarde"><div class="luz-ceu__fundo" aria-hidden="true"><i data-f="madrugada"></i><i data-f="manha"></i><i data-f="tarde"></i><i data-f="crepusculo"></i><i data-f="noite"></i></div><section class="sg-wrap"><span class="sg-sobrolho">Séries</span><h1>As séries do Stargate</h1>
+<div class="luz-ceu" data-luz="ceu" data-fase="tarde"><div class="luz-ceu__fundo" aria-hidden="true"><i data-f="madrugada"></i><i data-f="manha"></i><i data-f="tarde"></i><i data-f="crepusculo"></i><i data-f="noite"></i></div><section class="sg-wrap pg-cab"><span class="sg-sobrolho">Séries</span><h1>As séries do Stargate</h1>
 <p class="sg-lede">Histórias em episódios para ler devagar: cada série reúne reportagens imersivas sobre o futuro que já começou.</p>
 <p style="margin-top:1.6rem"><a class="sg-btn sg-btn--coral" data-luz="botao" href="{% url 'noticias:home' %}">Ver as notícias →</a></p></section></div>
 <section class="sg-sec" id="series"><div class="sg-wrap"><div class="sg-sec__cab"><h2>Todas as séries</h2><a href="{% url 'noticias:home' %}">Notícias →</a></div>{# trailer: STAR-50 #}
 {% if series %}<div class="sg-grade sg-grade--3">{% for serie in series %}<article class="sg-card">{% if serie.capa %}<img src="{% static serie.capa %}" alt="" loading="lazy" style="max-width:100%;height:auto">{% else %}{% include "noticias/_arte.html" with tema=None prefixo="s" uid=serie.pk classe="sg-art--32" %}{% endif %}
 <span class="sg-sobrolho">Série</span><h3>{{ serie.titulo }}</h3>{% if serie.resumo %}<p>{{ serie.resumo }}</p>{% endif %}
 <p class="sg-meta">{{ serie.episodios_publicados|length }} episódio{{ serie.episodios_publicados|length|pluralize }}</p>
-{% if serie.hub and serie.hub.publicado %}<p><a class="sg-btn" href="{{ serie.get_absolute_url }}">Entrar na série →</a></p>{% endif %}</article>{% endfor %}</div>{% else %}<p class="sg-meta">Ainda não há séries publicadas. Volte em breve, ou leia as <a href="{% url 'noticias:home' %}">notícias</a>.</p>{% endif %}</div></section>
+{% if serie.hub and serie.hub.publicado %}<p><a class="sg-btn" data-luz="botao" href="{{ serie.get_absolute_url }}">Entrar na série →</a></p>{% endif %}</article>{% endfor %}</div>{% else %}<p class="sg-meta">Ainda não há séries publicadas. Volte em breve, ou leia as <a href="{% url 'noticias:home' %}">notícias</a>.</p>{% endif %}</div></section>
 {% endblock %}
