@@ -49,6 +49,7 @@ class AudioGrafoTests(SimpleTestCase):
             voz="voz-teste",
             max_narracoes=kwargs.pop("max_narracoes", 10),
             max_sons=kwargs.pop("max_sons", 10),
+            max_caracteres=kwargs.pop("max_caracteres", 10000),
             stdout=self.out,
             stderr=self.err,
             **kwargs,
@@ -56,7 +57,7 @@ class AudioGrafoTests(SimpleTestCase):
         return json.loads(self.saida.read_text()) if self.saida.exists() else None
 
     def resposta(self):
-        resp = mock.Mock(content=b"mp3-ficticio")
+        resp = mock.Mock(content=(bytes.fromhex("fffb9000") + bytes(413)) * 10)
         resp.json.return_value = {"uuid": "uuid-ficticio"}
         return resp
 
@@ -146,3 +147,15 @@ class AudioGrafoTests(SimpleTestCase):
         dados = self.executar(max_narracoes=1, max_sons=0)
         self.assertEqual(post.call_count, 1)
         self.assertEqual(dados["1"]["narracao_uuid"], "uuid-ficticio")
+
+    @mock.patch("httpx.request")
+    @mock.patch("httpx.post")
+    def test_teto_caracteres_e_duracao(self, post, upload):
+        post.return_value = upload.return_value = self.resposta()
+        dados = self.executar(max_caracteres=6)
+        self.assertEqual(post.call_count, 1)
+        self.assertAlmostEqual(dados["1"]["duracao"], 0.261, places=3)
+        self.assertIsNone(dados["2"]["duracao"])
+        self.executar(max_caracteres=0)
+        self.assertEqual(post.call_count, 1)
+        self.assertEqual(json.loads(self.saida.read_text())["1"]["duracao"], 0.261)
