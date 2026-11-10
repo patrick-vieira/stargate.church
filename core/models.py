@@ -484,6 +484,12 @@ class Episodio(models.Model):
     video = models.FileField(
         "vídeo 16:9", upload_to="episodios/", blank=True, max_length=200
     )
+    video_url = models.URLField(
+        "vídeo 16:9 (URL externo, ImageTools)", max_length=500, blank=True
+    )
+    video_imagetools_uuid = models.CharField(
+        "uuid do vídeo no ImageTools", max_length=64, blank=True
+    )
     video_vertical = models.FileField(
         "vídeo 9:16 (opcional, com voz)",
         upload_to="episodios/",
@@ -528,7 +534,7 @@ class Episodio(models.Model):
 
     @property
     def tem_midia(self):
-        return bool(self.video or self.audio)
+        return bool(self.video_url or self.video or self.audio)
 
 
 class VotoPlacar(models.Model):

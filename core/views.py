@@ -65,6 +65,7 @@ def _midia(post, serie, episodio):
         return {
             "titulo": episodio.titulo or post.titulo,
             "video": episodio.video,
+            "video_url": episodio.video_url,
             "vertical": episodio.video_vertical,
             "poster": episodio.poster,
             "audio": episodio.audio,
