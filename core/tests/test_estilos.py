@@ -17,6 +17,28 @@ class EstilosTests(TestCase):
         self.assertContains(resposta, "Escolher aparência")
         self.assertIn("Cookie", resposta["Vary"])
 
+    def test_viagem_apenas_na_noite_estrelada(self):
+        for estilo in ("0", "3", "5"):
+            for rota in ("/", "/noticias/", reverse("leitores:entrar")):
+                with self.subTest(estilo=estilo, rota=rota):
+                    resposta = self.client.get(rota, {"estilo": estilo})
+                    self.assertEqual(resposta.context["estilo_base"], estilo)
+                    for arquivo in ("css/viagem-estrelas.css", "js/viagem-estrelas.js"):
+                        if estilo == "3":
+                            self.assertContains(resposta, arquivo)
+                        else:
+                            self.assertNotContains(resposta, arquivo)
+
+    def test_contexto_do_estilo_respeita_query_cookie_e_padrao(self):
+        fabrica = RequestFactory()
+        request = fabrica.get("/")
+        self.assertEqual(envelope(request)["estilo_base"], "3")
+        request.COOKIES["stargate_estilo"] = "5"
+        self.assertEqual(envelope(request)["estilo_base"], "5")
+        request = fabrica.get("/?estilo=3")
+        request.COOKIES["stargate_estilo"] = "5"
+        self.assertEqual(envelope(request)["estilo_base"], "3")
+
     def test_escolha_persiste_em_todas_as_paginas(self):
         for estilo in ("0", "3", "5"):
             resposta = self.client.get("/", {"estilo": estilo})
@@ -67,6 +89,7 @@ class EstilosTests(TestCase):
             )
             self.assertContains(resposta, 'data-envelope="livre"')
             self.assertNotContains(resposta, "Escolher aparência")
+            self.assertNotContains(resposta, "viagem-estrelas")
 
     def test_sete_guardas_de_sinks(self):
         raiz = Path(__file__).resolve().parents[2]

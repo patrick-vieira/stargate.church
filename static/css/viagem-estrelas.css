@@ -1,0 +1,38 @@
+/* STAR-76: céu independente do conteúdo; 800 ms entre aceleração e chegada. */
+@view-transition{navigation:auto}
+html[data-envelope=base][data-estilo="3"] .sg-viagem-estrelas{
+  position:fixed;inset:0;z-index:30;pointer-events:none;overflow:hidden;
+  view-transition-name:estrelas;
+}
+.sg-viagem-estrelas i{
+  position:absolute;left:50%;top:50%;width:2px;height:2px;border-radius:50%;
+  background:#d5e3ff;opacity:.45;
+  transform:rotate(var(--angulo)) translateX(var(--raio));
+}
+:root:active-view-transition-type(viagem-estrelas)::view-transition-group(estrelas){animation:none}
+:root:active-view-transition-type(viagem-estrelas)::view-transition-old(estrelas){
+  animation:sg-salto 380ms cubic-bezier(.7,0,1,.5) both;
+}
+:root:active-view-transition-type(viagem-estrelas)::view-transition-new(estrelas){
+  animation:sg-chegada 420ms 380ms cubic-bezier(0,.6,.3,1) both;
+}
+:root:active-view-transition-type(viagem-estrelas)::view-transition-old(root){animation:sg-pagina-sai 380ms ease-in both}
+:root:active-view-transition-type(viagem-estrelas)::view-transition-new(root){animation:sg-pagina-chega 420ms 380ms ease-out both}
+@keyframes sg-salto{
+  from{transform:scale(1);opacity:1;filter:none}
+  to{transform:scale(4);opacity:0;filter:blur(2px)}
+}
+@keyframes sg-chegada{
+  from{transform:scale(.25);opacity:0;filter:blur(2px)}
+  25%{opacity:1}
+  to{transform:scale(1);opacity:1;filter:none}
+}
+@keyframes sg-pagina-sai{to{opacity:0}}
+@keyframes sg-pagina-chega{from{opacity:0}to{opacity:1}}
+/* Sem API, sem JS ou movimento reduzido, apenas o fundo estático original. */
+html.vt-fallback[data-envelope=base][data-estilo="3"] body{animation:none}
+@media(prefers-reduced-motion:reduce){
+  .sg-viagem-estrelas{display:none}
+  :root:active-view-transition-type(viagem-estrelas)::view-transition-old(*),
+  :root:active-view-transition-type(viagem-estrelas)::view-transition-new(*){animation:none}
+}

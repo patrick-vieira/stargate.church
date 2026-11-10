@@ -25,7 +25,7 @@
   var suporta = 'PageRevealEvent' in window && !semvt;
   if (!suporta) H.classList.add('vt-fallback');
 
-  function clima() { if (H.dataset.envelope === 'base' && H.dataset.estilo === '3') return 'estelar'; return H.getAttribute('data-clima') || 'padrao'; }
+  function clima() { return H.getAttribute('data-clima') || 'padrao'; }
 
   window.addEventListener('pageswap', function (e) {
     esc('vt-clima', clima());
