@@ -90,6 +90,12 @@
 .sg-news .sg-form input[disabled]::placeholder{color:var(--sg-tinta-3);opacity:1}
 .sg-news .sg-btn[disabled]{opacity:1;cursor:not-allowed;background:transparent;color:var(--sg-creme);border:2px dashed var(--sg-creme)}
 
+/* ---------- onda 6, notas do Kakashi: contraste ≥ 3:1 (WCAG 1.4.11) fora dos campos com luz ---------- */
+.sg-burger{border-color:var(--sg-tinta-3)}                                    /* era --sg-linha (1,27:1) */
+.sg-form input[disabled]{opacity:1;background:var(--sg-creme-2);border:1.5px dashed var(--sg-tinta-3);color:var(--sg-tinta-3)}
+.sg-btn[disabled]{opacity:1;background:transparent;color:var(--sg-tinta-3);border:1.5px dashed var(--sg-tinta-3)}
+.sg-cartao-conta .sg-meta a{color:var(--sg-tinta);font-weight:600;text-decoration:underline;text-underline-offset:3px}   /* «Criar conta» / «Entrar»: não só cor */
+
 /* ---------- a home: atmosfera de entrada, que muda com a hora (5 fases) ---------- */
 .luz-ceu{position:relative;isolation:isolate;overflow:hidden;
   --ceu-tx:var(--sg-tinta);--ceu-tx2:var(--sg-tinta-2);--ceu-tx3:var(--sg-tinta-3);--ceu-ac:var(--sg-coral-ink);
@@ -99,7 +105,7 @@
 .luz-ceu::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
   background:radial-gradient(circle 280px at var(--luz-x) var(--luz-y),rgba(var(--luz-sol),calc(.16*var(--luz-i))),transparent 72%)}
 .luz-ceu .sg-sobrolho{color:var(--ceu-ac)}
-.luz-ceu .sg-manchete h1{color:var(--ceu-tx)}
+.luz-ceu h1,.luz-ceu .sg-manchete h1{color:var(--ceu-tx)}
 .luz-ceu .sg-manchete h1 em{color:var(--ceu-ac)}
 .luz-ceu .sg-lede{color:var(--ceu-tx2)}
 .luz-ceu .sg-meta{color:var(--ceu-tx3)}

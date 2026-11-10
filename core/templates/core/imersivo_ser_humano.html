@@ -105,8 +105,8 @@
   <section class="sh-fecho" aria-label="Próxima estação">
     <div class="sh-miolo">
       <p class="sh-vidro">A melhor dúvida é a que protege pessoas, não a que humilha máquinas.</p><br>
-      <span class="sh-prox">Próxima estação: <em>A IA afetiva</em></span><br>
-      <a href="{% url 'core:home' %}">← Voltar à página inicial</a>
+      <a class="sh-prox" href="{% if serie %}{% url 'core:episodio' serie.slug 'a-ia-afetiva' %}{% else %}{% url 'core:imersivo' 'a-ia-afetiva' %}{% endif %}">Próxima estação: <em>A IA afetiva</em> →</a><br>
+      <a href="{% url 'core:imersivo' 'ia-na-ficcao' %}#hb-faixa">← Voltar à linha do tempo</a>
       <p class="sh-fontes sh-vidro">Fontes: Blade Runner, AFI · Ex Machina, A24 · Westworld, HBO · NIST AI 600-1, Generative AI Profile. O teste é original: não reproduz o da obra nem diagnostica ninguém. Sala, painéis e silhuetas são desenhos originais.</p>
     </div>
   </section>

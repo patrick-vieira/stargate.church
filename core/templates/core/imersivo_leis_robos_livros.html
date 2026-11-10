@@ -118,8 +118,9 @@
   <section class="lr-fecho" aria-label="Próxima estação">
     <div class="lr-miolo">
       <p class="lr-folha">Nenhuma regra simples cobre uma história complexa. Escrever, medir e corrigir cobre mais.</p><br>
-      <a href="{% url 'core:imersivo' 'escolhas-da-maquina' %}">Próxima estação: Escolhas da máquina →</a>
-      <p class="lr-fontes lr-folha">Fontes: R.U.R., Biblioteca do Congresso · Eu, Robô (contos), ISFDB · Neuromancer, William Gibson · NIST AI 600-1, Generative AI Profile. As regras e o mapa são originais; nenhuma lei de obra, capa ou trecho é reproduzido. Sem áudio nesta onda.</p>
+      <a href="{% if serie %}{% url 'core:episodio' serie.slug 'escolhas-da-maquina' %}{% else %}{% url 'core:imersivo' 'escolhas-da-maquina' %}{% endif %}">Próxima estação: Escolhas da máquina →</a><br>
+      <a href="{% url 'core:imersivo' 'ia-na-ficcao' %}#hb-faixa">← Voltar à linha do tempo</a>
+      <p class="lr-fontes lr-folha">Fontes: R.U.R., Biblioteca do Congresso · Eu, Robô (contos), ISFDB · Neuromancer, William Gibson · NIST AI 600-1, Generative AI Profile. As regras e o mapa são originais; nenhuma lei de obra, capa ou trecho é reproduzido.</p>
     </div>
   </section>
 </div>

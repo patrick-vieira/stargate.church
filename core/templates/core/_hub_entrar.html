@@ -1,0 +1,1 @@
+{# Estado real do cartão (STAR-70): «Entrar →» só para posts publicados; os outros «Em breve». #}{% if slug in publicados %}<a class="hb-ent" href="{% if serie %}{% url 'core:episodio' serie.slug slug %}{% else %}{% url 'core:imersivo' slug %}{% endif %}">Entrar →</a>{% else %}<span class="hb-breve">Em breve</span>{% endif %}

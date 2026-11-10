@@ -1,0 +1,182 @@
+{% extends "noticias/base.html" %}
+{% load static %}
+{% block clima %}padrao{% endblock %}
+{% block fundo_vt %}<style>html{background:#2A2014;--vt-fundo:#2A2014}body{background:#2A2014}</style>{% endblock %}
+{% block titulo %}{{ post.titulo }} — A IA na ficção — Stargate{% endblock %}
+{% block conteudo %}
+{% include "core/_narrador.html" %}
+{% for ato in atos %}{% if ato.efeito == "atmosfera:hub" %}
+<div class="hb-raiz" id="principal" data-imersivo data-libs="{{ libs }}">
+<div class="hb-fundo-fixo" aria-hidden="true"></div>
+<div class="hb-atmos" id="hb-atmos" aria-hidden="true"><!-- névoa, luz por década e grão: camada de FUNDO (na faixa, dentro do palco de fundo, atrás do texto) -->
+<div class="hb-poca" id="hb-poca"></div><canvas class="hb-nevoa" id="hb-nevoa"></canvas><div class="hb-grao" id="hb-grao"></div></div>
+
+<div class="hb-topo">
+  <a href="{% url 'core:home' %}"><span class="hb-longo">A IA na ficção</span><span class="hb-curto">Ficção</span></a>
+  <button class="hb-btn-pausa" id="hb-pausa" type="button" aria-pressed="false">pausar movimento</button>
+</div>
+
+<div class="hb-conteudo" data-ato data-efeito="atmosfera:hub" data-parametros="{{ ato.parametros_json }}" data-reduzido="{{ ato.reduzido }}">
+  <section class="hb-hero" aria-labelledby="hb-t-hub">
+    <div class="hb-miolo">
+      <p class="hb-sobrolho">{% if n_posts %}Série · {{ n_posts }} posts · {% endif %}1920 → 2026</p>
+      <h1 id="hb-t-hub" class="hb-sombra-txt">Do Golem ao <em>ChatGPT</em></h1>
+      <p class="hb-lead hb-sombra-txt">{{ ato.texto }}</p>
+      <p class="hb-rolar" aria-hidden="true">Mova o cursor: a névoa abre &nbsp;·&nbsp; role: a linha do tempo anda</p>
+    </div>
+  </section>
+{% include "core/_midia.html" %}
+
+  <section class="hb-ato" id="hb-prologo" aria-labelledby="hb-t-prologo">
+    <div class="hb-miolo">
+      <div class="hb-veu">
+        <p class="hb-sobrolho">Ato 1 · Prólogo</p>
+        <h2 id="hb-t-prologo" class="hb-sombra-txt">Dar nome à máquina</h2>
+        <p>Em 1920, <em>R.U.R.</em> pôs em cena trabalhadores artificiais. Um século depois, escrevemos para sistemas que respondem em segundos. Entre os dois pontos não há uma profecia cumprida: há várias perguntas que mudaram de forma.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="hb-ato" id="hb-mapa" aria-labelledby="hb-t-mapa">
+    <div class="hb-miolo">
+      <div class="hb-veu">
+        <p class="hb-sobrolho">Ato 2 · Mapa</p>
+        <h2 id="hb-t-mapa" class="hb-sombra-txt">Cinco perguntas</h2>
+        <p>Quem manda? Quem luta? Quem sente? Quem cuida? Quem vê tudo? Percorra a linha inteira. Em cada parada, separaremos a invenção que não chegou do efeito social que já podemos medir.</p>
+      </div>
+      <div class="hb-veu hb-veu--largo">
+        <p class="hb-sobrolho">Como ler</p>
+        <p>A faixa abaixo reúne oito estações, uma por capítulo. Cada estação abre o capítulo com título legível e página própria. Na versão estática, as mesmas estações aparecem em lista cronológica, com datas e links.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="hb-faixa" id="hb-faixa" aria-labelledby="hb-t-faixa">
+    <h2 id="hb-t-faixa" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Linha do tempo: oito estações, de 1920 a 2026</h2>
+    <div class="hb-palco-fundo" aria-hidden="true">
+      <div class="hb-camada hb-camada-fundo" id="hb-c-fundo">
+        <div class="hb-e" data-era="0" data-fantasma="1920"></div>
+        <div class="hb-e" data-era="1" data-fantasma="1960"></div>
+        <div class="hb-e" data-era="2" data-fantasma="1980"></div>
+        <div class="hb-e" data-era="3" data-fantasma="2000"></div>
+        <div class="hb-e" data-era="4" data-fantasma="2026"></div>
+      </div>
+      <div class="hb-camada hb-camada-meio" id="hb-c-meio">
+        <div class="hb-e" data-era="0"></div>
+        <div class="hb-e" data-era="1"></div>
+        <div class="hb-e" data-era="2"></div>
+        <div class="hb-e" data-era="3"></div>
+        <div class="hb-e" data-era="4"></div>
+      </div>
+    </div>
+    <div class="hb-palco-frente">
+      <div class="hb-trilho" id="hb-trilho">
+        <div class="hb-regua" aria-hidden="true"></div>
+
+        <div class="hb-era" data-era="0" style="--k:0">
+          <p class="hb-ano">1920</p><p class="hb-era-nome">Papel · tinta e teatro</p>
+          <article class="hb-cartao hb-lit hb-cima" style="--x:44vw;--c:#8A6D3B" data-post="5">
+            <p class="hb-post">Post 5</p><h3>Leis, robôs e livros</h3><p class="hb-quando">R.U.R. (1920) · Asimov · Neuromancer</p>
+            <p class="hb-res">Regras simples em histórias complexas: instrução, objetivo e efeito real podem divergir.</p>{% include "core/_hub_entrar.html" with slug="leis-robos-e-livros" %}
+          </article>
+          <span class="hb-fio hb-fio-cima" style="--x:44vw"></span>
+        </div>
+
+        <div class="hb-era" data-era="1" style="--k:1">
+          <p class="hb-ano">1960</p><p class="hb-era-nome">Válvulas · salas de máquinas</p>
+          <article class="hb-cartao hb-lit hb-baixo" style="--x:42vw;--c:#8A9099" data-post="1">
+            <p class="hb-post">Post 1</p><h3>A máquina fria</h3><p class="hb-quando">2001 (1968) · Colossus · WarGames</p>
+            <p class="hb-res">A falha dramática não exige uma máquina má: basta delegar uma decisão crítica sem forma de contestá-la.</p>{% include "core/_hub_entrar.html" with slug="a-maquina-fria" %}
+          </article>
+          <span class="hb-fio hb-fio-baixo" style="--x:42vw"></span>
+        </div>
+
+        <div class="hb-era" data-era="2" style="--k:2">
+          <p class="hb-ano">1980</p><p class="hb-era-nome">Fósforo · telas verdes</p>
+          <article class="hb-cartao hb-lit hb-cima" style="--x:22vw;--c:#2F8F9D" data-post="3">
+            <p class="hb-post">Post 3</p><h3>O que é ser humano?</h3><p class="hb-quando">Blade Runner (1982) · Ex Machina · Westworld</p>
+            <p class="hb-res">Uma conversa convincente testa quem observa; não decide, sozinha, consciência ou direitos.</p>{% include "core/_hub_entrar.html" with slug="o-que-e-ser-humano" %}
+          </article>
+          <span class="hb-fio hb-fio-cima" style="--x:22vw"></span>
+          <article class="hb-cartao hb-lit hb-baixo" style="--x:74vw;--c:#C2412D" data-post="2">
+            <p class="hb-post">Post 2</p><h3>O medo da guerra das máquinas</h3><p class="hb-quando">O Exterminador (1984) · Matrix</p>
+            <p class="hb-res">Guerra automática e mundo simulado: a questão atual é o controle humano de sistemas de decisão.</p>{% include "core/_hub_entrar.html" with slug="o-medo-da-guerra-das-maquinas" %}
+          </article>
+          <span class="hb-fio hb-fio-baixo" style="--x:74vw"></span>
+        </div>
+
+        <div class="hb-era" data-era="3" style="--k:3">
+          <p class="hb-ano">2000</p><p class="hb-era-nome">Pixels · jogos e cidades</p>
+          <article class="hb-cartao hb-lit hb-cima" style="--x:24vw;--c:#7A3FB0" data-post="6">
+            <p class="hb-post">Post 6</p><h3>Escolhas da máquina</h3><p class="hb-quando">Anime e games · anos 1990–2010</p>
+            <p class="hb-res">Jogar uma decisão torna visível quem definiu as opções e quem recebe a consequência.</p>{% include "core/_hub_entrar.html" with slug="escolhas-da-maquina" %}
+          </article>
+          <span class="hb-fio hb-fio-cima" style="--x:24vw"></span>
+          <article class="hb-cartao hb-lit hb-baixo" style="--x:76vw;--c:#2E5E8C" data-post="7">
+            <p class="hb-post">Post 7</p><h3>O quase-presente</h3><p class="hb-quando">Minority Report (2002) · Person of Interest</p>
+            <p class="hb-res">Prever o futuro individual com certeza segue ficção; vigilância e inferência estatística já não.</p>{% include "core/_hub_entrar.html" with slug="o-quase-presente" %}
+          </article>
+          <span class="hb-fio hb-fio-baixo" style="--x:76vw"></span>
+        </div>
+
+        <div class="hb-era" data-era="4" style="--k:4">
+          <p class="hb-ano">2026</p><p class="hb-era-nome">Vidro · conversa e tela</p>
+          <article class="hb-cartao hb-lit hb-baixo" style="--x:20vw;--c:#D98A5B" data-post="4">
+            <p class="hb-post">Post 4</p><h3>A IA afetiva</h3><p class="hb-quando">Her (2013) · Be Right Back · Klara e o Sol</p>
+            <p class="hb-res">O vínculo mediado por software é o acerto mais próximo; reciprocidade e consentimento seguem em aberto.</p>{% include "core/_hub_entrar.html" with slug="a-ia-afetiva" %}
+          </article>
+          <span class="hb-fio hb-fio-baixo" style="--x:20vw"></span>
+          <article class="hb-cartao hb-lit hb-cima" style="--x:66vw;--c:#B3321A" data-post="8">
+            <p class="hb-post">Post 8</p><h3>O placar</h3><p class="hb-quando">Perto ou longe? Quanto preocupar?</p>
+            <p class="hb-res">Se preocupar bem é distinguir capacidade demonstrada, dano possível e imaginação útil.</p>{% include "core/_hub_entrar.html" with slug="o-placar" %}
+          </article>
+          <span class="hb-fio hb-fio-cima" style="--x:66vw"></span>
+        </div>
+      </div>
+      <div class="hb-hud-faixa" id="hb-hud" aria-hidden="true"><span id="hb-hud-ano">1920 · Papel</span><div class="hb-barra"><i id="hb-hud-barra"></i></div></div>
+      <p class="hb-dica-faixa" aria-hidden="true">Role para a faixa andar →</p>
+    </div>
+  </section>
+
+  <section class="hb-ato hb-ato--fim" id="hb-convite" aria-labelledby="hb-t-convite">
+    <div class="hb-miolo">
+      <div class="hb-veu">
+        <p class="hb-sobrolho">Ato 3 · Convite</p>
+        <h2 id="hb-t-convite" class="hb-sombra-txt">Seu próprio placar</h2>
+        <p>No fim, você poderá mover cada obra no mapa perto/longe × preocupação. Nossa pontuação é uma hipótese explicada, não um veredito.</p>
+      </div>
+      {% if "o-placar" in publicados %}<p class="hb-convite-ligacao"><a href="{% if serie %}{% url 'core:episodio' serie.slug 'o-placar' %}{% else %}{% url 'core:imersivo' 'o-placar' %}{% endif %}">Abrir o placar →</a></p>{% endif %}
+      <div class="hb-palco">
+        <div class="hb-convite-cartoes">
+          <article class="hb-cartao hb-lit" style="--c:#2E5E8C"><p class="hb-post">Eixo 1</p><h3>Perto ou longe</h3>
+            <p class="hb-res">Mede a correspondência de uma capacidade específica com a tecnologia documentada até 2026.</p>
+            <div class="hb-escala" role="img" aria-label="De 0, sem paralelo, a 5, já comum"><i class="hb-on"></i><i class="hb-on"></i><i class="hb-on"></i><i></i><i></i></div><p class="hb-quando">0 = sem paralelo · 5 = já comum</p></article>
+          <article class="hb-cartao hb-lit" style="--c:#C2412D"><p class="hb-post">Eixo 2</p><h3>Preocupação</h3>
+            <p class="hb-res">Mede o dano plausível do mecanismo retratado, não uma previsão de probabilidade.</p>
+            <div class="hb-escala" role="img" aria-label="De 0, baixo, a 5, severo"><i class="hb-on"></i><i class="hb-on"></i><i></i><i></i><i></i></div><p class="hb-quando">0 = baixo · 5 = severo</p></article>
+          <article class="hb-cartao hb-lit" style="--c:#8A6D3B"><p class="hb-post">Método</p><h3>Hipótese, não veredito</h3>
+            <p class="hb-res">Uma obra pode estar perto e preocupar pouco, ou longe e ser uma pergunta ética valiosa. Você poderá contestar cada nota.</p></article>
+        </div>
+        <figure class="hb-prev hb-lit">
+          <svg viewBox="0 0 400 300" role="img" aria-label="Prévia do plano cartesiano: eixo horizontal perto ou longe da realidade, eixo vertical preocupação. Pontos de exemplo, sem notas reais.">
+            <rect x="40" y="10" width="350" height="250" fill="none" stroke="currentColor" stroke-opacity=".5" style="color:var(--luz)"/>
+            <g stroke="currentColor" stroke-opacity=".2" style="color:var(--luz)"><line x1="215" y1="10" x2="215" y2="260"/><line x1="40" y1="135" x2="390" y2="135"/></g>
+            <g fill="none" stroke-width="2.5"><circle cx="110" cy="80" r="9" stroke="#C2412D"/><circle cx="170" cy="190" r="9" stroke="#2F8F9D"/><circle cx="300" cy="210" r="9" stroke="#D98A5B"/><circle cx="330" cy="70" r="9" stroke="#7DB8F0"/><circle cx="240" cy="120" r="9" stroke="#FFB000"/><circle cx="90" cy="215" r="9" stroke="#8A9099"/></g>
+            <g fill="#EDE6D3" font-family="ui-monospace,Menlo,monospace" font-size="12"><text x="40" y="282">longe</text><text x="360" y="282" text-anchor="end">perto →</text><text x="12" y="256" transform="rotate(-90 12 256)">preocupação →</text></g>
+          </svg>
+          <figcaption>Prévia estática do mapa: pontos de exemplo, sem notas reais.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+</div>
+</div>
+{% endif %}{% endfor %}
+{% endblock %}
+{% block newsletter %}{% endblock %}
+{% block scripts %}
+<link rel="stylesheet" href="{% static 'css/atmosfera-hub.css' %}">
+<script>document.documentElement.classList.add("js")</script>
+{# Tudo local, sem biblioteca: névoa em WebGL próprio (com alternativa 2D), faixa e luz em JS próprio. #}
+<script type="module" src="{% static 'js/imersivo/motor.js' %}"></script>
+{% endblock %}

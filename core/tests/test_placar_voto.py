@@ -261,7 +261,7 @@ class PreviaDoHubTests(TestCase):
     def test_previa_do_hub_le_os_mesmos_dados_que_o_placar(self):
         from django.core.management import call_command
 
-        call_command("loaddata", "imersivo_hub", verbosity=0)
+        call_command("loaddata", "imersivo_hub_decadas", verbosity=0)
         hub = Ato.objects.get(efeito="grelha:posts")
         ids = [p["id"] for p in hub.parametros["previa"]]
         self.assertEqual(len(ids), 3)
@@ -280,7 +280,7 @@ class PreviaDoHubTests(TestCase):
 
         from core.models import PostImersivo, Serie
 
-        call_command("loaddata", "imersivo_hub", verbosity=0)
+        call_command("loaddata", "imersivo_hub_decadas", verbosity=0)
         Serie.objects.create(
             slug="ia-na-ficcao",
             titulo="S",

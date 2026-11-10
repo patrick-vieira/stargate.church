@@ -129,8 +129,9 @@
 
   <section class="am-fecho" aria-label="Próxima estação">
     <div class="am-miolo">
-      <p>A lâmpada se apaga. Próxima estação: <em style="color:var(--luz)">O medo da guerra das máquinas</em>.</p><br>
-      <a href="{% url 'core:home' %}">← Voltar à página inicial</a>
+      <p>A lâmpada se apaga.</p><br>
+      <a href="{% if serie %}{% url 'core:episodio' serie.slug 'o-medo-da-guerra-das-maquinas' %}{% else %}{% url 'core:imersivo' 'o-medo-da-guerra-das-maquinas' %}{% endif %}">Próxima estação: <em style="color:var(--luz)">O medo da guerra das máquinas</em> →</a><br>
+      <a href="{% url 'core:imersivo' 'ia-na-ficcao' %}#hb-faixa">← Voltar à linha do tempo</a>
     </div>
   </section>
 </div>

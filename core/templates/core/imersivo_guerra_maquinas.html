@@ -48,7 +48,7 @@
         <p class="ag-sobrolho">Ato 1 · A promessa do botão</p>
         <h2 id="ag-t-ato1" class="ag-gl">A contagem é do leitor.</h2>
         <p><em>The Terminator</em> (1984) coloca a defesa nas mãos de uma inteligência que passa a tratar humanos como ameaça. Não temos uma Skynet pública demonstrada. Temos uma razão concreta para discutir armas autônomas, comando e responsabilidade antes de ampliar a automação.</p>
-        <div class="ag-acao"><button class="ag-btn ag-prim ag-hud-el" type="button" id="ag-para">Parar a contagem</button><p class="ag-estado" id="ag-pst" role="status" aria-live="polite">contagem a correr: 10</p></div>
+        <div class="ag-acao"><button class="ag-btn ag-prim ag-hud-el" type="button" id="ag-para">Parar a contagem</button><p class="ag-estado" id="ag-pst" role="status" aria-live="polite">contagem em andamento: 10</p></div>
         <p class="ag-fonte">Fonte: The Terminator, AFI · NIST GenAI Profile</p>
       </div>
     </div>
@@ -110,7 +110,7 @@
     <div class="ag-miolo">
       <p>Quanto mais alto o alarme, mais vale perguntar quem está com a mão no botão.</p><br>
       <a class="ag-prox" href="{% if serie %}{% url 'core:episodio' serie.slug 'o-que-e-ser-humano' %}{% else %}{% url 'core:imersivo' 'o-que-e-ser-humano' %}{% endif %}">Próxima estação: <em>O que é ser humano?</em> →</a><br>
-      <a href="{% url 'core:home' %}">← Voltar à página inicial</a>
+      <a href="{% url 'core:imersivo' 'ia-na-ficcao' %}#hb-faixa">← Voltar à linha do tempo</a>
       <p class="ag-fontes">Fontes: The Terminator, AFI · The Matrix, Warner Bros. · NIST AI 600-1, Generative AI Profile. HUD, mosaico e alarme são desenhos originais; nenhuma imagem, personagem ou código de franquia.</p>
     </div>
   </section>
