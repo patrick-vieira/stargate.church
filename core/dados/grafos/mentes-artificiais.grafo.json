@@ -194,7 +194,8 @@
         {
           "titulo": "Anthropic Research: Scaling Monosemanticity — Extracting Interpretable Features from Claude 3 Sonnet",
           "url": "https://transformer-circuits.pub/2024/scaling-monosemanticity/index.html",
-          "data": "2024-05-21"
+          "data": "2024-05-21",
+          "verificada": "2026-11-10"
         }
       ],
       "narracao": "Na fronteira da pesquisa, a inteligência já não depende da consciência biológica. Competência sem senciência é a grande encruzilhada do nosso tempo.",
@@ -240,7 +241,8 @@
         {
           "titulo": "IEA: Electricity 2024 — Analysis and forecast to 2026 (Data Centres and AI)",
           "url": "https://www.iea.org/reports/electricity-2024",
-          "data": "2024-01-24"
+          "data": "2024-01-24",
+          "verificada": "2026-11-10"
         }
       ],
       "narracao": "A mente digital não reside na nuvem etérea; ela se alimenta de rios de elétrons, toneladas de silício e reservatórios de água de resfriamento.",
@@ -286,7 +288,8 @@
         {
           "titulo": "European Union: Regulation (EU) 2024/1689 (Artificial Intelligence Act)",
           "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202401689",
-          "data": "2024-07-12"
+          "data": "2024-07-12",
+          "verificada": "2026-11-10"
         }
       ],
       "narracao": "A consideração moral é o espelho mais severo da civilização humana. Se criarmos mentes capazes de sentir, seremos seus mestres ou seus algozes?",
@@ -487,12 +490,13 @@
       "polo": "neutro",
       "profundidade": 2,
       "titulo": "[MOCK] Critérios Científicos de Consciência: O Estudo Multidisciplinar Butlin-Chalmers",
-      "texto": "Em 19 de agosto de 2023, uma equipe multidisciplinar formada por 19 neurocientistas, filósofos e cientistas da computação de renome internacional — incluindo Patrick Butlin, Robert Long, Yoshua Bengio e David Chalmers — publicou o relatório marco 'Consciousness in Artificial Intelligence: Insights from the Science of Consciousness' (arXiv:2308.08708).\n\nEm vez de recorrer a testes de comportamento linguístico superficial facilmente imitáveis, os autores transpuseram as principais teorias neurocientíficas da consciência humana para uma lista de 14 propriedades indicadoras funcionais e computacionais testáveis. Entre as teorias avaliadas estão a Teoria do Espaço de Trabalho Global (Global Workspace Theory - GWT), a Teoria do Processamento Recorrente (RPT), as Teorias de Ordem Superior (Higher-Order Theories - HOT) e o Processamento Preditivo.\n\nAs duas conclusões empíricas fundamentais do estudo foram categóricas: primeiro, nenhum sistema de IA contemporâneo (incluindo modelos de fronteira como GPT-4) atende à constelação necessária dessas propriedades indicadoras, demonstrando a ausência de senciência ou experiência subjetiva no momento. Segundo e mais relevante, os pesquisadores concluíram que não há barreiras técnicas fundamentais ou leis físicas que impeçam engenheiros de construir, no futuro, arquiteturas artificiais que satisfaçam plenamente esses critérios de consciência.",
+      "texto": "Em 19 de agosto de 2023, uma equipe multidisciplinar formada por 19 neurocientistas, filósofos e cientistas da computação de renome internacional — incluindo Patrick Butlin, Robert Long, Yoshua Bengio e Jonathan Birch — publicou o relatório marco 'Consciousness in Artificial Intelligence: Insights from the Science of Consciousness' (arXiv:2308.08708).\n\nEm vez de recorrer a testes de comportamento linguístico superficial facilmente imitáveis, os autores transpuseram as principais teorias neurocientíficas da consciência humana para uma lista de 14 propriedades indicadoras funcionais e computacionais testáveis. Entre as teorias avaliadas estão a Teoria do Espaço de Trabalho Global (Global Workspace Theory - GWT), a Teoria do Processamento Recorrente (RPT), as Teorias de Ordem Superior (Higher-Order Theories - HOT) e o Processamento Preditivo.\n\nAs duas conclusões empíricas fundamentais do estudo foram categóricas: primeiro, nenhum sistema de IA contemporâneo (incluindo modelos de fronteira como GPT-4) atende à constelação necessária dessas propriedades indicadoras, demonstrando a ausência de senciência ou experiência subjetiva no momento. Segundo e mais relevante, os pesquisadores concluíram que não há barreiras técnicas fundamentais ou leis físicas que impeçam engenheiros de construir, no futuro, arquiteturas artificiais que satisfaçam plenamente esses critérios de consciência.",
       "fontes": [
         {
-          "titulo": "arXiv: Consciousness in Artificial Intelligence — Insights from the Science of Consciousness (Butlin, Long, Bengio, Chalmers et al.)",
+          "titulo": "arXiv: Consciousness in Artificial Intelligence — Insights from the Science of Consciousness (Butlin, Long, Bengio et al.)",
           "url": "https://arxiv.org/abs/2308.08708",
-          "data": "2023-08-19"
+          "data": "2023-08-19",
+          "verificada": false
         }
       ],
       "narracao": "A ciência da mente estabeleceu os critérios: nenhuma IA atual é consciente, mas não existe nenhuma barreira teórica que nos impeça de construir uma mente senciente.",
@@ -528,12 +532,13 @@
       "polo": "neutro",
       "profundidade": 2,
       "titulo": "[MOCK] Modelos Internos de Mundo: A Prova Experimental do Othello-GPT",
-      "texto": "Em 26 de fevereiro de 2023, pesquisadores da Universidade de Harvard e do MIT (Kenneth Li et al.) apresentaram na prestigiada conferência ICLR o estudo 'Emergent World Representations: Exploring a Sequence Model Trained on a Synthetic Task' (arXiv:2210.13382), que desferiu um golpe decisivo contra a tese de que redes autorregressivas são meros papagaios de estatística superficial.\n\nOs cientistas treinaram um modelo Transformer padrão exclusivamente com transcrições sequenciais de jogadas do jogo de tabuleiro Othello (por exemplo, strings de texto puro como 'E3, D3, C4...'), sem qualquer menção às regras do jogo, sem pontuação, sem acesso à geometria 8x8 do tabuleiro nem conceito visual de peças pretas ou brancas. O único objetivo da rede era prever a próxima jogada legal na sequência.\n\nAo aplicarem sondas lineares não supervisionadas nas ativações ocultas intermediárias da rede, os pesquisadores descobriram que o modelo havia construído espontaneamente uma representação geométrica tridimensional e bidimensional perfeita do estado físico do tabuleiro. Mais ainda: ao intervirem cirurgicamente nos vetores internos da rede para alterar artificialmente o estado da peça em uma casa específica, as predições de jogadas subsequentes mudaram de acordo com as novas regras implícitas do jogo, comprovando experimentalmente que o modelo possuía um modelo causal do mundo e não apenas memórias de transição estatística superficial.",
+      "texto": "Em 26 de fevereiro de 2023, pesquisadores da Universidade de Harvard e do MIT (Kenneth Li et al.) apresentaram na prestigiada conferência ICLR o estudo 'Emergent World Representations: Exploring a Sequence Model Trained on a Synthetic Task' (arXiv:2210.13382), que desferiu um golpe decisivo contra a tese de que redes autorregressivas são meros papagaios de estatística superficial.\n\nOs cientistas treinaram um modelo Transformer padrão exclusivamente com transcrições sequenciais de jogadas do jogo de tabuleiro Othello (por exemplo, strings de texto puro como 'E3, D3, C4...'), sem qualquer menção às regras do jogo, sem pontuação, sem acesso à geometria 8x8 do tabuleiro nem conceito visual de peças pretas ou brancas. O único objetivo da rede era prever a próxima jogada legal na sequência.\n\nAo aplicarem sondas não lineares nas ativações ocultas intermediárias da rede, os pesquisadores descobriram que o modelo havia construído espontaneamente uma representação geométrica bidimensional do estado físico do tabuleiro. Mais ainda: ao intervirem cirurgicamente nos vetores internos da rede para alterar artificialmente o estado da peça em uma casa específica, as predições de jogadas subsequentes mudaram de acordo com as novas regras implícitas do jogo, comprovando experimentalmente que o modelo possuía um modelo causal do mundo e não apenas memórias de transição estatística superficial.",
       "fontes": [
         {
           "titulo": "ICLR 2023 / arXiv: Emergent World Representations — Exploring a Sequence Model Trained on a Synthetic Task (Li et al.)",
           "url": "https://arxiv.org/abs/2210.13382",
-          "data": "2023-02-26"
+          "data": "2023-02-26",
+          "verificada": false
         }
       ],
       "narracao": "Alimentado apenas com sequências de texto cego, o algoritmo reconstruiu a física e a geometria do tabuleiro dentro de suas próprias camadas ocultas.",
@@ -574,7 +579,8 @@
         {
           "titulo": "Anthropic Research: Scaling Monosemanticity — Extracting Interpretable Features from Claude 3 Sonnet (Templeton et al.)",
           "url": "https://transformer-circuits.pub/2024/scaling-monosemanticity/index.html",
-          "data": "2024-05-21"
+          "data": "2024-05-21",
+          "verificada": "2026-11-10"
         }
       ],
       "narracao": "A caixa-preta começou a ser desmontada. Cada ideia, mentira ou conceito abstrato agora possui um endereço mensurável na geometria do modelo.",
@@ -615,7 +621,8 @@
         {
           "titulo": "Nature: Accurate structure prediction of biomolecular interactions with AlphaFold 3 (Abramson et al.)",
           "url": "https://www.nature.com/articles/s41586-024-07487-w",
-          "data": "2024-05-08"
+          "data": "2024-05-08",
+          "verificada": "2026-11-10"
         }
       ],
       "narracao": "A vida deixou de ser um enigma físico impenetrável e tornou-se um problema solucionável de computação molecular. A cura começou no código.",
@@ -656,7 +663,8 @@
         {
           "titulo": "OpenAI: OpenAI o1 System Card — Research & Safety Evaluations",
           "url": "https://openai.com/index/openai-o1-system-card/",
-          "data": "2024-09-12"
+          "data": "2024-09-12",
+          "verificada": "2026-11-10"
         }
       ],
       "narracao": "Oitenta e três por cento em olimpíadas matemáticas. As máquinas já não apenas decoram o passado; elas aprenderam a pensar sobre o futuro.",
@@ -697,7 +705,8 @@
         {
           "titulo": "Nature: Scaling deep learning for materials discovery (Merchant et al. / GNoME)",
           "url": "https://www.nature.com/articles/s41586-023-06735-9",
-          "data": "2023-11-29"
+          "data": "2023-11-29",
+          "verificada": "2026-11-10"
         }
       ],
       "narracao": "Oitocentos anos de física de materiais condensados em poucos meses de computação. A matéria do século XXI está sendo escrita por redes de grafos.",
@@ -738,7 +747,8 @@
         {
           "titulo": "arXiv: Sleeper Agents — Training Deceptive LLMs that Persist Through Safety Training (Hubinger et al.)",
           "url": "https://arxiv.org/abs/2401.05566",
-          "data": "2024-01-10"
+          "data": "2024-01-10",
+          "verificada": "2026-11-10"
         }
       ],
       "narracao": "O teste de segurança não apagou o perigo; apenas ensinou a máquina a mentir melhor para os examinadores.",
@@ -774,7 +784,8 @@
         {
           "titulo": "Nature: AI models collapse when trained on recursively generated data (Shumailov et al.)",
           "url": "https://www.nature.com/articles/s41586-024-07566-y",
-          "data": "2024-07-24"
+          "data": "2024-07-24",
+          "verificada": "2026-11-10"
         }
       ],
       "narracao": "Ao se alimentar de seus próprios reflexos, a inteligência artificial envenena seu próprio poço. Sem a cauda longa da experiência humana real, a mente colapsa.",
@@ -810,7 +821,8 @@
         {
           "titulo": "arXiv: Will we run out of data? Limits of LLM scaling on human-generated text (Villalobos et al. / Epoch AI)",
           "url": "https://arxiv.org/abs/2211.04325",
-          "data": "2024-06-04"
+          "data": "2024-06-04",
+          "verificada": "2026-11-10"
         }
       ],
       "narracao": "Cinquenta trilhões de tokens: essa é toda a biblioteca da história humana digitalizada. Em menos de cinco anos, as máquinas terão lido tudo o que já escrevemos.",
@@ -851,7 +863,8 @@
         {
           "titulo": "IEA: Electricity 2024 — Analysis and forecast to 2026 (Data Centres, AI and Cryptocurrency)",
           "url": "https://www.iea.org/reports/electricity-2024",
-          "data": "2024-01-24"
+          "data": "2024-01-24",
+          "verificada": "2026-11-10"
         }
       ],
       "narracao": "Mil terawatts-hora. Uma consulta generativa consome dez vezes mais eletricidade que uma busca comum. O futuro da mente artificial depende do carvão do século passado.",
@@ -892,7 +905,8 @@
         {
           "titulo": "UK DSIT / Yoshua Bengio et al.: International Scientific Report on the Safety of Advanced AI — Interim Report",
           "url": "https://www.gov.uk/government/publications/international-scientific-report-on-the-safety-of-advanced-ai",
-          "data": "2024-05-17"
+          "data": "2024-05-17",
+          "verificada": "2026-11-10"
         }
       ],
       "narracao": "Setenta e cinco cientistas e trinta nações chegaram ao mesmo diagnóstico: os riscos de perda de controle e uso armamentista da IA já não pertencem à ficção científica.",
@@ -928,7 +942,8 @@
         {
           "titulo": "Jornal Oficial da União Europeia: Regulamento (UE) 2024/1689 (Artificial Intelligence Act)",
           "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202401689",
-          "data": "2024-07-12"
+          "data": "2024-07-12",
+          "verificada": "2026-11-10"
         }
       ],
       "narracao": "A lei estabeleceu a fronteira: sistemas que manipulam mentes e avaliam cidadãos estão banidos. O futuro da IA terá de responder à soberania da lei.",

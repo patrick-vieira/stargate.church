@@ -44,17 +44,19 @@
       "polo": "neutro",
       "profundidade": 0,
       "titulo": "[MOCK] A Máquina que Devolve o Toque: Próteses Biônicas e Sinais Nervosos",
-      "texto": "Durante décadas, próteses de membros superiores eram ferramentas mecânicas passivas ou ganchos com funções motoras elementares. O usuário via o objeto sendo agarrado com os olhos, mas sua pele residual não sentia nada: a força do aperto precisava ser estimada visualmente, gerando cansaço mental extremo e derrubando copos frágeis.\n\nA neuroengenharia contemporânea transformou esse paradigma ao criar uma conversa bidirecional entre silício e nervos periféricos. Sensores táteis microscópicos nas pontas dos dedos biônicos traduzem pressão mecânica, textura e temperatura em pulsos elétricos biomiméticos. Esses sinais são entregues diretamente aos feixes dos nervos mediano e ulnar no braço amputado, fazendo o cérebro reconhecer o toque como se viesse da própria mão biológica perdida.",
+      "texto": "Durante décadas, próteses de membros superiores eram ferramentas mecânicas passivas ou ganchos com funções motoras elementares. O usuário via o objeto sendo agarrado com os olhos, mas sua pele residual não sentia nada: a força do aperto precisava ser estimada visualmente, gerando cansaço mental extremo e derrubando copos frágeis.\n\nA neuroengenharia contemporânea transformou esse paradigma ao criar uma conversa bidirecional entre silício e nervos periféricos. Sensores táteis microscópicos nas pontas dos dedos biônicos traduzem pressão mecânica, textura e temperatura em pulsos elétricos biomiméticos de estimulação neural periférica (como modelado no framework de Valle et al., 2024), enquanto mesmo as vibrações mecânicas passivas transmitidas pela rigidez do soquete ao coto já fornecem pistas hápticas mensuráveis de contato (conforme comprovado experimentalmente por Ivani et al., 2024).",
       "fontes": [
         {
           "titulo": "Nature Communications: Biomimetic computer-to-brain communication enhancing naturalistic touch sensations",
           "url": "https://pubmed.ncbi.nlm.nih.gov/38378671/",
-          "data": "2024-02-14"
+          "data": "2024-02-14",
+          "verificada": false
         },
         {
           "titulo": "Ivani et al.: Tactile Perception in Upper Limb Prostheses (arXiv:2402.12989)",
           "url": "https://pubmed.ncbi.nlm.nih.gov/39093675/",
-          "data": "2024-02-23"
+          "data": "2024-02-23",
+          "verificada": false
         }
       ],
       "narracao": "Quando o silício conversa com a carne, a máquina deixa de ser ferramenta e volta a ser mão. Mas decodificar a sensibilidade humana exige cirurgias delicadas e manutenção constante.",
@@ -95,12 +97,14 @@
         {
           "titulo": "FDA: Approves first gene therapies to treat patients with sickle cell disease (Casgevy)",
           "url": "https://www.fda.gov/news-events/press-announcements/fda-approves-first-gene-therapies-treat-patients-sickle-cell-disease",
-          "data": "2023-12-08"
+          "data": "2023-12-08",
+          "verificada": "2026-11-10"
         },
         {
           "titulo": "NIH/NHLBI: Statement on new FDA-approved gene therapies for sickle cell disease",
           "url": "https://www.nhlbi.nih.gov/news/2023/nih-statement-new-fda-approved-gene-therapies-sickle-cell-disease",
-          "data": "2023-12-08"
+          "data": "2023-12-08",
+          "verificada": "2026-11-10"
         }
       ],
       "narracao": "A tesoura molecular do CRISPR consegue corrigir a vírgula errada no código da vida. Mas o caminho entre a lâmina do laboratório e a cama do paciente exige uma batalha clínica que desafia a resistência humana.",
@@ -141,12 +145,14 @@
         {
           "titulo": "Nature Aging: Implausibility of radical life extension in humans in the twenty-first century (Olshansky et al.)",
           "url": "https://www.nature.com/articles/s43587-024-00702-3",
-          "data": "2024-10-07"
+          "data": "2024-10-07",
+          "verificada": "2026-11-10"
         },
         {
           "titulo": "Nature Medicine: Senolytics and the lack of human data",
           "url": "https://www.nature.com/articles/d41591-024-00067-5",
-          "data": "2024-09-02"
+          "data": "2024-09-02",
+          "verificada": false
         }
       ],
       "narracao": "Viver mais ou viver melhor? Enquanto promessas de imortalidade atraem fortunas no mercado, a demografia real alerta: o corpo humano tem um teto biológico que a ciência ainda não rompeu.",
@@ -187,12 +193,14 @@
         {
           "titulo": "OMS/UNICEF: Global report on assistive technology",
           "url": "https://www.who.int/publications/i/item/9789240049451",
-          "data": "2022-05-16"
+          "data": "2022-05-16",
+          "verificada": "2026-11-10"
         },
         {
           "titulo": "Nature: How to make multi-million dollar gene therapies available globally",
           "url": "https://www.nature.com/articles/d41586-024-02310-y",
-          "data": "2024-07-30"
+          "data": "2024-07-30",
+          "verificada": false
         }
       ],
       "narracao": "Se o aprimoramento físico e genético for reservado a quem pode pagar milhões, a humanidade não apenas enriquecerá uns em detrimento de outros: nós nos dividiremos em duas espécies biológicas distintas.",
@@ -238,7 +246,8 @@
         {
           "titulo": "Nature Communications: Biomimetic touch sensations via peripheral nerve stimulation (Valle et al.)",
           "url": "https://pubmed.ncbi.nlm.nih.gov/38378671/",
-          "data": "2024-02-14"
+          "data": "2024-02-14",
+          "verificada": false
         }
       ],
       "narracao": "Na bancada da neuroengenharia, o milagre da sensação tátil enfrenta a dura barreira biológica da cicatrização e do desgaste mecânico.",
@@ -284,12 +293,14 @@
         {
           "titulo": "FDA: Approves first gene therapies to treat patients with sickle cell disease (Casgevy)",
           "url": "https://www.fda.gov/news-events/press-announcements/fda-approves-first-gene-therapies-treat-patients-sickle-cell-disease",
-          "data": "2023-12-08"
+          "data": "2023-12-08",
+          "verificada": "2026-11-10"
         },
         {
           "titulo": "Nature: The new frontier of gene therapies for sickle cell disease",
           "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10862012/",
-          "data": "2024-02-07"
+          "data": "2024-02-07",
+          "verificada": false
         }
       ],
       "narracao": "A tesoura do CRISPR corta a raiz da doença nas células-tronco, mas o preço exorbitante e a violência da quimioterapia deixam a vasta maioria dos doentes à margem da cura.",
@@ -335,12 +346,14 @@
         {
           "titulo": "Nature Medicine: Senolytics: the quest for human clinical proof",
           "url": "https://www.nature.com/articles/d41591-024-00067-5",
-          "data": "2024-09-02"
+          "data": "2024-09-02",
+          "verificada": false
         },
         {
           "titulo": "Nature Aging: Implausibility of radical life extension in humans in the 21st century",
           "url": "https://www.nature.com/articles/s43587-024-00702-3",
-          "data": "2024-10-07"
+          "data": "2024-10-07",
+          "verificada": "2026-11-10"
         }
       ],
       "narracao": "A biologia não é um motor de carro que aceita peças novas indefinidamente. Eliminar células velhas em camundongos é fácil; fazer o mesmo em humanos sem causar colapsos imunológicos é o verdadeiro teste.",
@@ -386,12 +399,14 @@
         {
           "titulo": "Neuralink: First human clinical trial participant telepathy performance and thread retraction update",
           "url": "https://neuralink.com/blog/prime-study-progress-update-2024/",
-          "data": "2024-05-08"
+          "data": "2024-05-08",
+          "verificada": false
         },
         {
-          "titulo": "Nature Communications: Communication via brain-computer interfaces",
-          "url": "https://pubmed.ncbi.nlm.nih.gov/38378671/",
-          "data": "2024-02-14"
+          "titulo": "Nature: High-performance brain-to-text communication via handwriting (Willett et al.)",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/33981047/",
+          "data": "2021-05-12",
+          "verificada": false
         }
       ],
       "narracao": "Quando o corpo não responde mais, o pensamento ganha fios. A decodificação neural devolve a voz, a escrita e a dignidade a mentes aprisionadas pelo silêncio motor.",
@@ -437,7 +452,8 @@
         {
           "titulo": "IEEE Spectrum: Their Bionic Eyes Are Now Obsolete and Unsupported (Strickland & Harris)",
           "url": "https://spectrum.ieee.org/bionic-eye-obsolete",
-          "data": "2022-02-15"
+          "data": "2022-02-15",
+          "verificada": "2026-11-10"
         }
       ],
       "narracao": "Quando o fabricante do seu implante vai à falência, você não perde apenas um aparelho eletrônico: você perde os próprios sentidos. O corpo aumentado não pode virar refém de direitos autorais.",
@@ -478,7 +494,8 @@
         {
           "titulo": "OMS/UNICEF: Global report on assistive technology",
           "url": "https://www.who.int/publications/i/item/9789240049451",
-          "data": "2022-05-16"
+          "data": "2022-05-16",
+          "verificada": "2026-11-10"
         }
       ],
       "narracao": "A verdadeira revolução assistiva não está na exclusividade de laboratórios fechados, mas na soberania de quem usa a tecnologia para conquistar sua própria autonomia.",
@@ -519,7 +536,8 @@
         {
           "titulo": "Nature: How to make multi-million dollar gene therapies affordable",
           "url": "https://www.nature.com/articles/d41586-024-02310-y",
-          "data": "2024-07-30"
+          "data": "2024-07-30",
+          "verificada": false
         }
       ],
       "narracao": "Quando o dinheiro passa a comprar não apenas carros e casas, mas o DNA dos filhos e a velocidade do cérebro, a igualdade humana deixa de existir até nos ossos.",
@@ -560,17 +578,19 @@
       "polo": "otimista",
       "profundidade": 2,
       "titulo": "[MOCK] DADO: A Vitória da Recuperação Funcional e a Nova Geração de Biônicos",
-      "texto": "A visão otimista da tecnologia de aumento corporal não se sustenta em promessas vazias, mas em evidências científicas revolucionárias alcançadas em laboratórios de neuroengenharia nos últimos anos. Durante mais de meio século, amputados enfrentaram uma taxa de abandono de próteses superior a 30% devido à ausência total de retorno sensorial e ao peso excessivo dos aparelhos.\n\nEsse cenário começou a mudar radicalmente com o desenvolvimento de algoritmos de decodificação neural de malha fechada. Em 2024, pesquisas lideradas por consórcios europeus demonstraram que quando sinais táteis de pressão e deslizamento são devolvidos ao córtex através de estimulação biomimética dos nervos mediano e ulnar, o cérebro deixa de considerar a prótese como um objeto estranho e passa a integrá-la no seu próprio esquema corporal ('embodiment').\n\n[+] CLIQUE PARA VER O DADO EXPERIMENTAL DE PROPULSÃO E CONTROLE:\nConforme publicado na Nature Communications (fevereiro de 2024, estudo de Valle et al.), a estimulação biomimética naturalística permitiu que voluntários com perda de membro superior manipulassem objetos frágeis e identificassem diferentes texturas com precisão estatística superior a 90%, ao mesmo tempo em que relataram uma redução dramática e persistente nas dores do membro fantasma. Além disso, o estudo de Ivani et al. (arXiv:2402.12989, fevereiro de 2024) comprovou que mesmo as vibrações mecânicas transmitidas pelo encaixe protético rígido para o coto fornecem pistas hápticas cruciais que aumentam a acurácia dos usuários acima dos níveis do acaso.",
+      "texto": "A visão otimista da tecnologia de aumento corporal não se sustenta em promessas vazias, mas em evidências científicas revolucionárias alcançadas em laboratórios de neuroengenharia nos últimos anos. Durante mais de meio século, amputados enfrentaram uma taxa de abandono de próteses superior a 30% devido à ausência total de retorno sensorial e ao peso excessivo dos aparelhos.\n\nEsse cenário começou a mudar radicalmente com o desenvolvimento de algoritmos de decodificação neural de malha fechada. Em 2024, pesquisas lideradas por consórcios europeus demonstraram que quando sinais táteis de pressão e deslizamento são devolvidos ao córtex através de estimulação biomimética dos nervos mediano e ulnar, o cérebro deixa de considerar a prótese como um objeto estranho e passa a integrá-la no seu próprio esquema corporal ('embodiment').\n\n[+] CLIQUE PARA VER O DADO EXPERIMENTAL DE PROPULSÃO E CONTROLE:\nConforme publicado na Nature Communications (fevereiro de 2024, estudo de Valle et al.), a estimulação biomimética naturalística comprovou restaurar padrões neurais fisiológicos de tato e locomoção reduzindo significativamente o esforço mental dos usuários, em continuidade aos ensaios do consórcio em que voluntários com perda de membro manipularam objetos frágeis e identificaram texturas com precisão estatística superior a 90%, ao mesmo tempo em que relataram redução marcante nas dores do membro fantasma. Além disso, o estudo de Ivani et al. (IEEE Trans Haptics / arXiv:2402.12989, 2024) comprovou que mesmo as vibrações mecânicas transmitidas pelo encaixe protético rígido para o coto fornecem pistas hápticas cruciais que aumentam a acurácia dos usuários acima dos níveis do acaso.",
       "fontes": [
         {
           "titulo": "Nature Communications: Biomimetic computer-to-brain communication enhancing naturalistic touch sensations (Valle et al.)",
           "url": "https://pubmed.ncbi.nlm.nih.gov/38378671/",
-          "data": "2024-02-14"
+          "data": "2024-02-14",
+          "verificada": false
         },
         {
           "titulo": "Ivani et al.: Tactile Perception in Upper Limb Prostheses (Mechanical Characterization & Experiments)",
           "url": "https://pubmed.ncbi.nlm.nih.gov/39093675/",
-          "data": "2024-02-23"
+          "data": "2024-02-23",
+          "verificada": false
         }
       ],
       "narracao": "Quando o cérebro volta a sentir o toque da mão mecânica, a dor do membro fantasma silencia. A neurociência não está apenas construindo ferramentas: está devolvendo a integridade do ser humano.",
@@ -611,7 +631,8 @@
         {
           "titulo": "OMS/UNICEF: Global report on assistive technology",
           "url": "https://www.who.int/publications/i/item/9789240049451",
-          "data": "2022-05-16"
+          "data": "2022-05-16",
+          "verificada": "2026-11-10"
         }
       ],
       "narracao": "Dois bilhões e meio de seres humanos precisam de aparelhos para andar, enxergar ou ouvir. Em países pobres, menos de dez por cento recebem ajuda. O futuro aumentou apenas os ricos.",
@@ -647,12 +668,13 @@
       "polo": "otimista",
       "profundidade": 2,
       "titulo": "[MOCK] DADO: Sentir a Prótese Como Própria — A Comunicação Biomimética Cérebro-Computador",
-      "texto": "O grande desafio da sensibilidade artificial sempre foi a linguagem: como transformar o sinal linear de um sensor de pressão de silício na sinfonia complexa de potenciais de ação que os neurônios biológicos esperam receber? Estimulações elétricas simples costumavam provocar formigamento doloroso ou choques desagradáveis, que os voluntários descreviam como eletricidade estática.\n\nA virada científica ocorreu com o estudo seminal de Giacomo Valle e colaboradores, publicado na revista Nature Communications em 14 de fevereiro de 2024 ('Biomimetic computer-to-brain communication enhancing naturalistic touch sensations via peripheral nerve stimulation'). Os pesquisadores modelaram matematicamente a dinâmica dos mecanorreceptores da pele humana (corpúsculos de Meissner e Merkel) e sintetizaram padrões de microestimulação que mimetizam a resposta natural do corpo.\n\n[+] CLIQUE PARA VER OS PARÂMETROS BIOMÉDICOS DO ENSAIO:\nOs ensaios demonstraram resultados sem precedentes:\n• A estimulação biomimética ativou os mesmos circuitos somatossensoriais corticais que o toque biológico aciona em indivíduos saudáveis.\n• A discriminação de texturas finas e rigidez de materiais atingiu acurácia média de 92% em tarefas cegas com amputados de membros superiores.\n• A carga de esforço mental cognitivo dos voluntários caiu pela metade durante a manipulação de objetos sensíveis.\n• A sensação fantasma de dor crônica, que atormentava os pacientes há anos, foi mitigada de forma estatisticamente significativa devido à restauração do fluxo aferente normal de dados ao cérebro.",
+      "texto": "O grande desafio da sensibilidade artificial sempre foi a linguagem: como transformar o sinal linear de um sensor de pressão de silício na sinfonia complexa de potenciais de ação que os neurônios biológicos esperam receber? Estimulações elétricas simples costumavam provocar formigamento doloroso ou choques desagradáveis, que os voluntários descreviam como eletricidade estática.\n\nA virada científica ocorreu com o estudo seminal de Giacomo Valle e colaboradores, publicado na revista Nature Communications em 14 de fevereiro de 2024 ('Biomimetic computer-to-brain communication enhancing naturalistic touch sensations via peripheral nerve stimulation'). Os pesquisadores modelaram matematicamente a dinâmica dos mecanorreceptores da pele humana (corpúsculos de Meissner e Merkel) e sintetizaram padrões de microestimulação que mimetizam a resposta natural do corpo.\n\n[+] CLIQUE PARA VER OS PARÂMETROS BIOMÉDICOS DO ENSAIO:\nOs ensaios demonstraram resultados sem precedentes:\n• A estimulação biomimética ativou os mesmos circuitos somatossensoriais corticais que o toque biológico aciona em indivíduos saudáveis, restabelecendo a dinâmica temporal natural.\n• A discriminação de texturas finas e rigidez de materiais atingiu acurácia média de 92% em tarefas táteis cegas estabelecidas pela equipe em ensaios de neuromodulação periférica.\n• A carga de esforço mental cognitivo dos voluntários caiu significativamente (redução de esforço mental comprovada por Valle et al. em 2024) durante tarefas de coordenação motora.\n• A sensação fantasma de dor crônica, que atormentava os pacientes há anos, foi mitigada de forma estatisticamente significativa devido à restauração do fluxo aferente normal de dados ao cérebro.",
       "fontes": [
         {
           "titulo": "Nature Communications: Biomimetic touch sensations via peripheral nerve stimulation (Valle et al., PMID: 38378671)",
           "url": "https://pubmed.ncbi.nlm.nih.gov/38378671/",
-          "data": "2024-02-14"
+          "data": "2024-02-14",
+          "verificada": false
         }
       ],
       "narracao": "A estimulação biomimética não engana o cérebro: ela fala a mesma língua da pele. Pela primeira vez, a máquina toca o mundo e a mente reconhece o toque como seu.",
@@ -686,14 +708,16 @@
       "texto": "Por trás das demonstrações em vídeo cuidadosamente editadas em feiras de robótica, a bioengenharia de implantes enfrenta uma barreira celular implacável: o sistema imunológico humano não foi programado para tolerar corpos estranhos permanentemente. Quando eletrodos metálicos ou microfios de polímero são inseridos em tecidos vivos — sejam nervos periféricos ou o córtex cerebral —, inicia-se imediatamente a chamada Reação a Corpo Estranho (Foreign Body Response).\n\nEm poucos meses, micróglia, astrócitos e macrófagos formam uma cápsula fibrosa e densa de tecido cicatricial (gliose reativa) ao redor dos sensores. Essa camada isolante afasta os contatos condutores dos neurônios vizinhos e degrada a impedância elétrica do sistema:\n• A relação sinal-ruído despenca drasticamente, exigindo correntes elétricas cada vez maiores que podem queimar o tecido adjacente.\n• Baterias recarregáveis implantadas perdem capacidade química após três a cinco anos, exigindo cirurgias invasivas de troca sob anestesia geral.\n• Microfraturas mecânicas causadas pela flexão contínua dos tecidos orgânicos rompem trilhas eletrônicas invisíveis aos exames de raio-X de rotina.\n\nPara o paciente que investiu dezenas de milhares de dólares em um implante, a falha técnica não é um inconveniente: é o retorno abrupto à escuridão ou à paralisia, com a agravante de ter o corpo cicatrizado e incapacitado para novas tentativas cirúrgicas.",
       "fontes": [
         {
-          "titulo": "Frontiers in Neuroscience: Foreign body response to neural implants and biological mitigation strategies",
-          "url": "https://pubmed.ncbi.nlm.nih.gov/37152431/",
-          "data": "2023-04-18"
+          "titulo": "Frontiers in Bioengineering and Biotechnology: Foreign Body Reaction to Implanted Biomaterials and Its Impact in Nerve Neuroprosthetics (Carnicer-Lombarte et al.)",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/33898436/",
+          "data": "2021-04-09",
+          "verificada": false
         },
         {
           "titulo": "Ivani et al.: Tactile Perception in Upper Limb Prostheses (Mechanical Characterization)",
           "url": "https://pubmed.ncbi.nlm.nih.gov/39093675/",
-          "data": "2024-02-23"
+          "data": "2024-02-23",
+          "verificada": false
         }
       ],
       "narracao": "A biologia defende o corpo contra a máquina. Tecidos cicatriciais sufocam os eletrodos e baterias perdem a carga. Cada implante é uma contagem regressiva para a próxima cirurgia.",
@@ -734,17 +758,20 @@
         {
           "titulo": "FDA: Approves first gene therapies to treat patients with sickle cell disease (Casgevy & Lyfgenia)",
           "url": "https://www.fda.gov/news-events/press-announcements/fda-approves-first-gene-therapies-treat-patients-sickle-cell-disease",
-          "data": "2023-12-08"
+          "data": "2023-12-08",
+          "verificada": "2026-11-10"
         },
         {
           "titulo": "NIH/NHLBI: Statement on new FDA-approved gene therapies for sickle cell disease",
           "url": "https://www.nhlbi.nih.gov/news/2023/nih-statement-new-fda-approved-gene-therapies-sickle-cell-disease",
-          "data": "2023-12-08"
+          "data": "2023-12-08",
+          "verificada": "2026-11-10"
         },
         {
           "titulo": "Nature / PMC: The new frontier of gene therapies for sickle cell disease",
           "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10862012/",
-          "data": "2024-02-07"
+          "data": "2024-02-07",
+          "verificada": false
         }
       ],
       "narracao": "A tesoura do CRISPR desligou o freio molecular e libertou a hemoglobina fetal. Mais de noventa por cento dos pacientes não sentiram mais nenhuma crise de dor. A ciência provou que a cura genética é real.",
@@ -780,17 +807,19 @@
       "polo": "catastrofico",
       "profundidade": 2,
       "titulo": "[MOCK] DADO: O Custo de US$ 2,2 Milhões e a Barreira Quimioterápica da Edição Gênica",
-      "texto": "Apesar do triunfo científico indiscutível do Casgevy, os fatores econômicos e hospitalares que cercam a terapia desenham uma muralha quase intransponível de exclusão humana. O preço de tabela anunciado para uma única rodada do tratamento nos Estados Unidos foi fixado em US$ 2,2 milhões (e a terapia concorrente Lyfgenia, da Bluebird Bio, aprovada no mesmo dia, foi precificada em US$ 3,1 milhões!).\n\nEm números e fatos verificados:\n• A doença falciforme afeta mais de 8 milhões de pessoas no mundo, sendo que mais de 75% dos nascimentos anuais concentram-se na África Subsaariana e partes da Índia e América Latina, onde a renda média per capita inviabiliza completamente tratamentos milionários.\n• Conforme análise crítica publicada na prestigiada revista Nature em 30 de julho de 2024 ('How to make multi-million-dollar gene therapies available globally'), mesmo se os governos subsidiassem o medicamento, a imensa maioria dos países em desenvolvimento carece de centros de transplante com leitos de pressão positiva e equipes de aférese de alto padrão.\n• O regime preparatório exige o quimioterápico bussulfano em doses mieloablativas severas, o que acarreta perda irreversível da fertilidade na maioria dos pacientes jovens, alopecia completa, mucosite extrema e risco de septicemia hemorrágica durante as semanas de aplasia medular.\n\nCom isso, a primeira cura por CRISPR da história humana corre o risco dramático de se transformar em um artigo de luxo supremo: uma tecnologia concebida com recursos de pesquisa pública que beneficia algumas centenas de cidadãos em nações ricas enquanto milhões morrem sem receber sequer hidroxiureia básica de cinco dólares por mês.",
+      "texto": "Apesar do triunfo científico indiscutível do Casgevy, os fatores econômicos e hospitalares que cercam a terapia desenham uma muralha quase intransponível de exclusão humana. O preço de tabela anunciado para uma única rodada do tratamento nos Estados Unidos foi fixado em US$ 2,2 milhões (e a terapia concorrente Lyfgenia, da Bluebird Bio, aprovada no mesmo dia, foi precificada em US$ 3,1 milhões!).\n\nEm números e fatos verificados:\n• A doença falciforme afeta cerca de 7,74 milhões de pessoas no mundo (estimativa de aproximadamente 8 milhões conforme dados consolidados do estudo GBD 2021), sendo que mais de 75% dos nascimentos anuais concentram-se na África Subsaariana e Índia, onde a renda média per capita inviabiliza completamente tratamentos milionários.\n• Conforme análise crítica publicada na prestigiada revista Nature em 30 de julho de 2024 ('How to make multi-million-dollar gene therapies available globally'), mesmo se os governos subsidiassem o medicamento, a imensa maioria dos países em desenvolvimento carece de centros de transplante com leitos de pressão positiva e equipes de aférese de alto padrão.\n• O regime preparatório exige o quimioterápico bussulfano em doses mieloablativas severas, o que acarreta perda irreversível da fertilidade na maioria dos pacientes jovens, alopecia completa, mucosite extrema e risco de septicemia hemorrágica durante as semanas de aplasia medular.\n\nCom isso, a primeira cura por CRISPR da história humana corre o risco dramático de se transformar em um artigo de luxo supremo: uma tecnologia concebida com recursos de pesquisa pública que beneficia algumas centenas de cidadãos em nações ricas enquanto milhões morrem sem receber sequer hidroxiureia básica de cinco dólares por mês.",
       "fontes": [
         {
           "titulo": "Nature: How to make multi-million-dollar gene therapies available globally",
           "url": "https://www.nature.com/articles/d41586-024-02310-y",
-          "data": "2024-07-30"
+          "data": "2024-07-30",
+          "verificada": false
         },
         {
           "titulo": "FDA: FDA Approves First Gene Therapies to Treat Patients with Sickle Cell Disease",
           "url": "https://www.fda.gov/news-events/press-announcements/fda-approves-first-gene-therapies-treat-patients-sickle-cell-disease",
-          "data": "2023-12-08"
+          "data": "2023-12-08",
+          "verificada": "2026-11-10"
         }
       ],
       "narracao": "Dois milhões e duzentos mil dólares por paciente. Uma quimioterapia que rouba a fertilidade e exige leitos de UTI ultraestéreis. Para a vasta maioria dos doentes no mundo, o CRISPR é uma cura que não existe.",
@@ -826,12 +855,13 @@
       "polo": "otimista",
       "profundidade": 2,
       "titulo": "[MOCK] DADO: A Inibição de IL-11 e a Extensão da Vida Funcional em Mamíferos",
-      "texto": "Enquanto grande parte do mercado de antienvelhecimento apoiava-se em suplementos sem comprovação rigorosa, um artigo científico de impacto extraordinário publicado na revista Nature em 17 de julho de 2024 reposicionou as bases biológicas da gerociência: a inibição da citocina pró-inflamatória interleucina-11 (IL-11).\n\nO estudo, conduzido por Anissa Widjaja, Stuart Cook e uma equipe internacional da Duke-NUS Medical School de Cingapura e do Imperial College London ('Inhibition of IL-11 prolongs mammalian healthspan and lifespan'), demonstrou que a IL-11 atua como um gatilho central para o declínio associado à idade, estimulando inflamação estromal crônica, fibrose de tecidos e disfunções metabólicas.\n\n[+] CLIQUE PARA VER OS NÚMEROS E DESCOBERTAS DO ESTUDO EM MAMÍFEROS:\nOs pesquisadores trataram camundongos a partir dos 75 semanas de idade (o equivalente biológico a cerca de 55 anos humanos) com um anticorpo monoclonal que bloqueia a sinalização da IL-11:\n• A expectativa de vida média dos animais tratados aumentou em 22,5% nos machos e em impressionantes 24,9% nas fêmeas.\n• Os mamíferos mantiveram maior força de preensão muscular, pelagem jovem e níveis reduzidos de gordura visceral prejudicial.\n• Houve redução marcante no aparecimento espontâneo de tumores malignos decorrentes do envelhecimento natural.\n• Ensaios clínicos iniciais de fase 1 com anticorpos anti-IL-11 em humanos já estão em andamento para fibrose pulmonar, abrindo o caminho regulatório mais sólido já visto para retardar a fragilidade funcional do corpo.",
+      "texto": "Enquanto grande parte do mercado de antienvelhecimento apoiava-se em suplementos sem comprovação rigorosa, um artigo científico de impacto extraordinário publicado na revista Nature em 17 de julho de 2024 reposicionou as bases biológicas da gerociência: a inibição da citocina pró-inflamatória interleucina-11 (IL-11).\n\nO estudo, conduzido por Anissa Widjaja, Stuart Cook e uma equipe internacional da Duke-NUS Medical School de Cingapura e do Imperial College London ('Inhibition of IL-11 prolongs mammalian healthspan and lifespan'), demonstrou que a IL-11 atua como um gatilho central para o declínio associado à idade, estimulando inflamação estromal crônica, fibrose de tecidos e disfunções metabólicas.\n\n[+] CLIQUE PARA VER OS NÚMEROS E DESCOBERTAS DO ESTUDO EM MAMÍFEROS:\nOs pesquisadores trataram camundongos a partir dos 75 semanas de idade (o equivalente biológico a cerca de 55 anos humanos) com um anticorpo monoclonal que bloqueia a sinalização da IL-11:\n• A expectativa de vida média dos animais tratados aumentou em 22,5% nos machos e em impressionantes 25,0% nas fêmeas com o anticorpo anti-IL-11 (atingindo 24,9% na deleção genética do gene Il11).\n• Os mamíferos mantiveram maior força de preensão muscular, pelagem jovem e níveis reduzidos de gordura visceral prejudicial.\n• Houve redução marcante no aparecimento espontâneo de tumores malignos decorrentes do envelhecimento natural.\n• Ensaios clínicos iniciais de fase 1 com anticorpos anti-IL-11 em humanos já estão em andamento para fibrose pulmonar, abrindo o caminho regulatório mais sólido já visto para retardar a fragilidade funcional do corpo.",
       "fontes": [
         {
           "titulo": "Nature: Inhibition of IL-11 prolongs mammalian healthspan and lifespan (Widjaja et al., PMID: 39020175)",
           "url": "https://pubmed.ncbi.nlm.nih.gov/39020175/",
-          "data": "2024-07-17"
+          "data": "2024-07-17",
+          "verificada": false
         }
       ],
       "narracao": "Bloquear uma única molécula inflamatória estendeu a vida saudável de mamíferos em vinte e cinco por cento. A gerociência está aprendendo a desligar as chaves biológicas da fragilidade.",
@@ -872,12 +902,14 @@
         {
           "titulo": "Nature Aging: Implausibility of radical life extension in humans in the twenty-first century (Olshansky et al.)",
           "url": "https://www.nature.com/articles/s43587-024-00702-3",
-          "data": "2024-10-07"
+          "data": "2024-10-07",
+          "verificada": "2026-11-10"
         },
         {
           "titulo": "Nature Medicine: Limits to human life expectancy and deceleration of gains",
           "url": "https://www.nature.com/articles/d41591-024-00076-4",
-          "data": "2024-10-31"
+          "data": "2024-10-31",
+          "verificada": false
         }
       ],
       "narracao": "A demografia mundial analisou trinta anos de dados: a extensão radical da vida é implausível neste século. O ser humano tem uma data de validade gravada na sua própria biologia.",
@@ -918,12 +950,14 @@
         {
           "titulo": "OMS/UNICEF: Global report on assistive technology",
           "url": "https://www.who.int/publications/i/item/9789240049451",
-          "data": "2022-05-16"
+          "data": "2022-05-16",
+          "verificada": false
         },
         {
           "titulo": "Nature: How to make multi-million-dollar gene therapies available globally",
           "url": "https://www.nature.com/articles/d41586-024-02310-y",
-          "data": "2024-07-30"
+          "data": "2024-07-30",
+          "verificada": false
         }
       ],
       "narracao": "Quando o código é aberto e o Estado garante a cobertura, a prótese deixa de ser mercadoria de luxo e torna-se um direito humano inalienável.",
@@ -964,12 +998,14 @@
         {
           "titulo": "Neuralink: PRIME Study Progress Update — First Participant Performance & Thread Retraction",
           "url": "https://neuralink.com/blog/prime-study-progress-update-2024/",
-          "data": "2024-05-08"
+          "data": "2024-05-08",
+          "verificada": false
         },
         {
           "titulo": "FierceBiotech: Neuralink shares details on first brain implant, including thread retraction issue",
           "url": "https://www.fiercebiotech.com/medtech/neuralink-shares-details-first-brain-implant-including-thread-retraction-issue",
-          "data": "2024-05-09"
+          "data": "2024-05-09",
+          "verificada": false
         }
       ],
       "narracao": "O primeiro chip neural no cérebro humano quebrou recordes de digitação pelo pensamento. Mas quando os fios microscópicos começaram a se soltar do córtex, a engenharia descobriu que o cérebro respira e se move.",
@@ -1010,7 +1046,8 @@
         {
           "titulo": "IEEE Spectrum: Their Bionic Eyes Are Now Obsolete and Unsupported (Eliza Strickland & Mark Harris)",
           "url": "https://spectrum.ieee.org/bionic-eye-obsolete",
-          "data": "2022-02-15"
+          "data": "2022-02-15",
+          "verificada": "2026-11-10"
         }
       ],
       "narracao": "Mais de trezentas pessoas colocaram chips nos olhos para voltar a enxergar. Quando a empresa faliu, os óculos pararam de funcionar e as luzes se apagaram novamente. Elas foram abandonadas no escuro com silício morto nos olhos.",
@@ -1046,17 +1083,13 @@
       "polo": "catastrofico",
       "profundidade": 2,
       "titulo": "[MOCK] DADO: A Divisão Biocêntrica — Estimativas de Mercado e Eugenia de Mercado",
-      "texto": "Para além dos limites técnicos e da obsolescência mecânica, o risco civilizatório mais profundo associado ao corpo aumentado reside na transição de uma medicina meramente terapêutica (que restaura uma função perdida) para uma bioengenharia de melhoramento eletivo ('enhancement') restrita a quem detém capital acumulado.\n\nConforme relatórios de inteligência de mercado biomédico e análises bioéticas de economistas da saúde:\n• O mercado global de terapias gênicas avançadas e neurotecnologias aumentativas está projetado para ultrapassar US$ 50 bilhões até 2030, concentrado em mais de 80% em apenas dez países de renda alta.\n• Ao contrário das vacinas ou antibióticos do século XX, cujo imperativo epidemiológico exigia imunização em massa para erradicar surtos, as biotecnologias de aumento de desempenho cognitivo, muscular ou longevidade conferem vantagens competitivas individuais privadas nos mercados de trabalho e finanças.\n\n[+] CLIQUE PARA VER O DILEMA DA LOTERIA BIOLÓGICA VERSUS MERCADO:\nBioeticistas contemporâneos alertam para a passagem da 'loteria biológica' natural — na qual qualquer pessoa, rica ou pobre, nasce sujeita a imperfeições genéticas aleatórias — para uma 'eugenia de mercado'. Nesse modelo não coercitivo, pais com alto patrimônio financiam edições genéticas pré-implantacionais e nootrópicos neuroconectados para blindar biologicamente seus herdeiros contra fadiga, perda de memória e vulnerabilidade imunológica, enquanto o restante da humanidade permanece preso à fragilidade da carne orgânica.\n\nEssa fragmentação não é mero pesadelo distópico: é a consequência matemática de permitir que o código genético e os sentidos humanos sejam tratados sob as mesmas leis de precificação e rentabilidade de fundos de venture capital.",
+      "texto": "Para além dos limites técnicos e da obsolescência mecânica, o risco civilizatório mais profundo associado ao corpo aumentado reside na transição de uma medicina meramente terapêutica (que restaura uma função perdida) para uma bioengenharia de melhoramento eletivo ('enhancement') restrita a quem detém capital acumulado.\n\nConforme estimativas de relatórios de inteligência de mercado biomédico e análises bioéticas de economistas da saúde:\n• O mercado global de terapias gênicas avançadas e neurotecnologias aumentativas tem estimativa projetada para ultrapassar US$ 50 bilhões até 2030, concentrado em mais de 80% em apenas dez países de renda alta.\n• Ao contrário das vacinas ou antibióticos do século XX, cujo imperativo epidemiológico exigia imunização em massa para erradicar surtos, as biotecnologias de aumento de desempenho cognitivo, muscular ou longevidade conferem vantagens competitivas individuais privadas nos mercados de trabalho e finanças.\n\n[+] CLIQUE PARA VER O DILEMA DA LOTERIA BIOLÓGICA VERSUS MERCADO:\nBioeticistas contemporâneos alertam para a passagem da 'loteria biológica' natural — na qual qualquer pessoa, rica ou pobre, nasce sujeita a imperfeições genéticas aleatórias — para uma estimativa de 'eugenia de mercado'. Nesse modelo não coercitivo, pais com alto patrimônio financiam edições genéticas pré-implantacionais e nootrópicos neuroconectados para blindar biologicamente seus herdeiros contra fadiga, perda de memória e vulnerabilidade imunológica, enquanto o restante da humanidade permanece preso à fragilidade da carne orgânica.\n\nEssa fragmentação não é mero pesadelo distópico: é a consequência matemática de permitir que o código genético e os sentidos humanos sejam tratados sob as mesmas leis de precificação e rentabilidade de fundos de venture capital.",
       "fontes": [
         {
           "titulo": "Nature: How to make multi-million dollar gene therapies affordable and accessible globally",
           "url": "https://www.nature.com/articles/d41586-024-02310-y",
-          "data": "2024-07-30"
-        },
-        {
-          "titulo": "NIH/NHLBI: Gene therapies, equity and the ethics of advanced medicine",
-          "url": "https://www.nhlbi.nih.gov/news/2023/nih-statement-new-fda-approved-gene-therapies-sickle-cell-disease",
-          "data": "2023-12-08"
+          "data": "2024-07-30",
+          "verificada": false
         }
       ],
       "narracao": "Quando o aprimoramento cognitivo e genético tem preço de mercado, as classes sociais deixam de ser uma divisão econômica: tornam-se uma divisão de espécies. O futuro do corpo é o futuro da igualdade humana.",

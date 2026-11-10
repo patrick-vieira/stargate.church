@@ -49,7 +49,8 @@
         {
           "titulo": "NASA: Perseverance rover safely lands on Red Planet",
           "url": "https://www.jpl.nasa.gov/news/touchdown-nasas-mars-perseverance-rover-safely-lands-on-red-planet/",
-          "data": "2021-02-18"
+          "data": "2021-02-18",
+          "verificada": "2026-11-10"
         }
       ],
       "narracao": "Na cratera Jezero, tubos de titânio guardam segredos de bilhões de anos. Mas a viagem de volta para a Terra tornou-se o teste mais caro da história espacial.",
@@ -90,7 +91,8 @@
         {
           "titulo": "NASA: Economia comercial em órbita baixa — perguntas frequentes",
           "url": "https://www.nasa.gov/humans-in-space/leo-economy-frequently-asked-questions/",
-          "data": "2024-04-07"
+          "data": "2024-04-07",
+          "verificada": false
         }
       ],
       "narracao": "No espaço profundo, cada gole de água e cada sopro de oxigênio dependem de máquinas que nunca podem falhar. Nosso corpo foi feito para a Terra; sobreviver fora dela exige um milagre diário de engenharia.",
@@ -131,7 +133,8 @@
         {
           "titulo": "ESA: Space Environment Report 2024",
           "url": "https://www.esa.int/Space_Safety/Space_Debris/ESA_Space_Environment_Report_2024",
-          "data": "2024-07-19"
+          "data": "2024-07-19",
+          "verificada": "2026-11-10"
         }
       ],
       "narracao": "A órbita da Terra está lotada. Entre o descomissionamento da Estação Espacial e dezenas de milhares de satélites em alta velocidade, o risco de uma colisão em cadeia nunca foi tão real.",
@@ -212,7 +215,8 @@
         {
           "titulo": "NASA: Sets path to return Mars samples, seeks innovative designs",
           "url": "https://www.nasa.gov/news-release/nasa-sets-path-to-return-mars-samples-seeks-innovative-designs/",
-          "data": "2024-04-15"
+          "data": "2024-04-15",
+          "verificada": "2026-11-10"
         }
       ],
       "narracao": "No laboratório do JPL, a engenheira Aris Thorne defende o valor das amostras de Marte contra a pressão dos cortes orçamentários. Escolha sua pergunta para continuar.",
@@ -258,7 +262,8 @@
         {
           "titulo": "NASA: Crew returns from simulated trip to Mars (CHAPEA Mission 1)",
           "url": "https://www.nasa.gov/centers-and-facilities/johnson/crew-returns-from-simulated-trip-to-mars-take-a-peek-inside-their-journey/",
-          "data": "2024-07-06"
+          "data": "2024-07-06",
+          "verificada": false
         }
       ],
       "narracao": "Depois de mais de um ano isolado simulando o cotidiano em Marte, Mateo Ruiz relata o impacto psicológico do isolamento e do delay de comunicação.",
@@ -304,7 +309,8 @@
         {
           "titulo": "NASA: Aeronautics and Space Report of the President FY 2024",
           "url": "https://www.nasa.gov/wp-content/uploads/2025/09/aeronautics-and-space-report-of-the-president-fy-2024.pdf",
-          "data": "2025-09-15"
+          "data": "2025-09-15",
+          "verificada": "2026-11-10"
         }
       ],
       "narracao": "A aposentadoria da ISS em 2030 encerra a era dos grandes laboratórios estatais no espaço e inaugura o mercado das estações comerciais. Uma aposta de alto risco.",
@@ -350,7 +356,8 @@
         {
           "titulo": "NASA: LEO Economy frequently asked questions & ECLSS metrics",
           "url": "https://www.nasa.gov/humans-in-space/leo-economy-frequently-asked-questions/",
-          "data": "2024-04-07"
+          "data": "2024-04-07",
+          "verificada": false
         }
       ],
       "narracao": "Reciclando mais de 98% da água em órbita, os sistemas regenerativos provam que uma comunidade humana pode fechar seu ciclo ecológico e florescer fora da Terra.",
@@ -391,12 +398,13 @@
       "polo": "otimista",
       "profundidade": 1,
       "titulo": "[MOCK] Mineração e Combustível: A Revolução do ISRU",
-      "texto": "A 'equação do foguete' de Tsiolkovsky é uma tirana implacável: para levar cada quilo de carga a Marte, são necessários dezenas de quilos de combustível. Se a nave tiver que carregar também o propelente para voltar para casa, o foguete se torna proibitivamente massivo e impagável.\n\nA resposta que destrava a economia interplanetária é o ISRU (In-Situ Resource Utilization, ou Utilização de Recursos Locais). A atmosfera marciana possui 95% de dióxido de carbono; o subsolo possui depósitos maciços de gelo de água. Por meio da reação de Sabatier e eletrólise, usinas automatizadas podem produzir oxigênio líquido e metano puro antes mesmo dos primeiros astronautas decolarem da Terra.",
+      "texto": "A 'equação do foguete' de Tsiolkovsky é uma tirana implacável: para levar cada quilo de carga a Marte, são necessários dezenas de quilos de combustível. Se a nave tiver que carregar também o propelente para voltar para casa, o foguete se torna proibitivamente massivo e impagável.\n\nA resposta que destrava a economia interplanetária é o ISRU (In-Situ Resource Utilization, ou Utilização de Recursos Locais). A atmosfera marciana possui 95% de dióxido de carbono; o subsolo possui depósitos maciços de gelo de água. Por meio da reação de Sabatier e eletrólise, estimativas de engenharia indicam que usinas automatizadas podem produzir oxigênio líquido e metano puro antes mesmo dos primeiros astronautas decolarem da Terra.",
       "fontes": [
         {
           "titulo": "NASA: NASA's oxygen-generating experiment on Mars completes mission (MOXIE)",
-          "url": "https://www.nasa.gov/news-release/nasas-oxygen-generating-experiment-on-mars-completes-mission/",
-          "data": "2023-09-06"
+          "url": "https://www.nasa.gov/missions/mars-2020-perseverance/perseverance-rover/nasas-oxygen-generating-experiment-moxie-completes-mars-mission/",
+          "data": "2023-09-06",
+          "verificada": false
         }
       ],
       "narracao": "Não leve combustível para Marte: fabrique-o lá. A utilização de recursos locais transforma a atmosfera do planeta vizinho em uma refinaria inesgotável.",
@@ -442,12 +450,14 @@
         {
           "titulo": "ESA: Space Environment Report 2024 (Space Debris)",
           "url": "https://www.esa.int/Space_Safety/Space_Debris/ESA_Space_Environment_Report_2024",
-          "data": "2024-07-19"
+          "data": "2024-07-19",
+          "verificada": "2026-11-10"
         },
         {
           "titulo": "FCC: Adopts new 5-year rule for deorbiting satellites",
           "url": "https://www.fcc.gov/document/fcc-adopts-new-5-year-rule-deorbiting-satellites",
-          "data": "2022-09-29"
+          "data": "2022-09-29",
+          "verificada": false
         }
       ],
       "narracao": "A astrofísica Sarah Lin alerta: estamos à beira de criar uma barreira intransponível de fragmentos ao redor do nosso próprio planeta. Faça sua escolha no diálogo.",
@@ -493,7 +503,8 @@
         {
           "titulo": "Science: The NASA Twins Study: A multidimensional analysis",
           "url": "https://www.science.org/doi/10.1126/science.aau8650",
-          "data": "2019-04-12"
+          "data": "2019-04-12",
+          "verificada": false
         }
       ],
       "narracao": "Sem campo magnético para nos proteger, o espaço interplanetário é um mar de radiação ionizante. Viver em Marte exigirá que a humanidade se esconda no subsolo como toupeiras mecânicas.",
@@ -534,17 +545,19 @@
       "polo": "otimista",
       "profundidade": 2,
       "titulo": "[MOCK] DADO: A Aurora da Espécie Multiplanetária e a Queda de Custos",
-      "texto": "A visão otimista não se apoia apenas em sonhos, mas em uma transformação real da curva de custo de acesso ao espaço. Durante as décadas do programa Apollo e dos Ônibus Espaciais, colocar um único quilo de carga útil em órbita baixa da Terra custava entre US$ 20.000 e US$ 54.000. Com a chegada dos lançadores comerciais com primeiros estágios reutilizáveis e o advento de megarrecintos espaciais, essa barreira despencou para menos de US$ 2.000 por quilo, com estimativas industriais visando atingir a faixa de poucas centenas de dólares.\n\nEssa deflação radical transforma o espaço de privilégio de impérios estatais em uma fronteira industrial acessível. Segundo o relatório oficial da NASA ao Presidente dos EUA sobre as atividades aeroespaciais (publicado em 2025, cobrindo o ano fiscal de 2024), a exploração espacial comercial gerou dezenas de voos orbitais civis, expandiu parcerias internacionais na arquitetura lunar e lançou as bases logísticas para expedições tripuladas a Marte.\n\n[+] CLIQUE PARA VER O DADO DE IMPACTO HISTÓRICO:\nEm 2024, a capacidade de carga humana em órbita atingiu recordes absolutos de satélites ativos (mais de 9.100 satélites em operação, conforme o Space Environment Report 2024 da ESA). Tornar-se multiplanetário não é fantasia de ficção: é a continuação natural da expansão humana que um dia cruzou os oceanos terrestres para povoar continentes desconhecidos.",
+      "texto": "A visão otimista não se apoia apenas em sonhos, mas em uma transformação real da curva de custo de acesso ao espaço. Durante as décadas do programa Apollo e dos Ônibus Espaciais, colocar um único quilo de carga útil em órbita baixa da Terra custava entre US$ 20.000 e US$ 54.000, conforme estimativas históricas da indústria. Com a chegada dos lançadores comerciais com primeiros estágios reutilizáveis e o advento de megarrecintos espaciais, essa barreira despencou para uma estimativa de menos de US$ 2.000 por quilo, com projeções industriais visando atingir a faixa de poucas centenas de dólares.\n\nEssa deflação radical transforma o espaço de privilégio de impérios estatais em uma fronteira industrial acessível. Segundo o relatório oficial da NASA ao Presidente dos EUA sobre as atividades aeroespaciais (publicado em 2025, cobrindo o ano fiscal de 2024), a exploração espacial comercial consolidou parcerias com consórcios privados em órbita baixa, expandiu cooperações internacionais na arquitetura lunar e estruturou as bases logísticas para futuras expedições tripuladas a Marte.\n\n[+] CLIQUE PARA VER O DADO DE IMPACTO HISTÓRICO:\nEm 2024, a capacidade de carga humana em órbita atingiu recordes absolutos de satélites ativos (mais de 9.100 satélites em operação, conforme o Space Environment Report 2024 da ESA). Tornar-se multiplanetário não é fantasia de ficção: é a continuação natural da expansão humana que um dia cruzou os oceanos terrestres para povoar continentes desconhecidos.",
       "fontes": [
         {
           "titulo": "NASA: Aeronautics and Space Report of the President (FY 2024 Activities)",
           "url": "https://www.nasa.gov/wp-content/uploads/2025/09/aeronautics-and-space-report-of-the-president-fy-2024.pdf",
-          "data": "2025-09-15"
+          "data": "2025-09-15",
+          "verificada": false
         },
         {
           "titulo": "ESA: Space Environment Report 2024",
           "url": "https://www.esa.int/Space_Safety/Space_Debris/ESA_Space_Environment_Report_2024",
-          "data": "2024-07-19"
+          "data": "2024-07-19",
+          "verificada": "2026-11-10"
         }
       ],
       "narracao": "Com a reutilização de foguetes, o custo para acessar o cosmos caiu mais de 90%. Para os otimistas, a expansão multiplanetária deixou de ser sonho e tornou-se um cronograma inevitável.",
@@ -585,7 +598,8 @@
         {
           "titulo": "Nature Astronomy: Inventory of CO2 available for terraforming Mars (Jakosky & Edwards)",
           "url": "https://www.nature.com/articles/s41550-018-0529-6",
-          "data": "2018-07-30"
+          "data": "2018-07-30",
+          "verificada": "2026-11-10"
         }
       ],
       "narracao": "A ciência é inequívoca: liberar todo o gás carbônico de Marte não atinge nem dois por cento da pressão da Terra. A ideia de que Marte nos salvará é uma ilusão matemática.",
@@ -621,12 +635,13 @@
       "polo": "otimista",
       "profundidade": 2,
       "titulo": "[MOCK] DADO: O Ar que Nasce das Pedras — O Experimento MOXIE",
-      "texto": "Pela primeira vez na história da exploração cósmica, a humanidade gerou oxigênio respirável a partir da atmosfera de outro planeta. Em 6 de setembro de 2023, a NASA anunciou formalmente a conclusão bem-sucedida do experimento MOXIE (Mars Oxygen In-Situ Resource Utilization Experiment), instalado no ventre do rover Perseverance.\n\nOs números comprovam a viabilidade da utilização de recursos in-situ:\n• Produção total acumulada: 122 gramas de oxigênio puro gerados ao longo de 16 testes bem-sucedidos desde 2021.\n• Pureza do oxigênio obtido: 98% ou superior, alcançada separando átomos de oxigênio das moléculas de dióxido de carbono marciano através de eletrólise de óxido sólido a 800°C.\n• Taxa de pico: 12 gramas de oxigênio por hora (o dobro da meta inicial do projeto).\n\n122 gramas de oxigênio representam o suficiente para manter um ser humano respirando por cerca de 3,5 horas (ou um cão pequeno por 10 horas). Embora o volume pareça modesto, o MOXIE foi desenhado como um demonstrador de escala 1:200. Um sistema em escala real de 25 a 30 quilowatts poderá produzir as dezenas de toneladas de oxigênio líquido necessárias para abastecer o foguete de retorno de astronautas à Terra, provando que Marte possui os insumos químicos para a nossa emancipação cósmica.",
+      "texto": "Pela primeira vez na história da exploração cósmica, a humanidade gerou oxigênio respirável a partir da atmosfera de outro planeta. Em 6 de setembro de 2023, a NASA anunciou formalmente a conclusão bem-sucedida do experimento MOXIE (Mars Oxygen In-Situ Resource Utilization Experiment), instalado no ventre do rover Perseverance.\n\nOs números comprovam a viabilidade da utilização de recursos in-situ:\n• Produção total acumulada: 122 gramas de oxigênio puro gerados ao longo de 16 testes bem-sucedidos desde 2021.\n• Pureza do oxigênio obtido: 98% ou superior, alcançada separando átomos de oxigênio das moléculas de dióxido de carbono marciano através de eletrólise de óxido sólido a 800°C.\n• Taxa de pico: 12 gramas de oxigênio por hora (o dobro da meta inicial do projeto).\n\n122 gramas de oxigênio representam o suficiente para manter um ser humano respirando por cerca de 3,5 horas (ou um cão pequeno por 10 horas). Embora o volume pareça modesto, o MOXIE foi desenhado como um demonstrador de escala 1:200. Conforme estimativa da equipe técnica, um sistema em escala real de 25 a 30 quilowatts poderá produzir as dezenas de toneladas de oxigênio líquido necessárias para abastecer o foguete de retorno de astronautas à Terra, provando que Marte possui os insumos químicos para a nossa emancipação cósmica.",
       "fontes": [
         {
           "titulo": "NASA: NASA's oxygen-generating experiment on Mars completes mission",
-          "url": "https://www.nasa.gov/news-release/nasas-oxygen-generating-experiment-on-mars-completes-mission/",
-          "data": "2023-09-06"
+          "url": "https://www.nasa.gov/missions/mars-2020-perseverance/perseverance-rover/nasas-oxygen-generating-experiment-moxie-completes-mars-mission/",
+          "data": "2023-09-06",
+          "verificada": false
         }
       ],
       "narracao": "Cento e vinte e dois gramas de oxigênio gerados diretamente do céu marciano. O experimento MOXIE provou na prática que a humanidade pode produzir seu próprio ar em outro mundo.",
@@ -667,12 +682,14 @@
         {
           "titulo": "NASA: Sets path to return Mars samples, seeks innovative designs",
           "url": "https://www.nasa.gov/news-release/nasa-sets-path-to-return-mars-samples-seeks-innovative-designs/",
-          "data": "2024-04-15"
+          "data": "2024-04-15",
+          "verificada": "2026-11-10"
         },
         {
           "titulo": "NASA: Independent Review Board MSR Report Summary",
           "url": "https://www.nasa.gov/news-release/nasa-sets-path-to-return-mars-samples-seeks-innovative-designs/",
-          "data": "2023-09-21"
+          "data": "2023-09-21",
+          "verificada": false
         }
       ],
       "narracao": "Onze bilhões de dólares e retorno adiado para 2040: a auditoria independente da missão de amostras marcianas expôs o abismo entre o marketing espacial e a dura realidade orçamentária.",
@@ -713,7 +730,8 @@
         {
           "titulo": "NASA: Crew returns from simulated trip to Mars (CHAPEA Mission 1)",
           "url": "https://www.nasa.gov/centers-and-facilities/johnson/crew-returns-from-simulated-trip-to-mars-take-a-peek-inside-their-journey/",
-          "data": "2024-07-06"
+          "data": "2024-07-06",
+          "verificada": false
         }
       ],
       "narracao": "Trezentos e setenta e oito dias em um habitat impresso em 3D. A tripulação do CHAPEA provou que a autonomia alimentar e psicológica em solo marciano é plenamente realizável.",
@@ -754,7 +772,8 @@
         {
           "titulo": "Science: The NASA Twins Study: A multidimensional analysis of a year-long human spaceflight",
           "url": "https://www.science.org/doi/10.1126/science.aau8650",
-          "data": "2019-04-12"
+          "data": "2019-04-12",
+          "verificada": false
         }
       ],
       "narracao": "No DNA do astronauta Scott Kelly, a ciência encontrou a conta biológica do espaço: encurtamento rápido de telômeros, mutações radioativas e instabilidade celular persistente.",
@@ -795,12 +814,14 @@
         {
           "titulo": "NASA: Selects International Space Station U.S. Deorbit Vehicle",
           "url": "https://www.nasa.gov/news-release/nasa-selects-international-space-station-us-deorbit-vehicle/",
-          "data": "2024-06-26"
+          "data": "2024-06-26",
+          "verificada": "2026-11-10"
         },
         {
           "titulo": "ESA: ClearSpace-1 and Active Debris Removal initiative",
           "url": "https://www.esa.int/Space_Safety/Space_Debris/ESA_Space_Environment_Report_2024",
-          "data": "2024-07-19"
+          "data": "2024-07-19",
+          "verificada": "2026-11-10"
         }
       ],
       "narracao": "Com um contrato de 843 milhões de dólares, a NASA e a SpaceX preparam o descarte controlado da ISS. A engenharia espacial aprende a limpar a própria casa.",
@@ -836,17 +857,19 @@
       "polo": "catastrofico",
       "profundidade": 2,
       "titulo": "[MOCK] DADO: O Censo do Lixo Cósmico — A Síndrome de Kessler",
-      "texto": "A órbita baixa da Terra não é infinita: é um recurso geográfico frágil que está rapidamente atingindo saturação crítica. Em 19 de julho de 2024, a Agência Espacial Europeia (ESA) lançou a edição atualizada do seu Space Environment Report, consolidando números que tiram o sono de qualquer operador de satélites.\n\nO censo oficial dos objetos em órbita ao redor da Terra revela:\n• Mais de 35.000 objetos monitorados e catalogados ativamente por radares militares e ópticos terrestres.\n• Apenas cerca de 9.100 são satélites ativos em funcionamento; o restante (~26.000) são satélites mortos, estágios de foguetes abandonados e pedaços de fuselagem maiores que 10 cm.\n• População oculta e letal: estima-se em mais de 1 milhão o número de fragmentos entre 1 cm e 10 cm, e mais de 130 milhões de partículas menores que 1 centímetro.\n\nA 28.000 km/h (quase 8 km por segundo), a blindagem de qualquer espaçonave é perfurada por uma lasca de alumínio de 1 cm como se fosse manteiga. Em 1978, o astrofísico da NASA Donald Kessler postulou a Síndrome de Kessler: o momento matemático em que a densidade de objetos em órbita se torna tão alta que colisões casuais geram cascatas exponenciais de fragmentos secundários, retroalimentando novas colisões mesmo que nenhum novo satélite seja lançado. Se a Síndrome de Kessler se consolidar na altitude de 700 a 1.000 km, a humanidade perderá satélites meteorológicos, GPS e redes mundiais de dados, ficando encarcerada dentro da atmosfera da Terra por gerações sob uma redoma intransponível de estilhaços hipersônicos.",
+      "texto": "A órbita baixa da Terra não é infinita: é um recurso geográfico frágil que está rapidamente atingindo saturação crítica. Em 19 de julho de 2024, a Agência Espacial Europeia (ESA) lançou a edição atualizada do seu Space Environment Report, consolidando números que tiram o sono de qualquer operador de satélites.\n\nO censo oficial dos objetos em órbita ao redor da Terra revela:\n• Mais de 35.000 objetos monitorados e catalogados ativamente por radares militares e ópticos terrestres.\n• Apenas cerca de 9.100 são satélites ativos em funcionamento; o restante (~26.000) são satélites mortos, estágios de foguetes abandonados e pedaços de fuselagem maiores que 10 cm.\n• População oculta e letal: a ESA estima em mais de 1 milhão o número de fragmentos entre 1 cm e 10 cm, e mais de 130 milhões de partículas menores que 1 centímetro (em auditoria correlata, a NASA OIG apontou ao menos 26.000 objetos maiores que uma bola de softball e centenas de milhares do tamanho de bolas de gude).\n\nA 28.000 km/h (quase 8 km por segundo), a blindagem de qualquer espaçonave é perfurada por uma lasca de alumínio de 1 cm como se fosse manteiga. Em 1978, o astrofísico da NASA Donald Kessler postulou a Síndrome de Kessler: o momento matemático em que a densidade de objetos em órbita se torna tão alta que colisões casuais geram cascatas exponenciais de fragmentos secundários, retroalimentando novas colisões mesmo que nenhum novo satélite seja lançado. Se a Síndrome de Kessler se consolidar na altitude de 700 a 1.000 km, a humanidade perderá satélites meteorológicos, GPS e redes mundiais de dados, ficando encarcerada dentro da atmosfera da Terra por gerações sob uma redoma intransponível de estilhaços hipersônicos.",
       "fontes": [
         {
           "titulo": "ESA: Space Environment Report 2024",
           "url": "https://www.esa.int/Space_Safety/Space_Debris/ESA_Space_Environment_Report_2024",
-          "data": "2024-07-19"
+          "data": "2024-07-19",
+          "verificada": "2026-11-10"
         },
         {
           "titulo": "NASA OIG: NASA's Efforts to Mitigate the Risks of Orbital Debris (Report IG-21-011)",
           "url": "https://oig.nasa.gov/wp-content/uploads/2024/02/IG-21-011.pdf",
-          "data": "2021-12-30"
+          "data": "2021-12-30",
+          "verificada": false
         }
       ],
       "narracao": "Trinta e cinco mil objetos rastreados e mais de um milhão de fragmentos invisíveis a oito quilômetros por segundo. A Síndrome de Kessler pode enjaular a humanidade no planeta Terra.",
@@ -887,7 +910,8 @@
         {
           "titulo": "Nature Astronomy: Inventory of CO2 available for terraforming Mars",
           "url": "https://www.nature.com/articles/s41550-018-0529-6",
-          "data": "2018-07-30"
+          "data": "2018-07-30",
+          "verificada": "2026-11-10"
         }
       ],
       "narracao": "Vinte anos de dados de sondas orbitais demonstraram: mesmo se evaporássemos todas as calotas polares de Marte, a pressão atmosférica não chegaria a dois por cento da Terra. Terraformar Marte é um mito.",
@@ -928,12 +952,14 @@
         {
           "titulo": "NASA: Crew returns from simulated trip to Mars (CHAPEA Mission 1)",
           "url": "https://www.nasa.gov/centers-and-facilities/johnson/crew-returns-from-simulated-trip-to-mars-take-a-peek-inside-their-journey/",
-          "data": "2024-07-06"
+          "data": "2024-07-06",
+          "verificada": false
         },
         {
           "titulo": "NASA: Aeronautics and Space Report of the President (FY 2024 Activities)",
           "url": "https://www.nasa.gov/wp-content/uploads/2025/09/aeronautics-and-space-report-of-the-president-fy-2024.pdf",
-          "data": "2025-09-15"
+          "data": "2025-09-15",
+          "verificada": false
         }
       ],
       "narracao": "Trezentos e setenta e oito dias e uma latência de quarenta e quatro minutos a cada pergunta e resposta. O maior teste para alcançar Marte não é a física: é a psique humana confinada.",
@@ -974,12 +1000,14 @@
         {
           "titulo": "NASA: Selects International Space Station U.S. Deorbit Vehicle",
           "url": "https://www.nasa.gov/news-release/nasa-selects-international-space-station-us-deorbit-vehicle/",
-          "data": "2024-06-26"
+          "data": "2024-06-26",
+          "verificada": "2026-11-10"
         },
         {
           "titulo": "NASA: Commercial LEO Destinations (CLD) Policy & FAQ",
           "url": "https://www.nasa.gov/humans-in-space/leo-economy-frequently-asked-questions/",
-          "data": "2024-04-07"
+          "data": "2024-04-07",
+          "verificada": "2026-11-10"
         }
       ],
       "narracao": "Um bilhão e meio de dólares para desmontar a ISS em 2030 e entregar a órbita à iniciativa privada. A transição mais arriscada da história aeroespacial está em marcha.",
@@ -1015,12 +1043,14 @@
         {
           "titulo": "FCC: Adopts new 5-year rule for deorbiting satellites to address orbital debris",
           "url": "https://www.fcc.gov/document/fcc-adopts-new-5-year-rule-deorbiting-satellites",
-          "data": "2022-09-29"
+          "data": "2022-09-29",
+          "verificada": false
         },
         {
           "titulo": "ESA: Space Environment Report 2024",
           "url": "https://www.esa.int/Space_Safety/Space_Debris/ESA_Space_Environment_Report_2024",
-          "data": "2024-07-19"
+          "data": "2024-07-19",
+          "verificada": "2026-11-10"
         }
       ],
       "narracao": "A oito quilômetros por segundo, uma porca de aço carrega o impacto de uma granada de mão. A nova regra de cinco anos da FCC tenta evitar que o céu se transforme em um campo minado.",

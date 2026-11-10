@@ -459,12 +459,14 @@
         {
           "titulo": "NBER Working Paper 31161: Generative AI at Work (Brynjolfsson, Li & Raymond)",
           "url": "https://www.nber.org/papers/w31161",
-          "data": "2023-04-24"
+          "data": "2023-04-24",
+          "verificada": "2026-11-10"
         },
         {
           "titulo": "The Quarterly Journal of Economics / RePEc: Generative AI at Work (Empirical Analysis)",
           "url": "https://ideas.repec.org/p/nbr/nberwo/31161.html",
-          "data": "2023-04-24"
+          "data": "2023-04-24",
+          "verificada": "2026-11-10"
         }
       ],
       "narracao": "Os dados mostram que a inteligência artificial não beneficia primeiro as elites, mas encurta o caminho do iniciante: trabalhadores menos experientes ganharam 34% em produtividade.",
@@ -505,12 +507,14 @@
         {
           "titulo": "Goldman Sachs Global Economics Research: The Potentially Large Effects of Artificial Intelligence on Economic Growth (Briggs & Kodnani)",
           "url": "https://www.goldmansachs.com/insights/pages/generative-ai-could-raise-global-gdp-by-7-percent.html",
-          "data": "2023-03-27"
+          "data": "2023-03-27",
+          "verificada": "2026-11-10"
         },
         {
           "titulo": "Goldman Sachs Macro Research: AI and the Global Labor Market Exposure",
           "url": "https://www.gspublishing.com/content/research/en/reports/2023/03/27/d64e052b-0f6e-45d7-967b-d7be35fabd16.html",
-          "data": "2023-03-27"
+          "data": "2023-03-27",
+          "verificada": "2026-11-10"
         }
       ],
       "narracao": "Trezentos milhões de empregos em tempo integral expostos ao código. Para o Goldman Sachs, é uma injeção de 7 trilhões no PIB; para milhões de famílias, é a angústia de ser descartável.",
@@ -541,17 +545,19 @@
       "polo": "otimista",
       "profundidade": 2,
       "titulo": "[MOCK] DADO: Reconstruir a Classe Média — A Tese da IA Pró-Trabalhador de David Autor",
-      "texto": "Em fevereiro de 2024, o renomado economista do trabalho do MIT David Autor publicou o paper 'Applying AI to Rebuild Middle Class Jobs' (NBER Working Paper 32140), que rapidamente se tornou a pedra fundamental do polo otimista esclarecido. Autor confronta a tese fatalista de que a inteligência artificial inevitavelmente destruirá os empregos de média qualificação e aprofundará o abismo da desigualdade.\n\n[EXPANDIR: O PAPEL DA IA COMO CO-PILOTO DE TOMADA DE DECISÃO]\nAutor recorda que a automação das últimas décadas causou a polarização do mercado de trabalho porque os computadores tradicionais substituíam tarefas rotineiras (cálculos contábeis, arquivamento e montagens fabris), valorizando excessivamente os profissionais com diplomas de elite (médicos especialistas, advogados seniores, PhDs) e empurrando a classe média para empregos manuais de baixa remuneração nos serviços (limpeza, portaria, entregas).\n\nA inteligência artificial generativa opera sob uma dinâmica inversa: ela sintetiza informações complexas e apoia o julgamento e a tomada de decisões em tempo real. Isso permite que profissionais com qualificação técnica intermediária — como técnicos de enfermagem, assistentes jurídicos, programadores sem graduação formal e professores da educação básica — executem com excelência tarefas de alto valor agregado que antes eram exclusividade de especialistas super-remunerados. Se orientada por políticas públicas adequadas, a IA tem o potencial histórico de revitalizar o coração da classe média trabalhadora.",
+      "texto": "Em fevereiro de 2024, o renomado economista do trabalho do MIT David Autor publicou o paper 'Applying AI to Rebuild Middle Class Jobs' (NBER Working Paper 32140), complementado por ensaio analítico no Noema Magazine, que rapidamente se tornou a pedra fundamental do polo otimista esclarecido. Autor confronta a tese fatalista de que a inteligência artificial inevitavelmente destruirá os empregos de média qualificação e aprofundará o abismo da desigualdade.\n\n[EXPANDIR: O PAPEL DA IA COMO CO-PILOTO DE TOMADA DE DECISÃO]\nAutor recorda que a automação das últimas décadas causou a polarização do mercado de trabalho porque os computadores tradicionais substituíam tarefas rotineiras (cálculos contábeis, arquivamento e montagens fabris), valorizando excessivamente os profissionais com diplomas de elite (médicos especialistas, advogados seniores, PhDs) e empurrando a classe média para empregos manuais de baixa remuneração nos serviços (limpeza, portaria, entregas).\n\nA inteligência artificial generativa opera sob uma dinâmica inversa: ela sintetiza informações complexas e apoia o julgamento e a tomada de decisões em tempo real. Isso permite que profissionais com qualificação técnica intermediária — como técnicos de enfermagem, assistentes jurídicos, programadores sem graduação formal e professores da educação básica — executem com excelência tarefas de alto valor agregado que antes eram exclusividade de especialistas super-remunerados. Conforme a tese demonstrada por David Autor, se orientada por políticas públicas adequadas, a IA tem o potencial histórico de revitalizar o coração da classe média trabalhadora.",
       "fontes": [
         {
           "titulo": "NBER Working Paper 32140: Applying AI to Rebuild Middle Class Jobs (David Autor)",
           "url": "https://www.nber.org/papers/w32140",
-          "data": "2024-02-12"
+          "data": "2024-02-12",
+          "verificada": "2026-11-10"
         },
         {
-          "titulo": "Noema Magazine / MIT: Could AI Help Rebuild The Middle Class? (David Autor)",
-          "url": "https://www.noemamag.com/ai-could-rebuild-the-middle-class/",
-          "data": "2024-02-13"
+          "titulo": "Noema Magazine / Berggruen Institute: AI Could Actually Help Rebuild The Middle Class (David Autor)",
+          "url": "https://www.noemamag.com/how-ai-could-help-rebuild-the-middle-class/",
+          "data": "2024-02-12",
+          "verificada": "2026-11-10"
         }
       ],
       "narracao": "David Autor sustenta que a inteligência artificial pode fazer o que a internet falhou: democratizar a capacidade de tomar decisões complexas e devolver força à classe média.",
@@ -592,12 +598,14 @@
         {
           "titulo": "NBER Working Paper 32487: The Simple Macroeconomics of AI (Daron Acemoglu)",
           "url": "https://www.nber.org/papers/w32487",
-          "data": "2024-05-13"
+          "data": "2024-05-13",
+          "verificada": "2026-11-10"
         },
         {
-          "titulo": "Economic Policy / CEPR: The Simple Macroeconomics of AI (Acemoglu)",
-          "url": "https://academic.oup.com/economicpolicy/article/39/119/627/7667823",
-          "data": "2024-05-13"
+          "titulo": "RePEc / NBER: The Simple Macroeconomics of AI (Daron Acemoglu)",
+          "url": "https://ideas.repec.org/p/nbr/nberwo/32487.html",
+          "data": "2024-05-13",
+          "verificada": "2026-11-10"
         }
       ],
       "narracao": "Para Acemoglu, o milagre da inteligência artificial não passa de uma miragem estatística: menos de um por cento de ganho real de produtividade em dez anos.",
@@ -633,17 +641,19 @@
       "polo": "neutro",
       "profundidade": 2,
       "titulo": "[MOCK] DADO: Automação vs. Aumento — O Mapeamento Ocupacional Global da OIT",
-      "texto": "Em agosto de 2023, a Organização Internacional do Trabalho (OIT), agência especializada das Nações Unidas, publicou o abrangente estudo global 'Generative AI and Jobs: A global analysis of potential effects on job quantity and quality', de autoria dos pesquisadores Pawel Gmyrek, Janine Berg e Yves Perardel.\n\n[EXPANDIR: POR QUE A MAIORIA DAS PROFISSÕES SERÁ COMPLEMENTADA E NÃO DESTRUÍDA?]\nA principal conclusão da OIT desmonta o mito do desemprego generalizado imediato: para a esmagadora maioria das categorias ocupacionais e setores econômicos, a inteligência artificial generativa funcionará como uma ferramenta de complementação e ampliação (augmentation), automatizando apenas tarefas periféricas e rotineiras dentro do cargo, enquanto preserva a necessidade de julgamento, empatia e coordenação humana.\n\nEntretanto, a pesquisa revelou uma exceção crítica com forte recorte de gênero: as funções de apoio administrativo e escritório (clerical work). Cerca de 24% de todas as tarefas de suporte administrativo são consideradas altamente expostas à automação total, e outros 58% apresentam exposição média. Como as mulheres ocupam desproporcionalmente essas vagas em economias de renda média e alta, a proporção de mulheres com empregos sob risco de automação direta é mais do que o dobro da proporção observada entre os homens, exigindo políticas ativas urgentes de transição de carreira.",
+      "texto": "Em agosto de 2023, a Organização Internacional do Trabalho (OIT), agência especializada das Nações Unidas, publicou o abrangente estudo global 'Generative AI and Jobs: A global analysis of potential effects on job quantity and quality' (ILO Working Paper 96), de autoria dos pesquisadores Pawel Gmyrek, Janine Berg e David Bescond, com ampla cobertura oficial pela UN News.\n\n[EXPANDIR: POR QUE A MAIORIA DAS PROFISSÕES SERÁ COMPLEMENTADA E NÃO DESTRUÍDA?]\nA principal conclusão da OIT desmonta o mito do desemprego generalizado imediato: para a esmagadora maioria das categorias ocupacionais e setores econômicos, a inteligência artificial generativa funcionará como uma ferramenta de complementação e ampliação (augmentation), automatizando apenas tarefas periféricas e rotineiras dentro do cargo, enquanto preserva a necessidade de julgamento, empatia e coordenação humana.\n\nEntretanto, a pesquisa revelou uma exceção crítica com forte recorte de gênero: as funções de apoio administrativo e escritório (clerical work). Cerca de 24% de todas as tarefas de suporte administrativo são consideradas altamente expostas à automação total, e outros 58% apresentam exposição média. Como as mulheres ocupam desproporcionalmente essas vagas em economias de renda média e alta, a proporção de mulheres com empregos sob risco de automação direta é mais do que o dobro da proporção observada entre os homens, exigindo políticas ativas urgentes de transição de carreira.",
       "fontes": [
         {
-          "titulo": "ILO Working Paper 96: Generative AI and Jobs — A global analysis of potential effects on job quantity and quality (Gmyrek et al.)",
-          "url": "https://www.ilo.org/publications/generative-ai-and-jobs-global-analysis-potential-effects-job-quantity-and",
-          "data": "2023-08-21"
+          "titulo": "RePEc / ILO Working Papers: Generative AI and Jobs — A global analysis of potential effects on job quantity and quality (Gmyrek, Berg & Bescond)",
+          "url": "https://ideas.repec.org/p/ilo/ilowps/995324892702676.html",
+          "data": "2023-08-21",
+          "verificada": "2026-11-10"
         },
         {
-          "titulo": "ILO Research Brief: Impact of Generative AI on Global Employment and Gender Disparities",
-          "url": "https://www.ilo.org/resource/article/generative-ai-likely-augment-rather-destroy-jobs",
-          "data": "2023-08-21"
+          "titulo": "UN News: AI tools like ChatGPT likely to complement jobs, not destroy them — ILO report",
+          "url": "https://news.un.org/en/story/2023/08/1139972",
+          "data": "2023-08-21",
+          "verificada": "2026-11-10"
         }
       ],
       "narracao": "A OIT concluiu que os empregos vão mudar, não evaporar. Mas nas funções administrativas e de escritório, a ameaça da automação atinge as mulheres com o dobro da força.",
@@ -679,17 +689,19 @@
       "polo": "neutro",
       "profundidade": 2,
       "titulo": "[MOCK] DADO: O Teste Empírico da Renda Básica — Os Resultados do OpenResearch de Sam Altman",
-      "texto": "Em 22 de julho de 2024, a instituição de pesquisa independente OpenResearch — fundada e cofinanciada por Sam Altman (CEO da OpenAI) — publicou os resultados definitivos de um dos maiores e mais rigorosos experimentos empíricos com renda básica incondicional já realizados no mundo desenvolvido, liderado pela pesquisadora Elizabeth Rhodes e divulgado através de papers pelo NBER.\n\n[EXPANDIR: O DINHEIRO INCONDICIONAL CAUSOU PREGUIÇA OU RESILIÊNCIA?]\nO estudo acompanhou 3.000 participantes de baixa renda nos estados de Illinois e Texas durante três anos consecutivos (2020 a 2023). Um grupo de 1.000 indivíduos recebeu US$ 1.000 mensais sem nenhuma condicionalidade ou exigência de contrapartida, enquanto o grupo de controle de 2.000 pessoas recebeu US$ 50 mensais. O objetivo era responder com dados científicos à grande dúvida: as pessoas deixam de trabalhar quando recebem uma renda garantida?\n\nOs dados revelaram que o mito da 'preguiça generalizada' foi refutado: os beneficiários reduziram sua jornada de trabalho em apenas 1,3 a 1,4 horas semanais (uma diminuição modesta de cerca de 4%), utilizando esse tempo para cuidar de dependentes familiares, retomar os estudos ou procurar empregos de melhor qualidade. O dinheiro foi gasto majoritariamente em necessidades vitais (alimentação, aluguel e transporte) e na ajuda a familiares em crise. Contudo, os pesquisadores notaram um alerta: os efeitos benéficos de redução de estresse e melhora da saúde mental foram nítidos no primeiro ano, mas esmaeceram nos anos seguintes, provando que dinheiro incondicional alivia a pobreza extrema, mas não soluciona por si só o sentimento de pertencimento e propósito que o trabalho costuma fornecer.",
+      "texto": "Em 22 de julho de 2024, a instituição de pesquisa independente OpenResearch — fundada e cofinanciada por Sam Altman (CEO da OpenAI) — publicou os resultados definitivos de um dos maiores e mais rigorosos experimentos empíricos com renda básica incondicional já realizados no mundo desenvolvido, com os impactos sobre emprego e trabalho detalhados pelo NBER Working Paper 32719, liderado pela pesquisadora Eva Vivalt e colaboradores, complementando as avaliações de bem-estar coordenadas por Elizabeth Rhodes.\n\n[EXPANDIR: O DINHEIRO INCONDICIONAL CAUSOU PREGUIÇA OU RESILIÊNCIA?]\nO estudo acompanhou 3.000 participantes de baixa renda nos estados de Illinois e Texas durante três anos consecutivos (2020 a 2023). Um grupo de 1.000 indivíduos recebeu US$ 1.000 mensais sem nenhuma condicionalidade ou exigência de contrapartida, enquanto o grupo de controle de 2.000 pessoas recebeu US$ 50 mensais. O objetivo era responder com dados científicos à grande dúvida: as pessoas deixam de trabalhar quando recebem uma renda garantida?\n\nOs dados revelaram que o mito da 'preguiça generalizada' foi refutado: os beneficiários reduziram sua jornada de trabalho em apenas 1,3 a 1,4 horas semanais (uma diminuição modesta de cerca de 4%), utilizando esse tempo para cuidar de dependentes familiares, retomar os estudos ou procurar empregos de melhor qualidade. O dinheiro foi gasto majoritariamente em necessidades vitais (alimentação, aluguel e transporte) e na ajuda a familiares em crise. Contudo, os pesquisadores notaram um alerta: os efeitos benéficos de redução de estresse e melhora da saúde mental foram nítidos no primeiro ano, mas esmaeceram nos anos seguintes, provando que dinheiro incondicional alivia a pobreza extrema, mas não soluciona por si só o sentimento de pertencimento e propósito que o trabalho costuma fornecer.",
       "fontes": [
         {
-          "titulo": "NBER Working Paper: The Employment and Financial Effects of Guaranteed Income (Rhodes et al. / OpenResearch)",
-          "url": "https://www.nber.org/papers/w32711",
-          "data": "2024-07-22"
+          "titulo": "NBER Working Paper 32719: The Employment Effects of a Guaranteed Income: Experimental Evidence from Two U.S. States (Vivalt et al. / OpenResearch)",
+          "url": "https://www.nber.org/papers/w32719",
+          "data": "2024-07-22",
+          "verificada": "2026-11-10"
         },
         {
-          "titulo": "OpenResearch: A Unconditional Cash Study — Final Results and Working Papers",
+          "titulo": "OpenResearch: An Unconditional Cash Study — Final Results and Working Papers",
           "url": "https://www.openresearchlab.org/findings",
-          "data": "2024-07-22"
+          "data": "2024-07-22",
+          "verificada": "2026-11-10"
         }
       ],
       "narracao": "O maior teste de renda básica nos Estados Unidos provou que dar mil dólares por mês não faz as pessoas abandonarem o trabalho, mas dá fôlego para escolherem como viver.",
@@ -725,17 +737,19 @@
       "polo": "catastrofico",
       "profundidade": 2,
       "titulo": "[MOCK] DADO: A Transição do Emprego Global — O Relatório Future of Jobs do Fórum Econômico Mundial",
-      "texto": "No relatório bianual 'Future of Jobs Report 2023', divulgado em 30 de abril de 2023 em Genebra, o Fórum Econômico Mundial (WEF) mapeou a percepção de mais de 800 empresas líderes globais que empregam diretamente mais de 11,3 milhões de trabalhadores em 45 economias de todos os continentes.\n\nOs dados quantitativos apontam para uma violenta turbulência de rotatividade (churn) no mercado de trabalho no período de 2023 a 2027. Enquanto as novas tecnologias, a transição ecológica e a transformação digital deverão gerar aproximadamente 69 milhões de novos empregos, a automação acelerada, a estagnação econômica e a reestruturação corporativa devem eliminar 83 milhões de postos existentes.\n\nO resultado é um saldo líquido negativo alarmante: a destruição estimada de 14 milhões de empregos em nível mundial, equivalente a 2% do total de empregos analisados. As ocupações com declínio mais acelerado concentram-se justamente em funções administrativas de rotina: caixas bancários, atendentes postais, operadores de telemarketing, digitadores e assistentes contábeis, configurando um processo doloroso de exclusão para profissionais que não conseguirem migrar a tempo para as áreas técnicas emergentes.",
+      "texto": "No relatório bianual 'Future of Jobs Report 2023', divulgado em 30 de abril de 2023 em Genebra e repercutido amplamente pela cobertura de economia da CNN, o Fórum Econômico Mundial (WEF) mapeou a percepção de mais de 800 empresas líderes globais que empregam diretamente mais de 11,3 milhões de trabalhadores em 45 economias de todos os continentes.\n\nOs dados quantitativos apontam para uma violenta turbulência de rotatividade (churn) no mercado de trabalho no período de 2023 a 2027. Enquanto as novas tecnologias, a transição ecológica e a transformação digital deverão gerar aproximadamente 69 milhões de novos empregos, a automação acelerada, a estagnação econômica e a reestruturação corporativa devem eliminar 83 milhões de postos existentes.\n\nO resultado é um saldo líquido negativo alarmante: a destruição estimada de 14 milhões de empregos em nível mundial, equivalente a 2% do total de empregos analisados. As ocupações com declínio mais acelerado concentram-se justamente em funções administrativas de rotina: caixas bancários, atendentes postais, operadores de telemarketing, digitadores e assistentes contábeis, configurando um processo doloroso de exclusão para profissionais que não conseguirem migrar a tempo para as áreas técnicas emergentes.",
       "fontes": [
         {
-          "titulo": "World Economic Forum: The Future of Jobs Report 2023",
-          "url": "https://www.weforum.org/publications/the-future-of-jobs-report-2023/",
-          "data": "2023-04-30"
+          "titulo": "World Economic Forum: The Future of Jobs Report 2023 (Official Report PDF)",
+          "url": "https://www3.weforum.org/docs/WEF_Future_of_Jobs_2023.pdf",
+          "data": "2023-04-30",
+          "verificada": "2026-11-10"
         },
         {
-          "titulo": "World Economic Forum: Future of Jobs Survey Key Findings",
-          "url": "https://www.weforum.org/publications/the-future-of-jobs-report-2023/digest/",
-          "data": "2023-04-30"
+          "titulo": "CNN Business: 14 million jobs worldwide will vanish in the next 5 years, new economic report finds (Julia Horowitz)",
+          "url": "https://edition.cnn.com/2023/04/30/business/automation-jobs-world-economic-forum",
+          "data": "2023-04-30",
+          "verificada": "2026-11-10"
         }
       ],
       "narracao": "Oitenta e três milhões de postos fechados contra sessenta e nove milhões criados. No cálculo frio do Fórum Econômico Mundial, sobram catorze milhões de trabalhadores sem cadeira na dança.",
@@ -771,17 +785,19 @@
       "polo": "otimista",
       "profundidade": 2,
       "titulo": "[MOCK] DADO: O Potencial de US$ 4,4 Trilhões — A Análise Setorial da McKinsey Global Institute",
-      "texto": "Em 14 de junho de 2023, o McKinsey Global Institute (MGI) divulgou o detalhado relatório 'The economic potential of generative AI: The next productivity frontier'. A pesquisa mapeou exaustivamente 63 casos de uso específicos de inteligência artificial generativa em 16 funções corporativas e concluiu que a tecnologia tem o potencial econômico de injetar entre US$ 2,6 trilhões e US$ 4,4 trilhões de dólares anualmente na economia global.\n\n[EXPANDIR: OS QUATRO PILARES DE CONCENTRAÇÃO DE VALOR E O SALTO DE PRODUTIVIDADE]\nPara mensurar a magnitude desse número, US$ 4,4 trilhões equivalem aproximadamente a todo o Produto Interno Bruto do Reino Unido somado ao da Argentina. Cerca de 75% de todo esse valor gerado concentra-se em quatro pilares fundamentais das empresas: operações com clientes (customer operations), marketing e vendas, engenharia de software e pesquisa e desenvolvimento (P&D).\n\nA McKinsey calculou que os sistemas atuais já têm capacidade técnica para automatizar tarefas que consomem entre 60% e 70% do tempo dos funcionários atuais, acelerando a data em que metade das ocupações de hoje poderá ser automatizada para a janela entre 2030 e 2060 (com mediana em 2045). Se essa capacidade for revertida em aumento de produtividade e novos modelos de negócios em vez de cortes puros de pessoal, o crescimento do PIB per capita global poderá ser acelerado em até 0,6 ponto percentual ao ano.",
+      "texto": "Em junho de 2023, o relatório 'The economic potential of generative AI: The next productivity frontier', conduzido pelo McKinsey Global Institute e analisado por veículos especializados em economia corporativa, mapeou exaustivamente 63 casos de uso específicos de inteligência artificial generativa em 16 funções corporativas e concluiu que a tecnologia tem o potencial de injetar entre US$ 2,6 trilhões e US$ 4,4 trilhões de dólares anualmente na economia global.\n\n[EXPANDIR: OS QUATRO PILARES DE CONCENTRAÇÃO DE VALOR E O SALTO DE PRODUTIVIDADE]\nPara mensurar a magnitude desse número, US$ 4,4 trilhões equivalem aproximadamente a todo o Produto Interno Bruto do Reino Unido somado ao da Argentina. Cerca de 75% de todo esse valor gerado concentra-se em quatro pilares fundamentais das empresas: operações com clientes (customer operations), marketing e vendas, engenharia de software e pesquisa e desenvolvimento (P&D).\n\nA McKinsey calculou que os sistemas atuais já têm capacidade técnica para automatizar tarefas que consomem entre 60% e 70% do tempo dos funcionários atuais, acelerando a data em que metade das ocupações de hoje poderá ser automatizada para a janela entre 2030 e 2060 (com mediana em 2045). Se essa capacidade for revertida em aumento de produtividade e novos modelos de negócios em vez de cortes puros de pessoal, o crescimento do PIB per capita global poderá ser acelerado em até 0,6 ponto percentual ao ano.",
       "fontes": [
         {
-          "titulo": "McKinsey Global Institute: The economic potential of generative AI — The next productivity frontier",
-          "url": "https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier",
-          "data": "2023-06-14"
+          "titulo": "Business Insider: Generative AI Poised to Add .4 Trillion to Global Economy: McKinsey (Sawdah Bhaimiya)",
+          "url": "https://www.businessinsider.com/generative-ai-add-44-trillion-global-economy-mckinsey-2023-6",
+          "data": "2023-06-14",
+          "verificada": "2026-11-10"
         },
         {
-          "titulo": "McKinsey Digital: Economic potential of GenAI interactive dataset",
-          "url": "https://www.mckinsey.com/mgi/overview/in-the-news/economic-potential-of-generative-ai",
-          "data": "2023-06-14"
+          "titulo": "Consultancy.eu: Generative AI can add up to .4 trillion in productivity annually (McKinsey Analysis)",
+          "url": "https://www.consultancy.eu/news/9358/generative-ai-can-add-up-to-44-trillion-in-productivity-annually",
+          "data": "2023-06-19",
+          "verificada": "2026-11-10"
         }
       ],
       "narracao": "Quatro vírgula quatro trilhões de dólares por ano. A promessa da McKinsey é a de um novo salto na riqueza global, desde que saibamos como distribuir essa bonança.",
@@ -817,17 +833,19 @@
       "polo": "catastrofico",
       "profundidade": 2,
       "titulo": "[MOCK] DADO: O Dilema de 40% a 60% — A Análise do Fundo Monetário Internacional (FMI)",
-      "texto": "Em 14 de janeiro de 2024, às vésperas da reunião anual do Fórum Econômico Mundial em Davos, o Fundo Monetário Internacional (FMI) lançou a nota técnica 'Gen-AI: Artificial Intelligence and the Future of Work' (Staff Discussion Note SDN/2024/001), assinada pelo economista Mauro Cazzaniga e colegas.\n\n[EXPANDIR: O ABISMO ENTRE ECONOMIAS AVANÇADAS E PAÍSES EM DESENVOLVIMENTO]\nO relatório do FMI introduziu um indicador inédito de exposição ocupacional e complementaridade. O documento alertou que aproximadamente 40% do emprego global total está diretamente exposto à IA generativa. Contudo, essa exposição é brutalmente assimétrica entre os blocos econômicos: nas economias avançadas, cerca de 60% dos empregos estão na mira da IA, dos quais metade poderá ser beneficiada por ganhos de produtividade e a outra metade corre o risco real de substituição e compressão de renda.\n\nJá nos mercados emergentes e países em desenvolvimento, a exposição inicial direta é menor (cerca de 40% nos emergentes e apenas 26% nos países de baixa renda), porque essas economias dependem mais de agricultura e trabalho manual. Porém, essa aparente 'proteção' é uma armadilha: sem a infraestrutura computacional, conectividade de ponta e capital humano para adotar as ferramentas, esses países correm o risco crítico de ficar à margem dos ganhos de produtividade globais, ampliando dramaticamente a desigualdade econômica entre as nações ricas e o Sul Global.",
+      "texto": "Em 14 de janeiro de 2024, às vésperas da reunião anual do Fórum Econômico Mundial em Davos, o Fundo Monetário Internacional (FMI) lançou a nota técnica 'Gen-AI: Artificial Intelligence and the Future of Work' (Staff Discussion Note SDN/2024/001), assinada pelo economista Mauro Cazzaniga e colegas, com declarações e artigos de fundo da diretora-gerente Kristalina Georgieva amplamente reportados pela imprensa econômica internacional.\n\n[EXPANDIR: O ABISMO ENTRE ECONOMIAS AVANÇADAS E PAÍSES EM DESENVOLVIMENTO]\nO relatório do FMI introduziu um indicador inédito de exposição ocupacional e complementaridade. O documento alertou que aproximadamente 40% do emprego global total está diretamente exposto à IA generativa. Contudo, essa exposição é brutalmente assimétrica entre os blocos econômicos: nas economias avançadas, cerca de 60% dos empregos estão na mira da IA, dos quais metade poderá ser beneficiada por ganhos de produtividade e a outra metade corre o risco real de substituição e compressão de renda.\n\nJá nos mercados emergentes e países em desenvolvimento, a exposição inicial direta é menor (cerca de 40% nos emergentes e apenas 26% nos países de baixa renda), porque essas economias dependem mais de agricultura e trabalho manual. Porém, essa aparente 'proteção' é uma armadilha: sem a infraestrutura computacional, conectividade de ponta e capital humano para adotar as ferramentas, esses países correm o risco crítico de ficar à margem dos ganhos de produtividade globais, ampliando dramaticamente a desigualdade econômica entre as nações ricas e o Sul Global.",
       "fontes": [
         {
-          "titulo": "IMF Staff Discussion Note SDN/2024/001: Gen-AI — Artificial Intelligence and the Future of Work (Cazzaniga et al.)",
-          "url": "https://www.imf.org/en/Publications/Staff-Discussion-Notes/Issues/2024/01/14/Gen-AI-Artificial-Intelligence-and-the-Future-of-Work-543510",
-          "data": "2024-01-14"
+          "titulo": "The Guardian: AI will affect 40% of jobs and probably worsen inequality, says IMF head (Dan Milmo)",
+          "url": "https://www.theguardian.com/technology/2024/jan/15/ai-jobs-inequality-imf-kristalina-georgieva",
+          "data": "2024-01-15",
+          "verificada": "2026-11-10"
         },
         {
-          "titulo": "IMF Blog: How Artificial Intelligence Could Transform the Global Economy (Kristalina Georgieva)",
-          "url": "https://www.imf.org/en/Blogs/Articles/2024/01/14/AI-will-transform-the-global-economy-lets-make-sure-it-benefits-humanity",
-          "data": "2024-01-14"
+          "titulo": "CNN Business: IMF chief says AI could disrupt nearly 40% of global employment ahead of Davos (Hanna Ziady)",
+          "url": "https://edition.cnn.com/2024/01/15/tech/imf-global-employment-risk-ai-intl-hnk",
+          "data": "2024-01-15",
+          "verificada": "2026-11-10"
         }
       ],
       "narracao": "O Fundo Monetário Internacional avisa: sessenta por cento dos postos no mundo rico estão expostos à IA. Mas se os países pobres ficarem para trás, a desigualdade planetária se tornará intransponível.",
@@ -862,18 +880,20 @@
       "tipo": "texto",
       "polo": "neutro",
       "profundidade": 2,
-      "titulo": "[MOCK] DADO: O Brasil e a Vulnerabilidade Estrutural — O Diagnóstico do IPEA sobre Automação e IA",
-      "texto": "Pesquisas recentes publicadas pelo Instituto de Pesquisa Econômica Aplicada (IPEA), no âmbito do Centro de Pesquisa em Ciência, Tecnologia e Sociedade (CTS-Ipea) e nas edições da revista 'Mercado de Trabalho' entre o final de 2023 e meados de 2024, detalham a anatomia única da vulnerabilidade do mercado laboral brasileiro diante da revolução da inteligência artificial.\n\nDiferente das economias avançadas, onde o mercado é majoritariamente formal e cognitivo, o Brasil possui quase 40% da sua força de trabalho na informalidade ou em ocupações de subsistência precária. Os estudos do IPEA indicam que, embora o risco imediato de substituição por robôs físicos sofisticados seja freado pelo baixo custo relativo da mão de obra brasileira e pela defasagem de investimentos de capital, a IA generativa atinge com extrema rapidez o topo e o meio da cadeia de serviços formais: advogados, assistentes contábeis, analistas de suporte, publicitários e operadores de telemarketing.\n\nO grande perigo apontado pelos economistas do IPEA é o 'efeito cascata regressivo': profissionais qualificados expulsos ou com remunerações comprimidas pela IA passam a competir por postos de menor complexidade, empurrando os trabalhadores com menor escolaridade para a informalidade total, para o trabalho autônomo por aplicativo ou para a exclusão econômica completa. Sem programas estatais massivos de letramento digital e transição justa, a IA no Brasil corre o risco de aprofundar a histórica fratura social do país.",
+      "titulo": "[MOCK] DADO: O Brasil e a Vulnerabilidade Estrutural — O Diagnóstico da Informalidade e da Exposição à IA",
+      "texto": "Análises estruturais do mercado de trabalho brasileiro fundamentadas nos dados da PNAD Contínua do IBGE e em estudos de pesquisadores do FGV IBRE (como os diagnósticos do economista Fernando Veloso em 2024) detalham a anatomia única da vulnerabilidade nacional diante da revolução da inteligência artificial.\n\nDiferente das economias avançadas, onde o mercado é majoritariamente formal e cognitivo, o Brasil possui um contingente estrutural em que a taxa de informalidade atinge 39% a 40% da população ocupada — dezenas de milhões de trabalhadores sem carteira assinada ou em atividades autônomas de subsistência precária. Embora o risco imediato de substituição por robôs físicos sofisticados seja freado pelo baixo custo relativo da mão de obra brasileira e pela defasagem de investimentos de capital, a IA generativa atinge com extrema rapidez o topo e o meio da cadeia de serviços formais: advogados, assistentes contábeis, analistas de suporte, publicitários e operadores de telemarketing.\n\nO grande perigo apontado por economistas especializados em mercado de trabalho é o 'efeito cascata regressivo': profissionais qualificados expulsos ou com remunerações comprimidas pela IA passam a competir por postos de menor complexidade, empurrando os trabalhadores com menor escolaridade para a informalidade total, para o trabalho autônomo por aplicativo ou para a exclusão econômica completa. Sem programas massivos de qualificação da mão de obra, elevação da escolaridade e formação voltada às novas tecnologias, a IA no Brasil corre o risco de aprofundar a histórica fratura social do país.",
       "fontes": [
         {
-          "titulo": "IPEA: Revista Mercado de Trabalho — Conjuntura e Análise: Automação e IA no Brasil",
-          "url": "https://www.ipea.gov.br/portal/publicacoes/mercado-de-trabalho-conjuntura-e-analise",
-          "data": "2023-11-28"
+          "titulo": "G1 Economia: Taxa média de desemprego cai para 6,6% em 2024, menor da história; informalidade atinge 39% (IBGE / PNAD Contínua)",
+          "url": "https://g1.globo.com/economia/noticia/2025/01/31/taxa-media-de-desemprego-cai-para-66percent-em-2024-menor-patamar-da-historia-diz-ibge.ghtml",
+          "data": "2025-01-31",
+          "verificada": "2026-11-10"
         },
         {
-          "titulo": "CTS-Ipea: Impactos da Inteligência Artificial no Mercado de Trabalho Brasileiro e Políticas de Reskilling",
-          "url": "https://www.ipea.gov.br/cts/pt/central-de-conteudo/artigos/artigos/373-inteligencia-artificial-e-desafios-para-o-brasil",
-          "data": "2024-03-15"
+          "titulo": "FGV IBRE: Inteligência artificial e mercado de trabalho em perspectiva comparada (Fernando Veloso)",
+          "url": "https://blogdoibre.fgv.br/posts/inteligencia-artificial-e-mercado-de-trabalho-em-perspectiva-comparada",
+          "data": "2024-08-19",
+          "verificada": "2026-11-10"
         }
       ],
       "narracao": "No Brasil de quarenta por cento de informalidade, a IA não precisa substituir o trabalhador braçal para causar estrago: basta fechar as portas dos escritórios para quem buscava subir na vida.",
@@ -909,17 +929,19 @@
       "polo": "catastrofico",
       "profundidade": 2,
       "titulo": "[MOCK] DADO: A Fábrica das Sombras — A Economia Oculta dos Microtrabalhadores de Rotulagem de Dados",
-      "texto": "Relatórios de investigação empírica publicados pelo projeto Fairwork da Universidade de Oxford (novembro de 2023) em conjunto com análises da Divisão de Desenvolvimento Digital do Banco Mundial revelaram os dados estarrecedores da engrenagem oculta de trabalho humano que alimenta os grandes modelos de IA.\n\nEstima-se que entre 15 e 20 milhões de pessoas em todo o mundo atuem como 'microtrabalhadores de dados' (data workers), realizando tarefas fragmentadas de anotação de imagens, transcrição de áudios, moderação de violência extrema e checagem de respostas sintéticas. Em plataformas de microtrabalho terceirizadas operando no Quênia, em Uganda, na Índia e em países latino-americanos, as taxas médias de remuneração oscilam entre US$ 1,20 e US$ 1,80 por hora trabalhada — frequentemente abaixo dos salários mínimos legais locais quando descontadas as comissões da plataforma.\n\nO relatório da Oxford Fairwork avaliou as principais plataformas de microtarefas sob critérios rígidos de pagamento justo, condições justas e gestão justa, e a maioria obteve pontuações próximas de zero. Além da extrema precariedade salarial, trabalhadores de moderação encarregados de filtrar abusos sexuais e violência explícita relataram sintomas severos de transtorno de estresse pós-traumático (TEPT) sem assistência médica, demonstrando que a inteligência artificial de ponta é construída sobre o sofrimento psíquico não indenizado do Sul Global.",
+      "texto": "Reportagens investigativas publicadas por veículos de referência internacional como The Guardian e análises econômicas da Divisão de Desenvolvimento Digital do Banco Mundial (como o relatório 'Working Without Borders', de autoria de Namita Datta e colaboradores) revelaram os dados estarrecedores da engrenagem oculta de trabalho humano que alimenta os grandes modelos de IA.\n\nConforme demonstrado pelo Banco Mundial, o trabalho em plataformas digitais (online gig work) cresce em ritmo acelerado em economias em desenvolvimento, envolvendo dezenas de milhões de indivíduos que realizam tarefas fragmentadas de anotação de dados, transcrição e moderação de conteúdo sob extrema volatilidade de renda e ausência de proteção social. Em países do Sul Global como o Quênia (Nairóbi), investigações documentaram trabalhadores terceirizados recebendo remunerações por volta de US$ 1,30 a US$ 2,00 por hora para rotular e filtrar centenas de descrições e imagens diárias de violência extrema, discurso de ódio e abusos para empresas líderes de tecnologia.\n\nOs depoimentos colhidos em ações e petições públicas revelam sintomas severos de transtorno de estresse pós-traumático (TEPT), depressão e ansiedade entre os moderadores, frequentemente contratados sem aviso prévio sobre a brutalidade do conteúdo e demitidos sem suporte contínuo de saúde mental. Os dados provam que, longe de ser pura mágica algorítmica autônoma, a inteligência artificial generativa de ponta é construída sobre uma cadeia global de terceirização precarizada e sofrimento psíquico não indenizado no Sul Global.",
       "fontes": [
         {
-          "titulo": "Oxford Internet Institute / Fairwork: Fairwork Cloudwork Ratings 2023 — Tracking Decent Work in the Platform Economy",
-          "url": "https://fair.work/en/fw/publications/fairwork-cloudwork-ratings-2023/",
-          "data": "2023-11-10"
+          "titulo": "The Guardian: ‘It’s destroyed me completely’: Kenyan moderators decry toll of training of AI models (Niamh Rowe)",
+          "url": "https://www.theguardian.com/technology/2023/aug/02/ai-chatbot-training-human-toll-content-moderator-meta-openai",
+          "data": "2023-08-02",
+          "verificada": "2026-11-10"
         },
         {
-          "titulo": "World Bank Digital Development: Working for a Healthier Tomorrow — The Global Invisible Gig Economy",
-          "url": "https://www.worldbank.org/en/topic/digitaldevelopment/publication/working-without-borders-the-promise-and-peril-of-online-gig-work",
-          "data": "2023-09-15"
+          "titulo": "World Bank: Working Without Borders — The Promise and Peril of Online Gig Work (Datta et al.)",
+          "url": "https://openknowledge.worldbank.org/handle/10986/40190",
+          "data": "2023-09-15",
+          "verificada": "2026-11-10"
         }
       ],
       "narracao": "Vinte milhões de pessoas no mundo trabalham nas sombras por menos de dois dólares a hora para que a inteligência artificial pareça mágica na sua tela.",
@@ -955,17 +977,19 @@
       "polo": "otimista",
       "profundidade": 2,
       "titulo": "[MOCK] DADO: A Jornada de 4 Dias e a Redução do Tempo — Os Resultados da 4 Day Week Global",
-      "texto": "Em 21 de fevereiro de 2023, pesquisadores do Boston College, da Universidade de Cambridge e da organização 4 Day Week Global divulgaram os resultados consolidados do maior teste controlado de semana de trabalho de quatro dias (32 horas semanais sem redução salarial, sob o modelo 100-80-100: 100% do salário por 80% do tempo mantendo 100% da entrega), envolvendo 61 empresas e cerca de 2.900 funcionários no Reino Unido, com desdobramentos posteriores em pilotos no Brasil, Estados Unidos e África do Sul ao longo de 2023 e 2024.\n\n[EXPANDIR: RECEITAS CORPORATIVAS EM ALTA E COLAPSO DO BURNOUT]\nAs conclusões empíricas superaram todas as expectativas céticas: das 61 companhias participantes, 92% (56 empresas) decidiram manter permanentemente a semana de 4 dias após o fim do piloto, e 18 delas oficializaram a mudança em definitivo logo na primeira avaliação. As receitas das empresas aumentaram em média 1,4% durante o período do teste e saltaram 35% quando comparadas com períodos idênticos de anos anteriores, comprovando que produtividade não depende de horas presenciais exaustivas.\n\nPara os trabalhadores, o impacto na saúde física e mental foi transformador: 71% dos funcionários relataram redução drástica nos níveis de esgotamento profissional (burnout), 39% disseram sentir-se menos estressados e as faltas por doença caíram 65%. Em vez de expulsar trabalhadores pelo excesso de automação, a inteligência artificial integrada a jornadas reduzidas prova ser o catalisador que finalmente pode cumprir a profecia histórica de Keynes: menos tempo vendido à empresa, mais vida para ser vivida.",
+      "texto": "Em 21 de fevereiro de 2023, pesquisadores do Boston College, da Universidade de Cambridge e da organização 4 Day Week Global divulgaram os resultados consolidados do maior teste controlado de semana de trabalho de quatro dias (32 horas semanais sem redução salarial, sob o modelo 100-80-100: 100% do salário por 80% do tempo mantendo 100% da entrega), envolvendo 61 empresas e cerca de 2.900 funcionários no Reino Unido, com cobertura mundial destacando o salto de bem-estar.\n\n[EXPANDIR: RECEITAS CORPORATIVAS EM ALTA E COLAPSO DO BURNOUT]\nAs conclusões empíricas superaram todas as expectativas céticas: das 61 companhias participantes, 92% (56 empresas) decidiram manter permanentemente a semana de 4 dias após o fim do piloto, e 18 delas oficializaram a mudança em definitivo logo na primeira avaliação. Segundo os dados da pesquisa, as receitas das empresas aumentaram em média 1,4% durante o período do teste e saltaram 35% quando comparadas com períodos idênticos de anos anteriores, comprovando que produtividade não depende de horas presenciais exaustivas.\n\nPara os trabalhadores, o impacto na saúde física e mental foi transformador: 71% dos funcionários relataram redução nos níveis de esgotamento profissional (burnout), 39% disseram sentir-se menos estressados e as faltas por doença caíram cerca de dois terços (65%). Em vez de expulsar trabalhadores pelo excesso de automação, a inteligência artificial integrada a jornadas reduzidas prova ser o catalisador que finalmente pode cumprir a profecia histórica de Keynes: menos tempo vendido à empresa, mais vida para ser vivida.",
       "fontes": [
         {
-          "titulo": "Autonomy / Boston College / Cambridge: The UK Four-Day Week Pilot Research Report (Schor et al.)",
-          "url": "https://www.4dayweek.com/uk-pilot-results-report",
-          "data": "2023-02-21"
+          "titulo": "The Guardian: Four-day week: ‘major breakthrough’ as most UK firms in trial extend changes (Heather Stewart)",
+          "url": "https://www.theguardian.com/money/2023/feb/21/four-day-week-uk-trial-success-pattern",
+          "data": "2023-02-21",
+          "verificada": "2026-11-10"
         },
         {
-          "titulo": "Boston College Research: Global Four-Day Week Pilot Executive Summary",
-          "url": "https://www.bc.edu/bc-web/schools/morrissey/departments/sociology/news/2023/four-day-work-week-pilot-results.html",
-          "data": "2023-02-21"
+          "titulo": "Boston College: A four-day work week? Study of Pilots of Four-Day Work Week (Juliet Schor et al.)",
+          "url": "https://www.bc.edu/bc-web/bcnews/nation-world-society/sociology/-study-pilots-four-day-work-week.html",
+          "data": "2023-02-21",
+          "verificada": "2026-11-10"
         }
       ],
       "narracao": "Noventa e dois por cento das empresas que testaram a semana de quatro dias nunca mais voltaram atrás. A produtividade aumentou, o burnout despencou e a vida voltou a fazer sentido.",
