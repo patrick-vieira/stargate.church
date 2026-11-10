@@ -1,7 +1,11 @@
 """Copia os ficheiros finais de vídeo/áudio para o MEDIA_ROOT e liga-os aos modelos.
 
 Uso: manage.py importar_midia --origem <pasta> [--origem <outra>] [--serie ia-na-ficcao]
-     [--vertical 2,7] [--limite-mb 50] [--alvo-mb 40] [--dry-run]
+     [--vertical 2,7] [--limite-mb 50] [--alvo-mb 40] [--destino local|imagetools]
+     [--dry-run]
+
+--destino imagetools envia o vídeo 16:9 (recomprimido se preciso) ao ImageTools e
+guarda video_url + video_imagetools_uuid; o resto segue para o MEDIA_ROOT.
 
 --origem repete-se; para cada ficheiro vale a primeira origem que o tiver.
 Layouts aceites:
@@ -18,12 +22,14 @@ Vídeos acima de --limite-mb são recomprimidos (libx264, ≤1080p, +faststart, 
 
 import shutil
 import subprocess
+import tempfile
 from pathlib import Path
 
 from django.conf import settings
 from django.core.management.base import BaseCommand, CommandError
 
 from core.models import Serie
+from core.servicos import imagetools
 
 MB = 1024 * 1024
 
@@ -93,6 +99,13 @@ class Command(BaseCommand):
             default=40,
             help="Tamanho alvo da recompressão.",
         )
+        parser.add_argument(
+            "--destino",
+            choices=["local", "imagetools"],
+            default="local",
+            help="Onde ficam os vídeos 16:9: MEDIA_ROOT (dev) ou ImageTools "
+            "(IMAGETOOLS_API_URL e IMAGETOOLS_API_KEY no ambiente).",
+        )
         parser.add_argument("--dry-run", action="store_true")
 
     def _achar(self, candidatos):
@@ -124,6 +137,32 @@ class Command(BaseCommand):
         self.stdout.write(f"  {destino_rel}  ({tamanho // 1024} KB){nota}")
         return destino_rel
 
+    def _enviar(self, candidatos, dry):
+        """Recomprime se preciso, envia ao ImageTools → (uuid, url) ou ('', '')."""
+        origem = self._achar(candidatos)
+        if origem is None:
+            self.stderr.write(f"  falta: {candidatos[0]}")
+            return "", ""
+        tamanho = origem.stat().st_size
+        recomprimir = tamanho > self.limite
+        nota = " [recomprimir]" if recomprimir else ""
+        if dry:
+            self.stdout.write(f"  → imagetools  ({tamanho // 1024} KB){nota}")
+            return "", ""
+        try:
+            with tempfile.TemporaryDirectory(prefix="importar-midia-") as tmp:
+                envio = origem
+                if recomprimir:
+                    envio = Path(tmp) / "video.mp4"
+                    recomprimir_ffmpeg(origem, envio, self.alvo)
+                uuid, url = imagetools.enviar_video(envio)
+        except imagetools.ImageToolsErro as exc:
+            raise CommandError(str(exc)) from exc
+        except (OSError, subprocess.CalledProcessError, ValueError) as exc:
+            raise CommandError(f"Recompressão falhou ({origem}): {exc}") from exc
+        self.stdout.write(f"  → {url}  ({tamanho // 1024} KB){nota}")
+        return uuid, url
+
     def handle(self, *args, **opts):
         brutas = opts["origem"]
         if isinstance(brutas, (str, Path)):  # call_command(origem="…")
@@ -139,6 +178,12 @@ class Command(BaseCommand):
         dry = opts["dry_run"]
         self.limite = opts["limite_mb"] * MB
         self.alvo = opts["alvo_mb"] * MB
+        self.destino = opts["destino"]
+        if self.destino == "imagetools":
+            try:
+                imagetools.configuracao()  # falha cedo, antes de tocar em ficheiros
+            except imagetools.ImageToolsErro as exc:
+                raise CommandError(str(exc)) from exc
         verticais = {int(n) for n in opts["vertical"].split(",") if n.strip()}
 
         for ep in serie.episodios.order_by("numero"):
@@ -162,6 +207,11 @@ class Command(BaseCommand):
                 ]
                 fontes["video_vertical"] = (verts, "vertical.mp4")
             for campo, (cands, nome) in fontes.items():
+                if campo == "video" and self.destino == "imagetools":
+                    uuid, url = self._enviar(cands, dry)
+                    if url:
+                        ep.video_imagetools_uuid, ep.video_url = uuid, url
+                    continue
                 setattr(ep, campo, self._copiar(cands, f"{base}/{nome}", dry))
             if not dry:
                 ep.save()
