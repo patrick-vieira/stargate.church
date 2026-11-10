@@ -306,6 +306,16 @@ class AdminTests(TestCase):
         self.assertEqual(artigo1.estado, Artigo.Estado.PUBLICADO)
         self.assertEqual(artigo2.estado, Artigo.Estado.VERIFICADO)
 
+    def test_admin_permissoes_non_staff_negado(self):
+        user = get_user_model().objects.create_user(
+            username="leitor@exemplo.org", password="123"
+        )
+        self.client.force_login(user)
+        response = self.client.get(reverse("admin:noticias_artigo_changelist"))
+        # Django redirects non-staff to admin login
+        self.assertEqual(response.status_code, 302)
+        self.assertIn(reverse("admin:login"), response.url)
+
     def test_numero_destaque_list_editable(self):
         self.client.force_login(self.admin_user)
         tema = util.criar_tema("Tema Num")

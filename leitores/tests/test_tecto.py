@@ -48,9 +48,10 @@ class TectoTests(TestCase):
         with self.assertRaises(ValueError):
             tecto.consumir(self.user, "x")
 
-    @override_settings(STARGATE_TECTO_CONVERSA=20)
+    @override_settings(STARGATE_TECTO_CONVERSA=20, STARGATE_TECTO_VOTO=5)
     def test_defaults_vem_das_settings(self):
         self.assertEqual(tecto.limite("conversa"), 20)
+        self.assertEqual(tecto.limite("voto"), 5)
 
     def test_unicidade_uso_diario(self):
         UsoDiario.objects.create(
@@ -69,6 +70,23 @@ class TectoTests(TestCase):
         self.assertTrue(UsoDiario.objects.filter(utilizador_id=user_pk).exists())
         self.user.delete()
         self.assertFalse(UsoDiario.objects.filter(utilizador_id=user_pk).exists())
+
+    def test_uso_diario_str(self):
+        uso = UsoDiario.objects.create(
+            utilizador=self.user, dia="2026-10-18", tipo="conversa", quantidade=2
+        )
+        self.assertEqual(str(uso), "a@b.com 2026-10-18 conversa=2")
+
+    @mock.patch("leitores.tecto.UsoDiario.objects.get_or_create")
+    def test_consumir_race_condition_get_or_create(self, mock_goc):
+        from django.db import IntegrityError
+
+        mock_goc.side_effect = IntegrityError()
+        UsoDiario.objects.create(
+            utilizador=self.user, dia=tecto._hoje(), tipo="conversa", quantidade=0
+        )
+        self.assertTrue(tecto.consumir(self.user, "conversa"))
+        self.assertEqual(tecto.restante(self.user, "conversa"), 2)
 
 
 @override_settings(STARGATE_TECTO_CONVERSA=1)

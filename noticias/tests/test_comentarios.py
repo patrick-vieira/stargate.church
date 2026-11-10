@@ -131,7 +131,10 @@ class ArtigoFormComentarioTests(TestCase):
 class ComentarioFormTests(TestCase):
     def test_limites_e_espacos(self):
         self.assertFalse(ComentarioForm({"nome": "a", "texto": "x" * 1001}).is_valid())
-        self.assertFalse(ComentarioForm({"nome": "   ", "texto": "oi"}).is_valid())
+        form_vazio = ComentarioForm({"nome": "   ", "texto": "  "})
+        self.assertFalse(form_vazio.is_valid())
+        self.assertEqual(form_vazio.errors["nome"], ["Informe um nome."])
+        self.assertEqual(form_vazio.errors["texto"], ["Escreva o comentário."])
         f = ComentarioForm({"nome": " Ana ", "texto": " oi "})
         self.assertTrue(f.is_valid())
         self.assertEqual(f.cleaned_data, {"nome": "Ana", "texto": "oi"})
