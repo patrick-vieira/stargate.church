@@ -569,3 +569,16 @@ class VotoPlacar(models.Model):
 
     def __str__(self):
         return f"{self.utilizador} · {self.obra}: {self.proximidade}/{self.preocupacao}"
+
+
+class GrafoMuseu(models.Model):
+    serie = models.OneToOneField(
+        Serie, on_delete=models.CASCADE, related_name="grafo_museu"
+    )
+    dados = models.JSONField("grafo editorial")
+
+    class Meta:
+        verbose_name = "grafo do museu"
+
+    def __str__(self):
+        return self.serie.titulo

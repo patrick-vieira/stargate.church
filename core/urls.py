@@ -5,6 +5,10 @@ from . import views
 app_name = "core"
 
 urlpatterns = [
+    path("museu/", views.museu, name="museu"),
+    path(
+        "museu/<slug:serie>/video/<int:bloco>/", views.museu_video, name="museu_video"
+    ),
     path("", views.home, name="home"),
     path("lab/spike/", views.lab_spike, name="lab_spike"),
     path("imersivo/<slug:slug>/", views.imersivo, name="imersivo"),

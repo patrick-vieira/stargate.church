@@ -256,3 +256,45 @@ def episodio(request, serie, episodio):
     if obj.post_id == obj.serie.hub_id:
         return redirect(obj.serie.get_absolute_url(), permanent=True)
     return _renderizar_post(request, obj.post, obj.serie, obj)
+
+
+def museu(request):
+    from .models import GrafoMuseu
+    from .servicos.museu import apresentar
+
+    grafos = GrafoMuseu.objects.filter(serie__publicado=True).select_related("serie")
+    escolhido = (
+        grafos.filter(serie__slug=request.GET.get("serie", "")).first()
+        or grafos.first()
+    )
+    dados = apresentar(escolhido.serie, escolhido.dados) if escolhido else None
+    return render(
+        request,
+        "core/museu.html",
+        {
+            "dados": dados,
+            "nos": dados["grafo"]["nos"] if dados else [],
+            "series": [g.serie for g in grafos],
+        },
+    )
+
+
+def museu_video(request, serie, bloco):
+    from django.http import JsonResponse
+    from django.shortcuts import get_object_or_404
+
+    from .models import GrafoMuseu
+    from .servicos.imagetools import ImageToolsErro, consultar_video
+
+    grafo = get_object_or_404(GrafoMuseu, serie__slug=serie, serie__publicado=True)
+    no = next((n for n in grafo.dados["blocos"] if n["id"] == bloco), {})
+    try:
+        url = consultar_video(no.get("video_imagetools_uuid", ""))
+    except ImageToolsErro:
+        resposta = JsonResponse(
+            {"erro": "Vídeo indisponível no momento. Continue pelo texto."}, status=503
+        )
+    else:
+        resposta = JsonResponse({"url": url})
+    resposta["Cache-Control"] = "no-store"
+    return resposta

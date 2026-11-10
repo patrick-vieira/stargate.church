@@ -99,3 +99,25 @@ def enviar_video(caminho):
     if not url:
         raise ImageToolsErro(f"ImageTools não devolveu file_url (uuid {uuid}).")
     return uuid, url
+
+
+def consultar_video(uuid):
+    """Resolve uma URL temporária no momento de uso, sem expor credenciais."""
+    import re
+    from urllib.parse import urlsplit
+
+    if not isinstance(uuid, str) or not re.fullmatch(r"[a-zA-Z0-9-]{1,64}", uuid):
+        raise ImageToolsErro("Identificador de mídia inválido.")
+    try:
+        base, chave = configuracao()
+        dados = _http("GET", f"{base}/api/v2/media/{uuid}/", chave)
+        url = dados.get("file_url", "")
+        if (
+            not isinstance(url, str)
+            or urlsplit(url).scheme != "https"
+            or not urlsplit(url).netloc
+        ):
+            raise ImageToolsErro("URL de mídia inválida.")
+        return url
+    except (ImageToolsErro, TypeError, AttributeError, ValueError):
+        raise ImageToolsErro("Vídeo indisponível no momento.") from None

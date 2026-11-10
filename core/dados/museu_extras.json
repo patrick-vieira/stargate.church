@@ -1,0 +1,264 @@
+{
+  "salas": [
+    {
+      "id": "origens",
+      "nome": "[MOCK] Origens",
+      "contexto": "[MOCK] Imaginar antes de construir.",
+      "tema": {
+        "cor": "#916239",
+        "luz": "#ffdb99",
+        "textura": "faixas"
+      }
+    },
+    {
+      "id": "laboratorio",
+      "nome": "[MOCK] Laboratório",
+      "contexto": "[MOCK] Olhar mais de perto.",
+      "tema": {
+        "cor": "#296b79",
+        "luz": "#b7efff",
+        "textura": "grelha"
+      }
+    },
+    {
+      "id": "futuros",
+      "nome": "[MOCK] Futuros",
+      "contexto": "[MOCK] Escolher o próximo caminho.",
+      "tema": {
+        "cor": "#735181",
+        "luz": "#ebc7ff",
+        "textura": "paineis"
+      }
+    }
+  ],
+  "visitas": [
+    {
+      "id": "museu",
+      "nome": "[MOCK] Da imaginação à escolha",
+      "passos": [
+        27,
+        1,
+        24,
+        25,
+        28,
+        26,
+        21
+      ],
+      "segundos_por_passo": 8
+    }
+  ],
+  "atribuicoes": {
+    "1": "origens",
+    "2": "origens",
+    "3": "origens",
+    "4": "origens",
+    "5": "origens",
+    "6": "origens",
+    "7": "origens",
+    "8": "origens",
+    "9": "laboratorio",
+    "10": "laboratorio",
+    "11": "laboratorio",
+    "12": "laboratorio",
+    "13": "laboratorio",
+    "14": "laboratorio",
+    "15": "laboratorio",
+    "16": "laboratorio",
+    "17": "futuros",
+    "18": "futuros",
+    "19": "futuros",
+    "20": "futuros",
+    "21": "futuros",
+    "22": "futuros",
+    "23": "futuros"
+  },
+  "ligacoes": [
+    {
+      "de": 21,
+      "tipo": "seguir",
+      "para": 27
+    }
+  ],
+  "nos": [
+    {
+      "id": 24,
+      "serie": "mock-energia-sem-fim",
+      "titulo": "[MOCK] Uma imagem do futuro",
+      "texto": [
+        "[MOCK] Uma peça experimental do museu.",
+        "[MOCK] Escolha como continuar a exploração."
+      ],
+      "nivel": 0,
+      "polo": 0,
+      "sala": "origens",
+      "ligacoes": {
+        "seguir": 25,
+        "aprofundar": null,
+        "subir": null,
+        "otimista": null,
+        "catastrofico": null
+      },
+      "tipo": "video",
+      "video": {
+        "src": "dados/media/video.mp4",
+        "poster": "dados/media/poster.jpg",
+        "legenda": "[MOCK] IA na ficção: excerto de demonstração.",
+        "track": "dados/media/legendas.vtt"
+      }
+    },
+    {
+      "id": 25,
+      "serie": "mock-energia-sem-fim",
+      "titulo": "[MOCK] Abrir a máquina",
+      "texto": [
+        "[MOCK] Uma peça experimental do museu.",
+        "[MOCK] Escolha como continuar a exploração."
+      ],
+      "nivel": 0,
+      "polo": 0,
+      "sala": "laboratorio",
+      "ligacoes": {
+        "seguir": 26,
+        "aprofundar": null,
+        "subir": null,
+        "otimista": null,
+        "catastrofico": null
+      },
+      "tipo": "camadas",
+      "camadas": [
+        {
+          "rotulo": "[MOCK] O que vemos",
+          "texto": "[MOCK] Uma tecnologia começa como hipótese."
+        },
+        {
+          "rotulo": "[MOCK] O que falta",
+          "texto": "[MOCK] A hipótese precisa de prova e contexto."
+        },
+        {
+          "rotulo": "[MOCK] A sua escolha",
+          "texto": "[MOCK] Compare os caminhos possíveis."
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "serie": "mock-energia-sem-fim",
+      "titulo": "[MOCK] Escolhas em camadas",
+      "texto": [
+        "[MOCK] Uma peça experimental do museu.",
+        "[MOCK] Escolha como continuar a exploração."
+      ],
+      "nivel": 0,
+      "polo": 0,
+      "sala": "futuros",
+      "ligacoes": {
+        "seguir": 27,
+        "aprofundar": null,
+        "subir": null,
+        "otimista": null,
+        "catastrofico": null
+      },
+      "tipo": "camadas",
+      "camadas": [
+        {
+          "rotulo": "[MOCK] O que vemos",
+          "texto": "[MOCK] Uma tecnologia começa como hipótese."
+        },
+        {
+          "rotulo": "[MOCK] O que falta",
+          "texto": "[MOCK] A hipótese precisa de prova e contexto."
+        },
+        {
+          "rotulo": "[MOCK] A sua escolha",
+          "texto": "[MOCK] Compare os caminhos possíveis."
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "serie": "mock-energia-sem-fim",
+      "titulo": "[MOCK] Conversa com a guia",
+      "texto": [
+        "[MOCK] Uma peça experimental do museu.",
+        "[MOCK] Escolha como continuar a exploração."
+      ],
+      "nivel": 0,
+      "polo": 0,
+      "sala": "origens",
+      "ligacoes": {
+        "seguir": 28,
+        "aprofundar": null,
+        "subir": null,
+        "otimista": null,
+        "catastrofico": null
+      },
+      "tipo": "dialogo",
+      "dialogo": {
+        "personagem": {
+          "nome": "[MOCK] Lia",
+          "papel": "[MOCK] Guia do museu"
+        },
+        "falas": [
+          "[MOCK] Cada sala oferece outra forma de fazer perguntas."
+        ],
+        "respostas": [
+          {
+            "texto": "[MOCK] Ver a demonstração",
+            "vai": 24
+          },
+          {
+            "texto": "[MOCK] Explorar o conteúdo",
+            "vai": 25
+          },
+          {
+            "texto": "[MOCK] Voltar à energia",
+            "vai": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": 28,
+      "serie": "mock-energia-sem-fim",
+      "titulo": "[MOCK] Conversa com a especialista",
+      "texto": [
+        "[MOCK] Uma peça experimental do museu.",
+        "[MOCK] Escolha como continuar a exploração."
+      ],
+      "nivel": 0,
+      "polo": 0,
+      "sala": "laboratorio",
+      "ligacoes": {
+        "seguir": 1,
+        "aprofundar": null,
+        "subir": null,
+        "otimista": null,
+        "catastrofico": null
+      },
+      "tipo": "dialogo",
+      "dialogo": {
+        "personagem": {
+          "nome": "[MOCK] Eva",
+          "papel": "[MOCK] Especialista em energia"
+        },
+        "falas": [
+          "[MOCK] Cada sala oferece outra forma de fazer perguntas."
+        ],
+        "respostas": [
+          {
+            "texto": "[MOCK] Ver a demonstração",
+            "vai": 24
+          },
+          {
+            "texto": "[MOCK] Explorar o conteúdo",
+            "vai": 25
+          },
+          {
+            "texto": "[MOCK] Voltar à energia",
+            "vai": 1
+          }
+        ]
+      }
+    }
+  ]
+}
