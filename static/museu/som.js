@@ -1,10 +1,4 @@
-// som.js: efeitos sonoros discretos sintetizados com WebAudio (sem ficheiros externos) e a narração por bloco.
-// O som vem DESLIGADO por padrão e guarda-se em localStorage (em try/catch). Nada toca sem um gesto do leitor:
-// o AudioContext só é criado dentro de `tocar`/`ligar`, chamados a partir de um clique ou tecla.
-
-const CHAVE = 'stargate.som';
-function ler() { try { return localStorage.getItem(CHAVE) === '1'; } catch (e) { return false; } }
-function gravar(v) { try { localStorage.setItem(CHAVE, v ? '1' : '0'); } catch (e) { /* sem armazenamento: segue sem guardar */ } }
+// Efeitos sintetizados e mídia só tocam após gesto explícito do leitor.
 
 // notas de cada efeito: [frequência Hz, início s, duração s, tipo, ganho]
 const EFEITOS = {
@@ -16,12 +10,49 @@ const EFEITOS = {
   recuar: [[294, 0, 0.1, 'sine', 0.035]],
 };
 
+export function pintarInterruptorSom(botao, ligado) {
+  botao.setAttribute('aria-checked', String(ligado));
+  botao.querySelector('.rot').textContent = ligado ? 'Som: ligado' : 'Som: desligado';
+}
+
 export function criarSom() {
-  let ligado = ler(), ctx = null;
+  let ligado = false, ctx = null, narracao = null, ambiente = null, sequencia = 0;
+  function pararAudio(audio) {
+    if (!audio) return;
+    audio.pause(); audio.removeAttribute('src'); audio.load();
+  }
+  function pararTudo() {
+    sequencia++;
+    pararAudio(narracao); pararAudio(ambiente);
+    narracao = null; ambiente = null;
+  }
+  async function abrir(endpoint, alvo, pedido) {
+    try {
+      const resposta = await fetch(endpoint, { cache: 'no-store', credentials: 'same-origin' });
+      if (!resposta.ok) return false;
+      const dados = await resposta.json();
+      if (pedido !== sequencia) return false;
+      if (typeof dados.url !== 'string' || !/^https:\/\//i.test(dados.url)) return false;
+      const audio = new Audio(dados.url);
+      audio.volume = 0.8;
+      if (alvo === 'narracao') narracao = audio; else ambiente = audio;
+      const tocando = audio.play();
+      if (tocando && tocando.then) await tocando;
+      return true;
+    } catch (e) { return false; }
+  }
   const api = {
     get ligado() { return ligado; },
     get criado() { return !!ctx; },
-    ligar(v) { ligado = !!v; gravar(ligado); if (ligado) api.tocar('seguir'); return ligado; },
+    ligar(v) { ligado = !!v; if (!ligado) pararTudo(); return ligado; },
+    interromper() { pararTudo(); },
+    ambiente(endpoint) {
+      pararAudio(ambiente); ambiente = null;
+      pararAudio(narracao); narracao = null;
+      const pedido = ++sequencia;
+      if (!ligado || !endpoint) return Promise.resolve(false);
+      return abrir(endpoint, 'ambiente', pedido);
+    },
     tocar(tipo) {
       if (!ligado || !EFEITOS[tipo]) return;
       try {
@@ -41,12 +72,11 @@ export function criarSom() {
         }
       } catch (e) { /* o áudio nunca derruba a página */ }
     },
-    // narração: toca `caminho` (ficheiro) a pedido do leitor; devolve uma promessa que nunca rejeita
-    narrar(caminho) {
-      return new Promise((res) => {
-        try { const a = new Audio(caminho); a.volume = 0.8; const p = a.play(); if (p && p.then) p.then(() => res(true), () => res(false)); else res(true); }
-        catch (e) { res(false); }
-      });
+    // O endpoint resolve URL temporária apenas para um UUID associado ao bloco.
+    narrar(endpoint) {
+      pararAudio(narracao); narracao = null;
+      pararAudio(ambiente); ambiente = null;
+      return abrir(endpoint, 'narracao', ++sequencia);
     },
   };
   return api;

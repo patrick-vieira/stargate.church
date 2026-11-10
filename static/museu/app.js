@@ -6,7 +6,7 @@ import { renderSobrio } from './sobrio.js';
 import { el, tituloDom, fontesDom, narracaoDom, producaoDom, producaoAtiva } from './cartao.js';
 import { desenharMapa } from './mapa.js';
 import { criarRender2d } from './render2d.js';
-import { criarSom } from './som.js';
+import { criarSom, pintarInterruptorSom } from './som.js';
 import { conteudoMuseu, criarVisita } from './museu.js';
 
 const $ = (id) => document.getElementById(id);
@@ -55,9 +55,18 @@ function mover(novo, guiada = false) {
   if (render) render.mostrar(pos, { animar: true });
   atualizar();
   som.tocar(SOM_DE[mov] || (/^inv-|no-hub/.test(mov) ? 'recuar' : null));
+  som.ambiente(noAtual()?.audioAmbiente || null);
   return true;
 }
 const noAtual = () => modelo.noDe(pos);
+function audioAmbienteAtual() {
+  if (modo === 'ludico') return noAtual()?.audioAmbiente || null;
+  const centro = innerHeight * 0.42;
+  const blocos = [...document.querySelectorAll('#principal article.bloco')];
+  const atual = blocos.sort((a, b) => Math.abs(a.getBoundingClientRect().top - centro) - Math.abs(b.getBoundingClientRect().top - centro))[0];
+  const n = atual && dados.grafo.nos.find((item) => `n${item.id}` === atual.id);
+  return n?.som_audio_endpoint || null;
+}
 const acoes = {
   avancar() {
     const s = modelo.saidaEm(pos);
@@ -265,9 +274,13 @@ function desmontarLudico() {
 function aplicarModo(m, guardarEscolha) {
   if (m === modo && (m === 'sobrio' || render)) return;
   modo = m;
+  if (m === 'sobrio') {
+    som.ligar(false);
+    pintarInterruptorSom($('som'), som.ligado);
+  }
   document.documentElement.dataset.modo = m;
   const sw = $('modo'); sw.setAttribute('aria-checked', String(m === 'ludico'));
-  $('pausa').hidden = m !== 'ludico'; $('som').hidden = m !== 'ludico';
+  $('pausa').hidden = m !== 'ludico'; $('som').hidden = false;
   if (m === 'ludico') montarLudico(); else desmontarLudico();
   if (visita) { visita.pausar(); visita.atualizar(); }
   if (guardarEscolha) gravarLS('stargate.modo', m);
@@ -279,11 +292,37 @@ function ligarControlos() {
   const pintaPausa = () => { pa.setAttribute('aria-pressed', String(semMov())); pa.textContent = semMov() ? 'Retomar movimento' : 'Pausar movimento'; document.documentElement.classList.toggle('sem-movimento', semMov()); };
   pa.addEventListener('click', () => { pausado = !pausado; gravarLS('stargate.pausa', pausado ? '1' : '0'); pintaPausa(); });
   pa.disabled = reduzido; pintaPausa();
-  const pintaSom = () => { so.setAttribute('aria-checked', String(som.ligado)); so.querySelector('.rot').textContent = som.ligado ? 'Som: ligado' : 'Som: desligado'; };
-  so.addEventListener('click', () => { som.ligar(!som.ligado); pintaSom(); });
+  const pintaSom = () => pintarInterruptorSom(so, som.ligado);
+  so.addEventListener('click', () => {
+    som.ligar(!som.ligado);
+    if (som.ligado) som.ambiente(audioAmbienteAtual());
+    pintaSom();
+  });
   pintaSom();
 }
 ligarControlos();
+let endpointAmbienteVisto = null, agendaAudioSober = false;
+function atualizarAmbienteSobrio() {
+  agendaAudioSober = false;
+  if (modo !== 'sobrio' || !som.ligado) return;
+  const endpoint = audioAmbienteAtual();
+  if (endpoint !== endpointAmbienteVisto) {
+    endpointAmbienteVisto = endpoint;
+    som.ambiente(endpoint);
+  }
+}
+window.addEventListener('scroll', () => {
+  if (!agendaAudioSober) {
+    agendaAudioSober = true;
+    requestAnimationFrame(atualizarAmbienteSobrio);
+  }
+}, { passive: true });
+document.querySelector('#principal').addEventListener('click', (evento) => {
+  const botao = evento.target.closest('[data-audio-endpoint]');
+  if (botao) som.narrar(botao.dataset.audioEndpoint).then((ok) => {
+    if (!ok) aviso('Não foi possível tocar a narração.');
+  });
+});
 const guardado = lerLS('stargate.modo');
 aplicarModo(reduzido ? 'sobrio' : guardado === 'ludico' || guardado === 'sobrio' ? guardado : 'ludico', false);
 

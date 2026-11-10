@@ -5,7 +5,7 @@ from django.http import Http404, JsonResponse
 from django.middleware.csrf import get_token
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
-from django.views.decorators.http import require_POST
+from django.views.decorators.http import require_GET, require_POST
 
 from leitores.tecto import exige_tecto
 
@@ -298,3 +298,33 @@ def museu_video(request, serie, bloco):
         resposta = JsonResponse({"url": url})
     resposta["Cache-Control"] = "no-store"
     return resposta
+
+
+@require_GET
+def museu_audio(request, serie, bloco, tipo):
+    from django.http import JsonResponse
+
+    from .models import GrafoMuseu
+    from .servicos.imagetools import ImageToolsErro, consultar_audio
+
+    def resposta_audio(dados, status):
+        resposta = JsonResponse(dados, status=status)
+        resposta["Cache-Control"] = "no-store"
+        return resposta
+
+    if tipo not in ("narracao", "som"):
+        return resposta_audio({"erro": "Áudio indisponível."}, 404)
+    grafo = GrafoMuseu.objects.filter(serie__slug=serie, serie__publicado=True).first()
+    if not grafo:
+        return resposta_audio({"erro": "Áudio indisponível."}, 404)
+    no = next((n for n in grafo.dados["blocos"] if n.get("id") == bloco), None)
+    uuid = no.get(f"{tipo}_imagetools_uuid") if no else None
+    if not uuid:
+        return resposta_audio({"erro": "Áudio indisponível."}, 404)
+    try:
+        url = consultar_audio(uuid)
+    except ImageToolsErro:
+        return resposta_audio(
+            {"erro": "Áudio indisponível no momento. Continue pelo texto."}, 503
+        )
+    return resposta_audio({"url": url}, 200)

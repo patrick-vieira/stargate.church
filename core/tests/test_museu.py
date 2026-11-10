@@ -3,6 +3,7 @@ import json
 import shutil
 import subprocess
 import tempfile
+import uuid
 from pathlib import Path
 from unittest.mock import patch
 
@@ -14,7 +15,7 @@ from django.test import TestCase
 from django.urls import reverse
 
 from core.models import GrafoMuseu, Serie
-from core.servicos.imagetools import ImageToolsErro, consultar_video
+from core.servicos.imagetools import ImageToolsErro, consultar_audio, consultar_video
 from core.servicos.museu import apresentar, validar_grafo
 
 
@@ -37,11 +38,43 @@ def grafo():
 
 
 class MuseuTests(TestCase):
-    def importar(self, dados):
+    def importar(self, dados, manifesto=None):
         with tempfile.TemporaryDirectory() as pasta:
             ficheiro = Path(pasta) / "grafo.json"
             ficheiro.write_text(json.dumps(dados))
-            call_command("importar_grafo", str(ficheiro))
+            argumentos = [str(ficheiro)]
+            if manifesto is not None:
+                audio = Path(pasta) / "audio.json"
+                audio.write_text(json.dumps(manifesto))
+                argumentos.extend(["--manifesto-audio", str(audio)])
+            call_command("importar_grafo", *argumentos)
+
+    def grafo_energia(self):
+        dados = grafo()
+        dados["serie"] = "mock-energia-sem-fim"
+        modelo = dados["blocos"][0]
+        dados["blocos"] = []
+        for numero in range(1, 25):
+            no = copy.deepcopy(modelo)
+            no.update(id=numero, numero=numero, titulo=f"[MOCK] Bloco {numero}")
+            no["escolhas"][0]["destino"] = numero + 1 if numero < 24 else 1
+            dados["blocos"].append(no)
+        return dados
+
+    def manifesto_ficticio(self):
+        return {
+            str(numero): {
+                **{
+                    f"{tipo}_uuid": str(
+                        uuid.uuid5(uuid.NAMESPACE_URL, f"ficticio-{numero}-{tipo}")
+                    )
+                    for tipo in ("narracao", "som")
+                },
+                "narracao_sha": "a" * 64,
+                "som_sha": "b" * 64,
+            }
+            for numero in range(1, 25)
+        }
 
     def test_importacao_repetivel_e_nao_publica(self):
         self.importar(grafo())
@@ -66,6 +99,7 @@ class MuseuTests(TestCase):
             ("id", True),
             ("escolhas", []),
             ("fontes", [None]),
+            ("narracao_imagetools_uuid", "uuid-ficticio"),
         ):
             with self.subTest(campo=campo):
                 dados = copy.deepcopy(base)
@@ -231,9 +265,16 @@ class MuseuTests(TestCase):
         )
         consultar_video("uuid-ficticio")
         self.assertEqual(http.call_count, 2)
+        self.assertEqual(
+            consultar_audio("uuid-ficticio"), "https://cdn.invalid/video.mp4"
+        )
+        consultar_audio("uuid-ficticio")
+        self.assertEqual(http.call_count, 4)
         http.side_effect = ImageToolsErro("segredo-ficticio")
         with self.assertRaisesMessage(ImageToolsErro, "Vídeo indisponível no momento."):
             consultar_video("uuid-ficticio")
+        with self.assertRaisesMessage(ImageToolsErro, "Áudio indisponível no momento."):
+            consultar_audio("uuid-ficticio")
 
     def test_video_rascunho_404_e_falha_segura(self):
         self.importar(grafo())
@@ -243,3 +284,66 @@ class MuseuTests(TestCase):
         resposta = self.client.get(url)
         self.assertEqual(resposta.status_code, 503)
         self.assertEqual(resposta["Cache-Control"], "no-store")
+
+    def test_manifesto_audio_valida_associa_apenas_uuids_e_e_repetivel(self):
+        dados, manifesto = self.grafo_energia(), self.manifesto_ficticio()
+        self.importar(dados, manifesto)
+        self.importar(dados, manifesto)
+        persistido = GrafoMuseu.objects.get().dados["blocos"]
+        self.assertEqual(len(persistido), 24)
+        self.assertEqual(
+            persistido[0]["narracao_imagetools_uuid"], manifesto["1"]["narracao_uuid"]
+        )
+        self.assertEqual(
+            persistido[23]["som_imagetools_uuid"], manifesto["24"]["som_uuid"]
+        )
+        self.assertNotIn("narracao_sha", persistido[0])
+        apresentado = apresentar(
+            Serie(slug="mock-energia-sem-fim", titulo="Fictícia"),
+            {"blocos": persistido},
+        )
+        no = apresentado["grafo"]["nos"][0]
+        self.assertEqual(
+            no["narracao_audio_endpoint"],
+            "/museu/mock-energia-sem-fim/audio/1/narracao/",
+        )
+        self.assertNotIn("narracao_imagetools_uuid", no)
+        self.assertNotIn("som_imagetools_uuid", no)
+
+    def test_manifesto_audio_invalido_nao_escreve(self):
+        manifesto = self.manifesto_ficticio()
+        del manifesto["24"]
+        with self.assertRaises(CommandError):
+            self.importar(self.grafo_energia(), manifesto)
+        self.assertEqual(Serie.objects.count(), 0)
+
+    @patch(
+        "core.servicos.imagetools.consultar_audio",
+        return_value="https://cdn.invalid/audio.mp3",
+    )
+    def test_audio_publicado_resolve_fresco_e_uuid_nao_arbitrario(self, consultar):
+        self.importar(self.grafo_energia(), self.manifesto_ficticio())
+        url = reverse("core:museu_audio", args=["mock-energia-sem-fim", 1, "narracao"])
+        rascunho = self.client.get(url)
+        self.assertEqual(rascunho.status_code, 404)
+        self.assertEqual(rascunho["Cache-Control"], "no-store")
+        Serie.objects.update(publicado=True)
+        primeira = self.client.get(url)
+        segunda = self.client.get(url)
+        self.assertEqual(primeira.status_code, 200)
+        self.assertEqual(segunda.status_code, 200)
+        self.assertEqual(primeira.json(), {"url": "https://cdn.invalid/audio.mp3"})
+        self.assertEqual(primeira["Cache-Control"], "no-store")
+        self.assertEqual(consultar.call_count, 2)
+        self.assertEqual(
+            self.client.get(
+                reverse("core:museu_audio", args=["mock-energia-sem-fim", 1, "outro"])
+            ).status_code,
+            404,
+        )
+        consultar.assert_called_with(self.manifesto_ficticio()["1"]["narracao_uuid"])
+        consultar.side_effect = ImageToolsErro("segredo-ficticio")
+        falha = self.client.get(url)
+        self.assertEqual(falha.status_code, 503)
+        self.assertEqual(falha["Cache-Control"], "no-store")
+        self.assertNotContains(falha, "segredo-ficticio", status_code=503)

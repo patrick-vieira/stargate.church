@@ -39,7 +39,9 @@ export function criarModelo(dados) {
         TIPOS.forEach((t) => { const v = n.ligacoes && n.ligacoes[t]; lig[t] = v == null ? null : String(v); });
         nos.set(String(n.id), {
           id: String(n.id), num: String(n.id), serie: s.slug, titulo: n.titulo, texto: n.texto || [], nivel: n.nivel | 0, polo: n.polo | 0,
-          audio: n.audio || null, fontes: Array.isArray(n.fontes) ? n.fontes : [], narracao: typeof n.narracao === 'string' ? n.narracao : '',
+          audio: n.narracao_audio_endpoint || n.audio || null,
+          audioAmbiente: n.som_audio_endpoint || null,
+          fontes: Array.isArray(n.fontes) ? n.fontes : [], narracao: typeof n.narracao === 'string' ? n.narracao : '',
           producao: { visual: typeof n.visual === 'string' ? n.visual : '', som: typeof n.som === 'string' ? n.som : '' }, url: '', mock: true, tipo: n.tipo || 'texto', sala: n.sala, video: n.video, camadas: n.camadas, dialogo: n.dialogo, tema: s.tema | 0, ligacoes: lig, rotulos: n.rotulos,
         });
       });

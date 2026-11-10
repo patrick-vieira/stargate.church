@@ -22,7 +22,11 @@ export function htmlFontes(fontes) {
   }).join('') + '</ul></section>';
 }
 function htmlNarracao(n) {
-  return n.narracao ? `<details class="narracao"><summary>Ver texto da narração</summary><p>${esc(n.narracao)}</p><p class="prov">Narração em áudio: em breve.</p></details>` : '';
+  if (!n.narracao && !n.narracao_audio_endpoint) return '';
+  return '<section class="narracao" aria-label="Narração">' +
+    (n.narracao ? `<details><summary>Ver texto da narração</summary><p>${esc(n.narracao)}</p></details>` : '') +
+    (n.narracao_audio_endpoint ? `<button type="button" class="btn ouvir" data-audio-endpoint="${esc(n.narracao_audio_endpoint)}">Ouvir a narração</button>` : '') +
+    '</section>';
 }
 function htmlProducao(n) {
   if (!n.visual && !n.som) return '';

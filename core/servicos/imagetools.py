@@ -102,7 +102,17 @@ def enviar_video(caminho):
 
 
 def consultar_video(uuid):
-    """Resolve uma URL temporária no momento de uso, sem expor credenciais."""
+    """Resolve uma URL temporária de vídeo sem expor credenciais."""
+    return _consultar_midia(uuid, "Vídeo")
+
+
+def consultar_audio(uuid):
+    """Resolve uma URL temporária de áudio sem expor credenciais."""
+    return _consultar_midia(uuid, "Áudio")
+
+
+def _consultar_midia(uuid, tipo):
+    """Consulta UUID armazenado no servidor e nunca devolve detalhes da chave."""
     import re
     from urllib.parse import urlsplit
 
@@ -120,4 +130,4 @@ def consultar_video(uuid):
             raise ImageToolsErro("URL de mídia inválida.")
         return url
     except (ImageToolsErro, TypeError, AttributeError, ValueError):
-        raise ImageToolsErro("Vídeo indisponível no momento.") from None
+        raise ImageToolsErro(f"{tipo} indisponível no momento.") from None

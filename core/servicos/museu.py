@@ -77,6 +77,10 @@ def validar_grafo(dados):
             uuid and not re.fullmatch(r"[a-zA-Z0-9-]{1,64}", uuid)
         ):
             falha("Identificador de vídeo inválido.")
+        if any(
+            campo in n for campo in ("narracao_imagetools_uuid", "som_imagetools_uuid")
+        ):
+            falha("UUIDs de áudio só podem vir do manifesto validado.")
         if "camadas" in n:
             if (
                 not isinstance(n["camadas"], list)
@@ -182,7 +186,7 @@ def apresentar(serie, dados):
             else "texto"
         )
         no = dict(
-            n,
+            ((k, v) for k, v in n.items() if not k.endswith("_imagetools_uuid")),
             serie=serie.slug,
             num=n["numero"],
             nivel=nivel,
@@ -220,6 +224,11 @@ def apresentar(serie, dados):
                 if n.get("video_imagetools_uuid")
                 else "",
             }
+        for tipo in ("narracao", "som"):
+            if n.get(f"{tipo}_imagetools_uuid"):
+                no[f"{tipo}_audio_endpoint"] = (
+                    f"/museu/{serie.slug}/audio/{n['id']}/{tipo}/"
+                )
         nos.append(no)
     salas = [
         {
