@@ -1,0 +1,7 @@
+<aside class="sg-estilos sg-wrap" aria-label="Aparência do site">
+  <details><summary>Seu Stargate · {% for opcao in estilos_base %}{% if opcao.valor == estilo_base %}{{ opcao.nome }}{% endif %}{% endfor %}</summary>
+    <nav aria-label="Escolher aparência">{% for opcao in estilos_base %}<a href="{{ opcao.url }}"{% if opcao.valor == estilo_base %} aria-current="true"{% endif %}>{{ opcao.nome }}</a>{% endfor %}</nav>
+    <p>A aparência muda. As histórias continuam livres.</p>
+  </details>
+  {% if convite_estilo %}<div class="sg-estilos__convite" data-convite-estilo><span>Outro jeito de explorar o futuro?</span> <a href="{{ outro_estilo.url }}">Experimente {{ outro_estilo.nome }}</a><button type="button" data-fechar-convite aria-label="Dispensar convite de aparência" hidden>Agora não</button></div>{% endif %}
+</aside>

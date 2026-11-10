@@ -24,7 +24,9 @@ class PaginaNaoEncontradaTests(TestCase):
 class TransicaoTests(TestCase):
     def test_base_com_clima_fundo_e_ancora_dos_temas(self):
         r = self.client.get(reverse("core:home"))
-        self.assertContains(r, '<html lang="pt-BR" data-clima="padrao">')
+        self.assertContains(
+            r, '<html lang="pt-BR" data-clima="padrao" data-envelope="base"'
+        )
         self.assertContains(r, "html{background:#FBF5EA;--vt-fundo:#FBF5EA}")
         self.assertContains(r, 'id="temas" aria-label="Temas"')
         self.assertContains(r, "css/transicao.css")
