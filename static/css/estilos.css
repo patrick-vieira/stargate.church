@@ -1,0 +1,69 @@
+/* STAR-71: camadas do envelope. tokens.css e atmosferas imersivas permanecem livres. */
+html[data-envelope=base][data-estilo="3"]{
+  --sg-creme:#080f24;--sg-creme-2:#111d38;--sg-papel:#152440;--sg-linha:#465778;
+  --sg-tinta:#f0f5ff;--sg-tinta-2:#d4e0f5;--sg-tinta-3:#a9bcda;
+  --sg-coral-ink:#b9caff;--sg-coral:#8cafff;--sg-coral-bg:#233857;
+  --sg-t-futuro:#b9caff;--sg-t-ia:#c9bdff;--sg-t-energia:#ffcf88;
+  --sg-t-saude:#9be2c1;--sg-t-espaco:#d9baff;--sg-t-clima:#a5d8ff;
+  --sg-campo-borda:#a9bcda;--sg-sombra:0 12px 50px #0005;
+  --vt-fundo:#080f24;background:#080f24;color-scheme:dark;
+}
+html[data-envelope=base][data-estilo="5"]{
+  --sg-creme:#f6f241;--sg-creme-2:#d8a6ff;--sg-papel:#fffdf4;--sg-linha:#201632;
+  --sg-tinta:#201632;--sg-tinta-2:#352741;--sg-tinta-3:#493450;
+  --sg-coral-ink:#602494;--sg-coral:#e46eaa;--sg-coral-bg:#ffd8e9;
+  --sg-serif:var(--sg-sans);--sg-r1:0;--sg-r2:0;--sg-r3:0;--sg-pill:0;
+  --sg-sombra:7px 7px 0 #201632;--vt-fundo:#f6f241;background:#f6f241;
+}
+html[data-envelope=base]:not([data-estilo="0"]) .sg-cab{background:var(--sg-creme);border-color:var(--sg-linha)}
+html[data-envelope=base]:not([data-estilo="0"]) .sg-marca svg circle{stroke:var(--sg-tinta)}
+html[data-envelope=base]:not([data-estilo="0"]) .sg-cartao-conta{background:var(--sg-papel)}
+html[data-envelope=base]:not([data-estilo="0"]) .sg-form input{background:var(--sg-papel);color:var(--sg-tinta)}
+html[data-envelope=base][data-estilo="3"] body{
+  background:radial-gradient(ellipse at 85% 12%,#344b6c55,transparent 55%),
+  radial-gradient(1px 1px at 12px 30px,#d5e3ff 90%,transparent) 0 0/83px 107px,
+  radial-gradient(1px 1px at 40px 75px,#c6baff 90%,transparent) 0 0/137px 163px,#080f24;
+}
+html[data-envelope=base][data-estilo="3"] .sg-wrap{max-width:1680px;margin-inline:auto}
+html[data-envelope=base][data-estilo="3"] .sg-card{background:#111d38dd;padding:1.4rem;border:1px solid var(--sg-linha);border-radius:24px}
+html[data-envelope=base][data-estilo="3"] .sg-btn--coral{background:#b9caff;border-color:#b9caff;color:#080f24}
+html[data-envelope=base][data-estilo="3"] .sg-news{background:#152440;color:#f0f5ff;border:1px solid #465778}
+html[data-envelope=base][data-estilo="3"] .sg-news p{color:#d4e0f5}
+html[data-envelope=base][data-estilo="3"] .sg-news .sg-sobrolho{color:#b9caff}
+html[data-envelope=base][data-estilo="3"] :is(.sg-sec--sol,.sg-caixa--sol,.sg-fatos){background:#152440;border-color:#465778}
+html[data-envelope=base][data-estilo="3"] .sg-sec--sol .sg-num{background:#111d38}
+html[data-envelope=base][data-estilo="3"] .luz-ceu{background:#080f24;color:#f0f5ff}
+html[data-envelope=base][data-estilo="3"] .luz-ceu__fundo{opacity:.15}
+html[data-envelope=base][data-estilo="3"] .luz-ceu :is(h1,.sg-lede,.sg-sobrolho){color:#f0f5ff}
+html[data-envelope=base][data-estilo="5"] .sg-cab{border-bottom:3px solid #201632}
+html[data-envelope=base][data-estilo="5"] .sg-marca{font-weight:700;text-transform:uppercase;letter-spacing:-.07em}
+html[data-envelope=base][data-estilo="5"] .sg-card{padding:1.2rem;background:#fffdf4;border:3px solid #201632;box-shadow:7px 7px 0 #201632}
+html[data-envelope=base][data-estilo="5"] .sg-card:nth-child(3n+2){background:#d8a6ff}
+html[data-envelope=base][data-estilo="5"] .sg-card:nth-child(3n){background:#9de8d0}
+html[data-envelope=base][data-estilo="5"] .sg-news{background:#201632;border:3px solid #201632;box-shadow:8px 8px 0 #e46eaa;color:#fffdf4}
+html[data-envelope=base][data-estilo="5"] .luz-ceu{background:#d8a6ff;color:#201632;border-bottom:3px solid #201632}
+html[data-envelope=base][data-estilo="5"] .luz-ceu__fundo{opacity:.12}
+html[data-envelope=base][data-estilo="5"] .luz-ceu :is(h1,.sg-lede,.sg-sobrolho){color:#201632}
+html[data-envelope=base][data-estilo="5"] :is(h1,h2,h3){font-weight:700;letter-spacing:-.04em}
+.sg-estilos{position:relative;z-index:19;display:flex;align-items:start;justify-content:space-between;gap:1rem;padding-block:.8rem;border-bottom:1px solid var(--sg-linha);font-size:.875rem;background:var(--sg-creme)}
+.sg-estilos details{max-width:100%}.sg-estilos summary{cursor:pointer;font-weight:600;min-height:32px}
+.sg-estilos nav{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.5rem}
+.sg-estilos a,.sg-estilos button{display:inline-block;padding:.6rem .8rem;border:1px solid var(--sg-linha);font:inherit;color:var(--sg-tinta);background:var(--sg-papel);cursor:pointer}
+.sg-estilos a[aria-current]{border:2px solid var(--sg-tinta);font-weight:700}
+.sg-estilos p{margin:.5rem 0}.sg-estilos__convite{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap}
+.sg-estilos__convite[hidden],.sg-estilos button[hidden]{display:none}
+.sg-estilos :focus-visible{outline:3px solid var(--sg-tinta);outline-offset:3px}
+@media(max-width:640px){.sg-estilos{flex-direction:column}.sg-estilos__convite{font-size:.8125rem}.sg-estilos__convite span{width:100%}}
+/* Viagem entre estrelas, usando os mesmos eventos da onda 7. */
+:root:active-view-transition-type(estelar)::view-transition{background:radial-gradient(ellipse at center,#4a6497,#080f24 70%)}
+:root:active-view-transition-type(estelar)::view-transition-old(root){animation:sg-estelar-sai 620ms ease-in both}
+:root:active-view-transition-type(estelar)::view-transition-new(root){animation:sg-estelar-entra 720ms ease-out both}
+@keyframes sg-estelar-sai{to{opacity:0;transform:scale(1.35);filter:blur(8px)}}
+@keyframes sg-estelar-entra{from{opacity:0;transform:scale(.8);filter:blur(8px)}to{opacity:1;transform:none;filter:none}}
+@media(prefers-reduced-motion:reduce){
+  :root:active-view-transition-type(estelar)::view-transition-old(root),:root:active-view-transition-type(estelar)::view-transition-new(root){animation:none}
+}
+
+html[data-envelope=base]:not([data-estilo="0"]) .luz-ceu{--ceu-tx:var(--sg-tinta);--ceu-tx2:var(--sg-tinta-2);--ceu-tx3:var(--sg-tinta-3);--ceu-ac:var(--sg-coral-ink)}
+html[data-envelope=base][data-estilo="3"] .sg-selo{background:#15392c;color:#9be2c1}
+html[data-envelope=base][data-estilo="3"] .sg-news .sg-btn[disabled]{background:transparent;color:#d4e0f5;border:2px dashed #a9bcda}
