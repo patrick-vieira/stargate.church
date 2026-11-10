@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('core', '0014_alter_ato_efeito_votoplacar'),
+        ('core', '0015_episodio_video_imagetools'),
     ]
 
     operations = [
