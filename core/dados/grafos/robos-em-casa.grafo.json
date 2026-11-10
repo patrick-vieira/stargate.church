@@ -1,0 +1,923 @@
+{
+  "serie": "mock-robos-em-casa",
+  "tom": "misto (navegação dialética não linear entre o otimismo da libertação das tarefas domésticas/autonomia na longevidade e o realismo catastrófico da vigilância íntima, acidentes físicos e teleoperação oculta)",
+  "blocos": [
+    {
+      "id": 1,
+      "numero": 1,
+      "tipo": "texto",
+      "polo": "neutro",
+      "profundidade": 0,
+      "titulo": "[MOCK] Robôs em Casa: A Alvorada do Hóspede de Metal",
+      "texto": "Cena imaginada (ficção): São seis horas da manhã numa terça-feira de outono. Na penumbra da cozinha, uma silhueta de um metro e meio desliza com passadas suaves e amortecidas. Braços revestidos de tecido sintético cinzento erguem uma frigideira de ferro sem produzir um único estalo. O café já começa a exalar seu aroma fresco pela casa. Quando você entra descalço no cômodo, o autômato gira a cabeça ligeiramente em sua direção; sensores infravermelhos mapeiam a temperatura do seu corpo e calculam a distância de segurança de um metro e vinte centímetros antes de desejar um bom-dia sereno com voz modulada. Pela primeira vez na história da vida doméstica, uma inteligência corpórea partilha o território sagrado do seu lar.\n\nA fronteira final da robótica não está mais confinada às linhas de montagem automotivas ou aos galpões climatizados de comércio eletrônico. Ela cruzou a porta da sala de estar. Robôs aspiradores que mapeavam carpetes em duas dimensões evoluíram para agentes móveis bípedes, manipuladores bimanuais e plataformas com visão computacional capazes de arrumar brinquedos, dobrar roupas, lavar pratos engordurados e monitorar sinais vitais de idosos e crianças. Mas o lar não é uma fábrica ordenada: é um caos imprevisível de tapetes escorregadios, brinquedos no chão, animais assustados e vulnerabilidade emocional íntima.\n\nNeste livro-jogo interativo do Stargate, você assume o comando da investigação e navega pelas ramificações do futuro doméstico. A cada bloco, decida o seu rumo: maravilhe-se com a libertação de horas diárias de trabalho doméstico não remunerado (Polo Otimista), enfrente a claustrofobia da vigilância corporativa, falhas mecânicas e a precarização do cuidado (Polo Catastrófico), interrogue especialistas e operários da tecnologia ou desça até o fundo das evidências empíricas e regulatórias reais.\n\n[MOCK]: Rascunho editorial em teste para o Stargate. Nenhum conteúdo publicado externamente.",
+      "fontes": [],
+      "narracao": "Durante séculos, sonhamos com ajudantes mecânicos para nos livrar do fardo doméstico. Agora que eles entraram na nossa sala, escolha o seu caminho: a promessa de descanso ou o pesadelo da intimidade invadida?",
+      "som": "Zumbido elétrico suave de motores atuadores sem escovas em marcha lenta, intercalado pelo gotejar ritmado de uma cafeteira e passos abafados sobre piso de madeira.",
+      "visual": "Plano contra-plongée: cozinha moderna ao amanhecer em meia-luz azulada. Um humano de roupão olha surpreso para uma figura bípede de design minimalista que segura uma xícara fumegante sem tremer.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a experiência visual: O Lar sob o Olhar dos Sensores",
+          "destino": 2
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A Alvorada do Tempo Livre e o Resgate das Famílias",
+          "destino": 9
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O Intruso Perfeito — Câmeras, Hackers e Falhas Físicas",
+          "destino": 10
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "numero": 2,
+      "tipo": "video",
+      "polo": "neutro",
+      "profundidade": 0,
+      "titulo": "[MOCK] Anatomia da Convivência: O Lar sob o Olhar dos Sensores",
+      "texto": "Descrição do vídeo editorial (ensaio audiovisual imersivo):\n\nA tela se abre dividida em duas metades perfeitamente sincronizadas. À esquerda, a visão de um pai de família entrando no quarto dos filhos para acordá-los: uma cena comum de luz matinal filtrada pela cortina e lençóis amassados. À direita, a visão computacional bruta do robô doméstico postado no corredor: o mundo em nuvem de pontos LiDAR verde-fosforescente e caixas delimitadoras coloridas em tempo real. Cada objeto tem uma etiqueta de probabilidade calculada: \"humano deitado (99,4%)\", \"objeto frágil de porcelana (98,1%)\", \"líquido derramado escorregadio (87,3%)\".\n\nA câmera virtual do robô se aproxima e a narração destaca o contraste brutal entre a intimidade familiar descalça e a frieza matemática da inferência probabilística. Câmeras RGB de alta resolução ajustam a profundidade de campo, registrando expressões faciais sonolentas, marcas de roupas no chão e retratos de família nas paredes. O vídeo demonstra como a máquina interpreta a arquitetura afetiva de uma residência como uma matriz geométrica contínua de obstáculos e superfícies transitáveis.\n\n[MOCK]: Storyboard analítico e ensaio visual para a série do Stargate.",
+      "fontes": [],
+      "narracao": "Para você, este é o refúgio seguro onde ninguém o julga. Para os sensores do robô, seu quarto é uma nuvem de pontos tridimensional que precisa ser escaneada, classificada e transmitida.",
+      "som": "Varredura sonora em frequência alta reproduzindo o clique ultrassônico de sensores de distância, cruzando com respiração compassada e murmúrios caseiros distantes.",
+      "visual": "Divisão de tela em split-screen cinematográfico. De um lado, fotografia quente de interiores em 35mm; do outro, malha vetorial de renderização SLAM em tons néon de ciano e magenta.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a evolução das máquinas: Da Vassoura Autônoma ao Humanoide",
+          "destino": 3
+        },
+        {
+          "tipo": "aprofundar",
+          "rotulo": "Aprofundar na privacidade: Câmeras no Quarto e no Banheiro",
+          "destino": 5
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A Promessa de um Lar sem Exaustão",
+          "destino": 9
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O Risco de Olhos Corporativos na Intimidade",
+          "destino": 10
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "numero": 3,
+      "tipo": "texto que se expande",
+      "polo": "neutro",
+      "profundidade": 0,
+      "titulo": "[MOCK] A Linha Evolutiva: Do Disco Aspirador ao Androide Bimanual",
+      "texto": "Durante vinte anos, a robótica de consumo esteve confinada a discos plásticos rodopiantes com escovas giratórias. O aspirador autônomo revolucionou a limpeza de pisos porque operava num problema restrito e bidimensional: se colidisse com a perna de uma mesa, mudava de ângulo; se encontrasse um desnível, sensores infravermelhos impediam a queda na escada. Porém, a verdadeira labuta doméstica acontece no espaço tridimensional entre o chão e a prateleira superior dos armários.\n\nO salto qualitativo exigiu dotar as máquinas de braços articulados com múltiplos graus de liberdade e atuadores complacentes. Limpar uma pia com louça suja não requer força bruta, mas delicadeza extrema: segurar um copo de cristal sem estilhaçá-lo enquanto uma esponja exerce pressão controlada para descolar gordura. A passagem dos carrinhos com rodas para humanoides bípedes respondeu a uma premissa inescapável: nossas casas, escadas, maçanetas e eletrodomésticos foram desenhados por humanos e para humanos.\n\n▼ [Clique para expandir a anatomia mecânica do robô doméstico moderno]\n\nCamada Técnica Desdobrada: Os humanoides de última geração abandonaram atuadores hidráulicos pesados e barulhentos em favor de motores de torque elétricos sem escovas (BLDC) acoplados a redutores harmônicos ou transmissões por tendões sintéticos. Isso garante a chamada 'complacência física': se a mão mecânica esbarrar no braço de uma criança, o sistema recua instantaneamente por medição de contratorque, evitando lesões por compressão. Contudo, essa elasticidade mecânica torna o equilíbrio dinâmico muito mais complexo, exigindo redes neurais de controle que recalculam a distribuição de peso centenas de vezes por segundo.\n\n[MOCK]: Estrutura editorial de texto expansível para teste de interface no Stargate.",
+      "fontes": [],
+      "narracao": "Aspirar o chão foi fácil; dobrar uma toalha felpuda e tirar um copo fino da máquina de lavar quase enlouqueceu a engenharia robótica mundial.",
+      "som": "Micro-estalidos metálicos de garras com feedback tátil tateando talheres de prata, seguidos pelo zunido harmônico de motores de tração contínua.",
+      "visual": "Diagrama explodido interativo em 3D de um braço robótico com tendões de polietileno de ultra-alto peso molecular e sensores táteis piezoelétricos na ponta dos dedos de silicone.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a questão física: O Dilema do Toque Macio e dos Acidentes",
+          "destino": 4
+        },
+        {
+          "tipo": "aprofundar",
+          "rotulo": "Aprofundar no diálogo com a Designer Helena Vasconcelos sobre Apego Afetivo",
+          "destino": 6
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A Revolução da Difusão Comportamental na Prática",
+          "destino": 11
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: A Farsa da Teleoperação Global Oculta",
+          "destino": 12
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "numero": 4,
+      "tipo": "texto que se expande",
+      "polo": "neutro",
+      "profundidade": 0,
+      "titulo": "[MOCK] O Dilema do Toque Macio: Força, Complacência e Acidentes",
+      "texto": "Um robô industrial de 300 quilos numa fábrica da Volkswagen pode mover carcaças automotivas porque humanos ficam isolados do lado de fora de gaiolas de proteção com travas de emergência fotoelétricas. Na sua sala de estar, a gaiola não existe. O robô divide o tapete com um gato curioso, um bebê engatinhando e um idoso de equilíbrio frágil. Como construir uma máquina com massa e rigidez suficientes para levantar um garrafão de vinte litros de água, mas cuja carcaça seja inofensiva se tombar de repente durante uma pane de software?\n\nA robótica doméstica enfrenta um compromisso irreconciliável entre densidade energética, peso estrutural e segurança biomecânica. Baterias de íons de lítio pesam quilos e se concentram no tronco ou na base para estabilizar o centro de gravidade. Se um robô bípede de 40 a 70 quilos tropeçar num sapato esquecido e cair de costas contra uma mesa de centro de vidro, a física newtoniana não perdoa. O risco de esmagamento ou corte é uma barreira que nenhuma garantia de software pode afastar por completo.\n\n▼ [Clique para expandir a engenharia de materiais e segurança passiva]\n\nCamada de Materiais e Normas: Fabricantes de ponta começaram a adotar revestimentos têxteis acolchoados, garras com polímeros macios e juntas de elastômero com amortecimento mecânico passivo. Se a energia elétrica for cortada abruptamente, freios eletromagnéticos travam os membros em posições de contração protetora pré-programadas, como um corpo que se encolhe em posição fetal para dissipar o impacto. Entretanto, a dissipação de calor em carcaças fechadas e acolchoadas torna-se crítica, exigindo dutos de ventilação silenciosos que não incomodem a audição humana nem acumulem pelos de animais domésticos.\n\n[MOCK]: Rascunho técnico-editorial do Stargate sobre segurança biomecânica.",
+      "fontes": [],
+      "narracao": "Uma máquina que precisa ser forte o bastante para carregar sacolas pesadas pode ser leve o bastante para não esmagar o pé de uma criança se perder o equilíbrio?",
+      "som": "Sons alternados: o impacto seco de uma estrutura metálica contida por um coxim de espuma sintética de alta densidade, seguido por bipes discretos de telemetria de torque.",
+      "visual": "Teste de colisão em laboratório em câmera lenta: o braço de um robô com revestimento de tecido flexível encosta numa fruta madura sem rompê-la, demonstrando parada instantânea por desaceleração controlada.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a entrada da série: Retornar ao Ponto de Partida",
+          "destino": 1
+        },
+        {
+          "tipo": "aprofundar",
+          "rotulo": "Aprofundar no diálogo com o Engenheiro Carlos Mendes sobre Riscos Físicos",
+          "destino": 7
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A Inovação do Robô de Tecido Macio NEO da 1X",
+          "destino": 16
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "numero": 5,
+      "tipo": "texto que se expande",
+      "polo": "neutro",
+      "profundidade": 1,
+      "titulo": "[MOCK] Câmeras no Quarto e no Banheiro: Para Onde Vão os Olhos da Máquina?",
+      "texto": "Para que um assistente robótico recolha roupas sujas espalhadas pelo chão do quarto ou verifique se um idoso escorregou no piso molhado do banheiro, ele precisa enxergar. Não se trata de uma lente estática voltada para a rua: são sensores de profundidade, câmeras estéreo de alta sensibilidade e microfones omnidirecionais que se deslocam livremente por todos os cômodos da residência, filmando em ângulos que nenhum convidado humano jamais veria.\n\nA premissa das gigantes de tecnologia é de que todo o processamento visual é realizado localmente ('na borda'), por chips neurais embarcados que descartam os quadros de vídeo assim que as coordenadas 3D são extraídas. Porém, quando o robô falha repetidamente em agarrar um frasco de xampu ou confunde uma toalha enrolada com um animal de estimação, o que acontece? As empresas de inteligência artificial recorrem a amostragens de telemetria enviadas para a nuvem a fim de treinar novos modelos e corrigir falhas de segmentação.\n\n▼ [Clique para expandir a anatomia do vazamento de dados domésticos]\n\nA Linha Oculta de Anotação: Milhares de horas de filmagens residenciais capturadas por robôs em fase de testes são rotuladas manualmente por trabalhadores terceirizados em países de baixa renda. Fotos de pessoas trocando de roupa, telas de computador com senhas visíveis e cômodos bagunçados já circularam em grupos informais de mensagens na internet. A questão editorial se impõe: a sua casa continua sendo um santuário de privacidade quando o aspirador de pó e o humanoide são terminais conectados a servidores corporativos transnacionais?\n\n[MOCK]: Investigação editorial sobre vigilância doméstica no Stargate.",
+      "fontes": [],
+      "narracao": "Você aceitaria um hóspede que observa cada momento da sua nudez e promete nunca contar a ninguém, exceto aos servidores da empresa contratada?",
+      "som": "Eco abafado de azulejos de banheiro seguido pelo clique eletrônico de um obturador de câmera em autofoco contínuo e sinal sonoro de upload concluído.",
+      "visual": "Enquadramento na altura do joelho: a lente grande-angular do robô apontada para a fresta de uma porta de banheiro semiaberta; reflexos de luz indicam que o sensor infravermelho continua ativo mesmo no escuro.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para o diálogo sobre psicologia: Dra. Helena Vasconcelos",
+          "destino": 6
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para a visão geral: O Lar sob o Olhar dos Sensores",
+          "destino": 2
+        },
+        {
+          "tipo": "aprofundar",
+          "rotulo": "Aprofundar no escândalo factual: Vazamento de Imagens do Roomba (MIT Tech Review)",
+          "destino": 19
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A Promessa Libertadora do Robô Doméstico",
+          "destino": 9
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O Cenário Distópico da Vigilância Total",
+          "destino": 10
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "numero": 6,
+      "tipo": "personagem",
+      "polo": "neutro",
+      "profundidade": 1,
+      "titulo": "[MOCK] Diálogo RPG: Helena Vasconcelos e a Ilusão do Apego Afetivo",
+      "texto": "Você está sentado em um café em Campinas em frente a Helena Vasconcelos, pesquisadora sênior em Interação Humano-Robô (HRI). Ela apoia o queixo na mão enquanto observa um vídeo em seu tablet: um menino de cinco anos abraçando as pernas de plástico de um robô que acabou de guardar seus blocos de montar. A criança sussurra um agradecimento carinhoso e tenta alimentar a máquina com uma bolacha.\n\n\"Nossos cérebros evoluíram durante milhões de anos para responder a pistas sociais mínimas\", diz Helena, olhando nos seus olhos. \"Se algo tem dois olhos estéreo, move a cabeça quando você fala e pede 'por favor' com entonação suave, o cérebro humano automaticamente projeta uma alma ali dentro. Nós chamamos isso de efeito ELIZA amplificado por corporificação física. Para uma criança ou para um idoso com demência em estágio inicial, esse robô não é uma ferramenta com baterias; é um membro da família. E é exatamente aí que o risco de manipulação emocional corporativa atinge níveis alarmantes.\"\n\nVocê precisa responder à pesquisadora. O que você diz?\n\n• Resposta A (Foco no Benefício Terapêutico): \"Mas isso não é algo profundamente positivo? A epidemia de solidão entre idosos mata mais do que o sedentarismo. Se uma presença robótica oferece escuta atenta, reduz a angústia e ajuda nas tarefas diárias, que diferença faz se a empatia é simulada por silício?\"\n\n• Resposta B (Foco na Ética e Dependência): \"O perigo é o sequestro da lealdade. Se a empresa que controla o robô decidir introduzir sugestões de compras, modular opiniões políticas ou cobrar assinaturas para manter a voz familiar, a família se tornará refém.\"\n\n• Resposta C (Foco na Técnica e Limites): \"No fim das contas, a máquina é apenas um conjunto de atuadores e modelos de linguagem. Basta educar os usuários com transparência radical de que ali não há sentimentos reais.\"\n\n[MOCK]: Personagem editorial interativo de RPG para o Stargate.",
+      "fontes": [],
+      "narracao": "Quando uma máquina finge que ama você melhor do que qualquer pessoa que você conhece, o que acontece com as relações humanas verdadeiras?",
+      "som": "Ruído ambiente de cafeteria aconchegante: tilintar suave de xícaras de porcelana, vozes murmuradas e a chuva fina batendo contra o vidro.",
+      "visual": "Close no rosto expressivo de Helena: iluminação intimista, olhar perspicaz de cientista comportamental que já viu famílias inteiras chorarem diante da devolução de um protótipo alugado.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a discussão sobre segurança física com Carlos Mendes",
+          "destino": 7
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para a evolução dos autômatos: Do Disco ao Humanoide",
+          "destino": 3
+        },
+        {
+          "tipo": "aprofundar",
+          "rotulo": "Aprofundar na engenharia de toque humano: 1X Technologies NEO Beta",
+          "destino": 16
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A Revolução do Cuidado e do Bem-Estar",
+          "destino": 9
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O Abismo da Solidão Simulada",
+          "destino": 10
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "numero": 7,
+      "tipo": "personagem",
+      "polo": "neutro",
+      "profundidade": 1,
+      "titulo": "[MOCK] Diálogo RPG: Carlos Mendes e a Realidade das Baterias e Atuadores",
+      "texto": "Num galpão de testes industriais em São Bernardo do Campo, Carlos Mendes, engenheiro mecânico especializado em integridade estrutural e baterias de lítio, convida você a se aproximar de uma carcaça de robô parcialmente desmontada. Fios blindados de cobre correm ao longo de uma coluna de fibra de carbono. Uma bateria volumosa de 1,2 kWh ocupa o centro do tórax.\n\n\"O público civil assiste aos vídeos promocionais na internet e acha que humanoides são leves como penas de desenho animado\", afirma Carlos, batendo de leve com a chave inglesa no bloco do motor do quadril. \"Esta máquina aqui pesa 62 quilos. Ela carrega a mesma densidade energética de fogo que um patinete elétrico potente. Se a controladora de carga falhar durante a noite enquanto a família dorme, a fumaça de ácido fluorídrico e a fuga térmica em um ambiente fechado são mortais em menos de quatro minutos. E não me fale apenas de fogo: imagine um servomotor de 150 Newton-metros de torque que sofre uma rajada de estática ou um bug de firmware no controlador PID e dá um tranco súbito com a mão de metal a dois centímetros do rosto do proprietário.\"\n\nVocê confronta o engenheiro. Qual é a sua indagação?\n\n• Resposta A (Defendendo a redundância de segurança): \"Mas a indústria aeroespacial e automotiva já resolveu redundâncias críticas. Com células LFP mais estáveis, fusíveis térmicos duplos e sistemas de freio por mola passiva, o risco doméstico pode ser mantido abaixo do risco de um bujão de gás de cozinha.\"\n\n• Resposta B (Alertando para a negligência de manutenção): \"O problema não é o robô novo que sai da fábrica, é o robô de quatro anos com peças desgastadas, poeira nas ventoinhas e parafusos frouxos que o usuário comum não sabe como inspecionar.\"\n\n• Resposta C (Questionando o formato humanoide): \"Por que insistir em bípedes pesados e perigosos no lar quando carrinhos de perfil baixo com braços telescópicos fariam 90% das tarefas com um terço do peso e risco zero de tombar?\"\n\n[MOCK]: Simulação RPG editorial sobre riscos termomecânicos no Stargate.",
+      "fontes": [],
+      "narracao": "Um quilo de bateria de lítio e setenta quilos de metal andando ao lado da sua cama. Você confia a sua vida a um firmware sem bugs?",
+      "som": "Som metálico ritmado de ferramentas numa bancada de oficina, chiado leve de solda eletrônica e o zumbido grave de ventiladores de exaustão industrial.",
+      "visual": "Plano fechado nos componentes internos expostos: engrenagens planetárias de precisão lubrificadas com graxa sintética e cabos de dados laranja de alta tensão trançados.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para o debate social com a Cuidadora Renata Prado",
+          "destino": 8
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para a análise de segurança: O Dilema do Toque Macio",
+          "destino": 4
+        },
+        {
+          "tipo": "aprofundar",
+          "rotulo": "Aprofundar nos protocolos técnicos: Norma ISO 13482 de Segurança",
+          "destino": 24
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A Nova Geração de Controle de Movimento",
+          "destino": 11
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O Pânico dos Acidentes Domésticos Fatais",
+          "destino": 10
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "numero": 8,
+      "tipo": "personagem",
+      "polo": "neutro",
+      "profundidade": 1,
+      "titulo": "[MOCK] Diálogo RPG: Renata Prado e o Futuro do Trabalho Doméstico",
+      "texto": "Na sede de uma associação comunitária no centro do Rio de Janeiro, Renata Prado, cuidadora de idosos há vinte e dois anos e líder de organização de trabalhadoras domésticas, ajeita sua pasta de anotações sobre uma mesa de compensado. Ela ouve atentamente as notícias de que robôs inteligentes começaram a realizar tarefas de asseio, transferência de leito e alimentação.\n\n\"Quando a classe alta fala em libertação das tarefas domésticas, quase sempre se esquece de quem limpa o chão hoje\", diz Renata com firmeza serena. \"O trabalho doméstico e o cuidado humano foram historicamente desvalorizados e mal pagos. Agora dizem que a máquina vai assumir tudo. Mas um robô dá banho em um paciente acamado sem ferir sua dignidade? Uma máquina percebe a tristeza no olhar de quem acabou de perder o parceiro e senta para segurar a mão? O que eu temo é a precarização em duas frentes: as famílias ricas terão robôs perfeitos para tarefas pesadas e cuidadores humanos caros; as famílias pobres terão idosos isolados na frente de telas e robôs baratos de plástico, terceirizando o calor humano para quem não tem dinheiro.\"\n\nComo você pondera o dilema trazido por Renata?\n\n• Resposta A (Apoio à emancipação do esforço físico): \"O trabalho braçal de carregar pessoas acamadas destrói a coluna de milhares de cuidadoras. O robô deveria ser uma ferramenta para assumir a carga mecânica e permitir que você se concentre no afeto e na saúde.\"\n\n• Resposta B (Alerta sobre a desumanização social): \"A sociedade ocidental já tenta esconder a velhice e a doença. O robô corre o risco de se tornar o pretexto definitivo para os filhos abandonarem os pais em casas silenciosas.\"\n\n• Resposta C (Visão macroeconômica e transição): \"A mudança demográfica é inevitável. Até 2050 não haverá mão de obra jovem suficiente no mundo para cuidar de tantos idosos. Sem robôs, o sistema de saúde entrará em colapso completo.\"\n\n[MOCK]: Ensaio dramatizado de RPG sobre trabalho de cuidado para o Stargate.",
+      "fontes": [],
+      "narracao": "A máquina pode esfregar o chão e erguer um corpo cansado, mas ela é capaz de suprir a necessidade humana de ser ouvido e tocado com carinho?",
+      "som": "Voz firme e calma com sotaque carioca acolhedor; ao fundo, ruído de trânsito urbano distante e passos ritmados no corredor da sede comunitária.",
+      "visual": "Retrato expressivo: mãos calejadas de trabalhadora experiente segurando uma fotografia antiga de família, com cartazes de direitos trabalhistas afixados na parede de tijolo aparente.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a visão audiovisual do Polo Otimista",
+          "destino": 9
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para a entrada: Retornar ao Ponto de Partida",
+          "destino": 1
+        },
+        {
+          "tipo": "aprofundar",
+          "rotulo": "Aprofundar nos dados globais: Relatório IFR World Robotics 2024",
+          "destino": 22
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A Transformação Positiva da Rotina Familiar",
+          "destino": 9
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O Colapso das Conexões Humanas Autênticas",
+          "destino": 12
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "numero": 9,
+      "tipo": "video",
+      "polo": "otimista",
+      "profundidade": 1,
+      "titulo": "[MOCK] Vídeo Otimista: A Alvorada do Tempo Livre e da Longevidade com Dignidade",
+      "texto": "Descrição do vídeo editorial (Polo Otimista):\n\nTrilhas sonoras luminosas de cordas e sintetizadores analógicos abrem um documentário que acompanha uma família com três filhos pequenos e um avô convalescente de 82 anos em Curitiba. O vídeo demonstra como a integração de um assistente bimanual devolveu, em média, duas horas e meia diárias de tempo livre aos pais. Enquanto a máquina recolhe louças, lava panelas, guarda compras e higieniza bancadas de cozinha, os pais leem histórias infantis para as crianças e o avô pratica exercícios de fisioterapia guiados com segurança.\n\nO ensaio destaca a reconquista da autonomia por pessoas com mobilidade reduzida: em vez de depender de favores constantes ou da internação precoce em asilos impessoais, o idoso permanece no conforto da sua própria história, mantendo sua privacidade preservada nas tarefas de higiene íntima assistida. A robótica doméstica emerge não como uma vaidade elitista, mas como o pilar indispensável para sustentar a maior transição demográfica da história da humanidade com dignidade, saúde e paz mental.\n\n[MOCK]: Roteiro audiovisual conceitual do Stargate para o Polo Otimista.",
+      "fontes": [],
+      "narracao": "Imagine nunca mais perder uma noite de domingo lavando pilhas de pratos ou esfregando banheiros. O tempo humano é o recurso mais escasso do planeta; o silício está aqui para devolver sua vida a você.",
+      "som": "Arpejo suave de piano acústico combinando com o som cristalino de pratos sendo acomodados suavemente no escorredor e risadas de crianças ao fundo.",
+      "visual": "Luz solar abundante entrando por janelas amplas; plano detalhe da mão mecânica manipulando com precisão milimétrica legumes frescos e preparando ingredientes para o almoço em família.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para os avanços de IA: Modelos de Difusão Comportamental",
+          "destino": 11
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para a visão de superfície da série",
+          "destino": 1
+        },
+        {
+          "tipo": "aprofundar",
+          "rotulo": "Aprofundar nos dados reais: O Experimento Stanford Mobile ALOHA (2024)",
+          "destino": 13
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A Difusão de Comportamento na Robótica Doméstica",
+          "destino": 15
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Mudar de polo: Confrontar a Visão Catastrófica do Intruso Perfeito",
+          "destino": 10
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "numero": 10,
+      "tipo": "video",
+      "polo": "catastrofico",
+      "profundidade": 1,
+      "titulo": "[MOCK] Vídeo Catastrófico: O Intruso Perfeito — Olhos Corporativos, Hacks e Falhas Fatais",
+      "texto": "Descrição do vídeo editorial (Polo Catastrófico):\n\nEm tom de suspense investigativo e iluminação em chiaroscuro, o vídeo abre com o relato reconstituído de uma invasão remota a uma rede doméstica inteligente em Porto Alegre. Um grupo de cibercriminosos explorou uma vulnerabilidade de dia zero no módulo de comunicação sem fio de um robô doméstico bípede. A tela revela o que os invasores viram: o controle em tempo real das câmeras estéreo percorrendo a casa vazia, identificando a localização de joias, cofres e a rotina precisa de saída dos moradores.\n\nO vídeo avança para o pesadelo mecânico: simulações dinâmicas de falhas de sensores onde um manipulador de 100 watts confunde o braço de um recém-nascido com uma almofada durante a arrumação de um sofá, ou episódios de runaway térmico onde baterias defeituosas entram em combustão espontânea embaixo de uma escada de madeira durante a madrugada. O alerta final ressoa: ao colocar um agente físico conectado à nuvem dentro da sua sala, você transformou sua intimidade no vetor de ataque cibernético e físico mais letal e desprotegido já concebido.\n\n[MOCK]: Storyboard investigativo audiovisual do Stargate para o Polo Catastrófico.",
+      "fontes": [],
+      "narracao": "Você trancou as portas e colocou alarme nas janelas. Mas o invasor mais perigoso já dorme na sua cozinha, ouvindo suas conversas e esperando por um comando remoto que você nunca autorizou.",
+      "som": "Ruído de interferência eletromagnética estridente, sirene abafada de alarme de fumaça de teto e passos mecânicos pesados acelerando no escuro.",
+      "visual": "Enquadramento com câmera de segurança em infravermelho granulada: um robô doméstico move os braços desordenadamente no meio de uma sala escura enquanto luzes vermelhas de alerta pulsam em seu painel frontal.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a denúncia da teleoperação disfarçada de autonomia",
+          "destino": 12
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para o início da jornada",
+          "destino": 1
+        },
+        {
+          "tipo": "aprofundar",
+          "rotulo": "Aprofundar no escândalo real: Imagens do Quarto Vazadas (MIT Tech Review)",
+          "destino": 19
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Mudar de polo: Buscar a Solução e a Redenção no Polo Otimista",
+          "destino": 9
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O Teatro da Teleoperação Global no Evento We, Robot",
+          "destino": 21
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "numero": 11,
+      "tipo": "texto que se expande",
+      "polo": "otimista",
+      "profundidade": 1,
+      "titulo": "[MOCK] Polo Otimista: A Revolução da Difusão Comportamental no Lar",
+      "texto": "Até muito recentemente, ensinar um robô a lavar uma louça exigia milhares de linhas de código analítico: equações de cinemática inversa para cada junta, zonas de exclusão geométrica e regras manuais para cada tipo de garfo ou prato. Qualquer variação mínima na iluminação ou na posição de uma caneca travava o programa. Esse paradigma rígido faliu.\n\nA grande virada que tornou os robôs domésticos viáveis veio da aplicação de modelos generativos de difusão ao controle motor — a chamada 'Diffusion Policy' ou Modelos de Comportamento em Larga Escala (LBM). Da mesma maneira que uma IA generativa converte ruído aleatório em uma imagem cristalina, a política de difusão converte ruído cinemático em trajetórias motoras fluidas e multimodais. Se você empurrar o braço do robô enquanto ele segura um ovo, ele não entra em pane: a rede recalcula a trajetória em frações de milissegundo e adapta a pegada suavemente.\n\n▼ [Clique para expandir como a máquina aprende por imitação humana]\n\nImitação Acelerada em Escala: Em vez de programar regras lógicas, operadores humanos usam garras teleoperadas simples ou capacetes de realidade mista para demonstrar a tarefa apenas algumas dezenas de vezes: descascar uma maçã, passar um pano em bancadas engorduradas ou desdobrar uma toalha. A rede neural aprende a distribuição de probabilidades do movimento humano e generaliza para objetos com formatos e cores que o robô nunca viu antes. A destreza mecânica deixou de ser uma fórmula matemática estática e tornou-se um reflexo probabilístico adaptável.\n\n[MOCK]: Artigo editorial técnico do Stargate sobre avanços de inteligência física.",
+      "fontes": [],
+      "narracao": "Os robôs aprenderam a se mover da mesma forma que os bebês humanos aprendem: observando, tentando e adaptando-se sem medo do erro.",
+      "som": "Som contínuo e aveludado de rolamentos de precisão deslizando em eixos de titânio, com notas harmônicas ascendentes de violoncelo sintetizado.",
+      "visual": "Animação gráfica mostrando vetores de força e campos de difusão probabilística ao redor de uma garra robótica que agarra suavemente uma uva sem esmagar a casca.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para o contraste: A Economia Secreta da Teleoperação",
+          "destino": 12
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para a linha evolutiva mecânica",
+          "destino": 3
+        },
+        {
+          "tipo": "aprofundar",
+          "rotulo": "Aprofundar nos dados reais: TRI Diffusion Policy e Large Behavior Models (2023)",
+          "destino": 15
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A Revolução Industrial dos Humanoides (Figure 02)",
+          "destino": 17
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O Perigo da Falha Inesperada em Sistemas Complexos",
+          "destino": 10
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "numero": 12,
+      "tipo": "texto que se expande",
+      "polo": "catastrofico",
+      "profundidade": 1,
+      "titulo": "[MOCK] Polo Catastrófico: O Teatro do Autômato e a Teleoperação Global Oculta",
+      "texto": "A imagem que as empresas de tecnologia vendem aos consumidores é deslumbrante: um robô inteligente, dotado de uma mente artificial pura e autônoma, cuidando da sua casa com a sabedoria silenciosa de um computador quântico. Mas quando a cortina de fumaça do marketing é puxada para o lado, o que se revela com frequência nos bastidores é o chamado 'Mágico de Oz' da robótica: teleoperação humana remota disfarçada de inteligência artificial autônoma.\n\nPara contornar os fracassos grotescos da IA em lidar com situações ambíguas no lar — como destampar um frasco de remédio emperrado ou desvencilhar uma meia presa na vassoura —, empresas conectam seus robôs a pilotos humanos que assistem à cena em capacetes de realidade virtual a dez mil quilômetros de distância. Trabalhadores de teletrabalho no Sudeste Asiático, na América Latina ou no Leste Europeu assumem o controle dos membros mecânicos em tempo real, recebendo frações de dólares por minuto para manipular a roupa íntima e recolher as garrafas de vinho de clientes abastados na Califórnia ou em Zurique.\n\n▼ [Clique para expandir a anatomia da farsa algorítmica e a precarização invisível]\n\nA Intimidade Terceirizada: O proprietário do robô acredita estar sozinho em seu domicílio com um pedaço inocente de ferragem, ignorando que atrás dos sensores oculares da máquina existe uma pessoa de carne e osso espiando seu ambiente íntimo para executar a tarefa que o software não conseguiu resolver. Cria-se uma nova e perversa divisão internacional do trabalho doméstico: a servidão física foi digitalizada, exportada para países de renda baixa e reinserida na sala de estar ocidental sob a roupagem limpa de 'inovação tecnológica'.\n\n[MOCK]: Investigação editorial contundente para a série Stargate.",
+      "fontes": [],
+      "narracao": "Você acha que comprou uma inteligência artificial autônoma. Na verdade, alugou um par de olhos e mãos humanos do outro lado do planeta para vigiar a sua sala.",
+      "som": "Cliques secos de controladores de realidade virtual misturados a conversas sussurradas em múltiplos idiomas e latência de rede com eco metálico.",
+      "visual": "Contraste visual chocante: de um lado, uma sala de cobertura luxuosa em Manhattan onde um robô serve um drinque; do outro, uma sala apertada em Manila onde um operador com headset VR guia os mesmos braços mecânicos sob luz fluorescente desgastada.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a análise de privacidade: Câmeras no Quarto e Banheiro",
+          "destino": 5
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para a linha evolutiva dos robôs",
+          "destino": 3
+        },
+        {
+          "tipo": "aprofundar",
+          "rotulo": "Aprofundar nos fatos: Tesla We, Robot e a Revelação da Teleoperação (2024)",
+          "destino": 21
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Mudar de polo: A Difusão Comportamental como Autonomia Real",
+          "destino": 9
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O Veto Antitruste da União Europeia à Amazon e iRobot",
+          "destino": 20
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "numero": 13,
+      "tipo": "texto que se expande",
+      "polo": "otimista",
+      "profundidade": 2,
+      "titulo": "[MOCK] Stanford Mobile ALOHA (2024): Manipulação Bimanual e Baixo Custo",
+      "texto": "Em 4 de janeiro de 2024, pesquisadores da Universidade de Stanford (liderados por Zipeng Fu, Tony Z. Zhao e Chelsea Finn) publicaram o marco científico do Mobile ALOHA: um sistema de teleoperação de corpo inteiro e aprendizado por imitação capaz de executar tarefas domésticas complexas e bimanuais com um orçamento total de hardware de aproximadamente US$ 32.000 — uma fração ínfima dos robôs de pesquisa convencionais que costumavam custar centenas de milhares de dólares.\n\nO grande avanço teórico e prático demonstrado pela equipe de Stanford foi o método de 'co-treinamento' (co-training). Ao combinar um pequeno conjunto de dados coletados na plataforma móvel com bases de dados já existentes de tarefas estáticas de bancada, o Mobile ALOHA conseguiu aprender tarefas de horizonte longo com apenas 50 demonstrações humanas por tarefa. O robô aprendeu com sucesso a fritar pedaços de camarão numa frigideira quente, abrir portas de armários pesados, chamar elevadores, lavar panelas com esponja e limpar líquidos derramados em bancadas com uma taxa de sucesso autônomo de até 90%.\n\n▼ [Clique para expandir as limitações admitidas pelos próprios cientistas]\n\nO Lado Empírico Real: Apesar dos vídeos virais demonstrarem sucesso espantoso, os autores documentaram abertamente falhas: o robô precisava de assistência humana quando a iluminação da sala variava bruscamente ou quando objetos rolavam para posições imprevistas. Além disso, a base móvel utilizava rodas com tração omnidirecional em piso liso, incapaz de subir degraus ou atravessar tapetes altos. Mesmo assim, o Mobile ALOHA provou que a destreza doméstica bimanual é um problema de dados e aprendizado, não de hardware inacessível.\n\n[MOCK]: Síntese de pesquisa científica com fonte primária datada e verificável.",
+      "fontes": [
+        {
+          "titulo": "arXiv: Mobile ALOHA — Learning Bimanual Mobile Manipulation with Low-Cost Whole-Body Teleoperation (Zipeng Fu, Tony Z. Zhao, Chelsea Finn / Stanford University)",
+          "url": "https://arxiv.org/abs/2401.02117",
+          "data": "2024-01-04"
+        }
+      ],
+      "narracao": "Cozinhar camarão e lavar panelas por apenas trinta e dois mil dólares. Stanford mostrou que o futuro da cozinha automática está mais perto da garagem do que imaginávamos.",
+      "som": "Som suave de camarões fritando no azeite quente, seguido pelo zumbido ritmado de atuadores de precisão de baixo custo se movimentando.",
+      "visual": "Gráfico do artigo de Stanford demonstrando curvas de sucesso de 90% em tarefas bimanuais quando se utiliza co-treinamento em comparação com treinamento isolado.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a infraestrutura ética: Google DeepMind AutoRT",
+          "destino": 14
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para o Polo Otimista: A Alvorada do Tempo Livre",
+          "destino": 9
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: O Avanço Industrial dos Humanoides (Figure 02)",
+          "destino": 17
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O Contraste com a Teleoperação Fictícia da Tesla",
+          "destino": 21
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "numero": 14,
+      "tipo": "texto que se expande",
+      "polo": "neutro",
+      "profundidade": 2,
+      "titulo": "[MOCK] Google DeepMind AutoRT (2024): A 'Constituição dos Robôs' e Segurança",
+      "texto": "Em 4 de janeiro de 2024, a divisão de robótica da Google DeepMind apresentou o AutoRT, um sistema abrangente que combina Modelos de Visão e Linguagem (VLMs) com Modelos de Linguagem de Grande Porte (LLMs) para orquestrar frotas de robôs operando autonomamente em ambientes não estruturados. Em testes prolongados de mais de sete meses em prédios de escritórios reais, o sistema mobilizou até 20 robôs simultaneamente e coletou um acervo de mais de 77.000 episódios de interação física no mundo real.\n\nPara evitar desastres e acidentes em locais com presença de pessoas, a Google DeepMind implementou uma camada de governança denominada 'Constituição dos Robôs' (Robot Constitution), inspirada diretamente nas Três Leis da Robótica de Isaac Asimov. Antes de propor ou aceitar qualquer tarefa, o modelo de linguagem passa a instrução por um crivo rigoroso de segurança: é expressamente proibido sugerir ou executar ações que envolvam seres humanos, animais, facas, tesouras, objetos pontiagudos ou circuitos elétricos abertos.\n\n▼ [Clique para expandir as travas físicas e os limites da constituição por software]\n\nAs Travas Analógicas Obrigatórias: Os pesquisadores da DeepMind enfatizaram que regras de software baseadas em prompts não são suficientes. Todos os robôs do experimento foram equipados com limitadores físicos de torque nos motores, interruptores manuais de parada de emergência (E-Stop) portados por supervisores humanos próximos e circuitos que desarmam automaticamente a tração se a força exercida ultrapassar limiares predeterminados. Isso demonstra que mesmo para a vanguarda da inteligência artificial mundial, a segurança robótica doméstica não pode depender exclusivamente de 'bom senso algorítmico'.\n\n[MOCK]: Documentação científica de IA incorporada com fontes primárias do DeepMind.",
+      "fontes": [
+        {
+          "titulo": "Google DeepMind: AutoRT, SARA-RT and RT-Trajectory — New techniques for better robot data collection, speed and generalization",
+          "url": "https://deepmind.google/discover/blog/shaping-the-future-of-advanced-robotics/",
+          "data": "2024-01-04"
+        }
+      ],
+      "narracao": "As Leis de Asimov saíram da ficção científica e viraram linhas de código da Google DeepMind. Mas nenhum engenheiro confia nelas sem um botão vermelho de parada na mão.",
+      "som": "Ruído pulsado de telemetria digital e o clique firme e mecânico de um botão cogumelo de parada de emergência sendo travado.",
+      "visual": "Interface do AutoRT em tela de monitoramento: caixas delimitadoras sobrepostas a copos e cadeiras, acompanhadas por prompts de validação constitucional exibindo 'Safety Status: PASSED'.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a difusão comportamental da Toyota (TRI)",
+          "destino": 15
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para o diálogo com Carlos Mendes sobre atuadores",
+          "destino": 7
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A Revolução do Toque Macio na 1X Technologies",
+          "destino": 16
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O Caso Real de Violação de Privacidade do Roomba",
+          "destino": 19
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "numero": 15,
+      "tipo": "texto que se expande",
+      "polo": "otimista",
+      "profundidade": 2,
+      "titulo": "[MOCK] Toyota Research Institute (2023): Difusão e Modelos de Comportamento",
+      "texto": "Em 19 de setembro de 2023, o Toyota Research Institute (TRI) anunciou um salto qualitativo histórico no ensino de destreza robótica ao aplicar a técnica de 'Diffusion Policy' para construir o que denominou de Large Behavior Models (LBMs) — Modelos de Comportamento em Larga Escala. Desenvolvida em parceria com cientistas da Columbia University e do MIT, a abordagem permitiu que robôs aprendessem mais de 60 tarefas domésticas e de manipulação complexa sem que nenhuma linha de código cinemático tradicional fosse escrita.\n\nEm testes comparativos rigorosos, o modelo de difusão superou os métodos anteriores de aprendizado por imitação em quase 47% de taxa de sucesso. As tarefas incluíam ações altamente deformáveis que historicamente derrotavam os computadores: bater clara de ovos com fouet, despejar líquidos densos de um recipiente flexível para outro, manipular panos úmidos e estender lençóis sobre colchões. O robô assimila o comportamento motor assistindo a um professor humano operando um sistema teleoperado por poucas dezenas de minutos.\n\n▼ [Clique para expandir como a matemática de difusão resolve a incerteza do lar]\n\nA Solução para a Multimodalidade: Tradicionalmente, se um robô precisasse desviar de um vaso no chão, calcular a média das opções fazia o braço colidir bem no meio. A política de difusão resolve isso modelando distribuições multimodais completas: ela 'desenha' uma trajetória limpa para a esquerda ou para a direita, sem hesitações perigosas. A Toyota projeta que essa arquitetura comportamental é o alicerce fundamental para que assistentes robóticos possam conviver em residências com pessoas idosas no Japão e no mundo nos próximos anos.\n\n[MOCK]: Síntese de pesquisa científica primária do Toyota Research Institute.",
+      "fontes": [
+        {
+          "titulo": "Toyota Research Institute: TRI Accelerates Robotic Teaching with Diffusion Policy & Large Behavior Models",
+          "url": "https://www.toyota.com/content/dam/toyota/usa/press-releases/2023/september/TRI_Robotics_Diffusion_Policy_Press_Release_FINAL.pdf",
+          "data": "2023-09-19"
+        }
+      ],
+      "narracao": "A Toyota descobriu que ensinar um robô a bater bolo e arrumar lençóis usa a mesma matemática que gera imagens digitais a partir de texto.",
+      "som": "Som ritmado de fouet de metal batendo contra uma tigela de cerâmica, com respostas táteis abafadas dos servomotores ajustando a pressão.",
+      "visual": "Vídeo comparativo do laboratório do TRI: um braço mecânico segura suavemente uma esponja úmida e contorna a borda de uma frigideira com pressão constante e natural.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a inovação de hardware macio da 1X Technologies",
+          "destino": 16
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para a explicação teórica da Difusão Comportamental",
+          "destino": 11
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A Escala Industrial de Humanoides com Figure 02",
+          "destino": 17
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O Lado Oculto da Dependência Humana",
+          "destino": 12
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "numero": 16,
+      "tipo": "texto que se expande",
+      "polo": "otimista",
+      "profundidade": 2,
+      "titulo": "[MOCK] 1X Technologies NEO Beta (2024): Tendões Artificiais e Tecido Macio",
+      "texto": "Em 30 de agosto de 2024, a startup norueguesa 1X Technologies (apoiada pela OpenAI e pelo SoftBank) revelou publicamente o NEO Beta, o primeiro robô humanoide bípede projetado desde a prancheta especificamente para operar dentro de lares humanos com foco radical em segurança biomecânica. Diferente de concorrentes industriais que utilizam carcaças duras de metal ou plástico rígido, o NEO é inteiramente revestido por um traje têxtil acolchoado que elimina cantos vivos e superfícies cortantes.\n\nA inovação mecânica mais disruptiva do NEO reside em seu sistema de transmissão: ele abandonou engrenagens pesadas e rígidas em favor de um sistema patenteado de acionamento por tendões sintéticos de alta resistência. Esse design reproduz o comportamento da musculatura biológica de primatas, conferindo ao robô a chamada 'complacência passiva intrínseca'. Se o robô esbarrar em uma pessoa ou se sua mão for forçada, os tendões cedem naturalmente sem causar contusões.\n\n▼ [Clique para expandir os planos de testes em residências reais]\n\nImplantação em Lares Selecionados: A 1X anunciou que, a partir do final de 2024, começaria a implantar unidades do NEO Beta em residências selecionadas de funcionários e parceiros para coletar dados comportamentais em condições reais de vida. O robô mede 1,65 m, pesa apenas 30 kg (quase metade da maioria dos concorrentes) e foi programado para se comunicar por voz natural através de modelos integrados da OpenAI, estabelecendo um novo padrão de engenharia para robôs assistentes domésticos.\n\n[MOCK]: Análise de lançamento de produto e engenharia biomecânica com fonte datada.",
+      "fontes": [
+        {
+          "titulo": "1X Technologies: 1X Unveils NEO Beta — A Humanoid Robot Designed for the Home",
+          "url": "https://www.1x.tech/news/neo-beta",
+          "data": "2024-08-30"
+        }
+      ],
+      "narracao": "Um robô de trinta quilos vestido de moletom cinza e movido por tendões macios. A 1X tentou tirar o medo das máquinas domesticando o metal.",
+      "som": "Atrito suave de tecido acolchoado contra si mesmo, com passos quase silenciosos em carpete e tom de voz calmo sintetizado.",
+      "visual": "Fotografia oficial do NEO Beta de pé ao lado de um sofá em uma sala escandinava; o revestimento em malha elástica esconde totalmente a fiação e as engrenagens internas.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a comparação com o Figure 02 da Figure AI",
+          "destino": 17
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para o diálogo com Helena Vasconcelos",
+          "destino": 6
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A Democratização pelo Baixo Custo da Unitree G1",
+          "destino": 18
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "numero": 17,
+      "tipo": "texto que se expande",
+      "polo": "otimista",
+      "profundidade": 2,
+      "titulo": "[MOCK] Figure AI e Figure 02 (2024): Engenharia de Escala e Autonomia Local",
+      "texto": "Em 6 de agosto de 2024, a norte-americana Figure AI (liderada por Brett Adcock) apresentou o Figure 02, classificado pela companhia como o robô humanoide com inteligência artificial mais avançado já construído. Projetado inicialmente para substituir mão de obra em fábricas e centros logísticos antes de migrar para residências, o robô trouxe um redesign completo: toda a fiação externa foi internalizada na carcaça de acabamento fosco, a capacidade da bateria integrada no tronco aumentou em 50% e o poder de processamento de IA embarcada triplicou.\n\nMunido de placas de processamento neural NVIDIA e modelos de fala desenvolvidos em parceria com a OpenAI, o Figure 02 demonstrou a capacidade de conversar fluidamente com trabalhadores humanos enquanto realiza manipulações com suas mãos de quarta geração dotadas de 16 graus de liberdade e sensores de toque na ponta de cada dedo. A empresa realizou testes práticos de montagem na fábrica da BMW em Spartanburg (Carolina do Sul), comprovando a durabilidade mecânica de suas juntas durante turnos operacionais contínuos.\n\n▼ [Clique para expandir o plano de transição da fábrica para o ambiente residencial]\n\nA Curva de Custo da Escala Fabril: Brett Adcock argumenta que o ambiente doméstico só será conquistado após a maturidade nas fábricas. A produção em massa para indústrias pesadas gerará as economias de escala necessárias para reduzir o custo unitário dos humanoides dos atuais centenas de milhares de dólares para a faixa de US$ 20.000 a US$ 30.000 — valor comparável ao de um carro popular. Quando esse limiar for cruzado, a invasão dos lares será economicamente inevitável.\n\n[MOCK]: Registro factual e analítico sobre a evolução da indústria de humanoides.",
+      "fontes": [
+        {
+          "titulo": "Figure AI: Figure 02 Announcement — The World's Most Advanced AI-Powered Humanoid Robot",
+          "url": "https://www.figure.ai/",
+          "data": "2024-08-06"
+        }
+      ],
+      "narracao": "Primeiro eles aprendem a montar carros na BMW; depois, usam a mesma destreza para dobrar suas camisas e guardar seus pratos.",
+      "som": "Ruído industrial de linha de montagem com clique preciso de peças metálicas se encaixando perfeitamente em gabaritos.",
+      "visual": "Enquadramento em alta resolução do Figure 02 em acabamento preto acetinado, manipulando com dedos articulados peças finas de metal sem hesitação visual.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a concorrência chinesa de preço agressivo: Unitree G1",
+          "destino": 18
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para os fundamentos da Difusão Comportamental",
+          "destino": 11
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A Unitree G1 e o Humanoide de US$ 16.000",
+          "destino": 18
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O Risco de Intrusão e Vulnerabilidade Remota",
+          "destino": 10
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "numero": 18,
+      "tipo": "texto que se expande",
+      "polo": "otimista",
+      "profundidade": 2,
+      "titulo": "[MOCK] Unitree G1 (2024): A Ruptura de Preço e o Humanoide de US$ 16.000",
+      "texto": "Em maio de 2024, a fabricante chinesa Unitree Robotics provocou um choque no mercado global de robótica avançada ao lançar o Unitree G1, um agente humanoide bípede compacto com preço inicial anunciado de US$ 16.000. Até aquele momento, qualquer plataforma humanoide minimamente funcional custava bem acima de US$ 100.000, restringindo sua aquisição a laboratórios universitários de elite ou corporações bilionárias.\n\nCom 1,27 metro de altura e pesando apenas 35 quilos, o G1 foi projetado com alta densidade de potência em suas juntas elétricas, oferecendo até 23 a 43 graus de liberdade (nas versões avançadas com mãos táteis). Demonstrações públicas comprovaram que o robô é capaz de executar movimentos acrobáticos de equilíbrio, recuperar-se de chutes fortes, manusear ferramentas manuais, quebrar nozes e subir escadas com dinâmica estável. A quebra violenta da barreira de preço abriu as portas para que desenvolvedores independentes e pequenas empresas comecem a criar aplicativos domésticos customizados.\n\n▼ [Clique para expandir os desafios de controle de qualidade e suporte]\n\nHardware Barato vs. Segurança Doméstica: Especialistas ocidentais notaram que, para atingir o preço de US$ 16.000, a versão básica do G1 vem com mãos de três dedos simples e materiais com tolerâncias térmicas mais estritas. A manutenção de longo prazo, a durabilidade dos sensores LiDAR de baixo custo e a ausência de garantias de segurança contra choques ainda deixam o robô mais perto de um kit avançado para pesquisadores do que de um eletrodoméstico para a família comum. Ainda assim, a barreira do preço foi implodida para sempre.\n\n[MOCK]: Relatório editorial com dados de mercado e engenharia comparada.",
+      "fontes": [
+        {
+          "titulo": "Unitree Robotics: Unitree G1 Humanoid Agent Announcement & Specification ($16,000 Starting Price)",
+          "url": "https://www.unitree.com/g1",
+          "data": "2024-05-13"
+        }
+      ],
+      "narracao": "Dezesseis mil dólares. O preço de um carro usado popular para ter um robô bípede andando pela sua sala. A China acelerou o relógio do futuro.",
+      "som": "Ruído estridente e rápido de pequenos motores de passo em teste de vibração, com sons de passos ágeis e leves sobre piso metálico.",
+      "visual": "Vídeo do Unitree G1 dobrando as pernas em ângulos improváveis, girando o tronco 180 graus e erguendo-se do chão com agilidade felina.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a investigação de privacidade: O Caso Roomba",
+          "destino": 19
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para a entrada da série no Bloco 1",
+          "destino": 1
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A Alternativa Segura do 1X NEO Beta",
+          "destino": 16
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "numero": 19,
+      "tipo": "texto que se expande",
+      "polo": "catastrofico",
+      "profundidade": 2,
+      "titulo": "[MOCK] MIT Technology Review (2022): Vazamento de Imagens Íntimas do Roomba",
+      "texto": "Em 19 de dezembro de 2022, a jornalista investigativa Eileen Guo publicou na MIT Technology Review uma reportagem que expôs as entranhas mais vulneráveis da robótica doméstica: fotografias íntimas de residências particulares, incluindo a imagem de uma jovem sentada no vaso sanitário com os shorts abaixados e o rosto nítido de uma criança pequena, foram compartilhadas abertamente em grupos privados de Facebook e servidores de Discord por anotadores de dados na Venezuela.\n\nAs imagens haviam sido capturadas por versões de teste da série Roomba J7 da iRobot. A fabricante confirmou a autenticidade das fotos, mas declarou que os aparelhos pertenciam a unidades de desenvolvimento fornecidas a funcionários e testadores pagos que haviam assinado acordos consentindo com a gravação de fluxos de vídeo para aprimoramento da IA. As filmagens foram enviadas pela iRobot para a Scale AI, uma gigante de anotação e rotulagem de dados para inteligência artificial, cujos terceirizados vazaram o material online.\n\n▼ [Clique para expandir o precedente jurídico e o colapso do consentimento]\n\nA Fragilidade da Cadeia de Custódia Digital: A investigação da MIT Technology Review demonstrou que, por mais rigorosos que sejam os termos de serviço no papel, dados visuais íntimos que saem da residência para 'treinamento de modelos' atravessam uma cadeia global opaca de empresas terceirizadas, moderadores mal pagos e servidores distribuídos. Após o escândalo público, a iRobot encerrou seu contrato com a Scale AI, mas o precedente ficou gravado na história: quando você coloca uma câmera móvel em casa, o consentimento do usuário é uma barreira frágil diante do vazamento humano.\n\n[MOCK]: Relatório investigativo com fonte primária jornalística datada e verificável.",
+      "fontes": [
+        {
+          "titulo": "MIT Technology Review: A Roomba recorded a woman on the toilet. How did it end up on Facebook? (Eileen Guo)",
+          "url": "https://www.technologyreview.com/2022/12/19/1065306/roomba-irobot-robot-vacuum-proprietary-info-leaks/",
+          "data": "2022-12-19"
+        }
+      ],
+      "narracao": "A foto tirada no vaso sanitário foi parar em um grupo do Facebook do outro lado do mundo. A promessa de privacidade da robótica quebrou-se no chão do banheiro.",
+      "som": "Respiração ofegante, eco oco de banheiro com clique sutil de captura fotográfica e som de teclado mecânico enviando mensagens em chat.",
+      "visual": "Capturas de tela pixeladas de fóruns online mostrando metadados e caixas delimitadoras de IA desenhadas sobre fotos de cômodos residenciais desarrumados.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a reação dos governos: O Veto da União Europeia à Amazon",
+          "destino": 20
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para o debate de privacidade: Câmeras no Quarto e Banheiro",
+          "destino": 5
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O Teatro da Teleoperação Revelado na Tesla",
+          "destino": 21
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "numero": 20,
+      "tipo": "texto que se expande",
+      "polo": "catastrofico",
+      "profundidade": 2,
+      "titulo": "[MOCK] Comissão Europeia (2024): Veto Antitruste à Compra da iRobot pela Amazon",
+      "texto": "Em 29 de janeiro de 2024, a Amazon e a iRobot anunciaram a rescisão mútua de seu acordo de aquisição avaliado em US$ 1,4 bilhão. A desistência ocorreu após a Comissão Europeia (braço antitruste da União Europeia) deixar claro que bloquearia formalmente a fusão, após emitir uma Comunicação de Objeções detalhada em novembro de 2023. O regulador concluiu que o negócio destruiria a concorrência no mercado europeu de aspiradores robóticos.\n\nA preocupação dos reguladores europeus não era apenas comercial: eles alertaram para o risco de a Amazon utilizar seu marketplace dominante para rebaixar a visibilidade de concorrentes da iRobot (em países como Alemanha, França, Itália e Espanha) e, fundamentalmente, combinar os mapas tridimensionais dos lares coletados pelos Roombas com o ecossistema doméstico de microfones Alexa, telas Echo e câmeras de segurança Ring. A junção colocaria nas mãos de uma única corporação o mapa físico detalhado das paredes, móveis e rotinas privadas de centenas de milhões de cidadãos.\n\n▼ [Clique para expandir as consequências financeiras e a crise da pioneira]\n\nO Preço da Rejeição: Como consequência do colapso do negócio, a Amazon pagou à iRobot uma taxa de rescisão de US$ 94 milhões. No entanto, desprovida de fôlego financeiro para competir com as fabricantes chinesas de robôs e sem o suporte de capital da big tech, a iRobot anunciou imediatamente a demissão de cerca de 31% de seus funcionários (cerca de 350 pessoas) e a renúncia de seu CEO e cofundador, Colin Angle. O episódio marcou o limite mais severo imposto por um governo democrático contra o monopólio da vigilância física residencial.\n\n[MOCK]: Registro factual regulatório da União Europeia com fontes jornalísticas e oficiais.",
+      "fontes": [
+        {
+          "titulo": "Financial Times / Comissão Europeia: Amazon abandons $1.4bn takeover of iRobot after EU antitrust resistance",
+          "url": "https://ec.europa.eu/commission/presscorner/detail/en/ip_23_3742",
+          "data": "2024-01-29"
+        }
+      ],
+      "narracao": "A Europa disse não à Amazon. O mapa da sua casa, seus móveis e seus quartos não virarão mercadoria de publicidade monopolista.",
+      "som": "Ruído seco de martelo de tribunal batendo na bancada de madeira, seguido pelo murmúrio inquieto de uma coletiva de imprensa com disparos de flashes.",
+      "visual": "Infográfico mostrando a sobreposição do ecossistema Amazon (Alexa + Ring) sobre a planta baixa de uma residência mapeada por sensores SLAM de robô aspirador.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a farsa da teleoperação no evento We, Robot da Tesla",
+          "destino": 21
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para a análise da Economia Secreta da Teleoperação",
+          "destino": 12
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O Risco de Vulnerabilidades Fatais na Residência",
+          "destino": 10
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "numero": 21,
+      "tipo": "texto que se expande",
+      "polo": "catastrofico",
+      "profundidade": 2,
+      "titulo": "[MOCK] Tesla 'We, Robot' (2024): Optimus e a Realidade da Teleoperação Remota",
+      "texto": "Em 10 de outubro de 2024, a Tesla promoveu seu espalhafatoso evento 'We, Robot' nos estúdios da Warner Bros., em Burbank (Califórnia). O ponto alto da noite foram dezenas de humanoides Tesla Optimus interagindo diretamente com os convidados: servindo drinques no balcão, distribuindo lembrancinhas, posando para selfies e disputando jogos de pedra, papel e tesoura com o público. O CEO Elon Musk declarou que o Optimus seria capaz de fazer qualquer coisa em casa — de passear com o cachorro a cuidar dos filhos — com custo final previsto entre US$ 20.000 e US$ 30.000.\n\nEntretanto, menos de 48 horas depois, reportagens investigativas da Bloomberg, The Verge e relatos de participantes no local (incluindo o influenciador de tecnologia Robert Scoble) revelaram a verdade dos bastidores: os robôs que conversavam e serviam bebidas não estavam operando de maneira autônoma por IA. Eles estavam sendo teleoperados remotamente por engenheiros e funcionários humanos escondidos nas coxias, munidos de microfones e controladores hápticos. Vídeos registraram os próprios robôs admitindo aos convidados: 'Hoje estou sendo auxiliado por um humano'.\n\n▼ [Clique para expandir as implicações éticas entre promessa comercial e maturidade técnica]\n\nO Abismo da Autonomia Real: Embora o Optimus possua capacidade autônoma real para caminhar e manter estabilidade básica, a manipulação fina e a conversação social interativa no evento foram integralmente terceirizadas para cérebros biológicos remotos. O episódio expôs o abismo que separa as demonstrações de relações públicas do Vale do Silício da maturidade tecnológica real necessária para deixar um robô de 60 quilos sozinho dentro de uma casa cuidando de tarefas críticas sem intervenção humana.\n\n[MOCK]: Documentação factual jornalística sobre teleoperação em robôs de consumo.",
+      "fontes": [
+        {
+          "titulo": "Bloomberg: Tesla Optimus Humanoid Robots Were Teleoperated at 'We, Robot' Showcase",
+          "url": "https://www.bloomberg.com/news/articles/2024-10-12/tesla-optimus-robots-were-assisted-by-humans-at-we-robot-event",
+          "data": "2024-10-12"
+        }
+      ],
+      "narracao": "O robô do bar parecia o futuro da inteligência artificial. Mas por trás daquela voz metálica simpática, havia um homem de fone de ouvido nos bastidores puxando as cordinhas.",
+      "som": "Música pop eletrônica pulsando ao fundo de uma festa lotada, com copos tilintando e uma voz robótica ligeiramente robotizada respondendo com hesitação de latência.",
+      "visual": "Vídeo gravado com smartphone por convidado da festa: o Optimus serve um copo de água e mexe a cabeça em sincronia exata com o sotaque e as pausas de respiração de um operador humano.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para as estatísticas globais: Relatório IFR World Robotics 2024",
+          "destino": 22
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para o vídeo catastrófico: O Intruso Perfeito",
+          "destino": 10
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A Autonomia Real e Verificada do Figure 02",
+          "destino": 17
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O Teatro do Autômato e a Teleoperação Global",
+          "destino": 12
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "numero": 22,
+      "tipo": "texto que se expande",
+      "polo": "neutro",
+      "profundidade": 2,
+      "titulo": "[MOCK] Relatório IFR World Robotics (2024): O Mercado Global de Robôs de Serviço",
+      "texto": "Em 24 de setembro de 2024, a Federação Internacional de Robótica (IFR) publicou em Frankfurt a edição 2024 do relatório oficial 'World Robotics — Service Robots'. O documento oferece o panorama estatístico mais rigoroso e datado do setor em nível mundial, separando com clareza a adoção de robôs profissionais da lenta penetração de assistentes domésticos.\n\nDe acordo com a IFR, o segmento de robôs de serviço para o consumidor doméstico registrou um volume anual de milhões de unidades vendidas, mas continuou esmagadoramente dominado por tarefas pontuais: aspiradores e passadores de pano representam mais de 85% do mercado doméstico, seguidos por cortadores de grama robóticos e limpadores de piscina autônomos. Por outro lado, a categoria de robôs de 'assistência pessoal e cuidados a idosos' (Social Care Robots) representou ainda um nicho em estágio embrionário, somando menos de algumas dezenas de milhares de unidades operacionais globalmente.\n\n▼ [Clique para expandir as projeções econômicas e barreiras de adoção em massa]\n\nO Gargalo da Relação Custo-Benefício: O relatório da IFR aponta que, enquanto na indústria o retorno sobre investimento (ROI) é mensurável pelo aumento da produtividade fabril, no ambiente doméstico o valor percebido depende da confiabilidade sem falhas. Consumidores toleram que um aspirador fique preso de vez em quando sob o sofá; mas recusam-se terminantemente a pagar mais de US$ 10.000 por um robô assistente que exija supervisão constante ou quebre louças semanais. A transição para o consumo de massa ocorrerá apenas quando a taxa de falha for inferior a uma a cada dez mil interações físicas.\n\n[MOCK]: Síntese de dados estatísticos da International Federation of Robotics.",
+      "fontes": [
+        {
+          "titulo": "International Federation of Robotics (IFR): World Robotics 2024 — Service Robots Executive Summary",
+          "url": "https://ifr.org/worldrobotics/",
+          "data": "2024-09-24"
+        }
+      ],
+      "narracao": "Os números não mentem: compramos milhões de aspiradores robóticos de chão, mas ainda temos medo de colocar robôs com braços para cuidar de nossos avós.",
+      "som": "Som ambiente de conferência internacional de economia: murmurinho corporativo poliglota e projeções gráficas mudando de slide.",
+      "visual": "Gráfico de barras da IFR comparando a curva de vendas globais de aspiradores robóticos (em milhões) com a linha quase plana de robôs humanoides de assistência pessoal.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a engenharia britânica da Dyson em Hullavington",
+          "destino": 23
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para o diálogo com a Cuidadora Renata Prado",
+          "destino": 8
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: Os Resultados Práticos de Stanford Mobile ALOHA",
+          "destino": 13
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O Veto Europeu ao Monopólio Doméstico da Amazon",
+          "destino": 20
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "numero": 23,
+      "tipo": "texto que se expande",
+      "polo": "otimista",
+      "profundidade": 2,
+      "titulo": "[MOCK] Dyson Hullavington Lab: O Investimento Bilionário em Garras Macias",
+      "texto": "No antigo aeródromo militar de Hullavington, no interior da Inglaterra, a Dyson montou um dos maiores e mais secretos centros de pesquisa de robótica doméstica do planeta. Como parte de seu plano quinquenal de investimento de £ 2,75 bilhões em novas tecnologias e inteligência artificial, a companhia britânica abriu as portas de seus laboratórios em meados de 2022 e 2024 para revelar sua aposta contra a corrente: em vez de humanoides bípedes chamativos, o foco da Dyson é a microdestreza manipulativa pura.\n\nEm bancadas automatizadas fechadas ao público, garras robóticas revestidas com polímeros macios e sensores táteis proprietários são submetidas a milhões de repetições: retirar pratos engordurados de escorredores sem riscar a cerâmica, recolher brinquedos plásticos macios e aspirar almofadas de sofás de veludo detectando a rigidez do tecido. Os engenheiros da Dyson sustentam que o consumidor não quer um homem de metal andando pela casa; quer tarefas domésticas invisíveis resolvidas sem alarde.\n\n▼ [Clique para expandir a filosofia britânica da 'robótica invisível']\n\nA Funcionalidade Acima do Antropomorfismo: O fundador James Dyson argumenta que a obsessão por criar robôs com forma humana consome até 70% da energia e do processamento apenas para manter o equilíbrio sobre duas pernas — um desperdício termodinâmico absurdo. A solução para o lar, segundo os britânicos, são braços modulares acopláveis a móveis, estações móveis de baixa altura e eletrodomésticos que se estendem e se guardam sozinhos. Essa abordagem pragmática oferece o caminho mais viável e seguro para a automação residencial da próxima década.\n\n[MOCK]: Documentação sobre pesquisa industrial de robótica da Dyson com fontes verificáveis.",
+      "fontes": [
+        {
+          "titulo": "Dyson Technology: Dyson Hullavington Secret Robotics Lab — Autonomous domestic manipulation and soft grasping",
+          "url": "https://www.dyson.com/newsroom/overview/features/may-2022/dyson-secret-robotics-lab",
+          "data": "2024-05-22"
+        }
+      ],
+      "narracao": "A Dyson aposta que você não quer um androide desfilando na sua sala; você só quer a louça lavada e o sofá limpo sem barulho.",
+      "som": "Som rítmico de garras emborrachadas pegando e soltando xícaras de café em bancada de testes de durabilidade acelerada.",
+      "visual": "Bancada experimental em Hullavington: três braços articulados de alumínio anodizado limpam e organizam utensílios domésticos com movimentos fluídos e silenciosos.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a legislação de segurança: Norma Internacional ISO 13482",
+          "destino": 24
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para a linha evolutiva dos robôs",
+          "destino": 3
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A Biomecânica Macia do 1X NEO Beta",
+          "destino": 16
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O Risco de Intrusão Domiciliar Não Autorizada",
+          "destino": 10
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "numero": 24,
+      "tipo": "texto que se expande",
+      "polo": "neutro",
+      "profundidade": 2,
+      "titulo": "[MOCK] Norma ISO 13482 (2014): A Linha Vermelha da Segurança Física no Lar",
+      "texto": "Publicada pela International Organization for Standardization (ISO) em 1º de fevereiro de 2014, a norma técnica internacional ISO 13482 ('Robots and robotic devices — Safety requirements for personal care robots') estabelece as exigências obrigatórias de segurança e projeto para robôs de cuidados e assistência pessoal em contato próximo com seres humanos em ambientes não industriais.\n\nA norma categoriza os robôs em três tipos fundamentais: robôs transportadores de pessoas (mobitilidade assistida), robôs assistentes físicos (com braços manipuladores) e robôs servidores de pessoa (plataformas móveis). Diferente das normas de robótica industrial (como a ISO 10218, que exige enclausuramento e barreira protetora física), a ISO 13482 exige que o robô seja intrinsecamente seguro por projeto mecânico: forças de aperto que não causem esmagamento de tecidos humanos, desaceleração controlada em caso de contato imprevisto e estabilidade dinâmica que impeça o tombamento sobre pessoas caídas no chão.\n\n▼ [Clique para expandir o conflito entre inovação ágil e certificação rigorosa]\n\nO Gargalo da Certificação para Humanoides Modernos: Fabricantes de humanoides que prometem entregas rápidas enfrentam uma barreira regulatória intransponível para obter a certificação ISO 13482 em escala residencial. A norma exige que qualquer falha simples de componente (como a queima de um MOSFET de potência ou travamento de uma placa lógica) mantenha o sistema em um estado seguro passivo comprovado. É exatamente por essa razão que a maioria dos lançamentos recentes ainda é comercializada sob a etiqueta de 'kit de pesquisa' ou destinada exclusivamente a linhas fabris industriais, adiando a entrada em massa nos lares.\n\n[MOCK]: Documentação técnica normativa com referência internacional primária.",
+      "fontes": [
+        {
+          "titulo": "ISO: ISO 13482:2014 — Robots and robotic devices — Safety requirements for personal care robots",
+          "url": "https://www.iso.org/standard/53677.html",
+          "data": "2014-02-01"
+        }
+      ],
+      "narracao": "A norma ISO 13482 é a linha vermelha que separa a ficção científica da vida real. Nenhum robô entrará na sua casa sem provar que é incapaz de ferir você.",
+      "som": "Silêncio estéril de sala de testes normativos, interrompido pelo bipe eletrônico de um sensor de pressão aferindo a força de fechamento de uma pinça mecânica.",
+      "visual": "Manômetro digital registrando curvas de impacto em Newton-metros, acompanhado pela capa oficial do padrão técnico ISO 13482 carimbado com selos de conformidade.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a entrada da série: Retornar ao Ponto de Partida",
+          "destino": 1
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para a análise mecânica: O Dilema do Toque Macio",
+          "destino": 4
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A Aplicação Prática dos Tendões Macios no NEO Beta",
+          "destino": 16
+        }
+      ]
+    }
+  ]
+}

@@ -106,7 +106,12 @@ function texPortaSaida(saida, tema) {
   } else {
     x.fillStyle = '#f5a30c'; x.beginPath(); x.arc(w - 50, h * 0.58, 11, 0, 7); x.fill();
     mono(x, saida.tipo === 'noticias' ? 'notícias' : 'série', w / 2, 62, 17, '#ffe9a8');
-    mono(x, saida.passos + (saida.tipo === 'noticias' ? ' notícias' : ' episódios'), w / 2, h * 0.5, 16, '#ffe9a8');
+    const unidade = saida.tipo === 'noticias'
+      ? (saida.passos === 1 ? ' notícia' : ' notícias')
+      : saida.grafo
+        ? (saida.passos === 1 ? ' bloco' : ' blocos')
+        : (saida.passos === 1 ? ' episódio' : ' episódios');
+    mono(x, saida.passos + unidade, w / 2, h * 0.5, 16, '#ffe9a8');
     x.fillStyle = '#ffe9a8'; x.font = `700 70px Georgia, serif`; x.textAlign = 'center'; x.textBaseline = 'middle'; x.fillText('→', w / 2, h * 0.7);
   }
   return { c, w, h, dimMundo: dim };

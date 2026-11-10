@@ -24,6 +24,7 @@ const reduzido = matchMedia('(prefers-reduced-motion: reduce)').matches;
 renderSobrio(dados, $('principal'), producaoAtiva(location));
 
 let pos = modelo.posicaoInicial();
+const serieSolicitada = new URLSearchParams(location.search).get('serie');
 const visitados = new Set();
 let modo = 'sobrio', pausado = lerLS('stargate.pausa') === '1';
 let render = null, desmontaControlo = null, mapaSel = null, hudPronto = false, avisoT = 0;
@@ -34,6 +35,7 @@ try {
   const e = JSON.parse(lerSS('stargate.estado') || 'null');
   if (e && modelo.valida(e.pos)) { pos = e.pos; (e.visitados || []).forEach((id) => modelo.nos.has(id) && visitados.add(id)); }
 } catch (e) { /* estado inválido: começa do zero */ }
+if (serieSolicitada && modelo.porId.has(serieSolicitada)) pos = modelo.irParaSaida(serieSolicitada);
 const guardar = () => gravarSS('stargate.estado', JSON.stringify({ pos, visitados: [...visitados] }));
 const marcar = () => { if (!modelo.emHub(pos)) visitados.add(pos.no); };
 marcar();
@@ -64,7 +66,7 @@ function audioAmbienteAtual() {
   const centro = innerHeight * 0.42;
   const blocos = [...document.querySelectorAll('#principal article.bloco')];
   const atual = blocos.sort((a, b) => Math.abs(a.getBoundingClientRect().top - centro) - Math.abs(b.getBoundingClientRect().top - centro))[0];
-  const n = atual && dados.grafo.nos.find((item) => `n${item.id}` === atual.id);
+  const n = atual && (dados.grafo?.nos || []).find((item) => `n${item.id}` === atual.id);
   return n?.som_audio_endpoint || null;
 }
 const acoes = {
@@ -127,12 +129,12 @@ function atualizarCartao() {
     c.className = 'cartao cartao-hub'; c.dataset.polo = '0'; delete c.dataset.nivel;
     partes.push(el(d, 'p', { class: 'sob', text: onde }), el(d, 'h2', { tabindex: '-1' }, s.fechada ? 'Porta fechada' : tituloDom(d, s.titulo)),
       el(d, 'p', { text: s.fechada ? 'A próxima série chega em breve.' : s.resumo || '' }));
-    if (!s.fechada) {
+    if (!s.fechada && s.passos > 0) {
       const e = el(d, 'button', { type: 'button', class: 'btn acao', id: 'entrar',
-        text: `Entrar no corredor (${s.tipo === 'noticias' ? s.passos + ' notícias' : s.grafo ? s.passos + ' blocos' : s.passos + ' episódios'})` });
+        text: `Entrar no corredor (${s.tipo === 'noticias' ? s.passos + (s.passos === 1 ? ' notícia' : ' notícias') : s.grafo ? s.passos + (s.passos === 1 ? ' bloco' : ' blocos') : s.passos + (s.passos === 1 ? ' episódio' : ' episódios')})` });
       e.addEventListener('click', () => acoes.avancar());
       partes.push(el(d, 'p', null, e));
-    }
+    } else if (!s.fechada) partes.push(el(d, 'p', { text: 'Esta série está sendo preparada; o grafo ainda não foi importado.' }));
   } else {
     const es = modelo.escolhas(pos), serie = modelo.porId.get(n.serie);
     c.className = 'cartao'; c.dataset.polo = String(n.polo); c.dataset.nivel = String(n.nivel);
@@ -146,7 +148,7 @@ function atualizarCartao() {
       el(d, 'span', { class: 'sob', text: rotulo }), ouvir, nar && nar.botao));
     partes.push(el(d, 'h2', { tabindex: '-1' }, tituloDom(d, n.titulo)));
     if (nar) partes.push(nar.painel);
-    const sala = dados.grafo.salas.find(s => s.id === n.sala);
+    const sala = (dados.grafo?.salas || []).find(s => s.id === n.sala);
     if (sala) partes.unshift(el(d,'aside',{class:'placa-sala',role:'status'},el(d,'strong',{text:sala.nome}),el(d,'p',{text:sala.contexto})));
     n.texto.forEach((t) => partes.push(el(d, 'p', { text: t })));
     partes.push(conteudoMuseu(d,n,{ir:id => mover(modelo.irParaNo(pos,id)),aoVideo:() => visita && visita.pausar()}));
@@ -197,12 +199,28 @@ function desenharMapaGrande() {
   const mk = (id, txt) => { const b = document.createElement('button'); b.type = 'button'; b.className = 'btn'; b.textContent = txt; b.setAttribute('aria-pressed', String(mapaSel === id)); b.addEventListener('click', () => { mapaSel = id; desenharMapaGrande(); }); caixa.appendChild(b); };
   mk('hub', modelo.tipoHub === 'atrio' ? 'Átrio' : 'Cruzamento');
   modelo.saidas.filter((s) => !s.fechada).forEach((s) => mk(s.id, s.titulo));
-  dados.grafo.salas.forEach(s => {
-    const grupo = el(document,'section',{class:'mapa-sala'},el(document,'h3',{text:s.nome}));
-    dados.grafo.nos.filter(n => n.sala === s.id).forEach(n => {
-      const b = el(document,'button',{class:'btn',type:'button',text:n.id + ' · ' + n.titulo});
-      b.addEventListener('click',() => { fecharMapa(); mover(modelo.irParaNo(pos,String(n.id))); }); grupo.append(b);
-    }); caixa.append(grupo);
+  (dados.grafo?.salas || []).forEach((s) => {
+    const grupo = el(
+      document,
+      'section',
+      { class: 'mapa-sala' },
+      el(document, 'h3', { text: s.nome }),
+    );
+    (dados.grafo?.nos || [])
+      .filter((n) => n.sala === s.id)
+      .forEach((n) => {
+        const botao = el(document, 'button', {
+          class: 'btn',
+          type: 'button',
+          text: n.id + ' · ' + n.titulo,
+        });
+        botao.addEventListener('click', () => {
+          fecharMapa();
+          mover(modelo.irParaNo(pos, String(n.id)));
+        });
+        grupo.append(botao);
+      });
+    caixa.append(grupo);
   });
   const sel = modelo.porId.get(mapaSel);
   $('mg-leg').textContent = sel && sel.grafo ? 'Blocos cheios já foram visitados. Clique ou use Enter num bloco para saltar.' : 'Clique ou use Enter para saltar.';
@@ -332,7 +350,7 @@ visita = criarVisita(dados, { modo:() => modo, reduzido, mover(id, guiada) {
 } });
 // Hidrata o vídeo estático: nenhum src de vídeo antes da ação explícita.
 document.querySelectorAll('[data-video-no]').forEach(c => {
- const n = dados.grafo.nos.find(n => String(n.id) === c.dataset.videoNo);
+ const n = (dados.grafo?.nos || []).find(n => String(n.id) === c.dataset.videoNo);
  c.replaceChildren(conteudoMuseu(document,n,{sobrio:true,aoVideo:() => visita.pausar()}));
 });
 document.querySelector('#principal').addEventListener('click',e => { if(e.target.closest('a[href^="#n"]')) visita.navegar(); });

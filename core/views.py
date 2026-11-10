@@ -259,22 +259,102 @@ def episodio(request, serie, episodio):
 
 
 def museu(request):
-    from .models import GrafoMuseu
+    from .models import GrafoMuseu, Serie
     from .servicos.museu import apresentar
 
-    grafos = GrafoMuseu.objects.filter(serie__publicado=True).select_related("serie")
-    escolhido = (
-        grafos.filter(serie__slug=request.GET.get("serie", "")).first()
-        or grafos.first()
+    todas_series = list(
+        Serie.objects.filter(publicado=True)
+        .prefetch_related("episodios__post")
+        .order_by("ordem", "titulo")
     )
-    dados = apresentar(escolhido.serie, escolhido.dados) if escolhido else None
+    grafos = list(
+        GrafoMuseu.objects.filter(serie__publicado=True)
+        .select_related("serie")
+        .order_by("serie__titulo")
+    )
+    apresentados = [apresentar(g.serie, g.dados) for g in grafos]
+    pacote_por_slug = {pacote["grafo"]["serie"]: pacote for pacote in apresentados}
+    series_json = []
+    for serie_obj in todas_series:
+        pacote = pacote_por_slug.get(serie_obj.slug)
+        serie_json = (
+            pacote["series"][0]
+            if pacote
+            else {
+                "slug": serie_obj.slug,
+                "titulo": serie_obj.titulo,
+                "resumo": serie_obj.resumo,
+                "mock": False,
+                "episodios": [
+                    {
+                        "numero": ep.numero,
+                        "titulo": ep.titulo or ep.slug,
+                        "url": ep.get_absolute_url()
+                        if ep.publicado and ep.post and ep.post.publicado
+                        else "",
+                    }
+                    for ep in serie_obj.episodios.all()
+                    if ep.publicado
+                ],
+            }
+        )
+        series_json.append(serie_json)
+    dados = {
+        "series": series_json,
+        "noticias": [],
+        "grafo": None,
+    }
+    if len(apresentados) == 1:
+        dados["grafo"] = apresentados[0]["grafo"]
+    elif apresentados:
+        combinados = []
+        salas = []
+        visitas = []
+        por_serie = {}
+        for pacote in apresentados:
+            grafo = pacote["grafo"]
+            slug = grafo["serie"]
+            prefixo = f"{slug}:"
+            ids = {str(n["id"]): f"{prefixo}{n['id']}" for n in grafo["nos"]}
+            for no in grafo["nos"]:
+                no["id"] = ids[str(no["id"])]
+                no["serie"] = slug
+                no["ligacoes"] = {
+                    t: ids.get(str(destino)) if destino is not None else None
+                    for t, destino in no["ligacoes"].items()
+                }
+                no["sala"] = prefixo + no["sala"]
+                for escolha in no.get("escolhas", []):
+                    destino = escolha["destino"]
+                    escolha["destino"] = ids.get(str(destino), destino)
+                if no.get("dialogo"):
+                    for resposta in no["dialogo"].get("respostas", []):
+                        resposta["vai"] = ids.get(str(resposta["vai"]), resposta["vai"])
+                combinados.append(no)
+            for sala in grafo["salas"]:
+                sala["id"] = prefixo + sala["id"]
+                salas.append(sala)
+            for visita in grafo["visitas"]:
+                visita["passos"] = [ids[str(p)] for p in visita["passos"]]
+                visitas.append(visita)
+            por_serie[slug] = {
+                "entrada": ids[str(grafo["entrada"])],
+                "ids": list(ids.values()),
+            }
+        dados["grafo"] = {
+            "serie": "",
+            "series": por_serie,
+            "nos": combinados,
+            "salas": salas,
+            "visitas": visitas,
+        }
     return render(
         request,
         "core/museu.html",
         {
             "dados": dados,
-            "nos": dados["grafo"]["nos"] if dados else [],
-            "series": [g.serie for g in grafos],
+            "nos": dados["grafo"]["nos"] if dados["grafo"] else [],
+            "series": todas_series,
         },
     )
 

@@ -1,0 +1,968 @@
+{
+  "serie": "mock-a-escola-que-aprende",
+  "tom": "misto (navegação dialética não linear entre o otimismo da personalização socrática/democratização da tutoria e o realismo catastrófico da atrofia cognitiva, vigilância e distração crônica)",
+  "blocos": [
+    {
+      "id": 1,
+      "numero": 1,
+      "tipo": "texto",
+      "polo": "neutro",
+      "profundidade": 0,
+      "titulo": "[MOCK] A Escola que Aprende: O Algoritmo na Sala de Aula",
+      "texto": "Cena imaginada (ficção): São sete e quinze da manhã em uma escola pública reformada no centro de São Paulo. O sol bate suave nas janelas amplas, mas a lousa de ardósia verde foi substituída por um painel de alta resolução fosco. Nas mesas de madeira clara, não há pilhas de apostilas amareladas: cada estudante apoia um tablet fino ou um caderno de papel com sensores de malha óptica. Quando Beatriz, de 15 anos, abre seu módulo de física quântica introdutória, uma notação sutil brilha no canto da tela: \"Beatriz, ontem você hesitou 42 segundos no conceito de dualidade onda-partícula. Vamos fazer uma analogia visual antes do cálculo?\". Pela primeira vez em séculos de instrução fabril, a escola não exige que todos aprendam a mesma coisa no mesmo minuto. A escola agora é uma entidade computacional que aprende como você aprende.\n\nDesde a Revolução Industrial, a educação em massa operou sob a lógica da esteira de montagem: turmas de 40 alunos divididas por data de fabricação (ano de nascimento), sinos mecânicos soando a cada cinquenta minutos, memorização de dados para testes padronizados e o professor no púlpito como o único transmissor da verdade. Esse monumento disciplinar ruiu com a chegada dos modelos generativos de inteligência artificial e dos tutores adaptativos em tempo real. O conhecimento enciclopédico tornou-se gratuito, ubíquo e instantâneo. Mas o que acontece com a mente humana quando a ferramenta que responde perguntas começa a pensar antes de nós?\n\nNeste livro-jogo interativo do Stargate, você assume o comando da investigação e navega pelas entranhas da maior transformação educacional da história. A cada bloco numerado, escolha o seu rumo: encante-se com a democratização do tutor socrático individual para cada criança do planeta (Polo Otimista), enfrente o abismo da atrofia cognitiva, da distração crônica e da vigilância biométrica nas salas de aula (Polo Catastrófico), interrogue professores e alunos em confrontos de RPG ou mergulhe fundo nos estudos empíricos, neurocientíficos e relatórios mundiais com fontes reais e datadas.\n\n[MOCK]: Rascunho editorial em teste para o Stargate. Nenhum conteúdo publicado externamente.",
+      "fontes": [],
+      "narracao": "A lousa de giz foi a âncora do século vinte. Agora, a tela que você toca aprende o seu ritmo, mede sua hesitação e questiona suas certezas. Você está prestes a entrar na escola que aprende. Escolha o seu caminho: a alvorada da inteligência ou o esquecimento do pensar?",
+      "som": "Sino clássico de escola distante reverberando em eco metálico, misturando-se a um murmúrio caloroso de vozes infantis no pátio e o clique suave de telas capacitivas acendendo em uníssono.",
+      "visual": "Plano panorâmico lento (travelling): sala de aula ensolarada onde elementos analógicos (madeira, plantas, cadernos) convivem com interfaces holográficas tênues flutuando sobre as bancadas.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a experiência visual: A Sala de Aula em Dois Espelhos",
+          "destino": 2
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: O Sonho de Bloom — O Tutor 1-para-1 para Bilhões",
+          "destino": 9
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: A Fábrica da Desatenção e o Cerco das Plataformas",
+          "destino": 10
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "numero": 2,
+      "tipo": "video",
+      "polo": "neutro",
+      "profundidade": 0,
+      "titulo": "[MOCK] Ensaio Audiovisual: A Sala de Aula em Dois Espelhos",
+      "texto": "Descrição do vídeo editorial (ensaio audiovisual imersivo):\n\nA tela se divide horizontalmente em dois planos contrastantes de 60 quadros por segundo. No plano superior, em tons quentes de sépia e granulação analógica, uma sala de aula de 1974: fileiras rígidas de carteiras de ferro fundido, um professor grisalho escrevendo fórmulas complexas de giz que soltam poeira branca no ar, enquanto quarenta alunos copiam silenciosamente em cadernos pautados. Um estudante boceja no fundo; outro olha pela janela, irremediavelmente perdido no conteúdo, sem coragem de erguer a mão.\n\nNo plano inferior, em hiper-definição 4K com luz natural fria e fluida, uma sala de 2026: círculos de alunos debatem em torno de uma bancada circular. Câmeras inteligentes nos cantos do teto registram os vetores de atenção de cada rosto; na tela individual de cada jovem, um modelo de linguagem socrático não entrega a resposta de uma questão de biologia molecular, mas formula uma contra-pergunta sob medida para desarmar um raciocínio falho. De repente, um gráfico de telemetria se sobrepõe: o sistema mostra que Beatriz alcançou maestria conceitual em 18 minutos, enquanto seu colega ao lado precisou de uma analogia com música para compreender o mesmo fenômeno.\n\nA narração corta o silêncio: \"O espelho analógico ensinava disciplina e submissão à média estatística. O espelho digital promete personalização infinita — mas ao custo de transformar cada olhar, cada dúvida e cada fraqueza mental em fluxo de dados proprietário\".\n\n[MOCK]: Storyboard analítico e ensaio visual para a série do Stargate.",
+      "fontes": [],
+      "narracao": "Olhe para as duas telas. Em uma, o tédio compartilhado da linha de montagem. Na outra, o espelho algorítmico que tudo vê e tudo calibra. Aonde termina o aprendizado e começa o condicionamento?",
+      "som": "Raspar estridente de giz na ardósia na faixa de áudio esquerda, contrastando com o toque tátil suave sobre vidro e um pulso binaural contínuo de 40 Hz na faixa direita.",
+      "visual": "Split-screen rigoroso. Em cima: estética documental de película 16mm dos anos 1970. Embaixo: iluminação volumétrica translúcida contemporânea com sobreposição de dados de telemetria educacional em verde e azul.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a linha evolutiva: Do Giz ao Tutor Socrático",
+          "destino": 3
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: Diálogo com a Professora Cecília sobre o Ganho de Tempo",
+          "destino": 5
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: Diálogo com o Professor Marcelo sobre o Deserto da Atenção",
+          "destino": 6
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "numero": 3,
+      "tipo": "texto que se expande",
+      "polo": "neutro",
+      "profundidade": 0,
+      "titulo": "[MOCK] O Motor Pedagógico: Do Giz ao Tutor Socrático Adaptativo",
+      "texto": "As tentativas históricas de automatizar o ensino sempre prometeram uma revolução que nunca se concretizava por completo. Nas décadas de 1920 e 1950, as máquinas de ensinar mecânicas de Sidney Pressey e B. F. Skinner tentaram decompor o conhecimento em reforços operantes lineares: cartões perfurados que só avançavam se o estudante respondesse corretamente. Mais tarde, os laboratórios de informática dos anos 1990 e as plataformas de vídeo dos anos 2010 apenas digitalizaram a lousa: o aluno continuava sendo um espectador passivo assistindo a aulas gravadas em ritmo fixo.\n\nA virada tectônica ocorreu quando os grandes modelos de linguagem (LLMs) incorporaram arquiteturas de agentes pedagógicos guardrailizados. Em vez de funcionar como uma enciclopédia que cospe resumos prontos para serem colados na lição de casa, o tutor algorítmico moderno é instruído a adotar o método socrático: ele jamais entrega a resposta final; ele desmonta o problema em premissas menores, detecta a raiz exata do equívoco do estudante e devolve perguntas reflexivas até que o próprio aluno dê o salto dedutivo.\n\n▼ [Clique para expandir o pipeline computacional de um tutor socrático]\n\nCamada de Engenharia e Prompt Guardrail: O sistema não roda um LLM puro e sem amarras. Quando a criança digita \"Resolva a equação x² - 5x + 6 = 0\", um middleware de inferência intercepta a requisição e aplica restrições de sistema: 1) Bloqueio de respostas diretas (anti-cheating guardrail); 2) Consulta à base vetorial do currículo escolar do estudante (RAG curricular); 3) Diagnóstico da zona de desenvolvimento proximal (ZPD de Vygotsky); 4) Modulação do tom linguístico para empatia encorajadora. O agente então responde: \"Lembre-se da forma padrão. Se você precisasse achar dois números cuja soma é 5 e o produto é 6, quais seriam?\". O aluno se vê forçado a pensar, enquanto o modelo monitora a latência da resposta para medir a carga cognitiva.\n\n[MOCK]: Estrutura editorial de texto expansível para teste de interface no Stargate.",
+      "fontes": [],
+      "narracao": "Uma máquina de ensinar antiga recompensava a repetição cega. O tutor moderno é treinado na arte de Sócrates: ele finge ignorância e faz a pergunta exata que desmonta a sua preguiça intelectual.",
+      "som": "Teclar rápido e ritmado de teclado mecânico cedendo espaço ao som etéreo de sinos tibetanos quando o raciocínio é completado com sucesso.",
+      "visual": "Fluxograma conceitual interativo em 3D: a pergunta do aluno entra em uma esfera de nós neurais, passa por filtros semânticos coloridos e retorna em forma de faíscas reflexivas.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a encruzilhada epistemológica: Pensar ou Terceirizar?",
+          "destino": 4
+        },
+        {
+          "tipo": "aprofundar",
+          "rotulo": "Aprofundar no diálogo RPG com a Professora Cecília sobre o Chão da Escola",
+          "destino": 5
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A Quebra do Decoreba e a Descoberta Ativa",
+          "destino": 11
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: A Atrofia do Pensar e a Externalização Cognitiva",
+          "destino": 12
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "numero": 4,
+      "tipo": "texto",
+      "polo": "neutro",
+      "profundidade": 0,
+      "titulo": "[MOCK] A Encruzilhada Cognitiva: Muleta Mental ou Amplificador de Potência?",
+      "texto": "Quando a calculadora de bolso invadiu os colégios nos anos 1970, professores de matemática temeram que as novas gerações se tornassem incapazes de efetuar divisões de cabeça. A profecia cumpriu-se em parte: perdemos agilidade no cálculo mental corriqueiro, mas ganhamos a capacidade de ensinar cálculo integral, trigonometria e modelagem estatística muito mais cedo. A questão existencial imposta pela IA generativa na educação é ordens de grandeza mais profunda: a calculadora automatizou a aritmética; a inteligência artificial generativa automatiza a própria linguagem, a estruturação do raciocínio e a expressão formal do pensamento.\n\nA comunidade pedagógica mundial encontra-se fraturada em duas trincheiras irreconciliáveis. De um lado, os tecno-otimistas sustentam que a IA emancipa o estudante da mediocridade do ensino conteudista: liberado do trabalho mecânico de pesquisar referências, formatar resumos e corrigir gramática, o jovem pode concentrar sua energia na criatividade, no debate ético de alto nível e na síntese interdisciplinar. A máquina operaria como uma bicicleta para a mente, ampliando o alcance intelectual de quem aprende.\n\nDo outro lado, neurocientistas e educadores céticos alertam para o fenômeno da atrofia cognitiva por desuso (o chamado *cognitive offloading* desregulado). O cérebro biológico é um órgão estritamente econômico: qualquer função intelectual que possa ser terceirizada com menor gasto metabólico deixará de consolidar sinapses profundas no córtex pré-frontal. Se um estudante nunca enfrentou a angústia da página em branco, a luta para achar o adjetivo preciso ou o cansaço de montar uma tese argumentativa do zero, ele não se torna um pensador ampliado — torna-se um consumidor passivo de conclusões sintetizadas por terceiros.\n\n[MOCK]: Síntese dialética para o livro-jogo Stargate. Escolha o vetor de investigação a seguir.",
+      "fontes": [],
+      "narracao": "A calculadora libertou nossos dedos para a engenharia. A IA pode libertar nossos cérebros para a filosofia — ou atrofiar o músculo do pensamento até que esqueçamos como duvidar.",
+      "som": "Ruído rítmico de relógio mecânico acelerando os ponteiros, entrecortado por respirações humanas lentas e focadas de estudo.",
+      "visual": "Ilustração conceitual minimalista: duas silhuetas humanas translúcidas. Uma tem sinapses douradas e densas que se expandem para fora; a outra tem os caminhos neurais esmaecendo enquanto cabos de fibra óptica entram pela nuca.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir de volta ao panorama inicial: O Algoritmo na Sala",
+          "destino": 1
+        },
+        {
+          "tipo": "aprofundar",
+          "rotulo": "Aprofundar no diálogo dramático com o Professor Marcelo sobre a Perda de Foco",
+          "destino": 6
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: Diálogo com o Aluno Lucas sobre o Tutor 24 Horas",
+          "destino": 7
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: Diálogo com Mariana e a Acusação de Plágio Algorítmico",
+          "destino": 8
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "numero": 5,
+      "tipo": "personagem",
+      "polo": "otimista",
+      "profundidade": 1,
+      "titulo": "[MOCK] Diálogo RPG: Professora Cecília e a Alquimia do Tempo Humano",
+      "texto": "Você entra na sala dos professores de uma escola técnica estadual em Belo Horizonte. Cecília Albuquerque, professora de Língua Portuguesa e Literatura há 24 anos, toma um gole de café fresco enquanto folheia a tela do seu tablet. Diferente da expressão exausta de anos atrás, quando carregava pilhas de 200 cadernos para corrigir aos fins de semana, seu olhar está vívido e focado.\n\n\"Durante duas décadas, metade da minha vida útil como professora foi desperdiçada caçando erros de crase, vírgula e concordância em pilhas infinitas de papel\", diz Cecília, virando a tela para você. \"Hoje, o assistente pedagógico corrigiu a gramática preliminar de 120 redações em oito minutos e me entregou um mapa de calor: ele me mostrou que 68% da turma do primeiro ano não entendeu o conceito de ironia em Machado de Assis. Em vez de perder o domingo corrigindo vírgulas, eu passei a manhã de hoje sentada em círculo com eles encenando o conto 'A Cartomante'. A inteligência artificial não me substituiu: ela me devolveu a humanidade.\"\n\nComo você se posiciona diante da professora Cecília?\n\n• Resposta A (Entusiasmo Pedagógico): \"Isso é a libertação do professor. O trabalho burocrático de revisão mecânica sempre impediu a verdadeira mediação afetiva e reflexiva.\"\n\n• Resposta B (Ceticismo sobre a Homogeneização): \"Mas o algoritmo que corrigiu o estilo dessas redações não está ensinando todos os alunos a escrever com a mesma voz pasteurizada e corporativa do modelo?\"\n\n• Resposta C (Alerta sobre a Exclusão Estrutural): \"Isso funciona lindamente na sua escola bem equipada. Mas o que acontece com os milhares de colégios públicos sem internet estável no semiárido brasileiro?\"\n\n[MOCK]: Simulação de escolha RPG para a série do Stargate.",
+      "fontes": [],
+      "narracao": "Para quem passava noites em claro corrigindo pronomes e pontuação, a automação parece um milagre de tempo resgatado. Mas quem treinou os critérios desse juiz invisível?",
+      "som": "Barulho característico de máquina de café coado gotejando lentamente, com folhas de papel sendo manuseadas com leveza e pássaros cantando no pátio exterior.",
+      "visual": "Primeiro plano cinematográfico de uma mulher de meia-idade de cabelos cacheados e óculos de leitura, com um sorriso sereno, cercada por livros clássicos e um tablet de bordas finas.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a voz do estudante: O Diálogo com o Aluno Lucas",
+          "destino": 7
+        },
+        {
+          "tipo": "aprofundar",
+          "rotulo": "Aprofundar no caso factual: Khanmigo e a Revolução Socrática da Khan Academy",
+          "destino": 13
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para a visão panorâmica inicial",
+          "destino": 1
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: Contrapor com o Professor Marcelo e o Deserto da Atenção",
+          "destino": 6
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "numero": 6,
+      "tipo": "personagem",
+      "polo": "catastrofico",
+      "profundidade": 1,
+      "titulo": "[MOCK] Diálogo RPG: Professor Marcelo e o Deserto da Atenção Quebrada",
+      "texto": "No fim do expediente de uma tradicional escola particular na zona oeste do Rio de Janeiro, Marcelo Fontana, professor de História e Sociologia com mestrado pela UFRJ, guarda giz e apagador em uma pasta de couro gasta. Ele olha para as carteiras vazias com um semblante pesado de desalento.\n\n\"Nós perdemos a guerra pela atenção humana e fingimos que ganhamos uma revolução tecnológica\", desabafa Marcelo com a voz embargada. \"Peça hoje para um jovem de 16 anos ler três páginas seguidas de um texto denso sem abrir uma notificação de rede social: ele sofre crise de abstinência física. Quando eu passo um ensaio de pesquisa histórica, metade entrega redações impecáveis, sintaticamente perfeitas, com vocabulário rebuscado geradas em 15 segundos por uma inteligência artificial. Quando eu pergunto 'o que você quis dizer com esta frase na página dois?', eles me olham com um vazio absoluto nos olhos. Eles não leram o que o robô escreveu para eles. Estamos formando uma geração de analfabetos funcionais de alta tecnologia, incapazes de sustentar uma linha de raciocínio crítico por mais de três minutos.\"\n\nQual é a sua resposta ao professor Marcelo?\n\n• Resposta A (Defendendo a Adaptação Pedagógica): \"Professor, não será o seu método de avaliação que está obsoleto? Pedir ensaios longos baseados em compilação de dados não faz mais sentido quando o dado é instantâneo. Não seria a hora de avaliações orais e projetos práticos?\"\n\n• Resposta B (Solidariedade diante do Colapso Psíquico): \"O senhor tem toda razão. A neurociência comprova que a fragmentação da dopamina por telas viciantes destrói os circuitos de memória profunda e reflexão lenta.\"\n\n• Resposta C (Abordagem da Mediação Curricular): \"O problema não é a tecnologia em si, mas a falta de letramento algorítmico nas escolas para ensinar o aluno a usar a IA como debatedora, e não como substituta.\"\n\n[MOCK]: Simulação de escolha RPG para o livro-jogo Stargate.",
+      "fontes": [],
+      "narracao": "A página em branco costumava ser um espelho da alma e do esforço. Quando o algoritmo preenche as linhas com perfeição instantânea, o que sobra dentro da cabeça de quem assina o trabalho?",
+      "som": "Silêncio opressivo de uma sala de aula vazia após o sinal, com o zumbido monótono de lâmpadas fluorescentes e o eco de passos pesados no corredor deserto.",
+      "visual": "Plano fechado em tons dessaturados: homem na faixa dos 50 anos com olhar cansado, esfregando as têmporas em frente a uma pilha de impressões e telas de notebook desligadas.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para o drama da acusação: O Diálogo com a Aluna Mariana",
+          "destino": 8
+        },
+        {
+          "tipo": "aprofundar",
+          "rotulo": "Aprofundar nos dados reais: O Alerta da OCDE no PISA 2022 sobre Telas e Distração",
+          "destino": 18
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para o Ensaio Audiovisual da Sala em Dois Espelhos",
+          "destino": 2
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: Ouvir a Visão Emancipatória da Professora Cecília",
+          "destino": 5
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "numero": 7,
+      "tipo": "personagem",
+      "polo": "otimista",
+      "profundidade": 1,
+      "titulo": "[MOCK] Diálogo RPG: Lucas e o Tutor Noturno Infinito",
+      "texto": "Você conversa na calçada em frente a uma biblioteca comunitária em Fortaleza com Lucas, 17 anos, filho de uma costureira e de um motorista de aplicativo. Lucas está no terceiro ano do ensino médio e sonha cursar Engenharia de Software na universidade federal. Ele segura um smartphone com a tela trincada, mas com um aplicativo de tutoria com IA aberto.\n\n\"Na minha escola pública, o professor de química faltou por quatro meses porque adoeceu e o Estado não mandou substituto\", conta Lucas com brilho nos olhos. \"Antes, quem não podia pagar cursinho de três mil reais por mês estava condenado a zerar a prova do ENEM. Agora, eu sento na minha cama às onze da noite, quando a casa fica quieta, e abro o assistente. Eu posso pedir para ele me explicar estequiometria trinta vezes seguidas. Ele não me chama de burro, não perde a paciência, não tem pressa. Ele cria analogias com futebol, com videogame, até eu entender a matemática por trás da reação. Pela primeira vez na vida dos meus pais, eu tenho em casa a mesma qualidade de explicação que um garoto rico tem em colégio de elite.\"\n\nO que você diz a Lucas para testar sua experiência?\n\n• Resposta A (Incentivo e Validação): \"Esse é o verdadeiro poder emancipatório da tecnologia: democratizar a tutoria de excelência para quem sempre foi deixado para trás.\"\n\n• Resposta B (Alerta sobre Alucinações): \"Você já conferiu se o tutor não inventa conceitos ou fórmulas erradas com ar de certeza absoluta quando o cálculo fica muito avançado?\"\n\n• Resposta C (Questionamento sobre Isolamento): \"Aprender sozinho no quarto com um robô à meia-noite resolve o vestibular, mas não substitui a experiência social de construir soluções em grupo com outros jovens.\"\n\n[MOCK]: Simulação de escolha RPG para a série Stargate.",
+      "fontes": [],
+      "narracao": "Para quem nunca teve reforço escolar nem enciclopédia em casa, um tutor de bolso paciente que responde às duas da manhã parece o fim do abismo social. Será essa a promessa cumprida?",
+      "som": "Brisa quente da noite soprando suavemente, barulho de motos passando ao longe e o toque ritmado dos dedos ágeis sobre a tela do celular.",
+      "visual": "Retrato noturno sob a luz amarela de um poste de rua: jovem negro sorrindo, iluminado pelo reflexo azulado da tela do celular onde linhas de diálogo pedagógico sobem em cascata.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a teoria de Bloom: O Sonho do Tutor 1-para-1 para Bilhões",
+          "destino": 9
+        },
+        {
+          "tipo": "aprofundar",
+          "rotulo": "Aprofundar na prática acadêmica: O Tutor de Código de Harvard (CS50.ai)",
+          "destino": 14
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para a mecânica do Tutor Socrático Adaptativo",
+          "destino": 3
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: Contrapor com Mariana e o Terror do Falso Positivo",
+          "destino": 8
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "numero": 8,
+      "tipo": "personagem",
+      "polo": "catastrofico",
+      "profundidade": 1,
+      "titulo": "[MOCK] Diálogo RPG: Mariana e o Tribunal do Detector Algorítmico",
+      "texto": "Em uma mesa de concreto no câmpus universitário de Campinas, Mariana, estudante de 20 anos de Ciências Sociais e primeira da família a ingressar no ensino superior, está à beira das lágrimas segurando uma notificação oficial da diretoria acadêmica. Ela foi denunciada por fraude e desonestidade intelectual.\n\n\"Eu passei três semanas na biblioteca lendo Darcy Ribeiro e Florestan Fernandes. Escrevi cada linha do meu ensaio à mão primeiro, depois digitei no computador com cuidado milimétrico, corrigindo referências da ABNT\", relata Mariana com as mãos trêmulas. \"O professor jogou meu trabalho dentro de um software detector de inteligência artificial comercial. O sistema cuspiu um número vermelho: '89% de probabilidade de texto gerado por IA'. Meu professor nem quis me ouvir; disse que 'o algoritmo não mente'. Como a minha escrita é formal, estruturada e limpa, a máquina me puniu porque escrevo sem gírias! Fui humilhada diante da turma, minha bolsa está suspensa e eu estou tendo que provar que não sou uma máquina. O colégio virou um tribunal de inquisição digital.\"\n\nComo você reage à aflição de Mariana?\n\n• Resposta A (Apoio Jurídico e Científico): \"Mariana, estudos de Stanford comprovaram que esses detectores são estatisticamente falhos e punem injustamente quem escreve em tom acadêmico formal. Você precisa recorrer imediatamente com o histórico de versões do documento.\"\n\n• Resposta B (Crítica à Preguiça Institucional): \"O escândalo aqui não é o software, mas a covardia dos professores que terceirizaram o julgamento pedagógico para ferramentas probabilísticas caça-bruxas.\"\n\n• Resposta C (Ponderação sobre o Pânico Docente): \"Os professores estão aterrorizados porque milhares de alunos realmente usam a IA para colar, mas pagar com a condenação de inocentes destrói a confiança na universidade.\"\n\n[MOCK]: Diálogo dramático RPG da série Stargate.",
+      "fontes": [],
+      "narracao": "Quando o algoritmo passa a julgar quem é humano e quem é robô, a presunção de inocência desaparece. Uma escrita clara e metódica virou sinônimo de culpa.",
+      "som": "Som distante de vento soprando entre copas de árvores universitárias, entrecortado pelo ruído de papel sendo amassado com raiva e o estalo agudo de um carimbo burocrático.",
+      "visual": "Plano detalhe: folha de papel timbrado com carimbo vermelho de 'suspeita de plágio por IA' e uma barra de porcentagem impressa, com as mãos da estudante segurando o papel com nós dos dedos brancos de tensão.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a investigação visual: A Fábrica da Desatenção e o Cerco",
+          "destino": 10
+        },
+        {
+          "tipo": "aprofundar",
+          "rotulo": "Aprofundar no escândalo científico: O Estudo de Stanford sobre o Viés dos Detectores",
+          "destino": 20
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para a Encruzilhada Cognitiva: Muleta ou Amplificador",
+          "destino": 4
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: Relembrar a Promessa do Aluno Lucas e o Tutor Democrático",
+          "destino": 7
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "numero": 9,
+      "tipo": "texto que se expande",
+      "polo": "otimista",
+      "profundidade": 1,
+      "titulo": "[MOCK] O Sonho de Bloom: O Tutor 1-para-1 ao Alcance de Bilhões",
+      "texto": "Em 1984, o psicólogo educacional norte-americano Benjamin Bloom publicou uma pesquisa seminal que assombrou a pedagogia durante quarenta anos: o chamado \"Problema dos 2 Sigmas\" (*Bloom's 2 Sigma Problem*). Bloom demonstrou empiricamente que alunos comuns instruídos por tutores particulares individuais com métodos de maestria tinham desempenho dois desvios-padrão acima daqueles que assistiam a aulas em salas convencionais de 30 alunos. Em termos práticos: um estudante mediano no percentil 50 saltava para o percentil 98 quando recebia atenção pedagógica individualizada e dedicada.\n\nO grande drama histórico apontado por Bloom era puramente econômico: nenhuma nação do mundo dispunha de recursos fiscais ou de professores suficientes para alocar um tutor exclusivo a cada criança. O ensino de excelência individualizada permaneceu como uma prerrogativa exclusiva da aristocracia e das elites econômicas, enquanto as massas recebiam o formato fabril padronizado. A inteligência artificial generativa quebrou essa barreira física de escala.\n\n▼ [Clique para expandir as métricas de domínio adaptativo e curva de Ebbinghaus]\n\nCamada de Otimização Cognitiva: O tutor de IA consegue mapear a exata curva de esquecimento de cada cérebro individualmente. Se um aluno assimilou o teorema de Pitágoras na segunda-feira, o algoritmo recalcula a probabilidade de retenção de memória e reapresenta o problema em intervalos matematicamente espaçados (repetição espaçada dinâmica) na quinta-feira e na semana seguinte sob contextos práticos diferentes. Além disso, a máquina não avança enquanto não houver domínio pleno da base: enquanto a escola tradicional dá nota 6 e empurra o aluno com lacunas para o ano seguinte, o tutor inteligente isola a fratura conceitual e só avança para equações quadráticas quando as lineares estão cristalizadas na mente do aprendiz.\n\n[MOCK]: Texto didático expansível para exploração editorial no Stargate.",
+      "fontes": [],
+      "narracao": "Durante quarenta anos, soubemos que cada criança poderia atingir o topo se tivesse um mestre dedicado. A inteligência artificial não cria novos cérebros: ela entrega o tutor que a história sonegou aos pobres.",
+      "som": "Harmonia orquestral suave e crescente em cordas acústicas, com arpejos cristalinos de harpa sugerindo clareza e expansão intelectual.",
+      "visual": "Gráfico dinâmico translúcido mostrando duas curvas gaussianas: a curva cinzenta da sala tradicional no centro e a curva dourada do ensino por tutoria individual deslocando-se dois desvios inteiros para a direita.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a pedagogia ativa: Da Memorização Estéril à Descoberta",
+          "destino": 11
+        },
+        {
+          "tipo": "aprofundar",
+          "rotulo": "Aprofundar nos dados reais da Khan Academy e Khanmigo",
+          "destino": 13
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para o Bloco 1: O Algoritmo na Sala de Aula",
+          "destino": 1
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: Contrapor com a Atrofia do Pensar e a Dependência",
+          "destino": 12
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "numero": 10,
+      "tipo": "video",
+      "polo": "catastrofico",
+      "profundidade": 1,
+      "titulo": "[MOCK] Registro Visual: A Fábrica da Desatenção e o Cerco das Plataformas",
+      "texto": "Descrição do vídeo editorial (ensaio investigativo documental):\n\nAbertura em câmera lenta: os corredores de um colégio de ensino fundamental com iluminação branca gélida. Câmeras de reconhecimento facial e análise emocional com inteligência artificial operam discretamente embutidas nas luminárias do teto. Na tela do supervisor de disciplina, painéis mostram caixas delimitadoras sobre a cabeça de cada criança de dez anos: \"Atenção: 41% (Distraído)\", \"Sonolência: 82% (Alerta enviado aos pais)\", \"Emoção detectada: Frustração/Ansiedade\".\n\nA cena corta para os aparelhos móveis: dedos infantis deslizam freneticamente por feeds infinitos de vídeos de 10 segundos gerados por algoritmos preditivos. O narrador explica como as grandes corporações de tecnologia transformaram as escolas em laboratórios de extração comportamental: cada clique, cada pausa de leitura e cada erro em exercícios escolares é transformado em perfil psicométrico proprietário, monetizado no ecossistema de publicidade ou trancado em contratos bilionários de software fechado que cobram assinaturas perpétuas dos municípios.\n\nO plano final enquadra o recreio: cinquenta crianças sentadas em bancos de cimento, todas curvadas sobre telas luminosas, em absoluto silêncio. Ninguém corre, ninguém brinca de pega-pega, ninguém olha no rosto do colega. Um pátio escolar que parece uma ante-sala de hospital psiquiátrico.\n\n[MOCK]: Documentário investigativo conceitual para a plataforma Stargate.",
+      "fontes": [],
+      "narracao": "Eles disseram que estavam digitalizando a escola para o futuro. Quando olhamos de perto, haviam instalado uma linha de montagem de extração de dados e silenciado o pátio de brincar.",
+      "som": "Zumbido inquietante de servidor em sala de ar-condicionado pesada, misturado ao som abafado de notificações simultâneas de mensagens e toques de tela ocos.",
+      "visual": "Estética cinematográfica fria no estilo 'Black Mirror' documental: enquadramentos simétricos e opressivos com infográficos de monitoramento biométrico e rastreamento ocular pontilhados em vermelho sobre os rostos dos alunos.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a análise da dependência: A Atrofia do Pensar",
+          "destino": 12
+        },
+        {
+          "tipo": "aprofundar",
+          "rotulo": "Aprofundar na reação regulatória: O Banimento dos Celulares e o Decreto do Rio",
+          "destino": 22
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para o Ensaio Audiovisual da Sala em Dois Espelhos",
+          "destino": 2
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: Reavaliar a Tese de Bloom sobre Maestria Individual",
+          "destino": 9
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "numero": 11,
+      "tipo": "texto",
+      "polo": "otimista",
+      "profundidade": 1,
+      "titulo": "[MOCK] Da Memorização Estéril à Descoberta Ativa",
+      "texto": "Durante gerações inteiras, o currículo escolar foi construído sobre uma ilusão: a de que a mente educada é um arquivo morto de datas, nomes de rios e fórmulas mnemônicas para passar no vestibular. Os estudantes passavam anos decorando a tabela periódica ou a classificação das orações subordinadas substantivas, apenas para esquecer 90% de todo o conteúdo semanas após a realização dos exames. O acesso instantâneo a sistemas de inteligência contextual desmascarou essa hipocrisia.\n\nAo transferir a recuperação de dados brutos para o silício, a escola é finalmente forçada a elevar o nível de sua ambição civilizatória. Não faz mais sentido pontuar um aluno por listar as capitais da Europa ou memorizar a data exata da Proclamação da República brasileira. A sala de aula torna-se um ateliê socrático de investigação de fenômenos complexos: por que a transição monárquica brasileira preservou a escravidão? Quais os equilíbrios ecológicos e econômicos na transição para a matriz energética limpa? O estudante interage com o assistente inteligente não para receber a resposta pronta, mas para utilizá-lo como interlocutor simulado em debates dialéticos.\n\nEm projetos interdisciplinares, adolescentes que antes odiavam física agora constroem simulações computacionais de aerodinâmica e desenham protótipos de turbinas eólicas. O papel do educador humano migra do púlpito monológico para a tutoria sênior: o professor orienta o método, instiga a dúvida epistemológica, ensina a desconfiar de fontes e lapida a formação ética e cidadã do jovem.\n\n[MOCK]: Visão otimista da transformação curricular para o Stargate.",
+      "fontes": [],
+      "narracao": "Quando o robô lembra de todas as datas e capitais, a escola é obrigada a fazer o que sempre evitou: ensinar o ser humano a pensar por si mesmo.",
+      "som": "Ambiente sonoro estimulante de oficina colaborativa: murmúrio animado de estudantes discutindo hipóteses, ferramentas manuais e cliques de prototipagem rápida.",
+      "visual": "Bancada aberta de madeira com estudantes desenhando plantas de foguetes com lápis e transferidor enquanto um assistente virtual projeta um túnel de vento holográfico sobre o papel.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para o diálogo de campo: Professora Cecília e o Chão da Escola",
+          "destino": 5
+        },
+        {
+          "tipo": "aprofundar",
+          "rotulo": "Aprofundar na reviravolta prática: O Caso da Maior Rede Pública dos EUA (Nova York DOE)",
+          "destino": 15
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para a mecânica do Motor Pedagógico",
+          "destino": 3
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: Contrapor com a Fábrica da Desatenção e o Cerco Digital",
+          "destino": 10
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "numero": 12,
+      "tipo": "texto que se expande",
+      "polo": "catastrofico",
+      "profundidade": 1,
+      "titulo": "[MOCK] A Atrofia do Pensar: Externalização Cognitiva e Dependência",
+      "texto": "A armadilha mais perigosa da inteligência artificial na educação não é a cola explícita em provas, mas o que os psicólogos cognitivos denominam \"ilusão de fluência\". Quando um estudante lê uma resposta articulada, elegante e coerente gerada pelo ChatGPT em três segundos, seu cérebro confunde a facilidade de leitura com a posse real daquele conhecimento. Ele experimenta a falsa sensação de que teria sido capaz de formular aquela ideia sozinho. Porém, quando a máquina é desligada, a estrutura conceitual evapora: nada foi verdadeiramente codificado na memória de longo prazo.\n\nO cérebro humano em desenvolvimento requer atrito cognitivo para forjar sinapses duradouras. Aprender a escrever um argumento sólido não é uma habilidade mecânica; é o próprio processo pelo qual aprendemos a estruturar nosso pensamento e expor nossas contradições. Se a fase árdua de tatear palavras, confrontar a dúvida e reorganizar parágrafos for constantemente terceirizada para o autocomplete algorítmico, o músculo reflexivo atrofia por desuso biológico.\n\n▼ [Clique para expandir as evidências de dívida cognitiva e perda de síntese autônoma]\n\nMapeamento da Dívida Cognitiva: Testes laboratoriais de neuroimagem funcional revelam que a resolução assistida por IA desativa áreas do córtex pré-frontal dorsal responsáveis pelo esforço voluntário de recuperação mnemônica e pelo controle inibitório. O estudante torna-se um mero \"revisor superficial\", apenas aceitando ou rejeitando sugestões com o polegar. Essa dependência cria uma vulnerabilidade intelectual devastadora: gerações inteiras tornam-se intelectualmente indefesas diante de desinformação algorítmica sofisticada, pois perderam a faculdade básica de dissecar a coerência lógica de um argumento por conta própria.\n\n[MOCK]: Ensaio crítico expansível para o livro-jogo Stargate.",
+      "fontes": [],
+      "narracao": "Aprender dói porque construir novos circuitos cerebrais exige esforço. Quando a máquina tira todo o peso do treino, você não fica mais forte: seus ossos mentais amolecem.",
+      "som": "Pulso cardíaco abafado e desacelerado, intercalado pelo som mecânico de engrenagens de relógio que rangem e emperram gradualmente até o silêncio.",
+      "visual": "Renderização 3D de uma teia neural cerebral com sinapses brilhantes que vão se apagando uma a uma conforme blocos de texto gerados por IA caem como lajes pesadas sobre o córtex.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a visão do professor: Diálogo com o Professor Marcelo",
+          "destino": 6
+        },
+        {
+          "tipo": "aprofundar",
+          "rotulo": "Aprofundar na prova empírica: O Estudo da Wharton e PNAS sobre Queda de Desempenho",
+          "destino": 17
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para a Encruzilhada Cognitiva: Muleta ou Amplificador",
+          "destino": 4
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A Quebra do Decoreba e a Descoberta Ativa",
+          "destino": 11
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "numero": 13,
+      "tipo": "texto",
+      "polo": "otimista",
+      "profundidade": 2,
+      "titulo": "[MOCK] Evidência Real: A Revolução Socrática da Khan Academy e Khanmigo",
+      "texto": "Em março de 2023, a Khan Academy — uma das maiores organizações educacionais sem fins lucrativos do mundo — anunciou uma parceria pioneira com a OpenAI para implementar o Khanmigo, um assistente pedagógico pessoal alimentado pelo modelo GPT-4. Em vez de funcionar como uma máquina de colar respostas, o Khanmigo foi explicitamente programado sob guardrails socráticos: ele nunca resolve uma equação de matemática nem redige uma redação de história pelo aluno. Se o estudante pede a resposta, o assistente responde com uma pergunta reflexiva sobre o passo anterior do raciocínio.\n\nEm sua conferência no evento TED, realizada em abril de 2023 e disponibilizada mundialmente em maio de 2023 sob o título \"How AI Could Save (Not Destroy) Education\", Sal Khan, fundador da plataforma, apresentou a visão de que a inteligência artificial representa a oportunidade mais transformadora da história para resolver o clássico dilema dos 2 Sigmas de Benjamin Bloom. Khan detalhou como a ferramenta opera simultaneamente como um tutor dedicado para cada estudante e como um assistente de ensino para o professor humano, gerando automaticamente planos de aula diferenciados, rubricas de correção e agrupando os alunos conforme suas necessidades conceituais em tempo real.\n\nA experiência prática demonstrou que a IA com guardrails pedagógicos estritos inibe a fraude e incentiva a persistência: estudantes em distritos escolares piloto nos Estados Unidos que utilizaram a tutoria socrática apresentaram índices significativamente maiores de conclusão de tarefas desafiadoras em comparação com turmas sem mediação individualizada.\n\n[MOCK]: Bloco factual baseado em anúncios e conferências primárias da Khan Academy.",
+      "fontes": [
+        {
+          "titulo": "TED: How AI Could Save (Not Destroy) Education (Sal Khan)",
+          "url": "https://www.ted.com/talks/sal_khan_how_ai_could_save_not_destroy_education",
+          "data": "2023-05-01",
+          "verificada": "2026-11-10"
+        },
+        {
+          "titulo": "Khan Academy: Harnessing GPT-4 so that all students benefit — A nonprofit approach for equal education",
+          "url": "https://www.khanacademy.org/khanmigo",
+          "data": "2023-03-14",
+          "verificada": false
+        }
+      ],
+      "narracao": "Em 2023, a Khan Academy provou que era possível colocar freios na inteligência artificial: transformar o gerador de respostas fáceis em um mestre socrático que não deixa você desistir de pensar.",
+      "som": "Ressonância suave de sino de conferência, aplausos calorosos de plateia ao longe e cliques ritmados de interface digital educativa.",
+      "visual": "Captura de tela real da interface do Khanmigo: janela de diálogo lateral em tons de azul marinho com uma conversa passo a passo orientando o estudante a encontrar as raízes de uma parábola.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para o caso universitário: O Tutor de Código de Harvard (CS50.ai)",
+          "destino": 14
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para a teoria de Bloom: O Sonho do Tutor para Bilhões",
+          "destino": 9
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: Contrapor com os Dados de Wharton (PNAS) sobre Queda na Prova",
+          "destino": 17
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: Conhecer a Conectividade Estratégica no Brasil (MEC)",
+          "destino": 16
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "numero": 14,
+      "tipo": "texto",
+      "polo": "otimista",
+      "profundidade": 2,
+      "titulo": "[MOCK] Evidência Real: O Tutor de Código de Harvard (CS50.ai)",
+      "texto": "Em junho de 2023, a Universidade Harvard — uma das mais conceituadas instituições de ensino superior do planeta — tomou uma decisão de vanguarda para o outono de 2023 no seu curso introdutório de ciência da computação mais emblemático e concorrido, o CS50 (Introduction to Computer Science). O professor titular David J. Malan anunciou que o curso adotaria formalmente assistentes de inteligência artificial baseados em modelos avançados como monitores de ensino de plantão 24 horas por dia para todos os alunos.\n\nDenominado CS50 Duck (acessível via CS50.ai e integrado diretamente ao ambiente de desenvolvimento em nuvem do estudante), o sistema foi desenhado para simular o método do \"patinho de borracha\" (*rubber duck debugging*). Se um calouro de programação encontra um erro de sintaxe ou vazamento de memória às três horas da madrugada, o bot não reescreve o código com a solução pronta. Em vez disso, ele aponta a linha exata, explica o significado do aviso de compilação em linguagem natural e estimula o estudante a testar hipóteses: \"Observe o tamanho do seu vetor na linha 42. Quantos elementos foram alocados e quantos você tentou acessar no loop?\".\n\nA documentação técnica e os artigos subsequentes da equipe de Harvard demonstraram que a ferramenta reduziu a taxa de evasão nos estágios iniciais da disciplina e permitiu aos monitores e professores humanos dedicarem suas horas de atendimento presencial a discussões de arquitetura de software complexa e orientação de carreira, em vez de passar centenas de horas caçando pontos-e-vírgulas esquecidos pelos estudantes novatos.\n\n[MOCK]: Registro factual baseado em anúncios institucionais de Harvard e publicações do CS50.",
+      "fontes": [
+        {
+          "titulo": "The Harvard Crimson: CS50 to Use AI for Teaching, Course Staffing in Upcoming Fall Iteration (David J. Malan)",
+          "url": "https://www.thecrimson.com/article/2023/6/21/cs50-artificial-intelligence/",
+          "data": "2023-06-21",
+          "verificada": "2026-11-10"
+        },
+        {
+          "titulo": "CS50 AI Documentation: Teaching CS50 with AI — Principles, Design and Guardrails",
+          "url": "https://cs50.readthedocs.io/ai/",
+          "data": "2023-08-30",
+          "verificada": false
+        }
+      ],
+      "narracao": "Em Harvard, o professor de computação não proibiu o robô: transformou a IA num patinho de borracha incansável que ensina os alunos a depurar o próprio raciocínio na calada da noite.",
+      "som": "Digitação cadenciada em teclado mecânico suave, acompanhada por bipes curtos de compilação de código e um zumbido discreto de terminal Unix.",
+      "visual": "Tela dividida do VS Code com o mascote do pato amarelo do CS50 na barra lateral direita exibindo mensagens de depuração pedagógica com trechos de código em C realçados em cores.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a reviravolta de Nova York: A Virada Pragmática do Chancellor Banks",
+          "destino": 15
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para o diálogo com o Aluno Lucas",
+          "destino": 7
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O Desmoronamento Financeiro do Chegg por Causa do ChatGPT",
+          "destino": 21
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A Revolução Socrática da Khan Academy",
+          "destino": 13
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "numero": 15,
+      "tipo": "texto",
+      "polo": "otimista",
+      "profundidade": 2,
+      "titulo": "[MOCK] Evidência Real: A Virada Pragmática de Nova York (David C. Banks)",
+      "texto": "Em janeiro de 2023, o Departamento de Educação da Cidade de Nova York (New York City Department of Education) — o maior distrito escolar público dos Estados Unidos, responsável por mais de 1 milhão de estudantes — anunciou com grande alarde o bloqueio total do acesso ao ChatGPT em todos os computadores e redes Wi-Fi das escolas públicas municipais. O motivo alegado foi o pânico imediato em relação à trapaça em massa, à integridade acadêmica e à disseminação de informações inverídicas nas redações escolares.\n\nEntretanto, a proibição durou apenas quatro meses. Em 18 de maio de 2023, em um memorável artigo assinado na publicação especializada *Chalkbeat*, o Chanceler das Escolas de Nova York, David C. Banks, anunciou a revogação oficial do banimento e admitiu publicamente que a reação inicial foi precipitada: \"O medo instintivo inicial foi compreensível, mas a realidade é que o mundo exterior não vai proibir a inteligência artificial. Nossos alunos entrarão em um mercado de trabalho moldado pela IA. Trancar as portas das salas para ela seria condenar nossos estudantes à irrelevância tecnológica\".\n\nNova York mudou de postura radicalmente: passou a oferecer capacitação docente em engenharia de prompt para professores da rede pública, firmou parcerias com centros de pesquisa e criou comitês pedagógicos para redesenhar as tarefas escolares. O episódio de Nova York consolidou-se internacionalmente como o marco definitivo do colapso da política de proibição cega e da transição necessária para a governança pedagógica de letramento em IA nas escolas públicas.\n\n[MOCK]: Registro documental baseado no pronunciamento oficial do NYC DOE e Chalkbeat.",
+      "fontes": [
+        {
+          "titulo": "Chalkbeat: ChatGPT caught NYC schools off guard. Now, we're determined to embrace its potential (David C. Banks)",
+          "url": "https://www.chalkbeat.org/2023/5/18/23727409/chatgpt-nyc-schools-ban-reversed-artificial-intelligence-david-banks/",
+          "data": "2023-05-18",
+          "verificada": false
+        }
+      ],
+      "narracao": "A maior rede escolar pública da América tentou trancar a IA para fora da sala. Quatro meses depois, o chanceler recuou: proibir a tecnologia do século vinte e um é condenar o aluno ao século vinte.",
+      "som": "Som ambiente urbano de Nova York, sirenes distantes, passos rápidos no asfalto e o bater de uma porta corta-fogo sendo aberta para a entrada de luz.",
+      "visual": "Fachada de uma escola pública de tijolos vermelhos no Brooklyn, com um banner com os dizeres 'Empowering Next Generation Innovators' e estudantes entrando com mochilas coloridas.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a infraestrutura pública brasileira: MEC e Escolas Conectadas",
+          "destino": 16
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para a discussão sobre Memorização vs Descoberta Ativa",
+          "destino": 11
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: Contrapor com a Proibição Radical de Celulares no Rio de Janeiro",
+          "destino": 22
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: Relembrar o Caso de Sucesso do CS50 de Harvard",
+          "destino": 14
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "numero": 16,
+      "tipo": "texto",
+      "polo": "otimista",
+      "profundidade": 2,
+      "titulo": "[MOCK] Evidência Real: Conectividade Estratégica no Brasil (MEC e Decreto 11.713)",
+      "texto": "No Brasil, o debate sobre inteligência artificial e novas ferramentas pedagógicas esbarra historicamente na desigualdade abissal de infraestrutura básica. Para enfrentar esse abismo digital, o Governo Federal brasileiro instituiu, por meio do Decreto nº 11.713, de 26 de setembro de 2023, a Estratégia Nacional de Escolas Conectadas (ENEC), coordenada em conjunto pelo Ministério da Educação (MEC) e pelo Ministério das Comunicações (MCom). O plano articulou o investimento massivo de cerca de R$ 8,8 bilhões (recursos do Novo PAC, FUST e leilão do 5G) com a meta de levar conexão de internet banda larga de alta velocidade com fins pedagógicos a todas as 138 mil escolas públicas da educação básica até 2026.\n\nOs dados empíricos da pesquisa oficial TIC Educação 2023, conduzida pelo Cetic.br (Centro Regional de Estudos para o Desenvolvimento da Sociedade da Informação, ligado ao NIC.br e CGI.br) e divulgada em agosto de 2024, retrataram o panorama real da infraestrutura nas salas de aula brasileiras: embora mais de 90% das escolas possuíssem algum tipo de conexão, apenas 26% das redes sem fio (Wi-Fi) eram disponibilizadas para livre acesso e uso pedagógico dos estudantes, com 58% restringindo o acesso por senhas institucionais e 64% estabelecendo regras rígidas de espaços e horários para aparelhos celulares.\n\nA convergência entre a ENEC e os novos programas pedagógicos abriu caminho para que ferramentas de tutoria inteligente e plataformas adaptativas abertas começassem a ser testadas como políticas de Estado para mitigação de lacunas de alfabetização e matemática no pós-pandemia, provando que a tecnologia na educação pública depende de planejamento fiscal, infraestrutura de fibra óptica e formação continuada de professores.\n\n[MOCK]: Dados estatísticos oficiais do Cetic.br e atos normativos da Presidência da República.",
+      "fontes": [
+        {
+          "titulo": "Presidência da República: Decreto nº 11.713, de 26 de setembro de 2023 — Institui a Estratégia Nacional de Escolas Conectadas",
+          "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/decreto/d11713.htm",
+          "data": "2023-09-26",
+          "verificada": "2026-11-10"
+        },
+        {
+          "titulo": "Cetic.br / NIC.br: Pesquisa sobre o Uso das Tecnologias de Informação e Comunicação nas Escolas Brasileiras — TIC Educação 2023",
+          "url": "https://cetic.br/pt/publicacao/pesquisa-sobre-o-uso-das-tecnologias-de-informacao-e-comunicacao-nas-escolas-brasileiras-tic-educacao-2023/",
+          "data": "2024-05-14",
+          "verificada": false
+        }
+      ],
+      "narracao": "No Brasil, o futuro só começa quando a fibra óptica alcança o sertão e a periferia. Conectar 138 mil escolas públicas não é um luxo tecnológico: é o alicerce para que nenhuma criança fique para trás.",
+      "som": "Murmúrio de crianças em escola rural brasileira misturado ao som do vento em folhas de mangueira e o bip suave de um roteador conectando à rede pela primeira vez.",
+      "visual": "Escola municipal no interior do Ceará com paredes pintadas de azul e branco, antena parabólica de satélite no telhado e alunos em volta de computadores novos conectados com olhar atento.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a síntese global: As Diretrizes da UNESCO para a IA na Educação",
+          "destino": 24
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para o diálogo com a Professora Cecília em Belo Horizonte",
+          "destino": 5
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O Alerta da OCDE no PISA 2022 sobre Telas e Distração",
+          "destino": 18
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A Revolução da Khan Academy e Khanmigo",
+          "destino": 13
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "numero": 17,
+      "tipo": "texto",
+      "polo": "catastrofico",
+      "profundidade": 2,
+      "titulo": "[MOCK] Evidência Real: A Ilusão da Competência — O Estudo de Wharton e PNAS",
+      "texto": "Em 2024, uma das mais rigorosas e impactantes investigações empíricas sobre o uso prático de IA generativa em ambiente escolar foi conduzida por pesquisadores da prestigiada Wharton School (Universidade da Pensilvânia), incluindo Hamsa Bastani, Osbert Bastani e Alp Sungu, e aceita para publicação nos Anais da Academia Nacional de Ciências dos Estados Unidos (PNAS - *Proceedings of the National Academy of Sciences*). O artigo, intitulado *\"Generative AI without guardrails can harm learning: Evidence from high school mathematics\"*, avaliou milhares de estudantes de ensino médio resolvendo problemas matemáticos complexos sob diferentes condições experimentais.\n\nOs resultados foram estarrecedores para o entusiasmo ingênuo do setor de EdTech: enquanto tinham acesso irrestrito ao GPT-4, os alunos resolveram **48% mais problemas práticos corretamente** em comparação com os colegas que praticavam sem auxílio tecnológico (e com um tutor de IA com salvaguardas pedagógicas, o salto de resolução imediata chegou a 127%). Os estudantes sentiam-se confiantes, produtivos e velozes. Porém, a segunda fase do experimento revelou o preço oculto da externalização cognitiva: quando todos os estudantes foram submetidos a uma prova formal idêntica **sem acesso a nenhuma inteligência artificial**, os alunos que haviam praticado com a IA tiveram um desempenho **17% pior** do que os alunos do grupo de controle que haviam enfrentado as dificuldades apenas com livro, lápis e a própria cabeça.\n\nOs autores concluíram que a IA operou como uma \"muleta cognitiva invisível\": o modelo fazia o esforço de síntese e resolução pelos jovens, gerando uma perigosa ilusão de domínio e competência no curto prazo, mas bloqueando a consolidação neural da aprendizagem profunda e duradoura no longo prazo.\n\n[MOCK]: Evidência científica primária publicada na PNAS / Universidade da Pensilvânia.",
+      "fontes": [
+        {
+          "titulo": "PNAS: Generative AI without guardrails can harm learning — Evidence from high school mathematics (Bastani et al.)",
+          "url": "https://www.pnas.org/doi/10.1073/pnas.2422633122",
+          "data": "2024-07-21",
+          "verificada": false
+        },
+        {
+          "titulo": "Knowledge at Wharton: Without Guardrails, Generative AI Can Harm Education (Wharton School)",
+          "url": "https://knowledge.wharton.upenn.edu/article/without-guardrails-generative-ai-can-harm-education/",
+          "data": "2024-07-25",
+          "verificada": "2026-11-10"
+        }
+      ],
+      "narracao": "A ciência de Wharton e da Academia Nacional de Ciências comprovou o pesadelo: com a IA ligada, o aluno acerta metade das questões a mais; na hora da prova sem a máquina, ele tira notas dezessete por cento piores.",
+      "som": "Grafite de lápis se quebrando com estalo nítido sobre uma folha de prova de matemática, seguido por suspiro tenso e o tique-taque inflexível do relógio de parede do exame.",
+      "visual": "Gráfico de barras analítico comparando as duas etapas do estudo de Wharton: barras verdes altas durante a prática com GPT-4 despencando dramaticamente em vermelho na prova final sem assistência.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a evidência global: O Relatório PISA 2022 da OCDE sobre Distração",
+          "destino": 18
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para a Atrofia do Pensar e a Externalização Cognitiva",
+          "destino": 12
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A Revolução Socrática da Khan Academy",
+          "destino": 13
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: Neurociência da Escrita à Mão vs Digitação (Frontiers)",
+          "destino": 23
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "numero": 18,
+      "tipo": "texto",
+      "polo": "catastrofico",
+      "profundidade": 2,
+      "titulo": "[MOCK] Evidência Real: A Grande Distração — O Alerta Global da OCDE (PISA 2022)",
+      "texto": "Em 5 de dezembro de 2023, a Organização para a Cooperação e Desenvolvimento Econômico (OCDE) divulgou os resultados globais do PISA 2022 (Programa Internacional de Avaliação de Estudantes), acompanhados do Volume II do relatório: *\"Learning During – and From – Disruption\"*. O documento apresentou o mais abrangente diagnóstico internacional até hoje sobre o impacto real dos dispositivos digitais no desempenho escolar de centenas de milhares de jovens de 15 anos em mais de 80 países.\n\nOs dados destruíram o dogma de que \"mais telas equivalem a melhor aprendizagem\": em média, em todos os países da OCDE, estudantes que relataram passar mais de uma hora por dia usando dispositivos digitais para fins de lazer e distração na sala de aula pontuaram **cerca de 15 pontos a menos** em matemática do que seus pares não distraídos — uma lacuna equivalente a quase três quartos de um ano letivo inteiro de defasagem de aprendizagem. Além disso, quase um terço dos estudantes (cerca de 30% na média dos países-membros) admitiu que se distrai frequentemente com celulares, notificações e telas de colegas durante as aulas de matemática e ciências.\n\nO relatório da OCDE estabeleceu que, embora a tecnologia possa ser uma ferramenta de apoio pedagógico quando rigidamente mediada por professores, o uso desregulado de telas e smartphones no ambiente escolar atua como um potente vetor de estresse, ansiedade e dispersão cognitiva contínua, corroendo a capacidade fundamental de sustentação da atenção profunda necessária para raciocínios analíticos complexos.\n\n[MOCK]: Dados estatísticos oficiais primários da OCDE / Relatório Oficial do PISA 2022.",
+      "fontes": [
+        {
+          "titulo": "OECD: PISA 2022 Results (Volume II) — Learning During – and From – Disruption",
+          "url": "https://doi.org/10.1787/a97db61c-en",
+          "data": "2023-12-05",
+          "verificada": "2026-11-10"
+        }
+      ],
+      "narracao": "Oitenta países, centenas de milhares de jovens examinados. O veredito do PISA foi categórico: uma hora de distração no celular durante a aula equivale a perder quase um ano inteiro de matemática.",
+      "som": "Zumbido ininterrupto de vibrações de smartphone sobre madeira, som abafado de notificações simultâneas e o barulho de estudantes dispersos conversando aleatoriamente durante uma explicação.",
+      "visual": "Infografia comparativa oficial da OCDE mostrando a curva descendente de pontuação de proficiência em matemática cruzada com a quantidade diária de horas gastas em aparelhos eletrônicos em sala de aula.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a reação radical na Europa: A Marcha a Ré da Suécia",
+          "destino": 19
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para o diálogo com o Professor Marcelo sobre o Deserto da Atenção",
+          "destino": 6
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A Virada Pragmática de Nova York (David Banks)",
+          "destino": 15
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O Banimento dos Celulares no Rio de Janeiro",
+          "destino": 22
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "numero": 19,
+      "tipo": "texto",
+      "polo": "catastrofico",
+      "profundidade": 2,
+      "titulo": "[MOCK] Evidência Real: A Marcha a Ré da Suécia e o Retorno aos Livros Impressos",
+      "texto": "A Suécia foi durante anos considerada o modelo mundial de digitalização escolar: desde os anos iniciais do ensino fundamental, as escolas suecas substituíram praticamente todos os livros didáticos de papel e cadernos manuscritos por tablets, teclados e telas individuais. No entanto, em setembro de 2023, o governo sueco surpreendeu a comunidade educacional internacional ao anunciar uma reversão radical de rumo: o plano formal de desdigitalização das salas de aula e o retorno prioritário aos livros físicos, ao lápis e à caligrafia tradicional.\n\nA Ministra das Escolas da Suécia, Lotta Edholm, fundamentou a decisão nos resultados do estudo internacional PIRLS (Progress in International Reading Literacy Study), que apontou uma queda sensível na capacidade de compreensão leitora das crianças suecas de 9 e 10 anos entre 2016 e 2021. Respaldada por pareceres contundentes do conceituado Instituto Karolinska (Karolinska Institutet), a ministra declarou que a digitalização precoce e sem evidências sólidas foi um experimento perigoso que comprometeu a aquisição de competências básicas: \"Crianças pequenas precisam de livros físicos para focar. O livro impresso tem peso, textura, limites espaciais claros e não emite notificações que distraem o olhar\".\n\nPara materializar a virada pedagógica, o Parlamento sueco alocou um investimento de 685 milhões de coroas suecas (cerca de 45 milhões de libras esterlinas) em 2023, complementado por verbas anuais para garantir que cada aluno tenha livros didáticos físicos em sua carteira para cada matéria escolar, marcando o pioneirismo sueco no reconhecimento oficial dos limites neurológicos do ensino exclusivamente digital.\n\n[MOCK]: Fato jornalístico e político amplamente documentado pela imprensa internacional e pelo Governo da Suécia.",
+      "fontes": [
+        {
+          "titulo": "The Guardian: Switching off — Sweden says back-to-basics schooling works on paper (Lotta Edholm)",
+          "url": "https://www.theguardian.com/world/2023/sep/10/sweden-says-back-to-basics-schooling-works-on-paper-sweden-schools-minister-lotta-edholm",
+          "data": "2023-09-10",
+          "verificada": false
+        },
+        {
+          "titulo": "Government of Sweden: Government investing in more reading time and less screen time in Swedish schools",
+          "url": "https://www.government.se/articles/2024/02/government-investing-in-more-reading-time-and-less-screen-time/",
+          "data": "2024-02-15",
+          "verificada": "2026-11-10"
+        }
+      ],
+      "narracao": "Pioneira na entrega de tablets para todas as crianças, a Suécia deu meia-volta em 2023. Investiu milhões para recolocar livros de papel e lápis nas mãos dos alunos após ver a leitura despencar.",
+      "som": "Folhear ritmado e crocante de páginas grossas de um livro novo de papel, acompanhado pelo som de giz riscando suavemente uma lousa e o silêncio de crianças concentradas em uma biblioteca de Estocolmo.",
+      "visual": "Fotografia estilizada de uma estante de biblioteca repleta de livros encadernados de capa dura colorida sendo distribuídos sobre bancadas de pinho claro, enquanto tablets repousam empilhados e desligados em um canto.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a denúncia dos falsos positivos: O Estudo de Stanford sobre Detectores",
+          "destino": 20
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para o Registro Visual da Fábrica da Desatenção",
+          "destino": 10
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A Conectividade Estratégica das Escolas Brasileiras",
+          "destino": 16
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: Neurociência da Escrita à Mão vs Digitação (Frontiers)",
+          "destino": 23
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "numero": 20,
+      "tipo": "texto",
+      "polo": "catastrofico",
+      "profundidade": 2,
+      "titulo": "[MOCK] Evidência Real: O Julgamento Cego — O Viés dos Detectores de IA (Stanford)",
+      "texto": "Em maio de 2023, pesquisadores da Universidade Stanford liderados por Weixin Liang, James Zou e colaboradores publicaram no respeitado periódico científico *Patterns* (Cell Press) um estudo demolidor intitulado *\"GPT detectors are biased against non-native English writers\"* (com pré-publicação no repositório arXiv em abril de 2023). A pesquisa colocou sob rigoroso teste empírico os principais detectores de texto por IA comercializados mundialmente para universidades e escolas, incluindo ferramentas utilizadas por plataformas como Turnitin e concorrentes.\n\nA equipe de Stanford submeteu aos softwares dezenas de redações reais escritas por seres humanos falantes nativos de inglês e redações escritas por estudantes chineses e estrangeiros prestando o exame TOEFL (redações comprovadamente humanas escritas antes da invenção do ChatGPT). O resultado foi estarrecedor: enquanto os detectores acertaram quase 100% dos textos dos nativos, **mais de 61% das redações humanas escritas por falantes não nativos foram incorretamente classificadas como geradas por IA** por pelo menos um dos detectores comerciais analisados (com um dos sistemas acusando 97,8% dos textos legítimos de serem gerados por robôs).\n\nA razão matemática dessa injustiça algorítmica reside na métrica de \"perplexidade\": falantes não nativos utilizam estruturas sintáticas mais formais, vocabulário restrito e transições previsíveis, exatamente os padrões estatísticos que os modelos de detecção interpretam como marcas de código gerado por máquinas. O estudo evidenciou que milhões de estudantes inocentes ao redor do globo estão sendo expostos a acusações caluniosas e sanções disciplinares injustas devido à confiança cega de instituições de ensino em ferramentas estatisticamente furadas.\n\n[MOCK]: Estudo acadêmico revisado por pares em Patterns / Stanford HAI.",
+      "fontes": [
+        {
+          "titulo": "Patterns (Cell Press): GPT detectors are biased against non-native English writers (Liang et al., Stanford)",
+          "url": "https://doi.org/10.1016/j.patter.2023.100779",
+          "data": "2023-05-15",
+          "verificada": "2026-11-10"
+        },
+        {
+          "titulo": "Stanford HAI News: AI-Detectors Biased Against Non-Native English Writers (Human-Centered AI Institute)",
+          "url": "https://hai.stanford.edu/news/ai-detectors-biased-against-non-native-english-writers",
+          "data": "2023-05-16",
+          "verificada": "2026-11-10"
+        }
+      ],
+      "narracao": "Stanford comprovou a aberração: mais de sessenta por cento das redações escritas por estudantes estrangeiros foram rotuladas como robóticas por detectores de plágio. Quem escreve com simplicidade e rigor agora é réu.",
+      "som": "Som áspero de campainha de erro digital em tom de alerta vermelho, sobreposto a vozes tensas de comitê disciplinar cochichando em tom de acusação.",
+      "visual": "Gráfico de dispersão tridimensional do estudo de Stanford: pontos azuis (nativos) agrupados em zona segura e nuvem de pontos laranjas (não nativos) cruzando a linha de falso positivo de plágio sob um carimbo vermelho de erro.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a crise comercial: O Desmoronamento do Chegg",
+          "destino": 21
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para o diálogo com a Aluna Mariana",
+          "destino": 8
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: O Tutor de Código de Harvard (CS50.ai)",
+          "destino": 14
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: Contrapor com os Dados de Wharton e PNAS",
+          "destino": 17
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "numero": 21,
+      "tipo": "texto",
+      "polo": "catastrofico",
+      "profundidade": 2,
+      "titulo": "[MOCK] Evidência Real: O Desmoronamento do Chegg e o Canibalismo EdTech",
+      "texto": "Em 2 de maio de 2023, Wall Street testemunhou o primeiro terremoto econômico de grande escala provocado diretamente pela inteligência artificial generativa no mercado de tecnologia educacional (EdTech). As ações da Chegg Inc. — gigante norte-americana de serviços de auxílio a lição de casa, tutoria e banco de respostas acadêmicas por assinatura — **despencaram vertiginosos 48% em uma única sessão na Bolsa de Nova York**, evaporando cerca de 1 bilhão de dólares em valor de mercado.\n\nA hecatombe financeira foi deflagrada pela confissão pública do próprio CEO da companhia, Dan Rosensweig, durante a teleconferência de resultados com investidores. Rosensweig revelou que, a partir de março de 2023, o interesse dos estudantes pelo ChatGPT explodiu a ponto de impactar drasticamente a captação de novos assinantes: \"No primeiro trimestre, estávamos dentro das metas. Mas desde março, vimos um aumento brutal na migração de alunos para o ChatGPT. Acreditamos que isso está machucando gravemente nossa taxa de crescimento de novos clientes\".\n\nA crise do Chegg expôs a vulnerabilidade terminal de modelos de negócio baseados no monopólio de respostas prontas para estudantes: por que um universitário pagaria US$ 15 ou US$ 20 por mês para consultar resoluções estáticas em um site quando um chatbot gratuito entrega o passo a passo instantâneo, personalizado e interativo? O colapso do Chegg marcou o início de uma reestruturação feroz na indústria de EdTech mundial, forçando as empresas a demitir milhares de funcionários e tentar desesperadamente se reinventar antes de serem engolidas pelos modelos de fundação.\n\n[MOCK]: Fato corporativo de impacto global documentado pela Associated Press e relatórios financeiros da SEC.",
+      "fontes": [
+        {
+          "titulo": "Associated Press: Chegg shares plunge nearly 50% after warning that ChatGPT is hurting its homework-help services",
+          "url": "https://apnews.com/article/chegg-chatgpt-ai-shares-plunge-fdd90805c6ba4d99430c51121d556bd1",
+          "data": "2023-05-02",
+          "verificada": "2026-11-10"
+        }
+      ],
+      "narracao": "Quase cinquenta por cento do valor evaporado em poucas horas de pregão. O Chegg descobriu da pior forma que quando a inteligência artificial responde de graça, o império do dever de casa pago vira poeira.",
+      "som": "Som de sino de encerramento da Bolsa de Valores de Nova York (NYSE) com burburinho frenético de operadores financeiros e o clique contínuo de gráficos caindo em linha reta na tela.",
+      "visual": "Gráfico de vela japonesa em tela de terminal financeiro Bloomberg mostrando uma linha vermelha vertical despencando abruptamente de US$ 17 para US$ 9 por ação com notícias de teleconferência rodando no rodapé.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a reação política brasileira: O Banimento dos Celulares no Rio",
+          "destino": 22
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para o diálogo com o Professor Marcelo em São Paulo",
+          "destino": 6
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A Virada Pragmática de Nova York (David Banks)",
+          "destino": 15
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O Estudo de Stanford sobre o Viés dos Detectores de IA",
+          "destino": 20
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "numero": 22,
+      "tipo": "texto",
+      "polo": "catastrofico",
+      "profundidade": 2,
+      "titulo": "[MOCK] Evidência Real: O Banimento dos Celulares — O Decreto do Rio de Janeiro",
+      "texto": "A crescente preocupação médica e pedagógica com o déficit de atenção crônica, o cyberbullying e a perda de convívio social culminou em uma das mais contundentes medidas de intervenção escolar no Brasil. Em 1º de fevereiro de 2024, o Prefeito da Cidade do Rio de Janeiro assinou o **Decreto Rio nº 53.918** (publicado oficialmente no Diário Oficial em 2 de fevereiro de 2024), proibindo de forma irrestrita o uso de telefones celulares e outros dispositivos eletrônicos portáteis por alunos em toda a rede pública municipal — a maior rede municipal de educação da América Latina, com 1.543 unidades escolares e cerca de 660 mil estudantes atendidos.\n\nA legislação carioca foi pioneira em seu rigor: a proibição não se restringiu aos horários em que os professores estão falando em sala de aula, mas foi estendida aos intervalos, horários de recreio, corredores e até passeios pedagógicos externos. Os telefones devem permanecer desligados e guardados dentro das mochilas dos estudantes durante todo o período de permanência na escola, sendo admitido o uso apenas mediante autorização prévia e expressa do professor para atividades curriculares específicas ou por motivo de saúde justificado.\n\nA decisão alinhou a capital fluminense às diretrizes globais do relatório *Global Education Monitoring Report 2023* da UNESCO, que alertou enfaticamente que a presença contínua de smartphones em sala mina a concentração e instou governos do mundo todo a estabelecerem limites firmes. Nos meses seguintes, secretarias de educação relataram melhora significativa nos índices de socialização física no recreio, redução drástica de brigas virtuais e aumento perceptível na capacidade de foco dos jovens nas aulas presenciais.\n\n[MOCK]: Ato normativo municipal primário (Prefeitura do Rio de Janeiro) e diretrizes da UNESCO.",
+      "fontes": [
+        {
+          "titulo": "Prefeitura da Cidade do Rio de Janeiro: Decreto Rio nº 53.918, de 1º de fevereiro de 2024 (Proíbe uso de celulares nas escolas municipais)",
+          "url": "https://educacao.prefeitura.rio/wp-content/uploads/sites/42/2024/02/DECRETO-RIO-No-53918-DE-1o-DE-FEVEREIRO-DE-2024.pdf",
+          "data": "2024-02-02",
+          "verificada": "2026-11-10"
+        },
+        {
+          "titulo": "UNESCO: Global Education Monitoring Report 2023 — Technology in education: A tool on whose terms?",
+          "url": "https://www.unesco.org/en/articles/2023-global-education-monitoring-report-technology-education-tool-whose-terms",
+          "data": "2023-07-26",
+          "verificada": "2026-11-10"
+        }
+      ],
+      "narracao": "Fevereiro de 2024: o Rio de Janeiro decretou o silêncio dos celulares em mais de mil e quinhentas escolas. Nem no recreio os aparelhos saem da mochila. Uma cidade inteira escolheu resgatar a conversa olho no olho.",
+      "som": "Gritos alegres de crianças correndo no pátio, risadas sem mediação de telas, bola de futebol quicando no chão de cimento e o som nítido de uma mochila de lona sendo fechada com zíper.",
+      "visual": "Pátio ensolarado de uma escola municipal no bairro de Madureira, Rio de Janeiro: alunos uniformizados sentados em roda conversando, gesticulando e rindo, com as mochilas apoiadas nos bancos com celulares devidamente guardados.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a neurobiologia: A Escrita à Mão vs Digitação (Frontiers)",
+          "destino": 23
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para o Registro Visual da Fábrica da Desatenção",
+          "destino": 10
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A Conectividade Estratégica do MEC (Decreto 11.713)",
+          "destino": 16
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: A Marcha a Ré da Suécia e o Retorno aos Livros",
+          "destino": 19
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "numero": 23,
+      "tipo": "texto",
+      "polo": "catastrofico",
+      "profundidade": 2,
+      "titulo": "[MOCK] Evidência Real: Neurociência da Escrita à Mão vs. Digitação (Frontiers)",
+      "texto": "Em 26 de janeiro de 2024, a renomada revista científica *Frontiers in Psychology* publicou uma pesquisa neurocientífica de referência conduzida por Audrey L. H. Van der Meer e F. R. (Ruud) Van der Weel, da Universidade Norueguesa de Ciência e Tecnologia (NTNU - *Norwegian University of Science and Technology*). O estudo, intitulado *\"Handwriting but not typewriting leads to widespread brain connectivity: a high-density EEG study with implications for the classroom\"*, utilizou eletroencefalografia (EEG) de alta densidade com 256 sensores para mapear a atividade cerebral de estudantes enquanto escreviam à mão com caneta esferográfica ou digitavam em teclados convencionais de computador.\n\nA descoberta dos neurocientistas foi incontestável: o ato físico de segurar uma caneta, dosar a pressão sobre o papel e traçar os contornos espaciais das letras ativa padrões complexos e sincronizados de conectividade neural entre as regiões parietais e centrais do cérebro, especialmente nas bandas de frequência teta e alfa. Essa intrincada coreografia sensório-motora é exatamente o mecanismo biológico responsável por abrir as portas da consolidação mnemônica e do processamento cognitivo profundo. Em contrapartida, teclar com os dedos ou tocar sobre vidro liso exige um movimento mecânico simplista e repetitivo que gera conectividade cerebral substancialmente inferior.\n\nOs autores alertaram explicitamente as autoridades educacionais de que a substituição apressada de cadernos manuscritos por tablets e teclados nas séries formativas da infância priva o cérebro humano de uma estimulação proprioceptiva vital, recomendando que a prática da escrita cursiva seja mantida como patrimônio neurobiológico inegociável em qualquer currículo escolar moderno.\n\n[MOCK]: Artigo neurocientífico de alta densidade revisado por pares na Frontiers in Psychology.",
+      "fontes": [
+        {
+          "titulo": "Frontiers in Psychology: Handwriting but not typewriting leads to widespread brain connectivity (Van der Meer & Van der Weel)",
+          "url": "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1219945/full",
+          "data": "2024-01-26",
+          "verificada": "2026-11-10"
+        }
+      ],
+      "narracao": "Duzentos e cinquenta e seis eletrodos na cabeça comprovaram: o atrito da caneta no papel acende labirintos elétricos no cérebro que um teclado nunca conseguirá ativar. Escrever à mão é moldar a própria memória.",
+      "som": "Som amplificado e suave de uma ponta de caneta esferográfica deslizando sobre papel encorpado, traçando letras com ritmo calmo e respiração pausada.",
+      "visual": "Mapeamento tridimensional de um crânio humano transparente iluminado por feixes elétricos brilhantes em azul e dourado conectando o lobo parietal ao lobo temporal durante o ato da caligrafia manual.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a síntese global: As Diretrizes da UNESCO para a IA na Educação",
+          "destino": 24
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para a Atrofia do Pensar e a Externalização Cognitiva",
+          "destino": 12
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A Revolução da Khan Academy e Khanmigo",
+          "destino": 13
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O Alerta da OCDE no Relatório PISA 2022",
+          "destino": 18
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "numero": 24,
+      "tipo": "texto",
+      "polo": "neutro",
+      "profundidade": 2,
+      "titulo": "[MOCK] Evidência Real: As Diretrizes da UNESCO para a IA Generativa na Educação",
+      "texto": "Em 7 de setembro de 2023, durante a Semana do Aprendizado Digital em Paris, a UNESCO (Organização das Nações Unidas para a Educação, a Ciência e a Cultura) lançou a primeira diretriz global multilateral para governança de tecnologias emergentes em salas de aula: o documento *\"Guidance for generative AI in education and research\"*. O relatório formulou um roteiro regulatório rigoroso para governos e ministérios de educação de todo o mundo, visando conter a adoção selvagem de ferramentas proprietárias por pressões de mercado de corporações de EdTech.\n\nEntre as determinações mais incisivas da UNESCO destacam-se: 1) **Idade Mínima Restrita:** o estabelecimento formal de um limite mínimo de 13 anos para interação independente de estudantes com sistemas de inteligência artificial generativa em contexto escolar, exigindo supervisão humana obrigatória; 2) **Proteção de Dados e Privacidade:** a proibição absoluta do uso de dados de produção textual, comportamento ou voz de crianças e adolescentes para treinamento de modelos fundacionais proprietários de big techs; 3) **Insubstituibilidade do Professor:** a afirmação de que a tecnologia deve ser estritamente centrada no ser humano (*human-centred AI*), servindo de suporte complementar e nunca substituindo a interação socioemocional presencial nem a autonomia de julgamento do educador.\n\nA diretriz da UNESCO sintetizou o grande dilema da nossa era: a inteligência artificial na escola pode ser uma ponte para a equidade planetária ou a mais sofisticada engrenagem de colonização digital e desigualdade de oportunidades. A escolha do destino não cabe aos algoritmos, mas às sociedades que decidem quem educam e para que mundo educam.\n\n[MOCK]: Documento regulatório internacional oficial publicado pela UNESCO.",
+      "fontes": [
+        {
+          "titulo": "UNESCO: Guidance for generative AI in education and research (ISBN 978-92-3-100603-6)",
+          "url": "https://unesdoc.unesco.org/ark:/48223/pf0000386693",
+          "data": "2023-09-07",
+          "verificada": "2026-11-10"
+        },
+        {
+          "titulo": "UNESCO Official Announcement: UNESCO urges governments to regulate use of Generative AI in education",
+          "url": "https://www.unesco.org/en/articles/guidance-generative-ai-education-and-research",
+          "data": "2023-09-07",
+          "verificada": "2026-11-10"
+        }
+      ],
+      "narracao": "A UNESCO deu a palavra final: a inteligência artificial não pode substituir o professor, não pode roubar os dados das crianças e não pode decidir o futuro da mente humana sozinha. O leme da escola pertence a quem aprende e a quem ensina.",
+      "som": "Ecos de um plenário internacional das Nações Unidas, com vozes serenas em múltiplos idiomas traduzidas simultaneamente, fechando com a melodia de um violoncelo solo contemplativo.",
+      "visual": "Plano zenital (vista superior) de uma grande mesa circular onde delegados e educadores de dezenas de nações analisam relatórios impressos, enquanto no centro da sala uma escultura de ampulheta de vidro reflete raios de sol.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para o reinício da jornada: Voltar ao Bloco 1 (O Algoritmo na Sala)",
+          "destino": 1
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para a síntese curricular: Da Memorização Estéril à Descoberta",
+          "destino": 11
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A Conectividade Estratégica do MEC (Decreto 11.713)",
+          "destino": 16
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O Banimento dos Celulares no Rio de Janeiro",
+          "destino": 22
+        }
+      ]
+    }
+  ]
+}

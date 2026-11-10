@@ -52,9 +52,17 @@ export function conteudoMuseu(d, n, { ir, aoVideo = () => {}, sobrio = false } =
 }
 
 export function criarVisita(dados, { mover, modo, reduzido }) {
-  const d = document, v = dados.grafo.visitas[0];
+  const d = document, v = dados?.grafo?.visitas?.[0];
+  if (!v || !Array.isArray(v.passos) || !v.passos.length) {
+    return {
+      navegar() {},
+      pausar() {},
+      atualizar() {},
+      get estado() { return { passo: 0, ativa: false, desvio: false, pausa: true, velocidade: 1 }; },
+    };
+  }
   let passo = 0, ativa = false, desvio = false, pausa = false, velocidade = 1, timer;
-  const painel = el(d, 'nav', { class: 'visita', 'aria-label': 'Visita guiada' });
+  const painel = el(d, 'section', { class: 'visita', 'aria-label': 'Visita guiada' });
   const estado = el(d, 'span', { role: 'status' });
   const botao = (txt, fn, cls) => { const b = el(d,'button',{ type:'button', class: 'btn ' + (cls || ''), text:txt }); b.addEventListener('click', fn); return b; };
   function pintar() {
@@ -66,7 +74,10 @@ export function criarVisita(dados, { mover, modo, reduzido }) {
     retomar.hidden = !desvio;
     retomar.textContent = `Voltar à visita (passo ${passo + 1})`;
     pausar.textContent = pausa ? 'Retomar visita' : 'Pausar visita';
-    lista.hidden = !(reduzido || modo() === 'sobrio');
+    pausar.hidden = !ativa;
+    select.hidden = !ativa;
+    recuar.hidden = !ativa;
+    seguinte.hidden = !ativa;
     if (ativa && !pausa && !desvio && !reduzido && modo() !== 'sobrio' && passo < v.passos.length - 1) timer = setTimeout(() => ir(passo + 1), v.segundos_por_passo * 1000 / velocidade);
   }
   function ir(i) { ativa = true; desvio = false; passo = Math.max(0,Math.min(v.passos.length - 1,i)); mover(String(v.passos[passo]), true); pintar(); }
@@ -76,9 +87,14 @@ export function criarVisita(dados, { mover, modo, reduzido }) {
   const select = el(d, 'select', { 'aria-label': 'Velocidade da visita' });
   [0.5,1,2].forEach(n => select.append(el(d, 'option', { value:n, text:String(n).replace('.',',') + 'x', selected:n===1 })));
   select.addEventListener('change', () => { velocidade = Number(select.value); pintar(); });
+  const percurso = el(d, 'details', { class: 'visita-percurso' });
+  percurso.append(el(d, 'summary', { text: `Ver percurso completo (${v.passos.length} blocos)` }));
   const lista = el(d,'ol');
   v.passos.forEach((id,i) => { const n = dados.grafo.nos.find(n => String(n.id) === String(id)); lista.append(el(d,'li',null,botao(n.titulo,() => ir(i)))); });
-  painel.append(inicio, estado, select, pausar, botao('Recuar visita',() => ir(passo - 1),'recuar-visita'), botao('Seguinte',() => ir(passo + 1),'seguinte-visita'),retomar,lista);
+  percurso.append(lista);
+  const recuar = botao('Recuar visita',() => ir(passo - 1),'recuar-visita');
+  const seguinte = botao('Seguinte',() => ir(passo + 1),'seguinte-visita');
+  painel.append(inicio, estado, select, pausar, recuar, seguinte, retomar, percurso);
   d.querySelector('header').after(painel); pintar();
   return { navegar() { if (ativa) { desvio = true; pintar(); } }, pausar() { pausa = true; pintar(); }, atualizar:pintar, get estado() { return {passo,ativa,desvio,pausa,velocidade}; } };
 }

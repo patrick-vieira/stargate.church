@@ -74,13 +74,14 @@ function htmlLivro(g, serie) {
 export function htmlSobrio(d) {
   const o = [];
   const g = d.grafo || null;
+  const grafoDaSerie = (slug) => g && (g.series ? g.series[slug] : g.serie === slug ? { entrada: g.entrada, ids: g.nos.map(n => n.id) } : null);
   o.push('<div class="wrap hero"><span class="sob">Stargate</span><h1>Notícias e séries sobre o futuro que já começou</h1>' +
     '<p>O mesmo conteúdo da versão lúdica, em páginas normais: lê-se de cima para baixo, navega-se pelo teclado e funciona com leitor de tela.</p></div>');
   o.push('<section id="series" aria-labelledby="h-series"><div class="wrap"><span class="sob">Séries</span><h2 id="h-series">As séries do Stargate</h2>');
   for (const s of d.series) {
-    const eGrafo = !!(g && g.serie === s.slug);
+    const eGrafo = grafoDaSerie(s.slug);
     o.push(`<article class="card" id="serie-${esc(s.slug)}" aria-labelledby="t-${esc(s.slug)}"><h3 id="t-${esc(s.slug)}">${etiquetar(s.titulo)}</h3><p>${esc(s.resumo)}</p>` +
-      (eGrafo ? `<p><a class="btn" href="#n${esc(g.entrada)}">Começar o livro-jogo (bloco ${esc(g.entrada)})</a></p>` : '') +
+      (eGrafo ? `<p><a class="btn" href="#n${esc(eGrafo.entrada)}">Começar o livro-jogo</a></p>` : '') +
       `<ol class="eps" aria-label="Episódios de ${esc(s.titulo)}">`);
     for (const e of s.episodios) {
       const n = String(e.numero).padStart(2, '0');
@@ -91,7 +92,7 @@ export function htmlSobrio(d) {
     o.push('</ol></article>');
   }
   o.push('<p class="prov porta-fechada">Porta fechada: a próxima série chega em breve.</p></div></section>');
-  if (g) o.push(htmlLivro(g, d.series.find((s) => s.slug === g.serie)));
+  if (g) o.push(htmlLivro(g, null));
   o.push('<section id="noticias" aria-labelledby="h-not"><div class="wrap"><span class="sob">Notícias</span><h2 id="h-not">Últimas notícias</h2><ul class="grade">');
   for (const n of d.noticias) {
     o.push(n.url
@@ -103,8 +104,10 @@ export function htmlSobrio(d) {
   o.push(`<section id="mapa" class="mapa" aria-labelledby="h-mapa"><div class="wrap"><span class="sob">Mapa</span><h2 id="h-mapa">Mapa do site</h2>` +
     `<nav aria-label="Mapa do site"><ul><li><a href="#principal">${atrio ? 'Átrio' : 'Cruzamento'} (início)</a><ul>`);
   for (const s of d.series) {
-    const eGrafo = !!(g && g.serie === s.slug);
-    o.push(`<li><a href="#${eGrafo ? 'livro-jogo' : 'serie-' + esc(s.slug)}">Corredor: ${etiquetar(s.titulo)}</a> <span class="prov">(${eGrafo ? g.nos.length + ' blocos' : s.episodios.length + ' episódios'})</span></li>`);
+    const eGrafo = grafoDaSerie(s.slug);
+    const quantidade = eGrafo ? eGrafo.ids.length : s.episodios.length;
+    const unidade = eGrafo ? (quantidade === 1 ? 'bloco' : 'blocos') : (quantidade === 1 ? 'episódio' : 'episódios');
+    o.push(`<li><a href="#${eGrafo ? 'livro-jogo' : 'serie-' + esc(s.slug)}">Corredor: ${etiquetar(s.titulo)}</a> <span class="prov">(${quantidade} ${unidade})</span></li>`);
   }
   o.push('<li><a href="#noticias">Corredor das notícias</a></li><li><span class="prov">Porta fechada: em breve.</span></li></ul></li></ul></nav></div></section>');
   return o.join('');

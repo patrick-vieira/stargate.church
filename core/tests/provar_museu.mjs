@@ -4,6 +4,7 @@ const modulo = async nome => import('data:text/javascript;base64,' + Buffer.from
 const {criarModelo, TIPOS} = await modulo('modelo.js');
 const {htmlSobrio} = await modulo('sobrio.js');
 const {criarSom, pintarInterruptorSom} = await modulo('som.js');
+const css = readFileSync(`${process.argv[1]}/estilo.css`, 'utf8');
 const ligacoes = {seguir: null, aprofundar: null, subir: null, otimista: null, catastrofico: null};
 const dados = {series: [{slug: 'ficticia', titulo: 'Fictícia', episodios: []}], noticias: [], grafo: {serie: 'ficticia', titulo: 'Fictícia', entrada: 21, salas: [], visitas: [], nos: [
 {id: 21, titulo: 'Entrada', texto: ['Texto'], nivel: 0, polo: 0, ligacoes: {...ligacoes, seguir: 22, museu: 27}, rotulos: {museu: 'Explorar as peças do museu'}},
@@ -22,6 +23,41 @@ assert.match(html, /href="#n22" data-tipo="seguir"/);
 dados.grafo.nos[0].narracao = 'Narração fictícia';
 dados.grafo.nos[0].narracao_audio_endpoint = '/museu/ficticia/audio/21/narracao/';
 assert.match(htmlSobrio(dados), /data-audio-endpoint="\/museu\/ficticia\/audio\/21\/narracao\/">Ouvir a narração/);
+
+const seriesNovas = ['a-escola', 'mentes', 'corpo', 'trabalho', 'planeta', 'robos'];
+const grafos = Object.fromEntries(seriesNovas.map((slug) => [slug, {entrada: `${slug}:1`, ids: [`${slug}:1`]}]));
+const nosNovos = seriesNovas.map((slug) => ({
+  id: `${slug}:1`, serie: slug, titulo: `Bloco ${slug}`, texto: ['Texto fictício'],
+  nivel: 0, polo: 0, ligacoes: {...ligacoes, seguir: `${slug}:1`},
+}));
+const varios = {
+  series: seriesNovas.map((slug) => ({slug, titulo: slug, resumo: '', episodios: []})),
+  noticias: [],
+  grafo: {series: grafos, nos: nosNovos, salas: [], visitas: []},
+};
+const modeloVarias = criarModelo(varios);
+assert.deepEqual(modeloVarias.saidas.slice(0, 6).map((s) => s.id), seriesNovas);
+assert.equal(new Set(modeloVarias.nos.keys()).size, 6, 'IDs de blocos únicos');
+assert.ok(modeloVarias.saidas.slice(0, 6).every((s) => s.grafo && s.passos === 1));
+for (const slug of seriesNovas) {
+  const porta = modeloVarias.irParaSaida(slug);
+  assert.equal(modeloVarias.saidaEm(porta).id, slug, 'seleção por ?serie=slug');
+  const entrada = porta;
+  const bloco = modeloVarias.entrar(entrada);
+  assert.equal(bloco.no, `${slug}:1`);
+  assert.equal(modeloVarias.escolhas(bloco).length, 1);
+  assert.equal(modeloVarias.layout(slug).nos.length, 1, 'mapa isolado por série');
+}
+const htmlVarios = htmlSobrio(varios);
+for (const slug of seriesNovas) assert.ok(htmlVarios.includes(`href="#n${slug}:1"`));
+assert.ok(htmlVarios.includes('>Começar o livro-jogo</a>'));
+assert.ok(!htmlVarios.includes('Começar o livro-jogo (bloco mock-'));
+assert.match(htmlVarios, /1 bloco/);
+assert.equal([...htmlVarios.matchAll(/id="h-livro"/g)].length, 1, 'título do livro-jogo sem duplicação');
+assert.match(css, /@media\(max-width:640px\)[\s\S]*?grid-template-columns:minmax\(0,1fr\) auto/);
+assert.match(css, /nav\.prim\{[^}]*flex-wrap:nowrap/);
+assert.match(css, /\.controlos\{grid-column:1\/-1;[^}]*flex-wrap:nowrap/);
+assert.match(css, /button\[hidden\],\.btn\[hidden\]\{display:none!important\}/);
 
 let consultas = 0, audios = [];
 globalThis.fetch = async () => {

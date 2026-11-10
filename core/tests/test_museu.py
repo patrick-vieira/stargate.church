@@ -4,6 +4,7 @@ import shutil
 import subprocess
 import tempfile
 import uuid
+from io import StringIO
 from pathlib import Path
 from unittest.mock import patch
 
@@ -89,6 +90,97 @@ class MuseuTests(TestCase):
             self.importar(dados)
         self.assertEqual(Serie.objects.count(), 0)
 
+    def test_seis_fixtures_editoriais_validas(self):
+        pasta = Path(__file__).resolve().parents[1] / "dados" / "grafos"
+        ficheiros = sorted(pasta.glob("*.grafo.json"))
+        self.assertEqual(len(ficheiros), 6)
+        slugs = set()
+        for ficheiro in ficheiros:
+            dados = json.loads(ficheiro.read_text(encoding="utf-8"))
+            with self.subTest(ficheiro=ficheiro.name):
+                validar_grafo(dados)
+            slugs.add(dados["serie"])
+        self.assertEqual(len(slugs), 6)
+
+    def test_importador_das_seis_series_e_repetivel_sem_publicar(self):
+        saida = StringIO()
+        call_command("importar_series_museu", stdout=saida)
+        call_command("importar_series_museu", stdout=saida)
+
+        self.assertEqual(GrafoMuseu.objects.count(), 6)
+        self.assertFalse(Serie.objects.filter(publicado=True).exists())
+        self.assertIn("a publicação existente foi preservada", saida.getvalue())
+
+    def test_importador_preserva_series_publicadas_na_reimportacao(self):
+        saida = StringIO()
+        call_command("importar_series_museu", publicar=True, stdout=saida)
+        call_command("importar_series_museu", stdout=saida)
+
+        self.assertEqual(Serie.objects.filter(publicado=True).count(), 6)
+        self.assertIn("a publicação existente foi preservada", saida.getvalue())
+
+    def test_lote_invalido_no_sexto_grafo_nao_inicia_escrita(self):
+        from core.management.commands import importar_series_museu
+
+        validar_real = importar_series_museu.validar_grafo
+        chamadas = 0
+
+        def invalida_sexto(dados):
+            nonlocal chamadas
+            chamadas += 1
+            if chamadas == 6:
+                raise ValidationError("falha editorial simulada")
+            return validar_real(dados)
+
+        with (
+            patch.object(
+                importar_series_museu, "validar_grafo", side_effect=invalida_sexto
+            ),
+            patch.object(importar_series_museu, "call_command") as importar,
+        ):
+            with self.assertRaises(CommandError):
+                call_command("importar_series_museu", stdout=StringIO())
+
+        importar.assert_not_called()
+        self.assertEqual(GrafoMuseu.objects.count(), 0)
+        self.assertEqual(Serie.objects.count(), 0)
+
+    def test_lote_reverte_importacoes_se_o_sexto_comando_falhar(self):
+        from core.management.commands import importar_series_museu
+
+        chamar_real = call_command
+        chamadas = 0
+
+        def falha_sexto(*args, **kwargs):
+            nonlocal chamadas
+            if args[0] == "importar_grafo":
+                chamadas += 1
+                if chamadas == 6:
+                    raise CommandError("falha de importação simulada")
+            return chamar_real(*args, **kwargs)
+
+        with patch.object(
+            importar_series_museu, "call_command", side_effect=falha_sexto
+        ):
+            with self.assertRaises(CommandError):
+                chamar_real("importar_series_museu", stdout=StringIO())
+
+        self.assertEqual(chamadas, 6)
+        self.assertEqual(GrafoMuseu.objects.count(), 0)
+        self.assertEqual(Serie.objects.count(), 0)
+
+    def test_vista_disponibiliza_seis_portas_e_ids_sem_colisao(self):
+        call_command("importar_series_museu", publicar=True, stdout=StringIO())
+        resposta = self.client.get(reverse("core:museu"))
+        dados = resposta.context["dados"]
+
+        self.assertEqual(len(dados["series"]), 6)
+        self.assertEqual(len(dados["grafo"]["series"]), 6)
+        ids = [no["id"] for no in dados["grafo"]["nos"]]
+        self.assertEqual(len(ids), len(set(ids)))
+        for serie in dados["series"]:
+            self.assertContains(resposta, f"?serie={serie['slug']}")
+
     def test_valida_campos_e_topologia(self):
         base = grafo()
         for campo, valor in (
@@ -125,10 +217,42 @@ class MuseuTests(TestCase):
         resposta = self.client.get(url)
         self.assertContains(resposta, "Texto fictício")
         self.assertContains(resposta, 'type="application/json"')
+        self.assertContains(resposta, '<details class="series-museu">')
+        self.assertContains(resposta, "<summary>Séries")
         self.assertContains(resposta, 'href="#n1"')
         self.assertContains(resposta, 'href="#principal"')
         dados = resposta.context["dados"]
         self.assertEqual(dados["grafo"]["nos"][0]["ligacoes"]["seguir"], 1)
+
+    def test_vista_combina_grafos_publicados_com_ids_unicos(self):
+        primeiro = grafo()
+        segundo = grafo()
+        segundo["serie"] = "outra-serie"
+        self.importar(primeiro)
+        self.importar(segundo)
+        Serie.objects.update(publicado=True)
+
+        resposta = self.client.get(reverse("core:museu"))
+        dados = resposta.context["dados"]
+        self.assertEqual(
+            set(dados["grafo"]["series"]), {"serie-ficticia", "outra-serie"}
+        )
+        ids = [no["id"] for no in dados["grafo"]["nos"]]
+        self.assertEqual(len(ids), len(set(ids)))
+        self.assertEqual(
+            {no["serie"] for no in dados["grafo"]["nos"]},
+            {"serie-ficticia", "outra-serie"},
+        )
+
+    def test_serie_publicada_sem_grafo_exibe_fallback(self):
+        Serie.objects.create(
+            slug="sem-grafo", titulo="Série em preparação", publicado=True
+        )
+        resposta = self.client.get(reverse("core:museu"))
+        self.assertEqual(resposta.status_code, 200)
+        self.assertIsNone(resposta.context["dados"]["grafo"])
+        self.assertEqual(resposta.context["dados"]["series"][0]["slug"], "sem-grafo")
+        self.assertEqual(resposta.context["nos"], [])
 
     def test_adaptacao_camadas_dialogo(self):
         dados = grafo()

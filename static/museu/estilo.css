@@ -9,6 +9,7 @@ button{font:inherit}
 a:focus-visible,button:focus-visible,[role=button]:focus-visible,summary:focus-visible,#principal:focus-visible{outline:3px solid var(--fs);outline-offset:3px}
 .etiqueta{display:inline-block;background:#efe9ff;color:#2c1a60;border:1px solid #6a35c9;border-radius:99px;padding:0 .5em;font:700 .72em/1.5 ui-monospace,monospace;letter-spacing:.04em;vertical-align:.1em;margin-right:.2em}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:44px;min-width:44px;padding:.5rem 1rem;border:1.5px solid currentColor;border-radius:99px;background:transparent;color:inherit;font-weight:600;font-size:.95rem;text-decoration:none;cursor:pointer}
+button[hidden],.btn[hidden]{display:none!important}
 .chave{width:34px;height:20px;border-radius:99px;border:1.5px solid currentColor;position:relative;flex:none}
 .chave::after{content:"";position:absolute;left:2px;top:2px;width:13px;height:13px;border-radius:50%;background:currentColor;transition:transform .2s}
 [aria-checked=true] .chave::after{transform:translateX(14px)}
@@ -147,7 +148,7 @@ html[data-modo=sobrio] .card h3 a,html[data-modo=sobrio] section p>a{display:inl
 .peca .resposta { display:block; margin:.5rem 0; width:100%; text-align:left; white-space:normal; }
 .retrato { float:left; width:48px; height:48px; border-radius:50%; background:var(--sala-cor,#735181); display:grid; place-items:center; margin-right:12px; font-size:28px; }
 .camada { border-left:2px solid #b7efff; padding-left:12px; }
-.visita { padding:.4rem 1rem; display:flex; flex-wrap:wrap; align-items:center; gap:.4rem; background:#141b27; color:#eee; position:relative; z-index:4; }
+section.visita { padding:.4rem 1rem; border:0; display:flex; flex-wrap:wrap; align-items:center; gap:.4rem; background:#141b27; color:#eee; position:relative; z-index:4; }
 .visita span { font-size:.8rem; flex:1 1 200px; }
 .visita .btn, .visita select { min-height:44px; font-size:.8rem; }
 .visita select { background:#202c3d; color:#fff; max-width:100%; }
@@ -163,6 +164,12 @@ html[data-modo=ludico] .cartao { flex-shrink:0; }
 .percurso-visita a { display:inline-flex; align-items:center; min-height:44px; padding:.5rem .75rem; }
 #principal .bloco summary { display:flex; align-items:center; min-height:44px; padding:.5rem .75rem; cursor:pointer; }
 .visita .btn { white-space:normal; max-width:100%; overflow-wrap:anywhere; }
+html[data-modo=sobrio] section.visita{max-width:1180px;margin:0 auto;padding:.3rem clamp(16px,4vw,56px);background:transparent;color:var(--tx)}
+html[data-modo=sobrio] .visita .btn{min-height:40px;background:#fff;color:var(--tx);border-color:var(--li);font-size:.84rem}
+html[data-modo=sobrio] .visita [role=status]{flex:1 1 12rem;font-size:.84rem}
+html[data-modo=sobrio] .visita-percurso{flex-basis:100%}
+html[data-modo=sobrio] .visita-percurso summary{display:flex;align-items:center;min-height:40px;cursor:pointer;color:var(--ac);font-weight:600}
+html[data-modo=sobrio] .visita ol{max-height:10rem;margin:.25rem 0 .5rem;overflow:auto}
 
 /* BRIEF-4f: regiões em fluxo, abaixo da altura real do cabeçalho. */
 .hud{top:var(--topo-cartao,150px);max-height:none;overflow-y:auto;scrollbar-gutter:stable}
@@ -181,5 +188,31 @@ html[data-modo=ludico] .cartao { flex-shrink:0; }
   .cartao-acoes{padding:.4rem .6rem}
   .cartao-acoes .btn{font-size:.78rem}
 }
+@media(max-width:640px){
+  html[data-modo=sobrio] header.topo{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.2rem .4rem;padding:.25rem 12px}
+  html[data-modo=sobrio] .logo{font-size:1.15rem}
+  html[data-modo=sobrio] .series-museu summary{min-height:40px;padding:.25rem .55rem}
+  html[data-modo=sobrio] nav.prim{grid-column:1/-1;display:flex;flex:initial;flex-wrap:nowrap;justify-content:space-between;gap:.1rem;width:100%}
+  html[data-modo=sobrio] nav.prim a{min-height:40px;padding:.2rem 0;font-size:.76rem;white-space:nowrap}
+  html[data-modo=sobrio] .controlos{grid-column:1/-1;justify-content:flex-end;flex-wrap:nowrap;gap:.3rem}
+  html[data-modo=sobrio] .controlos .btn{min-height:44px;padding:.25rem .55rem;white-space:nowrap;font-size:.78rem}
+  html[data-modo=sobrio] .hero{padding-block:16px 18px}
+  html[data-modo=sobrio] .hero h1{font-size:1.85rem}
+  html[data-modo=sobrio] section.visita{gap:.25rem;padding:.25rem 12px}
+  html[data-modo=sobrio] .visita [role=status]{flex:1 1 8rem;font-size:.78rem}
+  html[data-modo=sobrio] .visita .btn{font-size:.78rem;padding:.3rem .55rem}
+}
 
-.series-museu{display:flex;flex-wrap:wrap;gap:.5rem;max-width:100%}.series-museu a{display:inline-flex;align-items:center;min-height:44px;padding:.4rem .75rem;border:1px solid currentColor;border-radius:99px;color:inherit;text-decoration:none;font-weight:600;overflow-wrap:anywhere}.series-museu a:hover{text-decoration:underline}
+.hud .cartao.cartao-hub{flex:0 0 auto;min-height:0}
+.hud .cartao-hub .cartao-texto{flex:none;min-height:0;overflow:visible}
+
+.series-museu{position:relative;z-index:22;flex:none}
+.series-museu summary{display:flex;align-items:center;gap:.45rem;min-height:44px;padding:.35rem .8rem;border:1px solid currentColor;border-radius:99px;font-weight:650;cursor:pointer;list-style:none}
+.series-museu summary::-webkit-details-marker{display:none}
+.series-museu summary::after{content:'▾';font-size:.8em}
+.series-museu[open] summary::after{content:'▴'}
+.series-museu nav{position:absolute;top:calc(100% + .4rem);left:0;display:grid;gap:.15rem;width:min(19rem,calc(100vw - 32px));max-height:min(65vh,30rem);overflow:auto;padding:.45rem;background:#fffdf5;color:var(--tx);border:1px solid var(--li);border-radius:.8rem;box-shadow:0 12px 32px #0004}
+.series-museu nav a{display:flex;align-items:center;min-height:44px;padding:.45rem .65rem;border-radius:.45rem;color:inherit;text-decoration:none;overflow-wrap:anywhere}
+.series-museu nav a:hover,.series-museu nav a:focus-visible{background:#efe8d7;text-decoration:underline}
+html[data-modo=ludico] .series-museu nav{background:#111720;color:var(--cr);border-color:#f1e9d255}
+html[data-modo=ludico] .series-museu nav a:hover,html[data-modo=ludico] .series-museu nav a:focus-visible{background:#263243}

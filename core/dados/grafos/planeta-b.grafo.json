@@ -1,0 +1,1053 @@
+{
+  "serie": "mock-planeta-b",
+  "tom": "misto (oscilação dialética entre o otimismo pioneiro da exploração multiplanetária e o realismo catastrófico dos limites físicos, biológicos e orçamentários)",
+  "blocos": [
+    {
+      "id": 1,
+      "numero": 1,
+      "tipo": "texto",
+      "polo": "neutro",
+      "profundidade": 0,
+      "titulo": "[MOCK] Planeta B: A Ilusão Marciana vs. O Chamado das Estrelas",
+      "texto": "Cena imaginada (ficção): Você olha para o céu noturno através de um telescópio amador. O ponto vermelho de Marte brilha com uma serenidade enganosa. Na transmissão que chega ao seu fone, dois manifestantes debatem no saguão de um centro de convenções aeroespacial: um defende que a espécie humana só garantirá sua sobrevivência eterna se construir uma arca em outro planeta; a outra retruca que gastar trilhões tentando aquecer um deserto radioativo a 200 milhões de quilômetros enquanto a biosfera da Terra arde é a maior covardia moral da nossa história.\n\nExiste de fato um 'Planeta B'? Ou a exploração espacial é o espelho definitivo que nos força a enxergar a raridade insubstituível da Terra? Neste livro-jogo interativo, você não é um mero passageiro: você navega pelas fronteiras da ciência planetária, decidindo entre a promessa radiante da expansão cósmica e o choque implacável dos limites físicos, biológicos e orçamentários.\n\n[MOCK]: Rascunho editorial em teste para o Stargate. Nenhum conteúdo publicado.",
+      "fontes": [],
+      "narracao": "Existe um Planeta B? Uma travessia não linear entre a ousadia da colonização interplanetária e as barreiras intransponíveis da física. Faça a sua primeira escolha.",
+      "som": "Vento atmosférico marciano suave captado pelo microfone do Perseverance, sobreposto por uma transmissão de rádio em ondas curtas com ruído estático.",
+      "visual": "Abertura imersiva: uma imagem bipartida. Do lado esquerdo, a atmosfera azul vibrante da Terra vista da órbita; do lado direito, o horizonte desértico, avermelhado e estéril de Marte. Uma linha divisória pulsa lentamente entre os mundos.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a linha de frente da ciência: Marte em uma amostra",
+          "destino": 2
+        },
+        {
+          "tipo": "aprofundar",
+          "rotulo": "Aprofundar no debate ético: Salvar o berço ou colonizar o deserto?",
+          "destino": 5
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A promessa de uma civilização multiplanetária",
+          "destino": 13
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O engano marciano — a Terra não tem backup",
+          "destino": 14
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "numero": 2,
+      "tipo": "video",
+      "polo": "neutro",
+      "profundidade": 0,
+      "titulo": "[MOCK] Marte Cabe Numa Amostra: A Odisséia do Perseverance",
+      "texto": "Desde que tocou o solo da cratera Jezero em 18 de fevereiro de 2021, o rover Perseverance da NASA executa uma das mais refinadas coreografias da geologia planetária. Ele não busca apenas paisagens exóticas: seu braço robótico perfura rochas sedimentares que testemunharam água líquida há bilhões de anos, selando testemunhos em tubos herméticos de titânio do tamanho de um charuto.\n\nA meta científica é monumental: encontrar potenciais bioassinaturas fósseis e decifrar a evolução climática de Marte. Porém, recolher essas cápsulas e deixá-las repousando no regolito marciano é apenas a metade fácil da missão. O verdadeiro desafio — trazê-las de volta aos laboratórios terrestres — transformou-se em uma tempestade técnica e financeira que colocou agências espaciais e a comunidade científica em rota de colisão.",
+      "fontes": [
+        {
+          "titulo": "NASA: Perseverance rover safely lands on Red Planet",
+          "url": "https://www.jpl.nasa.gov/news/touchdown-nasas-mars-perseverance-rover-safely-lands-on-red-planet/",
+          "data": "2021-02-18"
+        }
+      ],
+      "narracao": "Na cratera Jezero, tubos de titânio guardam segredos de bilhões de anos. Mas a viagem de volta para a Terra tornou-se o teste mais caro da história espacial.",
+      "som": "Ruído mecânico do motor elétrico de perfuração do rover contra o basalto marciano, seguido pelo estalo metálico do lacre hermético de um tubo de titânio.",
+      "visual": "Vídeo conceitual (50s): Começa com a telemetria do rover descendo em Jezero via sky-crane sob poeira laranja. Em seguida, a câmera se aproxima em macro do braço robótico perfurando uma rocha laminada em um antigo delta fluvial. Um cilindro de rocha de 13 milímetros é transferido para o carrossel interno do rover e selado a laser. A câmera se eleva para a órbita de Marte: um gráfico holográfico projeta o foguete de ascensão (MAV) subindo aos céus e encontrando um orbitador europeu. Um alerta vermelho pisca no canto da tela: 'Orçamento original estourado — cronograma revisto'.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a vida no vácuo: Viver entre mundos",
+          "destino": 3
+        },
+        {
+          "tipo": "aprofundar",
+          "rotulo": "Aprofundar: Conversar com a Dra. Aris Thorne, engenheira do JPL",
+          "destino": 6
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: O ar que nasce das pedras com o teste MOXIE",
+          "destino": 15
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O abismo orçamentário do Mars Sample Return",
+          "destino": 16
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "numero": 3,
+      "tipo": "texto que se expande",
+      "polo": "neutro",
+      "profundidade": 0,
+      "titulo": "[MOCK] Viver Entre Mundos: O Desafio de Respirar Além da Terra",
+      "texto": "Como a biologia terrestre reage quando é arrancada do planeta que a moldou por quatro bilhões de anos? Para além dos discursos entusiasmados sobre cidades de cúpulas de vidro em Marte, a realidade diária de viver no espaço é uma batalha implacável de engenharia metabólica e resistência mental.\n\nEm estações orbitais ou habitats analógicos na Terra, cada gota de água expelida pelo suor e pela urina precisa ser purificada e bebida novamente no dia seguinte. O ar respirável não é uma dádiva natural, mas o produto instável de eletrolisadores e filtros químicos que consomem watts preciosos.\n\n[+] CLIQUE PARA EXPANDIR OS DETALHES DE SUPORTE DE VIDA:\nSem o escudo protetor da magnetosfera terrestre e sem uma atmosfera densa, qualquer expedição de longa duração enfrenta doses cumulativas de radiação cósmica ionizante capazes de danificar o DNA celular. Adicione a isso a perda acelerada de densidade óssea na gravidade de um terço de Marte e a atrofia muscular da microgravidade. Colonizar o espaço não é apenas construir foguetes maiores; é redefinir os limites do corpo humano diante de um ambiente mortalmente indiferente.",
+      "fontes": [
+        {
+          "titulo": "NASA: Economia comercial em órbita baixa — perguntas frequentes",
+          "url": "https://www.nasa.gov/humans-in-space/leo-economy-frequently-asked-questions/",
+          "data": "2024-04-07"
+        }
+      ],
+      "narracao": "No espaço profundo, cada gole de água e cada sopro de oxigênio dependem de máquinas que nunca podem falhar. Nosso corpo foi feito para a Terra; sobreviver fora dela exige um milagre diário de engenharia.",
+      "som": "Ruído contínuo e abafado de bombas hidráulicas de circulação de fluidos e ventiladores de purificação de oxigênio dentro de um módulo estanque.",
+      "visual": "Corte transversal em perspectiva de um módulo de habitação espacial: à esquerda, filtros de osmose reversa e condutas de água iluminadas por LEDs funcionais; ao centro, uma cabine de dormir acolchoada com tiras elásticas; à direita, uma miniestufa hidropônica iluminada por espectro rosado.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a órbita terrestre: O cemitério que não se vê",
+          "destino": 4
+        },
+        {
+          "tipo": "aprofundar",
+          "rotulo": "Aprofundar: Diálogo RPG com o comandante Mateo Ruiz do CHAPEA",
+          "destino": 7
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A estufa espacial e o cultivo de alimentos",
+          "destino": 17
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: As cicatrizes genômicas e a radiação cósmica",
+          "destino": 18
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "numero": 4,
+      "tipo": "video",
+      "polo": "neutro",
+      "profundidade": 0,
+      "titulo": "[MOCK] O Cemitério Silencioso: A Fragilidade da Órbita Terrestre",
+      "texto": "Antes de sonhar em pisar no regolito de Marte, a humanidade precisa atravessar a sua própria vizinhança. A órbita baixa da Terra (LEO), a altitude onde orbitam nossos satélites de telecomunicações, GPS, previsão do tempo e a Estação Espacial Internacional, transformou-se no recurso compartilhado mais congestionado do planeta.\n\nEm 2030, a lendária ISS será desativada e conduzida a um mergulho destrutivo nas águas remotas do Pacífico Sul. Enquanto novas estações privadas tentam assumir o posto, milhares de novos satélites comerciais de mega-constelações são injetados todos os anos na mesma faixa orbital. A fronteira cósmica corre o risco de se tornar uma armadilha intransponível.",
+      "fontes": [
+        {
+          "titulo": "ESA: Space Environment Report 2024",
+          "url": "https://www.esa.int/Space_Safety/Space_Debris/ESA_Space_Environment_Report_2024",
+          "data": "2024-07-19"
+        }
+      ],
+      "narracao": "A órbita da Terra está lotada. Entre o descomissionamento da Estação Espacial e dezenas de milhares de satélites em alta velocidade, o risco de uma colisão em cadeia nunca foi tão real.",
+      "som": "Pulso rítmico de radar de varredura espacial, com bips intermitentes que aumentam de frequência conforme objetos não identificados cruzam o campo orbital.",
+      "visual": "Vídeo conceitual (45s): A cena abre mostrando o globo terrestre escuro, cercado por uma malha de órbitas reluzentes em azul. A câmera acelera e revela a Estação Espacial Internacional, com seus painéis solares dourados reluzindo à luz do sol nascente. De repente, a visão muda para o modo de detecção por radar: dezenas de milhares de pontinhos vermelhos (estágios de foguetes usados, satélites desativados e lascas de metal) circundam o planeta em trajetórias cruzadas a 28.000 km/h. Um fragmento milimétrico atinge um defletor solar, gerando uma nuvem de detritos microscópicos em câmera lenta.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir de volta ao portal de entrada da série",
+          "destino": 1
+        },
+        {
+          "tipo": "aprofundar",
+          "rotulo": "Aprofundar na economia dos novos destinos orbitais comerciais",
+          "destino": 8
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A faxina orbital e o descarte controlado da ISS",
+          "destino": 19
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O pesadelo da Síndrome de Kessler e a perda dos satélites",
+          "destino": 20
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "numero": 5,
+      "tipo": "texto que se expande",
+      "polo": "neutro",
+      "profundidade": 1,
+      "titulo": "[MOCK] O Dilema Ético: Salvar o Berço ou Colonizar o Deserto?",
+      "texto": "O debate em torno do 'Planeta B' não é apenas uma questão de cálculo termodinâmico ou empuxo de foguetes; ele divide filósofos, economistas e cientistas sobre onde concentrar o esforço da espécie humana.\n\nPara os defensores da multiplanetariedade, colocar todos os ovos humanos na mesma cesta biológica que é a Terra representa uma imprudência cósmica diante de riscos existenciais como impactos de asteroides, erupções de supervulcões ou conflitos nucleares. Sob essa visão, cada dólar gasto no desenvolvimento de bases em Marte é um seguro de vida coletivo para a consciência.\n\n[+] CLIQUE PARA EXPANDIR O CONTRAPONTO CRÍTICO:\nOs críticos respondem com uma verdade incômoda da geofísica: mesmo após o pior dos cenários de catástrofe climática ou bélica na Terra, nosso planeta ainda possuirá ar respirável, água em abundância, pressão barométrica estável e um campo magnético que desvia a radiação solar letal. O ambiente terrestre mais devastado que se possa conceber continua sendo um paraíso tropical quando comparado à superfície de Marte, que é um vácuo gelado, tóxico e esterilizado por percloratos. A promessa de escapar para Marte pode funcionar como um anestésico moral, fazendo a humanidade abandonar a conservação da Terra em nome de uma utopia extraterrestre.",
+      "fontes": [],
+      "narracao": "Investir na salvação da Terra ou financiar uma arca cósmica em Marte? O maior dilema do século vinte e um confronta a segurança da nossa espécie com a nossa responsabilidade ecológica.",
+      "som": "Arpejo contemplativo de piano elétrico misturado com o silêncio ressonante de uma câmara anecoica.",
+      "visual": "Ilustração estilizada de uma balança de precisão futurista: em um dos pratos repousa uma pequena muda de árvore verde enraizada em terra fértil; no outro prato, um módulo hermético metálico sobre cascalho vermelho e estéril.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a análise da engenharia de amostras marcianas",
+          "destino": 6
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para a visão panorâmica inicial",
+          "destino": 1
+        },
+        {
+          "tipo": "aprofundar",
+          "rotulo": "Aprofundar nos cálculos de Jakosky: Por que terraformar é impossível hoje",
+          "destino": 21
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: Abraçar a visão pioneira multiplanetária",
+          "destino": 13
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: Confrontar o engodo da fuga espacial",
+          "destino": 14
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "numero": 6,
+      "tipo": "personagem",
+      "polo": "neutro",
+      "profundidade": 1,
+      "titulo": "[MOCK] Diálogo RPG: Dra. Aris Thorne (Engenheira de Sistemas do JPL)",
+      "texto": "Você entra em uma sala limpa do Jet Propulsion Laboratory (JPL) em Pasadena. A Dra. Aris Thorne ajusta os óculos de proteção sobre a touca esterilizada e examina um modelo idêntico ao braço robótico do Perseverance montado em uma bancada de testes de vácuo térmico.\n\n— Bem-vindo à linha de frente — diz ela, sem tirar os olhos do monitor de telemetria. — Temos 38 tubos de amostras planejados e dezenas já preenchidos repousando em Marte com núcleos rochosos intocados. Mas lá fora, em Washington, estão dizendo que trazer isso de volta vai custar tanto que pode devorar todo o resto da astronomia. O que você quer saber antes que o congresso corte nossa eletricidade?\n\nEscolha sua resposta de diálogo:",
+      "fontes": [
+        {
+          "titulo": "NASA: Sets path to return Mars samples, seeks innovative designs",
+          "url": "https://www.nasa.gov/news-release/nasa-sets-path-to-return-mars-samples-seeks-innovative-designs/",
+          "data": "2024-04-15"
+        }
+      ],
+      "narracao": "No laboratório do JPL, a engenheira Aris Thorne defende o valor das amostras de Marte contra a pressão dos cortes orçamentários. Escolha sua pergunta para continuar.",
+      "som": "Zumbido contínuo e estéril de filtros HEPA industriais de sala limpa com beeps esporádicos de comandos enviados a um atuador eletromecânico.",
+      "visual": "A Dra. Aris Thorne em traje branco integral Tyvek em uma sala esterilizada, apontando para um holograma 3D do mecanismo de manuseio de tubos de amostra do rover.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Diálogo 1: 'Vale a pena gastar bilhões para trazer alguns gramas de cascalho?' -> Ir para auditoria da MSR",
+          "destino": 16
+        },
+        {
+          "tipo": "aprofundar",
+          "rotulo": "Diálogo 2: 'E se usarmos os recursos locais de Marte em vez de levar tudo daqui?' -> Ver o MOXIE",
+          "destino": 15
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir de volta para o vídeo do Perseverance em Jezero",
+          "destino": 2
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: 'A ciência que virá dessas amostras mudará nossa compreensão da vida!'",
+          "destino": 13
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: 'Os atrasos e cortes estão sepultando a credibilidade do programa.'",
+          "destino": 16
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "numero": 7,
+      "tipo": "personagem",
+      "polo": "neutro",
+      "profundidade": 1,
+      "titulo": "[MOCK] Diálogo RPG: Comandante Mateo Ruiz (Veterano da Missão CHAPEA)",
+      "texto": "Você se conecta por terminal de vídeo com Mateo Ruiz, engenheiro que passou 378 dias confinado no habitat analógico Mars Dune Alpha, no Johnson Space Center da NASA em Houston. Ele bebe água de uma caneca simples, ainda com o olhar de quem esteve desacostumado com a vastidão do céu aberto.\n\n— Ficar trancado com mais três pessoas em 158 metros quadrados impressos em 3D muda você por dentro — comenta Mateo. — Nós comemos alface cultivada em luz artificial, consertamos impressoras 3D improvisando peças plásticas e esperamos 22 minutos para cada resposta chegar da Terra. Quando você perde o contato em tempo real, você compreende o que significa solidão planetária. Quer entender a realidade da missão?\n\nEscolha sua resposta de diálogo:",
+      "fontes": [
+        {
+          "titulo": "NASA: Crew returns from simulated trip to Mars (CHAPEA Mission 1)",
+          "url": "https://www.nasa.gov/centers-and-facilities/johnson/crew-returns-from-simulated-trip-to-mars-take-a-peek-inside-their-journey/",
+          "data": "2024-07-06"
+        }
+      ],
+      "narracao": "Depois de mais de um ano isolado simulando o cotidiano em Marte, Mateo Ruiz relata o impacto psicológico do isolamento e do delay de comunicação.",
+      "som": "Latência perceptível no canal de voz, com silêncio tenso de compressão digital entre a pergunta e o início da resposta do astronauta.",
+      "visual": "A interface do terminal de comunicação exibe Mateo Ruiz em uma sala funcional com paredes texturizadas de concreto curvo impresso em 3D, com pequenas plantas verdes em estantes verticais ao fundo.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Diálogo 1: 'Como a equipe superou o delay de 22 minutos nas comunicações?' -> DADO CHAPEA",
+          "destino": 22
+        },
+        {
+          "tipo": "aprofundar",
+          "rotulo": "Diálogo 2: 'A estufa conseguiu garantir calorias e estabilidade mental?' -> Ver cultivo orbital",
+          "destino": 17
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para o bloco Viver Entre Mundos",
+          "destino": 3
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: 'O ser humano provou ser capaz de se adaptar a qualquer ecossistema fechado!'",
+          "destino": 17
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: 'O desgaste celular e a instabilidade mental são barreiras intransponíveis.'",
+          "destino": 18
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "numero": 8,
+      "tipo": "texto que se expande",
+      "polo": "neutro",
+      "profundidade": 1,
+      "titulo": "[MOCK] O Fim da ISS e a Privatização da Fronteira",
+      "texto": "Desde novembro de 2000, não houve um único segundo em que toda a espécie humana estivesse reunida na Terra: a Estação Espacial Internacional sempre manteve tripulantes a bordo. Essa monumental façanha de cooperação diplomática e engenharia tem data marcada para o adeus: 2030.\n\nPara evitar uma lacuna de presença humana na órbita baixa da Terra, a NASA lançou o programa Commercial LEO Destinations (CLD). Em vez de construir outra estação governamental multibilionária, a agência está fomentando estações privadas operadas por consórcios como Axiom Space, Starlab e Orbital Reef (Blue Origin).\n\n[+] CLIQUE PARA EXPANDIR OS RISCOS DA TRANSIÇÃO:\nSe esses projetos privados sofrerem atrasos no desenvolvimento ou dificuldades financeiras de capital de risco, os Estados Unidos e seus parceiros podem perder temporariamente seu único laboratório permanente de microgravidade, deixando a estação chinesa Tiangong como a única base tripulada em órbita baixa. Além disso, a transição para um modelo puramente comercial levanta dilemas: quem terá acesso ao espaço quando a ciência pública tiver que competir por slots com o turismo de milionários e a fabricação corporativa exclusiva?",
+      "fontes": [
+        {
+          "titulo": "NASA: Aeronautics and Space Report of the President FY 2024",
+          "url": "https://www.nasa.gov/wp-content/uploads/2025/09/aeronautics-and-space-report-of-the-president-fy-2024.pdf",
+          "data": "2025-09-15"
+        }
+      ],
+      "narracao": "A aposentadoria da ISS em 2030 encerra a era dos grandes laboratórios estatais no espaço e inaugura o mercado das estações comerciais. Uma aposta de alto risco.",
+      "som": "Ruído de desacoplamento de escotilhas mecânicas com escape pressurizado de ar residual e aviso sonoro automático em frequência aguda.",
+      "visual": "Esquema em perspectiva comparando a estrutura gigantesca e modular da ISS com as novas estações comerciais infláveis e cilíndricas menores, rotuladas com logotipos corporativos.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para o contrato de demolição controlada da ISS",
+          "destino": 23
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para o cemitério orbital e satélites",
+          "destino": 4
+        },
+        {
+          "tipo": "aprofundar",
+          "rotulo": "Aprofundar nos dados contratuais do U.S. Deorbit Vehicle",
+          "destino": 23
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A nova frota de laboratórios espaciais baratos e ágeis",
+          "destino": 19
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O risco de colapso de infraestrutura e dependência privada",
+          "destino": 20
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "numero": 9,
+      "tipo": "texto",
+      "polo": "otimista",
+      "profundidade": 1,
+      "titulo": "[MOCK] Oásis Artificial: A Engenharia de Sistemas em Malha Fechada",
+      "texto": "Para quem acredita na colonização espacial, a tecnologia mais revolucionária do século não é um motor de dobra espacial, mas o ECLSS: o Sistema de Controle Ambiental e Suporte de Vida. A bordo da Estação Espacial Internacional, engenheiros alcançaram uma taxa impressionante de recuperação de água superior a 98%, processando umidade do ar e urina com destiladores a vácuo e filtros de nanofiltração.\n\nEm Marte, essa tecnologia é a fundação de tudo: habitats em malha fechada não necessitarão de reabastecimento contínuo da Terra. Ao associar a reciclagem hidrológica a biodigestores anaeróbios e luzes LED especializadas, pequenos oásis humanos podem se tornar termodinamicamente autossuficientes, transformando o vácuo gelado do espaço em berçários para novas formas de arquitetura ecológica.",
+      "fontes": [
+        {
+          "titulo": "NASA: LEO Economy frequently asked questions & ECLSS metrics",
+          "url": "https://www.nasa.gov/humans-in-space/leo-economy-frequently-asked-questions/",
+          "data": "2024-04-07"
+        }
+      ],
+      "narracao": "Reciclando mais de 98% da água em órbita, os sistemas regenerativos provam que uma comunidade humana pode fechar seu ciclo ecológico e florescer fora da Terra.",
+      "som": "Gotejamento rítmico e cristalino de água reciclada passando por um tubo de ensaio translúcido sob bombeamento peristáltico suave.",
+      "visual": "Fluxograma holográfico animado: linhas de água e oxigênio fluem em circuito contínuo entre os compartimentos da tripulação, tanques eletroquímicos de eletrólise e bandejas de cultivo agrícola.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a fabricação de propelente in-situ (ISRU)",
+          "destino": 10
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para o bloco Viver Entre Mundos",
+          "destino": 3
+        },
+        {
+          "tipo": "aprofundar",
+          "rotulo": "Aprofundar nos dados da colheita agrícola no CHAPEA",
+          "destino": 17
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A abundância da exploração com o teste MOXIE",
+          "destino": 15
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: A vulnerabilidade extrema de falhas mecânicas no suporte de vida",
+          "destino": 12
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "numero": 10,
+      "tipo": "video",
+      "polo": "otimista",
+      "profundidade": 1,
+      "titulo": "[MOCK] Mineração e Combustível: A Revolução do ISRU",
+      "texto": "A 'equação do foguete' de Tsiolkovsky é uma tirana implacável: para levar cada quilo de carga a Marte, são necessários dezenas de quilos de combustível. Se a nave tiver que carregar também o propelente para voltar para casa, o foguete se torna proibitivamente massivo e impagável.\n\nA resposta que destrava a economia interplanetária é o ISRU (In-Situ Resource Utilization, ou Utilização de Recursos Locais). A atmosfera marciana possui 95% de dióxido de carbono; o subsolo possui depósitos maciços de gelo de água. Por meio da reação de Sabatier e eletrólise, usinas automatizadas podem produzir oxigênio líquido e metano puro antes mesmo dos primeiros astronautas decolarem da Terra.",
+      "fontes": [
+        {
+          "titulo": "NASA: NASA's oxygen-generating experiment on Mars completes mission (MOXIE)",
+          "url": "https://www.nasa.gov/news-release/nasas-oxygen-generating-experiment-on-mars-completes-mission/",
+          "data": "2023-09-06"
+        }
+      ],
+      "narracao": "Não leve combustível para Marte: fabrique-o lá. A utilização de recursos locais transforma a atmosfera do planeta vizinho em uma refinaria inesgotável.",
+      "som": "Rugido metálico de compressores de ar criogênicos comprimindo gás rarefeito, culminando no silvo de oxigênio superresfriado liquefeito em tanques térmicos.",
+      "visual": "Vídeo conceitual (40s): Uma usina química compacta e autônoma desdobra painéis solares sobre o regolito avermelhado. Braços robóticos perfuram o solo congelado, extraindo vapor d'água, enquanto coletores superiores sugam a atmosfera de CO2. Uma animação molecular demonstra a quebra catalítica das moléculas sob 800°C: carbono e oxigênio são recombinados em metano combustível (CH4) e oxigênio puro (O2). A câmera corta para os manômetros de um foguete de retorno atingindo a marca de 100% de carga de propelente verde-azulado.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a visão da espécie multiplanetária",
+          "destino": 13
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para o rover Perseverance em Marte",
+          "destino": 2
+        },
+        {
+          "tipo": "aprofundar",
+          "rotulo": "Aprofundar nos dados reais de produção de oxigênio do MOXIE",
+          "destino": 15
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A civilização espacial estabelecida",
+          "destino": 13
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: Os limites de escala e a impossibilidade da terraformação",
+          "destino": 21
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "numero": 11,
+      "tipo": "personagem",
+      "polo": "catastrofico",
+      "profundidade": 1,
+      "titulo": "[MOCK] Diálogo RPG: Dra. Sarah Lin (Especialista em Defesa e Tráfego Orbital)",
+      "texto": "Você visita o centro de monitoramento de tráfego orbital da Agência Espacial Europeia (ESA) em Darmstadt. Em telas gigantescas que cobrem a parede, uma miríade de trajetórias elípticas pisca em amarelo e vermelho. A Dra. Sarah Lin não sorri ao receber você: ela segura relatórios de conjunções de satélites das últimas 24 horas.\n\n— Nas últimas semanas, tivemos que acionar propulsores de emergência para desviar satélites científicos três vezes — afirma Sarah. — Existem mais de trinta mil peças de lixo espacial catalogadas viajando a 8 quilômetros por segundo. Um parafuso solto nessa velocidade tem o poder destrutivo de uma granada militar. Se as constelações continuarem subindo sem plano de descarte rigoroso, o espaço próximo se tornará intransitável. O que você quer confrontar?\n\nEscolha sua resposta de diálogo:",
+      "fontes": [
+        {
+          "titulo": "ESA: Space Environment Report 2024 (Space Debris)",
+          "url": "https://www.esa.int/Space_Safety/Space_Debris/ESA_Space_Environment_Report_2024",
+          "data": "2024-07-19"
+        },
+        {
+          "titulo": "FCC: Adopts new 5-year rule for deorbiting satellites",
+          "url": "https://www.fcc.gov/document/fcc-adopts-new-5-year-rule-deorbiting-satellites",
+          "data": "2022-09-29"
+        }
+      ],
+      "narracao": "A astrofísica Sarah Lin alerta: estamos à beira de criar uma barreira intransponível de fragmentos ao redor do nosso próprio planeta. Faça sua escolha no diálogo.",
+      "som": "Sirene curta de aviso de alerta amarelo ('Conjunction alert') soando suavemente em uma sala de controle escurecida.",
+      "visual": "A Dra. Sarah Lin diante de um console multitelas com mapas orbitais em tempo real, indicando em vermelho a aproximação de dois fragmentos desativados sobre o Hemisfério Sul.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Diálogo 1: 'A regra dos 5 anos da FCC realmente reduz esse perigo?' -> Ver regulação FCC",
+          "destino": 24
+        },
+        {
+          "tipo": "aprofundar",
+          "rotulo": "Diálogo 2: 'Qual a gravidade dos números reais do lixo cósmico hoje?' -> DADO Censo ESA",
+          "destino": 20
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para o vídeo O Cemitério Silencioso",
+          "destino": 4
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: 'Missões de remoção ativa como o ClearSpace limparão a rota!'",
+          "destino": 19
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: 'A Síndrome de Kessler nos enjaulará para sempre na Terra.'",
+          "destino": 20
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "numero": 12,
+      "tipo": "texto que se expande",
+      "polo": "catastrofico",
+      "profundidade": 1,
+      "titulo": "[MOCK] O Veneno Invisível: Radiação Cósmica e o Vácuo Biológico",
+      "texto": "Existe uma razão pela qual a Terra é um oásis biológico no meio do cosmos: nosso núcleo de ferro fundido gera uma magnetosfera formidável que funciona como um escudo defletor contra o vento solar e os raios cósmicos de alta energia.\n\nMarte, menor e geologicamente resfriado, perdeu seu dínamo magnético global há bilhões de anos. Sua atmosfera restante tem menos de 1% da espessura da Terra. Isso significa que qualquer ser humano na superfície marciana desprotegida recebe um bombardeio contínuo de radiação que destrói ligações moleculares e eleva dramaticamente o risco de mutações e câncer.\n\n[+] CLIQUE PARA EXPANDIR OS LIMITES DE ENGENHARIA BIOLÓGICA:\nPara sobreviver em Marte a longo prazo, os seres humanos não viverão em reluzentes cidades envidraçadas na superfície; terão que se enterrar sob metros de solo marciano (regolito) ou se esconder no interior de tubos de lava vulcânica subterrâneos. A utopia cósmica revela-se uma vida de trogloditas high-tech, privados para sempre da luz solar natural e da brisa do mar.",
+      "fontes": [
+        {
+          "titulo": "Science: The NASA Twins Study: A multidimensional analysis",
+          "url": "https://www.science.org/doi/10.1126/science.aau8650",
+          "data": "2019-04-12"
+        }
+      ],
+      "narracao": "Sem campo magnético para nos proteger, o espaço interplanetário é um mar de radiação ionizante. Viver em Marte exigirá que a humanidade se esconda no subsolo como toupeiras mecânicas.",
+      "som": "Cliques rápidos e secos de um contador Geiger detectando emissões de partículas gama em frequência acelerada.",
+      "visual": "Esquema em corte geológico de um tubo de lava marciano: uma cúpula de concreto reforçado instalada sob 15 metros de rocha vulcânica escura, isolada do céu radioativo estéril lá fora.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para o diálogo de defesa orbital",
+          "destino": 11
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para o bloco Viver Entre Mundos",
+          "destino": 3
+        },
+        {
+          "tipo": "aprofundar",
+          "rotulo": "Aprofundar nos dados genéticos reais do Estudo dos Gêmeos da NASA",
+          "destino": 18
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: Escudos de regolito e medicina regenerativa avançada",
+          "destino": 9
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O colapso do mito do Planeta B",
+          "destino": 14
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "numero": 13,
+      "tipo": "texto que se expande",
+      "polo": "otimista",
+      "profundidade": 2,
+      "titulo": "[MOCK] DADO: A Aurora da Espécie Multiplanetária e a Queda de Custos",
+      "texto": "A visão otimista não se apoia apenas em sonhos, mas em uma transformação real da curva de custo de acesso ao espaço. Durante as décadas do programa Apollo e dos Ônibus Espaciais, colocar um único quilo de carga útil em órbita baixa da Terra custava entre US$ 20.000 e US$ 54.000. Com a chegada dos lançadores comerciais com primeiros estágios reutilizáveis e o advento de megarrecintos espaciais, essa barreira despencou para menos de US$ 2.000 por quilo, com estimativas industriais visando atingir a faixa de poucas centenas de dólares.\n\nEssa deflação radical transforma o espaço de privilégio de impérios estatais em uma fronteira industrial acessível. Segundo o relatório oficial da NASA ao Presidente dos EUA sobre as atividades aeroespaciais (publicado em 2025, cobrindo o ano fiscal de 2024), a exploração espacial comercial gerou dezenas de voos orbitais civis, expandiu parcerias internacionais na arquitetura lunar e lançou as bases logísticas para expedições tripuladas a Marte.\n\n[+] CLIQUE PARA VER O DADO DE IMPACTO HISTÓRICO:\nEm 2024, a capacidade de carga humana em órbita atingiu recordes absolutos de satélites ativos (mais de 9.100 satélites em operação, conforme o Space Environment Report 2024 da ESA). Tornar-se multiplanetário não é fantasia de ficção: é a continuação natural da expansão humana que um dia cruzou os oceanos terrestres para povoar continentes desconhecidos.",
+      "fontes": [
+        {
+          "titulo": "NASA: Aeronautics and Space Report of the President (FY 2024 Activities)",
+          "url": "https://www.nasa.gov/wp-content/uploads/2025/09/aeronautics-and-space-report-of-the-president-fy-2024.pdf",
+          "data": "2025-09-15"
+        },
+        {
+          "titulo": "ESA: Space Environment Report 2024",
+          "url": "https://www.esa.int/Space_Safety/Space_Debris/ESA_Space_Environment_Report_2024",
+          "data": "2024-07-19"
+        }
+      ],
+      "narracao": "Com a reutilização de foguetes, o custo para acessar o cosmos caiu mais de 90%. Para os otimistas, a expansão multiplanetária deixou de ser sonho e tornou-se um cronograma inevitável.",
+      "som": "Acorde orquestral épico e inspirador com sintetizadores analógicos luminosos que evocam expansão e progresso contínuo.",
+      "visual": "Gráfico interativo em linha descendente mostrando o custo por quilo lançado ao espaço caindo de US$ 54.000 em 1981 para menos de US$ 1.500 na década de 2020, com projeções pontilhadas em verde.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para o experimento que extrai oxigênio de Marte (MOXIE)",
+          "destino": 15
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para o dilema ético: Berço ou Colonização?",
+          "destino": 5
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A consolidação das estufas orbitais e habitats",
+          "destino": 17
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Confrontar diretamente com o Polo Catastrófico: A ilusão da fuga",
+          "destino": 14
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "numero": 14,
+      "tipo": "texto",
+      "polo": "catastrofico",
+      "profundidade": 2,
+      "titulo": "[MOCK] DADO: Catástrofe e Ilusão — A Miragem do Planeta B",
+      "texto": "A tese de que Marte pode servir como refúgio viável contra o colapso ambiental da Terra colide frontalmente com as leis da física planetária. Um estudo seminal publicado na revista Nature Astronomy (2018) pelos pesquisadores Bruce Jakosky e Christopher Edwards examinou mais de 20 anos de dados das sondas MAVEN e Mars Reconnaissance Orbiter da NASA para calcular a quantidade total de CO2 acessível nas calotas polares, minerais e regolito marcianos.\n\nA conclusão foi implacável: se a humanidade conseguisse vaporizar todo o dióxido de carbono disponível no planeta (seja detonando armas nucleares nos polos ou aquecendo o solo), a pressão atmosférica de Marte passaria dos atuais 6 milibares para apenas cerca de 15 milibares. A pressão barométrica mínima necessária para que a água líquida permaneça estável sem ferver espontaneamente é de 61 milibares (o limite de Armstrong), e a pressão da Terra ao nível do mar é de 1.013 milibares!\n\nEm números reais: todo o CO2 de Marte geraria menos de 1,5% da atmosfera terrestre. Não há 'Planeta B'. Qualquer colônia humana em Marte dependerá perpetuamente de casulos artificiais ultracomplexos onde uma única falha de válvula asfixiará a todos em minutos. Propor Marte como salvação para a crise ecológica da Terra é um delírio tecnológico perigoso.",
+      "fontes": [
+        {
+          "titulo": "Nature Astronomy: Inventory of CO2 available for terraforming Mars (Jakosky & Edwards)",
+          "url": "https://www.nature.com/articles/s41550-018-0529-6",
+          "data": "2018-07-30"
+        }
+      ],
+      "narracao": "A ciência é inequívoca: liberar todo o gás carbônico de Marte não atinge nem dois por cento da pressão da Terra. A ideia de que Marte nos salvará é uma ilusão matemática.",
+      "som": "Vento seco, desolador e uivante gravado em frequências graves de infrassom, transmitindo sensação de vastidão inóspita e isolamento irremediável.",
+      "visual": "Comparação gráfica lado a lado da densidade atmosférica: à esquerda, uma coluna espessa azul-safira representando a atmosfera da Terra (1.013 mbar); à direita, uma linha vermelha quase invisível representando o máximo atingível em Marte (15 mbar).",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para os gargalos de orçamento e a crise do MSR",
+          "destino": 16
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para o dilema ético inicial",
+          "destino": 5
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Confrontar com a visão do polo otimista",
+          "destino": 13
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: Ver o pesadelo da nuvem de lixo cósmico em órbita",
+          "destino": 20
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "numero": 15,
+      "tipo": "texto",
+      "polo": "otimista",
+      "profundidade": 2,
+      "titulo": "[MOCK] DADO: O Ar que Nasce das Pedras — O Experimento MOXIE",
+      "texto": "Pela primeira vez na história da exploração cósmica, a humanidade gerou oxigênio respirável a partir da atmosfera de outro planeta. Em 6 de setembro de 2023, a NASA anunciou formalmente a conclusão bem-sucedida do experimento MOXIE (Mars Oxygen In-Situ Resource Utilization Experiment), instalado no ventre do rover Perseverance.\n\nOs números comprovam a viabilidade da utilização de recursos in-situ:\n• Produção total acumulada: 122 gramas de oxigênio puro gerados ao longo de 16 testes bem-sucedidos desde 2021.\n• Pureza do oxigênio obtido: 98% ou superior, alcançada separando átomos de oxigênio das moléculas de dióxido de carbono marciano através de eletrólise de óxido sólido a 800°C.\n• Taxa de pico: 12 gramas de oxigênio por hora (o dobro da meta inicial do projeto).\n\n122 gramas de oxigênio representam o suficiente para manter um ser humano respirando por cerca de 3,5 horas (ou um cão pequeno por 10 horas). Embora o volume pareça modesto, o MOXIE foi desenhado como um demonstrador de escala 1:200. Um sistema em escala real de 25 a 30 quilowatts poderá produzir as dezenas de toneladas de oxigênio líquido necessárias para abastecer o foguete de retorno de astronautas à Terra, provando que Marte possui os insumos químicos para a nossa emancipação cósmica.",
+      "fontes": [
+        {
+          "titulo": "NASA: NASA's oxygen-generating experiment on Mars completes mission",
+          "url": "https://www.nasa.gov/news-release/nasas-oxygen-generating-experiment-on-mars-completes-mission/",
+          "data": "2023-09-06"
+        }
+      ],
+      "narracao": "Cento e vinte e dois gramas de oxigênio gerados diretamente do céu marciano. O experimento MOXIE provou na prática que a humanidade pode produzir seu próprio ar em outro mundo.",
+      "som": "Respiração humana serena e compassada dentro de um capacete pressurizado, ritmada com o sopro contínuo de ar puro esterilizado.",
+      "visual": "Fotografia documental de close-up da unidade dourada do MOXIE montada no chassi do Perseverance, com sobreposição esquemática mostrando a conversão termoquímica de CO2 em O2 livre.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a produção de alimentos em estufas e o CHAPEA",
+          "destino": 17
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para a odisséia do Perseverance em Jezero",
+          "destino": 2
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A marcha triunfal da expansão interplanetária",
+          "destino": 13
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O colapso financeiro da missão de resgate dessas amostras",
+          "destino": 16
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "numero": 16,
+      "tipo": "texto",
+      "polo": "catastrofico",
+      "profundidade": 2,
+      "titulo": "[MOCK] DADO: A Conta dos Bilhões — O Abismo do Mars Sample Return",
+      "texto": "Colher pedras em Marte é ciência pura; trazê-las de volta é um pesadelo de engenharia e orçamento. Em setembro de 2023, a Junta de Revisão Independente (IRB) encomendada pela NASA publicou um relatório devastador sobre o programa Mars Sample Return (MSR): a arquitetura original da missão sofria de premissas orçamentárias 'completamente irrealistas desde o início', com probabilidade quase nula de lançamento no prazo estipulado de 2028.\n\nOs dados da auditoria oficial:\n• Custo estimado recalculado: entre US$ 8 bilhões e US$ 11 bilhões (o dobro do orçamento preliminar de US$ 4 a 5 bilhões).\n• Prazo de entrega adiado: sob o plano vigente, as cápsulas de Jezero só retornariam à Terra em 2040.\n• Impacto sistêmico: o custo mastodôntico ameaçou canibalizar o orçamento de toda a divisão de ciências planetárias da NASA, levando a demissões em massa e congelamento de pesquisas no Laboratório de Propulsão a Jato (JPL) em 2024.\n\nEm 15 de abril de 2024, o administrador da NASA Bill Nelson declarou formalmente que '11 bilhões de dólares e um retorno em 2040 são inaceitáveis', forçando a agência a descartar a arquitetura original e convocar empresas privadas para estudar planos emergenciais mais baratos. Mesmo com redesenhos, estimativas de 2025 projetam custos mínimos de US$ 7 bilhões para entregas na segunda metade da década de 2030. Se a maior economia do mundo hesita diante do custo de trazer 500 gramas de cascalho marciano, como financiará uma colônia de seres vivos?",
+      "fontes": [
+        {
+          "titulo": "NASA: Sets path to return Mars samples, seeks innovative designs",
+          "url": "https://www.nasa.gov/news-release/nasa-sets-path-to-return-mars-samples-seeks-innovative-designs/",
+          "data": "2024-04-15"
+        },
+        {
+          "titulo": "NASA: Independent Review Board MSR Report Summary",
+          "url": "https://www.nasa.gov/news-release/nasa-sets-path-to-return-mars-samples-seeks-innovative-designs/",
+          "data": "2023-09-21"
+        }
+      ],
+      "narracao": "Onze bilhões de dólares e retorno adiado para 2040: a auditoria independente da missão de amostras marcianas expôs o abismo entre o marketing espacial e a dura realidade orçamentária.",
+      "som": "Som de carimbo metálico administrativo batendo em formulários oficiais, acompanhado pelo som de impressoras matriciais de dados contábeis em loop tenso.",
+      "visual": "Documento de auditoria com o carimbo vermelho 'UNREALISTIC BUDGET', sobreposto a um gráfico de barras que mostra a explosão de custos de US$ 4 bilhões para US$ 11 bilhões.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para os danos genéticos e celulares do espaço profundo",
+          "destino": 18
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para a odisséia do Perseverance em Jezero",
+          "destino": 2
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A resposta pragmática da produção local de oxigênio (MOXIE)",
+          "destino": 15
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O cálculo impossível da atmosfera de Marte",
+          "destino": 21
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "numero": 17,
+      "tipo": "texto que se expande",
+      "polo": "otimista",
+      "profundidade": 2,
+      "titulo": "[MOCK] DADO: Estufas Marcianas e o Teste Humano do CHAPEA",
+      "texto": "Em 6 de julho de 2024, uma tripulação de quatro voluntários (Kelly Haston, Ross Brockwell, Nathan Jones e Anca Selariu) abriu a escotilha do Mars Dune Alpha no Johnson Space Center da NASA em Houston, completando 378 dias ininterruptos de isolamento estrito na primeira missão do programa CHAPEA (Crew Health and Performance Exploration Analog).\n\nOs dados colhidos mostram que a sustentabilidade de uma colônia fechada é viável na prática:\n• Espaço habitável: 158 metros quadrados totalmente impressos em 3D utilizando concreto simulador de regolito marciano.\n• Produção de alimentos: cultivo com sucesso de tomates, pimentões e folhas verdes em sistemas verticais hidropônicos, complementando calorias liofilizadas.\n• Manutenção autônoma: solução de falhas de hardware com impressão 3D in-situ de suportes e adaptadores estruturais desenhados pela própria tripulação.\n\n[+] CLIQUE PARA VER O DADO DE RESILIÊNCIA PSICOLÓGICA:\nA tripulação suportou a imposição de um atraso de comunicação artificial de 22 minutos em cada sentido (44 minutos para cada resposta da Terra), espelhando exatamente o delay eletromagnético real entre a órbita da Terra e Marte. Apesar do estresse do isolamento e da saudade de entes queridos, a equipe manteve alta performance cognitiva e física, provando que o fator humano é capaz de suportar os desafios da primeira base interplanetária.",
+      "fontes": [
+        {
+          "titulo": "NASA: Crew returns from simulated trip to Mars (CHAPEA Mission 1)",
+          "url": "https://www.nasa.gov/centers-and-facilities/johnson/crew-returns-from-simulated-trip-to-mars-take-a-peek-inside-their-journey/",
+          "data": "2024-07-06"
+        }
+      ],
+      "narracao": "Trezentos e setenta e oito dias em um habitat impresso em 3D. A tripulação do CHAPEA provou que a autonomia alimentar e psicológica em solo marciano é plenamente realizável.",
+      "som": "Música ambiente suave e calorosa com sons de folhas sendo colhidas e o burburinho de vozes humanas comemorando a abertura da escotilha.",
+      "visual": "A tripulação do CHAPEA saindo unida da escotilha do Mars Dune Alpha em Houston após 378 dias, acenando para familiares sob aplausos de engenheiros da NASA.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para o descarte ecológico de estruturas espaciais em órbita",
+          "destino": 19
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para o bloco Viver Entre Mundos",
+          "destino": 3
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A vitória da espécie multiplanetária",
+          "destino": 13
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: Os danos celulares e a radiação cósmica no corpo",
+          "destino": 18
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "numero": 18,
+      "tipo": "texto",
+      "polo": "catastrofico",
+      "profundidade": 2,
+      "titulo": "[MOCK] DADO: O Estudo dos Gêmeos da NASA — As Cicatrizes Cromossômicas",
+      "texto": "A ilusão de que viajar até Marte é apenas questão de empacotar comida e ligar foguetes foi confrontada pela biologia molecular. Em 12 de abril de 2019, a revista Science publicou o marco científico supremo da medicina aeroespacial: o NASA Twins Study, que comparou o astronauta Scott Kelly (que passou 340 dias contínuos a bordo da ISS) com seu irmão gêmeo idêntico Mark Kelly (que permaneceu na Terra como controle biológico).\n\nOs dados clínicos revelaram impactos profundos e persistentes no corpo humano:\n• Dinâmica dos telômeros: no espaço, os telômeros (tampas protetoras dos cromossomos) de Scott sofreram um alongamento paradoxal temporário; porém, dias após o retorno à gravidade terrestre, ocorreu um encurtamento abrupto e severo, deixando-o com uma proporção de telômeros criticamente curtos associada ao envelhecimento celular acelerado e riscos cardiovasculares.\n• Radiação e aberrações cromossômicas: o estudo documentou quebras e inversões cromossômicas duradouras causadas pelo bombardeio contínuo de radiação cósmica ionizante, mesmo sob a proteção parcial da magnetosfera da Terra na altitude da ISS.\n• Expressão gênica: embora 91% dos genes de Scott tenham retornado aos parâmetros basais seis meses após o pouso, quase 9% mantiveram níveis alterados de expressão ligados à resposta imunológica e reparo de DNA.\n\nSe esses danos ocorreram em órbita baixa protegida pela Terra, uma viagem de três anos até Marte em espaço profundo sem magnetosfera exporá astronautas a doses cumulativas de radiação que a medicina moderna ainda não sabe como neutralizar sem blindagens colossais de chumbo ou água.",
+      "fontes": [
+        {
+          "titulo": "Science: The NASA Twins Study: A multidimensional analysis of a year-long human spaceflight",
+          "url": "https://www.science.org/doi/10.1126/science.aau8650",
+          "data": "2019-04-12"
+        }
+      ],
+      "narracao": "No DNA do astronauta Scott Kelly, a ciência encontrou a conta biológica do espaço: encurtamento rápido de telômeros, mutações radioativas e instabilidade celular persistente.",
+      "som": "Batimentos cardíacos amplificados acelerando gradativamente, intercalados com o som estalado de microscopia confocal registrando quebras moleculares de DNA.",
+      "visual": "Animação gráfica mostrando um filamento de DNA cromossômico se desdobrando: raios cósmicos de alta energia (prótons e núcleos pesados) colidem com as pontas dos telômeros, rompendo suas pontes de hidrogênio.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a nuvem de detritos orbitais e Síndrome de Kessler",
+          "destino": 20
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para o bloco Viver Entre Mundos",
+          "destino": 3
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A impressionante recuperação biológica de 91% do organismo",
+          "destino": 17
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O engodo da fuga cósmica diante da fragilidade humana",
+          "destino": 14
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "numero": 19,
+      "tipo": "texto que se expande",
+      "polo": "otimista",
+      "profundidade": 2,
+      "titulo": "[MOCK] DADO: O Grande Descarte Controlado — O Veículo da SpaceX para a ISS",
+      "texto": "Gerenciar a fronteira espacial com responsabilidade ecológica não é utopia: é um compromisso de engenharia em execução. A Estação Espacial Internacional é uma massa gigantesca de aproximadamente 430.000 quilos (do tamanho de um campo de futebol americano). Deixá-la decair descontroladamente pela fricção atmosférica seria uma roleta-russa com as cidades da Terra.\n\nEm 26 de junho de 2024, a NASA selecionou oficialmente a SpaceX para desenvolver o U.S. Deorbit Vehicle (USDV) em um contrato de valor fixo de até US$ 843 milhões. A espaçonave será uma versão fortemente modificada da cápsula Cargo Dragon, equipada com um compartimento traseiro alongado contendo 46 propulsores de manobra e toneladas extras de combustível para executar queimas hipervelozes de alta precisão em 2030, guiando a carcaça da ISS para desintegração controlada sobre o Ponto Nemo, a região mais inabitada do Oceano Pacífico Sul.\n\n[+] CLIQUE PARA VER O DADO DE LIMPEZA ATIVA DE DETRITOS:\nAo mesmo tempo, agências espaciais e a indústria privada estão investindo em tecnologias de remoção ativa de detritos. A missão ClearSpace-1 da Agência Espacial Europeia (ESA) e missões de demonstração da empresa Astroscale estão provando a viabilidade de satélites robóticos que caçam estágios de foguetes usados e satélites mortos com braços articulados e garras magnéticas para arrastá-los até a queima segura na atmosfera, garantindo que as autoestradas do espaço continuem abertas.",
+      "fontes": [
+        {
+          "titulo": "NASA: Selects International Space Station U.S. Deorbit Vehicle",
+          "url": "https://www.nasa.gov/news-release/nasa-selects-international-space-station-us-deorbit-vehicle/",
+          "data": "2024-06-26"
+        },
+        {
+          "titulo": "ESA: ClearSpace-1 and Active Debris Removal initiative",
+          "url": "https://www.esa.int/Space_Safety/Space_Debris/ESA_Space_Environment_Report_2024",
+          "data": "2024-07-19"
+        }
+      ],
+      "narracao": "Com um contrato de 843 milhões de dólares, a NASA e a SpaceX preparam o descarte controlado da ISS. A engenharia espacial aprende a limpar a própria casa.",
+      "som": "Propulsores de manobra química acionando em pulsos curtos e potentes ('thump-thump'), seguidos pelo silvo abafado de gases ionizados no vácuo.",
+      "visual": "Conceito artístico oficial da espaçonave USDV acoplada à proa da colossal ISS, acionando seus 46 propulsores Draco em uníssono para empurrar a estação em direção à reentrada atmosférica.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a aurora da nova economia orbital e multiplanetária",
+          "destino": 13
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para o bloco O Cemitério Silencioso",
+          "destino": 4
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A tecnologia pioneira do oxigênio marciano",
+          "destino": 15
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O risco de que a limpeza seja lenta demais contra as colisões",
+          "destino": 20
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "numero": 20,
+      "tipo": "texto",
+      "polo": "catastrofico",
+      "profundidade": 2,
+      "titulo": "[MOCK] DADO: O Censo do Lixo Cósmico — A Síndrome de Kessler",
+      "texto": "A órbita baixa da Terra não é infinita: é um recurso geográfico frágil que está rapidamente atingindo saturação crítica. Em 19 de julho de 2024, a Agência Espacial Europeia (ESA) lançou a edição atualizada do seu Space Environment Report, consolidando números que tiram o sono de qualquer operador de satélites.\n\nO censo oficial dos objetos em órbita ao redor da Terra revela:\n• Mais de 35.000 objetos monitorados e catalogados ativamente por radares militares e ópticos terrestres.\n• Apenas cerca de 9.100 são satélites ativos em funcionamento; o restante (~26.000) são satélites mortos, estágios de foguetes abandonados e pedaços de fuselagem maiores que 10 cm.\n• População oculta e letal: estima-se em mais de 1 milhão o número de fragmentos entre 1 cm e 10 cm, e mais de 130 milhões de partículas menores que 1 centímetro.\n\nA 28.000 km/h (quase 8 km por segundo), a blindagem de qualquer espaçonave é perfurada por uma lasca de alumínio de 1 cm como se fosse manteiga. Em 1978, o astrofísico da NASA Donald Kessler postulou a Síndrome de Kessler: o momento matemático em que a densidade de objetos em órbita se torna tão alta que colisões casuais geram cascatas exponenciais de fragmentos secundários, retroalimentando novas colisões mesmo que nenhum novo satélite seja lançado. Se a Síndrome de Kessler se consolidar na altitude de 700 a 1.000 km, a humanidade perderá satélites meteorológicos, GPS e redes mundiais de dados, ficando encarcerada dentro da atmosfera da Terra por gerações sob uma redoma intransponível de estilhaços hipersônicos.",
+      "fontes": [
+        {
+          "titulo": "ESA: Space Environment Report 2024",
+          "url": "https://www.esa.int/Space_Safety/Space_Debris/ESA_Space_Environment_Report_2024",
+          "data": "2024-07-19"
+        },
+        {
+          "titulo": "NASA OIG: NASA's Efforts to Mitigate the Risks of Orbital Debris (Report IG-21-011)",
+          "url": "https://oig.nasa.gov/wp-content/uploads/2024/02/IG-21-011.pdf",
+          "data": "2021-12-30"
+        }
+      ],
+      "narracao": "Trinta e cinco mil objetos rastreados e mais de um milhão de fragmentos invisíveis a oito quilômetros por segundo. A Síndrome de Kessler pode enjaular a humanidade no planeta Terra.",
+      "som": "Estrondo agudo de impacto cinético hiperveloz em câmara de vácuo, sucedido por um silêncio total e o zumbido tenso de telemetria caindo a zero.",
+      "visual": "Simulação computacional da órbita terrestre: uma colisão entre dois satélites inativos explode em dezenas de milhares de vetores pontilhados que se espalham em anéis concêntricos cobrindo o planeta como uma teia de aranha tóxica.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a análise do mito do Planeta B e terraformação",
+          "destino": 14
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para o bloco O Cemitério Silencioso",
+          "destino": 4
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A regulação firme e missões de varredura ativa",
+          "destino": 19
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: Diálogo com a Dra. Sarah Lin sobre defesa orbital",
+          "destino": 11
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "numero": 21,
+      "tipo": "texto que se expande",
+      "polo": "catastrofico",
+      "profundidade": 2,
+      "titulo": "[MOCK] DADO: O Balanço Atmosférico Impossível de Jakosky",
+      "texto": "Para os entusiastas da ficção científica, a transformação de Marte em uma 'segunda Terra' exigiria apenas bombardear os polos com ogivas nucleares para evaporar as calotas de gelo seco e desencadear um efeito estufa galopante. Em 30 de julho de 2018, Bruce Jakosky (líder científico da sonda MAVEN na Universidade do Colorado) e Christopher Edwards (Northern Arizona University) publicaram na prestigiosa Nature Astronomy o mais abrangente inventário de carbono marciano já realizado.\n\nOs dados destruíram a hipótese da terraformação com as tecnologias disponíveis:\n• Calotas polares: a vaporização total de todo o gelo de CO2 visível no Polo Sul de Marte adicionaria no máximo 1 a 2 milibares de pressão.\n• Minerais carbonáticos: escavar e aquecer o regolito de Marte até 100 metros de profundidade em escala planetária liberaria cerca de 10 a 12 milibares.\n• Gás absorvido na poeira: liberaria menos de 4 milibares adicionais.\n\n[+] CLIQUE PARA VER A CONCLUSÃO TERMODINÂMICA:\nSomados todos os reservatórios geologicamente conhecidos, a pressão máxima possível seria de aproximadamente 15 milibares. Ora, para que os pulmões humanos funcionem sem traje pressurizado, é necessária uma pressão total mínima de 500 milibares com oxigênio puro (ou 1.013 milibares de ar normal). Além disso, a perda atmosférica contínua medida pela sonda MAVEN mostra que o vento solar varre dezenas de toneladas de gás para o espaço sideral todos os dias porque Marte não tem magnetosfera intrínseca para segurar a atmosfera. Terraformar Marte não é difícil: é fisicamente inviável sem tecnologias de síntese planetária que a espécie humana não deterá por séculos.",
+      "fontes": [
+        {
+          "titulo": "Nature Astronomy: Inventory of CO2 available for terraforming Mars",
+          "url": "https://www.nature.com/articles/s41550-018-0529-6",
+          "data": "2018-07-30"
+        }
+      ],
+      "narracao": "Vinte anos de dados de sondas orbitais demonstraram: mesmo se evaporássemos todas as calotas polares de Marte, a pressão atmosférica não chegaria a dois por cento da Terra. Terraformar Marte é um mito.",
+      "som": "Silvo abafado de vácuo escapando sob fendas rochosas com o estalo seco de gelo seco sublimando no vácuo.",
+      "visual": "Gráfico de barras científicas desglosando as fontes de CO2 em Marte: Calotas polares (1-2 mbar), regolito (10-12 mbar), adsorção (4 mbar). Total: ~15 mbar. Uma linha tracejada muito acima marca a meta de 1.013 mbar.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para os relatórios psicológicos e humanos da simulação CHAPEA 1",
+          "destino": 22
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para o dilema ético: Salvar o berço ou colonizar o deserto?",
+          "destino": 5
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: Em vez de terraformar, focar em habitats fechados e ISRU",
+          "destino": 10
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O pesadelo orçamentário do Mars Sample Return",
+          "destino": 16
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "numero": 22,
+      "tipo": "texto",
+      "polo": "neutro",
+      "profundidade": 2,
+      "titulo": "[MOCK] DADO: 378 Dias de Silêncio — A Mente na Simulação CHAPEA 1",
+      "texto": "Para além dos cálculos de combustíveis e trajetórias balísticas, a exploração interplanetária tem uma variável orgânica que nenhum algoritmo consegue prever com certeza: a estabilidade da mente humana em isolamento absoluto. Em 6 de julho de 2024, a NASA publicou as avaliações preliminares da Missão 1 do CHAPEA.\n\nOs dados comportamentais e operacionais registrados:\n• Duração exata: 378 dias confinada em 158 m², a mais longa missão análoga terrestre já patrocinada pela NASA sob condições de protocolo estrito de Marte.\n• Atraso eletromagnético: a latência compulsória de 22 minutos por sentido eliminou chamadas telefônicas normais ou conversas síncronas com familiares; todas as mensagens precisavam ser gravadas em vídeo ou áudio e enviadas em pacotes de dados diferidos.\n• Carga de estresse e fadiga: os questionários neurocognitivos e marcadores salivares de cortisol indicaram picos de tensão psicológica ao redor do nono mês de confinamento ('o fenômeno do terceiro quarto de missão'), momento em que o entusiasmo inicial arrefeceu e o final ainda parecia distante.\n\nA principal lição deixada pela tripulação do CHAPEA é clara: em uma viagem real a Marte, quando a Terra se tornar apenas uma estrela azulada indistinguível na janela, a coesão do grupo e o suporte psicológico autônomo serão tão decisivos quanto o suprimento de oxigênio para que os astronautas cheguem vivos ao destino.",
+      "fontes": [
+        {
+          "titulo": "NASA: Crew returns from simulated trip to Mars (CHAPEA Mission 1)",
+          "url": "https://www.nasa.gov/centers-and-facilities/johnson/crew-returns-from-simulated-trip-to-mars-take-a-peek-inside-their-journey/",
+          "data": "2024-07-06"
+        },
+        {
+          "titulo": "NASA: Aeronautics and Space Report of the President (FY 2024 Activities)",
+          "url": "https://www.nasa.gov/wp-content/uploads/2025/09/aeronautics-and-space-report-of-the-president-fy-2024.pdf",
+          "data": "2025-09-15"
+        }
+      ],
+      "narracao": "Trezentos e setenta e oito dias e uma latência de quarenta e quatro minutos a cada pergunta e resposta. O maior teste para alcançar Marte não é a física: é a psique humana confinada.",
+      "som": "Ruído de estática de canal de áudio com o eco da voz de um tripulante ditando um diário de bordo com tom calmo e solitário.",
+      "visual": "Diário de bordo digital exibido em uma tela fosca: notas de texto e curvas de cortisol ao longo de 12 meses mostrando oscilações emocionais da tripulação dentro do Mars Dune Alpha.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a transição comercial e os novos destinos em LEO",
+          "destino": 23
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para o diálogo com o comandante Mateo Ruiz",
+          "destino": 7
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A impressionante resiliência e cooperação da tripulação",
+          "destino": 9
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: As mutações radioativas descritas no Estudo dos Gêmeos",
+          "destino": 18
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "numero": 23,
+      "tipo": "texto",
+      "polo": "neutro",
+      "profundidade": 2,
+      "titulo": "[MOCK] DADO: O Cronograma de Morte da ISS e a Economia Comercial",
+      "texto": "A transição da órbita baixa da Terra deixou de ser especulação acadêmica e virou cronograma contratual com carimbos e datas fixas. O relatório oficial de atividades espaciais dos EUA (Aeronautics and Space Report FY 2024, publicado em setembro de 2025) e o anúncio oficial da NASA de 26 de junho de 2024 traçam as linhas mestras da maior virada de página da astronáutica moderna.\n\nOs fatos contratuais e dados da transição:\n• Aposentadoria da ISS: confirmada para 2030, após três décadas ininterruptas de serviço internacional.\n• Valor do contrato do U.S. Deorbit Vehicle (USDV): até US$ 843 milhões concedidos à SpaceX para projetar e entregar a espaçonave que executará a reentrada final segura da estação no oceano.\n• Custos totais da missão de demolição: estimados em cerca de US$ 1,5 bilhão, incluindo o foguete de lançamento dedicado e as operações de controle de solo.\n• Transição para o setor privado: a NASA firmou acordos Space Act com empresas como Axiom Space, Blue Origin (Orbital Reef) e Voyager/Starlab para certificar novos módulos comerciais onde o governo será apenas um dos clientes de aluguel de laboratório.\n\nA aposta dos governos ocidentais é transferir a manutenção rotineira da órbita para o setor corporativo, liberando verbas públicas para a exploração da Lua e de Marte. Mas se o mercado privado não encontrar demanda lucrativa real para manufatura em microgravidade ou turismo, a presença humana contínua no espaço poderá sofrer uma interrupção histórica pela primeira vez no século vinte e um.",
+      "fontes": [
+        {
+          "titulo": "NASA: Selects International Space Station U.S. Deorbit Vehicle",
+          "url": "https://www.nasa.gov/news-release/nasa-selects-international-space-station-us-deorbit-vehicle/",
+          "data": "2024-06-26"
+        },
+        {
+          "titulo": "NASA: Commercial LEO Destinations (CLD) Policy & FAQ",
+          "url": "https://www.nasa.gov/humans-in-space/leo-economy-frequently-asked-questions/",
+          "data": "2024-04-07"
+        }
+      ],
+      "narracao": "Um bilhão e meio de dólares para desmontar a ISS em 2030 e entregar a órbita à iniciativa privada. A transição mais arriscada da história aeroespacial está em marcha.",
+      "som": "Contagem regressiva digital em voz sintetizada fria, culminando no som ecoante de motores elétricos de um guindaste orbital operando em baixa gravidade.",
+      "visual": "Cronograma infográfico que vai de 2024 a 2031: marcos em vermelho mostram as queimas finais de descida da ISS, enquanto barras verdes representam o acoplamento dos primeiros módulos comerciais privados.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a equação da colisão a 8 km/s e a regra dos 5 anos da FCC",
+          "destino": 24
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para o bloco O Fim da ISS e a Privatização",
+          "destino": 8
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O risco de transformar a órbita em um lixão corporativo",
+          "destino": 20
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "numero": 24,
+      "tipo": "texto que se expande",
+      "polo": "catastrofico",
+      "profundidade": 2,
+      "titulo": "[MOCK] DADO: A Equação da Colisão — A Metralhadora Orbital de 8 km/s",
+      "texto": "Para compreender por que o acúmulo de lixo na órbita baixa da Terra é uma emergência global, é preciso aplicar a física elementar da energia cinética: $E = \\frac{1}{2} m v^2$. Como os satélites e fragmentos viajam a aproximadamente 7,8 km/s (quase 28.000 km/h), a velocidade elevada ao quadrado multiplica a capacidade destruidora de qualquer objeto milimétrico.\n\nEm números reais:\n• Uma esfera de alumínio de 1 centímetro viajando a 8 km/s carrega aproximadamente a mesma energia cinética de uma granada de mão militar explodindo à queima-roupa.\n• Uma ferramenta solta de 10 centímetros tem impacto cinético comparável ao choque frontal com um caminhão de carga em alta velocidade.\n• A grande maioria desses fragmentos menores que 10 cm é invisível para os radares normais, o que impossibilita qualquer manobra de evasão prévia.\n\n[+] CLIQUE PARA VER O DADO DA REGULAÇÃO DA FCC:\nEm resposta a esse perigo extremo, a Federal Communications Commission (FCC) dos EUA aprovou formalmente em 29 de setembro de 2022 a histórica '5-Year Rule' (Regra dos 5 Anos), que revogou a diretriz anterior de 25 anos adotada desde a década de 1990. A nova regra obriga todos os operadores comerciais de satélites em órbita baixa a desorbitar seus aparelhos ou manobrá-los para a queima atmosférica em até cinco anos após o término operacional da missão. Contudo, a regra só entrou em vigor prático em setembro de 2024 e não tem poder retroativo sobre os dezenas de milhares de satélites já abandonados nas altitudes onde o atrito com o ar rarefeito demora séculos para limpá-los. O relógio da Síndrome de Kessler continua correndo.",
+      "fontes": [
+        {
+          "titulo": "FCC: Adopts new 5-year rule for deorbiting satellites to address orbital debris",
+          "url": "https://www.fcc.gov/document/fcc-adopts-new-5-year-rule-deorbiting-satellites",
+          "data": "2022-09-29"
+        },
+        {
+          "titulo": "ESA: Space Environment Report 2024",
+          "url": "https://www.esa.int/Space_Safety/Space_Debris/ESA_Space_Environment_Report_2024",
+          "data": "2024-07-19"
+        }
+      ],
+      "narracao": "A oito quilômetros por segundo, uma porca de aço carrega o impacto de uma granada de mão. A nova regra de cinco anos da FCC tenta evitar que o céu se transforme em um campo minado.",
+      "som": "Zumbido estridente e cortante em velocidade supersônica passando rente aos ouvidos, seguido por uma onda de choque seca em vácuo.",
+      "visual": "Animação gráfica com simulação balística: um projétil de alumínio de 1 cm penetra e estilhaça a chapa de proteção Whipple de um módulo espacial pressurizado em microssegundos.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir de volta ao portal inicial: O Planeta B",
+          "destino": 1
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para o diálogo com a Dra. Sarah Lin sobre defesa orbital",
+          "destino": 11
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A tecnologia de remoção ativa de detritos",
+          "destino": 19
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O encarceramento definitivo na Terra",
+          "destino": 14
+        }
+      ]
+    }
+  ]
+}

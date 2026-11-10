@@ -13,7 +13,13 @@
 <a class="skip" href="#principal">Pular para o conteúdo</a>
 <header class="topo" role="banner">
   <a class="logo" href="#principal">Stargate</a>
-  <nav class="series-museu" aria-label="Séries do museu">{% for serie in series %}<a href="?serie={{ serie.slug }}">{{ serie.titulo }}</a> {% endfor %}</nav><nav class="prim" aria-label="Principal"><a href="#series">Séries</a><a href="#livro-jogo">Livro-jogo</a><a href="/">Portal</a><a href="#mapa">Mapa do site</a></nav>
+  {% if series %}<details class="series-museu">
+    <summary>Séries <span aria-hidden="true">({{ series|length }})</span></summary>
+    <nav aria-label="Escolher uma série">
+      {% for serie in series %}<a href="?serie={{ serie.slug }}">{{ serie.titulo }}</a>{% endfor %}
+    </nav>
+  </details>{% endif %}
+  <nav class="prim" aria-label="Principal"><a href="#series">Séries</a><a href="#livro-jogo">Livro-jogo</a><a href="/">Portal</a><a href="#mapa">Mapa do site</a></nav>
   <div class="controlos">
     <button id="pausa" type="button" class="btn" aria-pressed="false" hidden>Pausar movimento</button>
     <button id="som" type="button" class="btn modo" role="switch" aria-checked="false" hidden><span class="chave" aria-hidden="true"></span><span class="rot">Som: desligado</span></button>

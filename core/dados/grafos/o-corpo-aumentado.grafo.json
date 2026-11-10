@@ -1,0 +1,1089 @@
+{
+  "serie": "mock-o-corpo-aumentado",
+  "tom": "misto (oscilação dialética entre o otimismo bioengenheiril da cura de patologias e restauração sensorial e o realismo catastrófico da exclusão econômica, obsolescência de hardware proprietário e eugenia de mercado)",
+  "blocos": [
+    {
+      "id": 1,
+      "numero": 1,
+      "tipo": "texto",
+      "polo": "neutro",
+      "profundidade": 0,
+      "titulo": "[MOCK] O Corpo Aumentado: A Promessa Cibernética vs. O Abismo Biológico",
+      "texto": "Cena imaginada (ficção): Você caminha pelos corredores iluminados do Simpósio Internacional de Bioengenharia em Genebra. Em um dos estandes, uma atleta com duas próteses de fibra de carbono e titânio controladas por impulsos neurais salta com uma fluidez que desafia a gravidade, aplaudida por médicos e investidores. No saguão em frente, um grupo de pacientes em cadeiras de rodas empunha cartazes de protesto com a inscrição: 'A tecnologia existe, o dinheiro de vocês nos condena'.\n\nA humanidade alcançou a encruzilhada definitiva da sua evolução: pela primeira vez na história, podemos consertar membros perdidos com sensores táteis biomiméticos, corrigir erros genéticos no DNA antes incuráveis e reprogramar os limites do envelhecimento celular. Mas a que preço? Esse aumento representará a emancipação da dor e da deficiência ou a criação irreversível de uma casta biologicamente superior de seres humanos aprimorados?\n\nNeste livro-jogo interativo do Stargate, você decide o rumo da leitura. Você pode seguir a trilha dos fatos científicos, mergulhar nas dúvidas éticas de médicos e ativistas, testar o polo otimista da regeneração humana ou confrontar o polo catastrófico da obsolescência planejada do corpo de carne.\n\n[MOCK]: Rascunho editorial em teste para o Stargate. Nenhum conteúdo publicado externamente.",
+      "fontes": [],
+      "narracao": "O corpo humano nunca mais será puramente biológico. Entre o alívio definitivo do sofrimento e a divisão definitiva da nossa espécie, faça a sua primeira escolha.",
+      "som": "Zumbido sutil de servomotores biomiméticos em repouso sobreposto pelo eco suave de passos em um saguão de convenções e batimentos cardíacos serenos.",
+      "visual": "Abertura conceitual em tela dividida: à esquerda, o braço orgânico de um atleta com vasos sanguíneos translúcidos sob luz âmbar; à direita, uma estrutura robótica antropomórfica espelhada com ligamentos de polímero e circuitos de fibra óptica pulsando em azul safira.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a máquina que devolve o toque: Próteses Biônicas",
+          "destino": 2
+        },
+        {
+          "tipo": "aprofundar",
+          "rotulo": "Aprofundar no dilema da desigualdade biológica e acesso global",
+          "destino": 5
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A promessa da recuperação funcional e regeneração",
+          "destino": 13
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O abismo da exclusão e o corpo como mercadoria",
+          "destino": 14
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "numero": 2,
+      "tipo": "video",
+      "polo": "neutro",
+      "profundidade": 0,
+      "titulo": "[MOCK] A Máquina que Devolve o Toque: Próteses Biônicas e Sinais Nervosos",
+      "texto": "Durante décadas, próteses de membros superiores eram ferramentas mecânicas passivas ou ganchos com funções motoras elementares. O usuário via o objeto sendo agarrado com os olhos, mas sua pele residual não sentia nada: a força do aperto precisava ser estimada visualmente, gerando cansaço mental extremo e derrubando copos frágeis.\n\nA neuroengenharia contemporânea transformou esse paradigma ao criar uma conversa bidirecional entre silício e nervos periféricos. Sensores táteis microscópicos nas pontas dos dedos biônicos traduzem pressão mecânica, textura e temperatura em pulsos elétricos biomiméticos. Esses sinais são entregues diretamente aos feixes dos nervos mediano e ulnar no braço amputado, fazendo o cérebro reconhecer o toque como se viesse da própria mão biológica perdida.",
+      "fontes": [
+        {
+          "titulo": "Nature Communications: Biomimetic computer-to-brain communication enhancing naturalistic touch sensations",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/38378671/",
+          "data": "2024-02-14"
+        },
+        {
+          "titulo": "Ivani et al.: Tactile Perception in Upper Limb Prostheses (arXiv:2402.12989)",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/39093675/",
+          "data": "2024-02-23"
+        }
+      ],
+      "narracao": "Quando o silício conversa com a carne, a máquina deixa de ser ferramenta e volta a ser mão. Mas decodificar a sensibilidade humana exige cirurgias delicadas e manutenção constante.",
+      "som": "Microestalos rítmicos de pulsos elétricos de calibração neural seguidos pelo atrito sutil de uma almofada de silicone deslizando sobre veludo cotelê.",
+      "visual": "Vídeo conceitual (45s): Uma mão biônica com dedos articulados em liga de titânio aproxima-se de uma framboesa madura. Câmera lenta em macro revela sensores de pressão microscópicos na ponta do dedo indicador. Linhas de luz ciano sobem pelo antebraço transparente simulando feixes nervosos. A mão fecha os dedos com delicadeza milimétrica, segurando a fruta sem esmagá-la. Uma curva osciloscópica na lateral da tela sincroniza os impulsos aferentes com o córtex somatossensorial do usuário.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a revolução do CRISPR: Reescrever o código da vida",
+          "destino": 3
+        },
+        {
+          "tipo": "aprofundar",
+          "rotulo": "Aprofundar no diálogo com a neuroengenheira Dra. Helena Vasconcelos",
+          "destino": 6
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: Ver como a sensação biomimética elimina a dor fantasma",
+          "destino": 15
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O risco de rejeição cicatricial e quebra de componentes",
+          "destino": 16
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "numero": 3,
+      "tipo": "texto que se expande",
+      "polo": "neutro",
+      "profundidade": 0,
+      "titulo": "[MOCK] Reescrever o Livro da Vida: A Revolução do CRISPR-Cas9",
+      "texto": "Se a mecânica reconstrói o que o corpo perdeu por fora, a biologia molecular aprendeu a reescrever o texto genético por dentro. A tecnologia de edição genética CRISPR-Cas9 funciona como um sistema de busca e substituição molecular: um RNA guia localiza a sequência exata de bases no DNA onde repousa uma mutação patológica e uma enzima cortadora interrompe ou corrige a instrução errônea.\n\nEm dezembro de 2023, o mundo testemunhou a primeira aprovação regulatória de uma terapia baseada em CRISPR pela FDA dos EUA para a doença falciforme (Casgevy). É um marco histórico que inaugurou a era das curas genéticas definitivas em humanos vivos.\n\n[+] CLIQUE PARA EXPANDIR O PROTOCOLO CLÍNICO REAL:\nAo contrário do que a ficção científica costuma sugerir, o CRISPR clínico não é uma injeção milagrosa administrada no braço. Trata-se de um procedimento ex vivo extenuante: as células-tronco hematopoiéticas do próprio paciente são extraídas por aférese, editadas no laboratório sob condições estéreis rigorosas e testadas. Em seguida, o paciente recebe quimioterapia ablativa com bussulfano para destruir sua medula óssea doente, passando semanas em isolamento hospitalar com risco crítico de infecções hemorrágicas antes que as novas células editadas possam se reimplantar e prosperar.",
+      "fontes": [
+        {
+          "titulo": "FDA: Approves first gene therapies to treat patients with sickle cell disease (Casgevy)",
+          "url": "https://www.fda.gov/news-events/press-announcements/fda-approves-first-gene-therapies-treat-patients-sickle-cell-disease",
+          "data": "2023-12-08"
+        },
+        {
+          "titulo": "NIH/NHLBI: Statement on new FDA-approved gene therapies for sickle cell disease",
+          "url": "https://www.nhlbi.nih.gov/news/2023/nih-statement-new-fda-approved-gene-therapies-sickle-cell-disease",
+          "data": "2023-12-08"
+        }
+      ],
+      "narracao": "A tesoura molecular do CRISPR consegue corrigir a vírgula errada no código da vida. Mas o caminho entre a lâmina do laboratório e a cama do paciente exige uma batalha clínica que desafia a resistência humana.",
+      "som": "Gotejamento hospitalar regular de uma bomba de infusão contínua, acompanhado pelo zumbido grave de um sistema de ventilação de ar com filtro HEPA estéril.",
+      "visual": "Animação molecular: uma fita dupla de DNA helicoidal se desenrola sob iluminação violeta; a proteína Cas9 acopla-se à sequência-alvo e efetua uma incisão limpa de corte duplo. Ao fundo, um corte clínico mostra um tubo de ensaio estéril contendo células-tronco avermelhadas em suspensão criogênica.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a fronteira da longevidade e o relógio biológico",
+          "destino": 4
+        },
+        {
+          "tipo": "aprofundar",
+          "rotulo": "Aprofundar no diálogo com o hematologista Dr. Marcelo Mendonça",
+          "destino": 7
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A erradicação de dores crônicas debilitantes",
+          "destino": 17
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O preço de 2,2 milhões de dólares e a quimioterapia pesada",
+          "destino": 18
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "numero": 4,
+      "tipo": "video",
+      "polo": "neutro",
+      "profundidade": 0,
+      "titulo": "[MOCK] O Relógio Que Não Para: Longevidade e o Mercado do Rejuvenescimento",
+      "texto": "A aspiração humana de escapar da fragilidade da velhice saiu do território das lendas alquímicas e invadiu as mesas de conselhos de administração do Vale do Silício. Bilionários da tecnologia e laboratórios acadêmicos de ponta investem bilhões de dólares na busca de fármacos senolíticos, fatores de reprogramação celular e inibidores de citocinas inflamatórias prometendo estender a vida humana para além dos cem anos.\n\nNo entanto, a gerontologia científica séria estabelece uma linha divisória inegociável entre 'lifespan' (quantos anos o corpo respira) e 'healthspan' (quantos anos o indivíduo vive com vigor cognitivo, mobilidade autônoma e ausência de demência crônica). Multiplicar anos no leito hospitalar não é triunfo; estender a vitalidade lúcida é o verdadeiro enigma biofísico.",
+      "fontes": [
+        {
+          "titulo": "Nature Aging: Implausibility of radical life extension in humans in the twenty-first century (Olshansky et al.)",
+          "url": "https://www.nature.com/articles/s43587-024-00702-3",
+          "data": "2024-10-07"
+        },
+        {
+          "titulo": "Nature Medicine: Senolytics and the lack of human data",
+          "url": "https://www.nature.com/articles/d41591-024-00067-5",
+          "data": "2024-09-02"
+        }
+      ],
+      "narracao": "Viver mais ou viver melhor? Enquanto promessas de imortalidade atraem fortunas no mercado, a demografia real alerta: o corpo humano tem um teto biológico que a ciência ainda não rompeu.",
+      "som": "Tique-taque mecânico de um relógio de pêndulo antigo que gradualmente desacelera e se mistura ao tom contínuo de um monitor multiparamétrico de ondas cerebrais EEG.",
+      "visual": "Vídeo conceitual (40s): Contraste estético extremo. Abre em um microscópio eletrônico com células senescentes exibindo acúmulo de lipofuscina e danos teloméricos em tom sépia desbotado. A imagem transiciona para uma clínica hiperluxuosa com vista panorâmica para o oceano, onde clientes recebem infusões intravenosas sob luz fria minimalista. Na tela central, um gráfico demográfico populacional projeta curvas de mortalidade que desaceleram bruscamente ao redor dos 85 anos.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir de volta ao portal de abertura: O Corpo Aumentado",
+          "destino": 1
+        },
+        {
+          "tipo": "aprofundar",
+          "rotulo": "Aprofundar no debate de saúde funcional: Viver mais versus viver bem",
+          "destino": 8
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A inibição de IL-11 e os testes bem-sucedidos em mamíferos",
+          "destino": 19
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O teto biológico inegociável da espécie humana",
+          "destino": 20
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "numero": 5,
+      "tipo": "texto que se expande",
+      "polo": "neutro",
+      "profundidade": 1,
+      "titulo": "[MOCK] O Dilema da Desigualdade Biológica: Cura ou Separação de Castas?",
+      "texto": "A história da medicina moderna é marcada por um paradoxo recorrente: avanços tecnológicos revolucionários tendem a aprofundar desigualdades sociais antes de se tornarem acessíveis à maioria. No caso das biotecnologias de aumento e edição genética, esse abismo não afeta apenas o conforto material, mas a própria biologia dos seres humanos.\n\nEnquanto terapias de ponta curam patologias genéticas hereditárias por milhões de dólares em clínicas privadas do hemisfério norte, bilhões de cidadãos em países do Sul Global não contam sequer com órteses básicas de locomoção, próteses de madeira funcionais ou analgésicos para crises falcêmicas rotineiras.\n\n[+] CLIQUE PARA VER O DADO DE ESCALA GLOBAL:\nConforme o Relatório Global sobre Tecnologia Assistiva (OMS e UNICEF, 2022), mais de 2,5 bilhões de seres humanos precisam de pelo menos um produto assistivo no mundo contemporâneo. No entanto, em países de baixa e média renda, a taxa de acesso real a esses produtos varia entre 3% e 10%, comparada a índices que superam 90% nas nações ricas. Quando a tecnologia é privatizada por patentes restritivas, a evolução biológica passa a ser comprada em balcão bancário.",
+      "fontes": [
+        {
+          "titulo": "OMS/UNICEF: Global report on assistive technology",
+          "url": "https://www.who.int/publications/i/item/9789240049451",
+          "data": "2022-05-16"
+        },
+        {
+          "titulo": "Nature: How to make multi-million dollar gene therapies available globally",
+          "url": "https://www.nature.com/articles/d41586-024-02310-y",
+          "data": "2024-07-30"
+        }
+      ],
+      "narracao": "Se o aprimoramento físico e genético for reservado a quem pode pagar milhões, a humanidade não apenas enriquecerá uns em detrimento de outros: nós nos dividiremos em duas espécies biológicas distintas.",
+      "som": "Sons distantes de uma metrópole caótica — buzinas, trânsito e chuva — filtrados por janelas blindadas de vidro duplo que isolam uma sala silenciosa com ar-condicionado.",
+      "visual": "Infográfico de mapa-múndi: países desenvolvidos destacados em tons brilhantes de azul com ícones de clínicas de terapia gênica e próteses robóticas; regiões da América Latina, África e Sul Asiático em cinza escuro, com alertas de carência básica de suprimentos ortopédicos.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para o diálogo de neuroengenharia com a Dra. Helena Vasconcelos",
+          "destino": 6
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para o portal inicial de abertura",
+          "destino": 1
+        },
+        {
+          "tipo": "aprofundar",
+          "rotulo": "Aprofundar nas iniciativas de tecnologia assistiva aberta e políticas públicas",
+          "destino": 21
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A democratização por próteses de código aberto e manufatura 3D",
+          "destino": 13
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O relatório oficial da exclusão em massa da OMS/UNICEF",
+          "destino": 14
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "numero": 6,
+      "tipo": "personagem",
+      "polo": "neutro",
+      "profundidade": 1,
+      "titulo": "[MOCK] Diálogo RPG: Dra. Helena Vasconcelos — Neuroengenheira de Próteses",
+      "texto": "Você entra no Laboratório de Interfaces Neurais e encontra a Dra. Helena Vasconcelos ajustando um microosciloscópio conectado a um simulador de nervo periférico. Ela tem olheiras fundas, mas seus olhos brilham com intensidade científica enquanto observa uma mão protética responder a estímulos microvolts.\n\nEla nota a sua presença, limpa os óculos de proteção e diz: 'As pessoas olham para os vídeos de próteses biônicas na internet e acham que já vivemos em Cyberpunk. Não enxergam a batalha diária contra o ruído biológico, a fadiga de materiais e o abismo entre um experimento que funciona vinte minutos no laboratório e a vida real de alguém que precisa descascar batatas e pegar ônibus.'\n\nComo você deseja responder ao desabafo da Dra. Helena?\n\n• [RESPOSTA 1]: 'Dra. Helena, a sensação tátil em próteses biônicas já consegue se aproximar de verdade da pele humana natural?'\n➔ A Dra. responde: 'Chegamos muito perto em termos de frequência sensorial com eletrodos intraneurais (como demonstrou o grupo do Dr. Valle na Nature Communications de 2024). Mas os eletrodos ainda sofrem com o tempo: o tecido biológico reage criando uma cápsula fibrosa cicatricial que abafa os sinais elétricos após alguns anos.'\n\n• [RESPOSTA 2]: 'Qual é o maior obstáculo para que esses membros biônicos cheguem aos sistemas públicos de saúde?'\n➔ A Dra. responde: 'O custo de calibração cirúrgica personalizada e manutenção de longo prazo. Uma mão mioelétrica com múltiplos graus de liberdade custa mais de 30 mil dólares e quebra se molhar na chuva pesada. Sem infraestrutura técnica de reparo local, entregar uma prótese avançada é dar um peso inútil ao paciente.'\n\n• [RESPOSTA 3]: 'Implantes cerebrais diretos não tornarão as próteses periféricas obsoletas no futuro?'\n➔ A Dra. responde: 'Jamais. Abrir a calota craniana para colocar chips é uma intervenção cirúrgica de altíssimo risco invasivo. Conectar a mecânica aos nervos periféricos do membro que sobrou é biologicamente muito mais seguro, elegante e fisiológico.'",
+      "fontes": [
+        {
+          "titulo": "Nature Communications: Biomimetic touch sensations via peripheral nerve stimulation (Valle et al.)",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/38378671/",
+          "data": "2024-02-14"
+        }
+      ],
+      "narracao": "Na bancada da neuroengenharia, o milagre da sensação tátil enfrenta a dura barreira biológica da cicatrização e do desgaste mecânico.",
+      "som": "Cliques precisos de chaves hexagonais ajustando articulações de titânio, com o ruído de fundo de um osciloscópio emitindo bips suaves em frequência variável.",
+      "visual": "A Dra. Helena Vasconcelos veste jaleco cinza-escuro com as mangas arregaçadas, segurando uma chave de calibração eletrônica diante de um braço robótico desmontado em peças modulares de fibra de carbono.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para o diálogo genético com o hematologista Dr. Marcelo Mendonça",
+          "destino": 7
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para o bloco em vídeo sobre a prótese que devolve o toque",
+          "destino": 2
+        },
+        {
+          "tipo": "aprofundar",
+          "rotulo": "Aprofundar nos dados biomiméticos de estimulação neural do estudo Valle 2024",
+          "destino": 15
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A vitória da restauração sensorial e propriocepção",
+          "destino": 13
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O risco crônico de quebra e encapsulamento fibroso",
+          "destino": 16
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "numero": 7,
+      "tipo": "personagem",
+      "polo": "neutro",
+      "profundidade": 1,
+      "titulo": "[MOCK] Diálogo RPG: Dr. Marcelo Mendonça — Hematologista e Geneticista Clínico",
+      "texto": "Você entra em uma antessala hospitalar de isolamento com pressão negativa. O Dr. Marcelo Mendonça acabou de sair de uma ronda na ala de transplante de medula óssea. Ele retira a máscara N95 e senta-se exausto diante de um monitor com contagens de plaquetas e hemoglobina de pacientes com anemia falciforme grave.\n\n'As pessoas leigas leram nos jornais que o CRISPR curou a foice no sangue com uma edição molecular limpa', desabafa o Dr. Marcelo. 'Mas ninguém fotografa o paciente vomitando por cinco dias seguidos com mucosite grave após o regime preparatório de bussulfano, nem a dor das famílias diante de uma fatura hospitalar astronômica de milhões de dólares.'\n\nComo você deseja conduzir a conversa com o Dr. Marcelo?\n\n• [RESPOSTA 1]: 'Doutor, por que uma terapia de edição celular custa mais de dois milhões de dólares?'\n➔ O médico responde: 'Porque não é uma droga produzida em massa numa fábrica. Para cada paciente, precisamos coletar células-tronco próprias, transportá-las sob cadeia de frio rigorosa para um laboratório central especializado de biorreatores, editar com CRISPR, testar a pureza genética contra mutações fora do alvo e devolver. É manufatura biológica individual artesanal de extrema complexidade.'\n\n• [RESPOSTA 2]: 'O paciente tratado com Casgevy pode ser considerado cem por cento curado da anemia falciforme?'\n➔ O médico responde: 'Nos ensaios clínicos da Vertex e CRISPR Therapeutics apresentados à FDA em dezembro de 2023, mais de noventa por cento dos pacientes ficaram livres das crises vaso-oclusivas agonizantes por anos. É o mais próximo de cura funcional que a medicina já alcançou, mas acompanharemos esses pacientes por 15 anos para monitorar qualquer risco tardio de mielodisplasia.'\n\n• [RESPOSTA 3]: 'Como levar essa tecnologia para a África e o Brasil, onde se concentra a maioria esmagadora dos pacientes falcêmicos?'\n➔ O médico responde: 'A edição ex vivo atual nunca resolverá a crise global. Precisamos urgentemente de edição in vivo: vetores de nanopartículas lipídicas capazes de serem injetados diretamente na veia, sem exigir quimioterapia destrutiva nem leitos de terapia intensiva. Até lá, a maioria dos nossos doentes continuará morrendo de crises evitáveis.'",
+      "fontes": [
+        {
+          "titulo": "FDA: Approves first gene therapies to treat patients with sickle cell disease (Casgevy)",
+          "url": "https://www.fda.gov/news-events/press-announcements/fda-approves-first-gene-therapies-treat-patients-sickle-cell-disease",
+          "data": "2023-12-08"
+        },
+        {
+          "titulo": "Nature: The new frontier of gene therapies for sickle cell disease",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10862012/",
+          "data": "2024-02-07"
+        }
+      ],
+      "narracao": "A tesoura do CRISPR corta a raiz da doença nas células-tronco, mas o preço exorbitante e a violência da quimioterapia deixam a vasta maioria dos doentes à margem da cura.",
+      "som": "Bip rítmico e pausado de monitor multiparamétrico de leito de UTI pediátrica, com o sibilo contínuo de fluxo de oxigênio hospitalar.",
+      "visual": "O Dr. Marcelo Mendonça, médico de cabelos grisalhos e semblante cansado, segura uma prancheta médica eletrônica exibindo gráficos de eletroforese de hemoglobina com nítida elevação da fração fetal pós-tratamento.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a análise do mito da imortalidade e saúde funcional",
+          "destino": 8
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para o bloco explicativo sobre o funcionamento do CRISPR",
+          "destino": 3
+        },
+        {
+          "tipo": "aprofundar",
+          "rotulo": "Aprofundar nos dados clínicos e ensaios da FDA sobre o Casgevy",
+          "destino": 17
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A erradicação de sofrimentos genéticos ancestrais",
+          "destino": 17
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: Os custos astronômicos e o obstáculo da quimioterapia ablativa",
+          "destino": 18
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "numero": 8,
+      "tipo": "texto que se expande",
+      "polo": "neutro",
+      "profundidade": 1,
+      "titulo": "[MOCK] O Mito da Imortalidade: Healthspan versus Lifespan",
+      "texto": "Nas redes sociais e eventos de investidores, a longevidade é frequentemente vendida como uma curva matemática sem fim: a chamada 'velocidade de escape da longevidade', ideia segundo a qual cada ano vivido dará à ciência tempo suficiente para descobrir tratamentos que acrescentem mais de doze meses à nossa expectativa de vida.\n\nOs dados biológicos reais, contudo, apontam para uma barreira muito mais resistente: o processo de senescência não se resume a uma peça que quebra e pode ser substituída como em um automóvel. O envelhecimento é uma degradação entrópica generalizada que afeta a conformação proteica, causa danos cumulativos ao DNA mitocondrial, desgasta a matriz extracelular e sobrecarrega o sistema imunológico com inflamação crônica de baixo grau ('inflammaging').\n\n[+] CLIQUE PARA EXPANDIR OS RESULTADOS DE SENOLÍTICOS EM HUMANOS:\nFármacos concebidos para eliminar células senescentes ('células zumbis' que param de se dividir mas liberam citocinas tóxicas) apresentaram resultados espetaculares de rejuvenescimento em camundongos jovens e idosos de laboratório. Porém, conforme detalhado pela Nature Medicine (2024), a transposição para seres humanos tem sido frustrante: os primeiros ensaios clínicos de fase 2 falharam em demonstrar eficácia consistente em osteoartrite e fibrose pulmonar, lembrando aos pesquisadores que a complexidade fisiológica humana não obedece a atalhos fáceis.",
+      "fontes": [
+        {
+          "titulo": "Nature Medicine: Senolytics: the quest for human clinical proof",
+          "url": "https://www.nature.com/articles/d41591-024-00067-5",
+          "data": "2024-09-02"
+        },
+        {
+          "titulo": "Nature Aging: Implausibility of radical life extension in humans in the 21st century",
+          "url": "https://www.nature.com/articles/s43587-024-00702-3",
+          "data": "2024-10-07"
+        }
+      ],
+      "narracao": "A biologia não é um motor de carro que aceita peças novas indefinidamente. Eliminar células velhas em camundongos é fácil; fazer o mesmo em humanos sem causar colapsos imunológicos é o verdadeiro teste.",
+      "som": "Voz grave e reflexiva de narração editorial acompanhada por uma melodia melancólica de violoncelo solo em tom menor.",
+      "visual": "Comparação temporal gráfica: duas linhas de vida paralelas de 90 anos. A linha superior ('Prolongamento Cego') mostra 25 anos finais preenchidos em vermelho por dependência e demência; a linha inferior ('Otimização Funcional') mostra 85 anos com saúde cognitiva preservada e uma queda funcional abrupta nos meses finais.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para o vídeo de interfaces cérebro-computador (BCI)",
+          "destino": 9
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para o vídeo sobre o relógio da longevidade",
+          "destino": 4
+        },
+        {
+          "tipo": "aprofundar",
+          "rotulo": "Aprofundar nos dados de desaceleração da expectativa de vida humana de Olshansky",
+          "destino": 20
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A inibição de IL-11 prolongando a saúde em mamíferos",
+          "destino": 19
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O colapso do sonho da imortalidade diante do teto biológico",
+          "destino": 20
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "numero": 9,
+      "tipo": "video",
+      "polo": "otimista",
+      "profundidade": 1,
+      "titulo": "[MOCK] A Ponte Elétrica: Interfaces Cérebro-Computador (BCI) em Ação",
+      "texto": "Para quem sofreu uma lesão medular completa ou perdeu a fala devido à esclerose lateral amiotrófica (ELA), o cérebro continua intacto, gerando comandos motores que se perdem no vazio biológico. As interfaces cérebro-computador (BCI) funcionam como uma ponte cibernética: eletrodos microscópicos implantados no córtex motor decodificam a intenção de movimento em milissegundos e transmitem os comandos por conexão sem fio para computadores e exoesqueletos.\n\nA tecnologia rompe o isolamento definitivo da paralisia. Pacientes voltam a redigir mensagens, controlar cadeiras de rodas e interagir com amigos navegando na internet em velocidades comparáveis às de pessoas sem deficiência motora.",
+      "fontes": [
+        {
+          "titulo": "Neuralink: First human clinical trial participant telepathy performance and thread retraction update",
+          "url": "https://neuralink.com/blog/prime-study-progress-update-2024/",
+          "data": "2024-05-08"
+        },
+        {
+          "titulo": "Nature Communications: Communication via brain-computer interfaces",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/38378671/",
+          "data": "2024-02-14"
+        }
+      ],
+      "narracao": "Quando o corpo não responde mais, o pensamento ganha fios. A decodificação neural devolve a voz, a escrita e a dignidade a mentes aprisionadas pelo silêncio motor.",
+      "som": "Cliques ultrarrápidos de digitação digital virtual na tela, sincronizados a impulsos sonoros suaves de confirmação de comando e a respiração aliviada de um paciente.",
+      "visual": "Vídeo conceitual (45s): Uma pessoa em cadeira de rodas com um pequeno implante discreto sob o couro cabeludo olha fixamente para uma tela de computador. Sem mexer as mãos, o cursor se move com agilidade sobre um tabuleiro de xadrez virtual, executando lances complexos. Uma janela de telemetria lateral exibe o disparo de 1.024 eletrodos em tempo real transformados em curvas de decodificação vetorial com latência inferior a 15 milissegundos.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para o problema da servidão por hardware proprietário",
+          "destino": 10
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para o bloco sobre próteses e sinais nervosos",
+          "destino": 2
+        },
+        {
+          "tipo": "aprofundar",
+          "rotulo": "Aprofundar nos dados reais do ensaio clínico da Neuralink e retração de fios",
+          "destino": 22
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A vitória da restauração motora pelo pensamento",
+          "destino": 13
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: Os riscos de infecção craniana e dependência de firmware corporativo",
+          "destino": 16
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "numero": 10,
+      "tipo": "texto que se expande",
+      "polo": "catastrofico",
+      "profundidade": 1,
+      "titulo": "[MOCK] A Servidão por Assinatura: Hardware Proprietário e Suporte Descontinuado",
+      "texto": "O que acontece quando o órgão que permite a você enxergar, ouvir ou andar pertence à propriedade intelectual fechada de uma empresa privada que entra em recuperação judicial ou decide mudar de modelo de negócios? Não se trata de uma distopia de ficção científica, mas de uma crise bioética real e documentada.\n\nUsuários de implantes cibernéticos proprietários enfrentam um pesadelo inédito na história da condição humana: seus corpos tornam-se dependentes de atualizações de software em servidores remotos, senhas criptográficas e peças de reposição que ninguém mais fabrica no mercado.\n\n[+] CLIQUE PARA VER O CASO REAL DA RETINA ARTIFICIAL ARGUS II:\nEm 2020, a empresa pioneira Second Sight Medical Products enfrentou severa crise financeira, descontinuou sua linha de próteses de retina Argus II e demitiu a equipe técnica responsável pelo suporte aos mais de 350 pacientes que haviam recebido cirurgicamente o implante nos olhos. Conforme investigado pelo IEEE Spectrum (fevereiro de 2022), pacientes que haviam recuperado a percepção de luz e sombras ficaram literalmente 'no escuro' quando suas unidades externas de processamento quebraram, sem qualquer acesso aos esquemas elétricos ou firmware da empresa para realizar reparos independentes.",
+      "fontes": [
+        {
+          "titulo": "IEEE Spectrum: Their Bionic Eyes Are Now Obsolete and Unsupported (Strickland & Harris)",
+          "url": "https://spectrum.ieee.org/bionic-eye-obsolete",
+          "data": "2022-02-15"
+        }
+      ],
+      "narracao": "Quando o fabricante do seu implante vai à falência, você não perde apenas um aparelho eletrônico: você perde os próprios sentidos. O corpo aumentado não pode virar refém de direitos autorais.",
+      "som": "Tom agudo de erro eletrônico persistente, seguido por uma mensagem de voz computadorizada em loop: 'Erro de conexão com o servidor. Dispositivo não reconhecido.'",
+      "visual": "Uma unidade externa de câmera e bateria montada em óculos escuros sobre uma mesa de trabalho: o led vermelho pisca de forma errática. Na lente, o logotipo desbotado de uma startup biomédica extinta. Uma notificação na tela do celular indica: 'Aplicativo descontinuado pelo desenvolvedor'.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para o diálogo RPG com a ativista Sofia Alencar",
+          "destino": 11
+        },
+        {
+          "tipo": "aprofundar",
+          "rotulo": "Aprofundar nos detalhes do caso real documentado pelo IEEE Spectrum sobre a Second Sight",
+          "destino": 23
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A resposta através do hardware aberto e reparabilidade garantida",
+          "destino": 21
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O risco de corporações desligarem órgãos vitais por inadimplência",
+          "destino": 14
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "numero": 11,
+      "tipo": "personagem",
+      "polo": "neutro",
+      "profundidade": 1,
+      "titulo": "[MOCK] Diálogo RPG: Sofia Alencar — Ativista de Direitos das Pessoas com Deficiência e Tecnologia Aberta",
+      "texto": "Você encontra Sofia Alencar em um galpão comunitário de fabricação digital em São Paulo. Ela é usuária de cadeira de rodas, pesquisadora em bioética e coordena uma cooperativa de tecnologia assistiva de código aberto. Ao redor de sua bancada, impressoras 3D produzem suportes ergonômicos e próteses mecânicas sob medidas para crianças da periferia.\n\n'A retórica do corpo aumentado é sedutora para quem vende tecnologia', diz Sofia, enquanto solda um pequeno sensor de pressão de cinco dólares. 'Mas ela traz embutida uma ideia perigosa: a de que o corpo com deficiência é um corpo quebrado que só tem valor se for transformado em uma máquina de alta performance pelo mercado.'\n\nComo você deseja dialogar com Sofia Alencar?\n\n• [RESPOSTA 1]: 'Sofia, você é contra o desenvolvimento de próteses biônicas de alta tecnologia?'\n➔ Sofia responde: 'De forma alguma! Sou contra o monopólio e o fetiche tecnológico que ignora a realidade. Um braço biônico de 50 mil dólares é incrível, mas se uma cidade não tem calçadas rebaixadas, transporte público acessível e se o conserto da prótese custa um ano de salário mínimo, essa tecnologia serve para enfeitar capas de revista, não para libertar pessoas.'\n\n• [RESPOSTA 2]: 'Como a tecnologia aberta (open-source) pode proteger os usuários de implantes?'\n➔ Sofia responde: 'Exigindo o Direito ao Reparo e código aberto na camada de controle. Ninguém deveria ter um dispositivo dentro do crânio ou nos nervos cujo funcionamento seja um segredo industrial fechado. Se a empresa quebrar, a comunidade médica e o próprio usuário têm o direito inalienável de calibrar e manter seu próprio corpo funcionando.'\n\n• [RESPOSTA 3]: 'O que a sociedade precisa aprender com a cultura da deficiência antes de abraçar o transumanismo?'\n➔ Sofia responde: 'Aprender que a vulnerabilidade e a interdependência fazem parte da condição humana. Tentar eliminar qualquer fragilidade com próteses bilionárias é uma fuga covarde da obrigação coletiva de cuidar uns dos outros.'",
+      "fontes": [
+        {
+          "titulo": "OMS/UNICEF: Global report on assistive technology",
+          "url": "https://www.who.int/publications/i/item/9789240049451",
+          "data": "2022-05-16"
+        }
+      ],
+      "narracao": "A verdadeira revolução assistiva não está na exclusividade de laboratórios fechados, mas na soberania de quem usa a tecnologia para conquistar sua própria autonomia.",
+      "som": "Zumbido contínuo e acolhedor de motores de passo de impressoras 3D trabalhando em conjunto, misturado ao calor do ferro de solda estalando sobre resina.",
+      "visual": "Sofia Alencar segura uma prótese mecânica impressa em filamento biodegradável colorido, ajustando um cabo de tração de nylon sob uma lâmpada articulada de oficina comunitária cheia de ferramentas manuais organizadas.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a análise sociológica do paradoxo transumanista",
+          "destino": 12
+        },
+        {
+          "tipo": "aprofundar",
+          "rotulo": "Aprofundar nos dados sobre modelos de código aberto e manufatura assistiva",
+          "destino": 21
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A inclusão social sustentada pela comunidade e direito ao reparo",
+          "destino": 21
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O pesadelo do abandono corporativo e a falência da Second Sight",
+          "destino": 23
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "numero": 12,
+      "tipo": "texto",
+      "polo": "neutro",
+      "profundidade": 1,
+      "titulo": "[MOCK] O Paradoxo do Transumanismo: Evolução Dirigida ou Fragmentação Social?",
+      "texto": "O debate em torno do corpo aumentado divide filósofos, bioeticistas e cientistas em dois polos aparentemente irreconciliáveis. Para os transumanistas e proponentes do aprimoramento morfológico, a biologia humana é uma plataforma imperfeita, moldada por pressões evolutivas cegas que nos deixaram vulneráveis a patologias genéticas, demência e declínio físico precoce. Sob essa ótica, utilizar a engenharia genética, interfaces neurais e órgãos sintéticos é a coroação da nossa inteligência racional.\n\nPara os bioconservadores e sociólogos da saúde, contudo, transformar a dotação biológica humana em mercadoria comercial destruirá a premissa de igualdade básica sobre a qual repousam os direitos humanos fundamentais. Se atributos físicos, cognitivos e imunológicos puderem ser comprados no mercado financeiro pelas elites econômicas, as diferenças de classe deixarão de ser sociais e passarão a ser geneticamente hereditárias.\n\nEssa encruzilhada não é teórica: ela está sendo decidida agora, nos gabinetes de regulação de patentes, nos preços das terapias de RNA e nas diretrizes de cobertura dos sistemas universais de saúde pública em todo o planeta.",
+      "fontes": [
+        {
+          "titulo": "Nature: How to make multi-million dollar gene therapies affordable",
+          "url": "https://www.nature.com/articles/d41586-024-02310-y",
+          "data": "2024-07-30"
+        }
+      ],
+      "narracao": "Quando o dinheiro passa a comprar não apenas carros e casas, mas o DNA dos filhos e a velocidade do cérebro, a igualdade humana deixa de existir até nos ossos.",
+      "som": "Acorde sintético sombrio e expansivo com frequências graves ressonantes, transmitindo suspense e gravidade histórica.",
+      "visual": "Uma estátua clássica greco-romana de mármore branco em transição morfológica digital: o braço de mármore se dissolve em polímeros pretos articulados, e a face esculpida adquire uma malha poligonal translúcida brilhando em dados numéricos azuis.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a análise da desigualdade biológica",
+          "destino": 5
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para o portal de abertura da série",
+          "destino": 1
+        },
+        {
+          "tipo": "aprofundar",
+          "rotulo": "Aprofundar nos dados sobre estimativas do mercado de eugenia e concentração de riqueza",
+          "destino": 24
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A cura de patologias hereditárias pelo aprimoramento responsável",
+          "destino": 13
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O risco de uma divisão definitiva em duas subespécies humanas",
+          "destino": 14
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "numero": 13,
+      "tipo": "texto que se expande",
+      "polo": "otimista",
+      "profundidade": 2,
+      "titulo": "[MOCK] DADO: A Vitória da Recuperação Funcional e a Nova Geração de Biônicos",
+      "texto": "A visão otimista da tecnologia de aumento corporal não se sustenta em promessas vazias, mas em evidências científicas revolucionárias alcançadas em laboratórios de neuroengenharia nos últimos anos. Durante mais de meio século, amputados enfrentaram uma taxa de abandono de próteses superior a 30% devido à ausência total de retorno sensorial e ao peso excessivo dos aparelhos.\n\nEsse cenário começou a mudar radicalmente com o desenvolvimento de algoritmos de decodificação neural de malha fechada. Em 2024, pesquisas lideradas por consórcios europeus demonstraram que quando sinais táteis de pressão e deslizamento são devolvidos ao córtex através de estimulação biomimética dos nervos mediano e ulnar, o cérebro deixa de considerar a prótese como um objeto estranho e passa a integrá-la no seu próprio esquema corporal ('embodiment').\n\n[+] CLIQUE PARA VER O DADO EXPERIMENTAL DE PROPULSÃO E CONTROLE:\nConforme publicado na Nature Communications (fevereiro de 2024, estudo de Valle et al.), a estimulação biomimética naturalística permitiu que voluntários com perda de membro superior manipulassem objetos frágeis e identificassem diferentes texturas com precisão estatística superior a 90%, ao mesmo tempo em que relataram uma redução dramática e persistente nas dores do membro fantasma. Além disso, o estudo de Ivani et al. (arXiv:2402.12989, fevereiro de 2024) comprovou que mesmo as vibrações mecânicas transmitidas pelo encaixe protético rígido para o coto fornecem pistas hápticas cruciais que aumentam a acurácia dos usuários acima dos níveis do acaso.",
+      "fontes": [
+        {
+          "titulo": "Nature Communications: Biomimetic computer-to-brain communication enhancing naturalistic touch sensations (Valle et al.)",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/38378671/",
+          "data": "2024-02-14"
+        },
+        {
+          "titulo": "Ivani et al.: Tactile Perception in Upper Limb Prostheses (Mechanical Characterization & Experiments)",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/39093675/",
+          "data": "2024-02-23"
+        }
+      ],
+      "narracao": "Quando o cérebro volta a sentir o toque da mão mecânica, a dor do membro fantasma silencia. A neurociência não está apenas construindo ferramentas: está devolvendo a integridade do ser humano.",
+      "som": "Acorde orquestral inspirador em cordas luminosas com texturas de sintetizador analógico quente que transmitem triunfo científico e alívio humano.",
+      "visual": "Ressonância magnética funcional (fMRI) em tempo real: o córtex somatossensorial acende em tons quentes de amarelo e laranja no exato instante em que a ponta da prótese metálica toca uma superfície de madeira polida.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para os dados aprofundados sobre comunicação biomimética cérebro-computador",
+          "destino": 15
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para o diálogo com a Dra. Helena Vasconcelos",
+          "destino": 6
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A vitória do CRISPR na cura da anemia falciforme",
+          "destino": 17
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Confrontar diretamente com o Polo Catastrófico: O abismo da exclusão global",
+          "destino": 14
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "numero": 14,
+      "tipo": "texto",
+      "polo": "catastrofico",
+      "profundidade": 2,
+      "titulo": "[MOCK] DADO: O Abismo da Exclusão Global — O Relatório OMS/UNICEF de Tecnologia Assistiva",
+      "texto": "A celebração ufanista do ciborgue futurista colide de frente com os números frios da saúde pública global. Em 16 de maio de 2022, a Organização Mundial da Saúde (OMS) e o UNICEF publicaram em conjunto o histórico 'Global Report on Assistive Technology' (Relatório Global sobre Tecnologia Assistiva), o primeiro levantamento abrangente já realizado sobre o acesso da população mundial a produtos assistivos.\n\nOs dados consolidados revelaram um cenário de desigualdade estrutural brutal:\n• Mais de 2,5 bilhões de pessoas no planeta precisam de um ou mais produtos assistivos (como próteses, cadeiras de rodas, órteses ou aparelhos auditivos).\n• Até 2050, com o envelhecimento demográfico acelerado e a prevalência de doenças crônicas, esse número superará a marca de 3,5 bilhões de seres humanos.\n• Nos países de alta renda, a cobertura assistiva ultrapassa 90%; em contrapartida, em diversas nações de baixa renda na África Subsaariana e partes da Ásia, apenas entre 3% e 10% das pessoas têm acesso aos equipamentos mais básicos de sobrevivência diária.\n\nFalar em implantes neurais sem fio e membros robóticos com retorno háptico de última geração enquanto noventa por cento dos amputados mais pobres da Terra não dispõem sequer de uma muleta regulável de alumínio evidencia que a tecnologia biomédica de ponta está operando como amplificador da exclusão humana, e não como instrumento universal de emancipação.",
+      "fontes": [
+        {
+          "titulo": "OMS/UNICEF: Global report on assistive technology",
+          "url": "https://www.who.int/publications/i/item/9789240049451",
+          "data": "2022-05-16"
+        }
+      ],
+      "narracao": "Dois bilhões e meio de seres humanos precisam de aparelhos para andar, enxergar ou ouvir. Em países pobres, menos de dez por cento recebem ajuda. O futuro aumentou apenas os ricos.",
+      "som": "Vento seco soprando sobre terra batida e chapas de zinco ondulado, contrastado pelo silêncio desolador de uma clínica rural vazia e desprovida de remédios.",
+      "visual": "Fotografia documental estilizada: em primeiro plano, uma cadeira de rodas improvisada feita com canos enferrujados e rodas de bicicleta empoeiradas em uma rua de terra; na parede de fundo, um outdoor luminoso rasgado anuncia um smartwatch com inteligência artificial biométrica.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para o problema da quebra mecânica e encapsulamento cicatricial",
+          "destino": 16
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para o bloco sobre o dilema da desigualdade biológica",
+          "destino": 5
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Confrontar com o Polo Otimista: A promessa da recuperação funcional biônica",
+          "destino": 13
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O pesadelo do abandono corporativo e falência da Second Sight",
+          "destino": 23
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "numero": 15,
+      "tipo": "texto que se expande",
+      "polo": "otimista",
+      "profundidade": 2,
+      "titulo": "[MOCK] DADO: Sentir a Prótese Como Própria — A Comunicação Biomimética Cérebro-Computador",
+      "texto": "O grande desafio da sensibilidade artificial sempre foi a linguagem: como transformar o sinal linear de um sensor de pressão de silício na sinfonia complexa de potenciais de ação que os neurônios biológicos esperam receber? Estimulações elétricas simples costumavam provocar formigamento doloroso ou choques desagradáveis, que os voluntários descreviam como eletricidade estática.\n\nA virada científica ocorreu com o estudo seminal de Giacomo Valle e colaboradores, publicado na revista Nature Communications em 14 de fevereiro de 2024 ('Biomimetic computer-to-brain communication enhancing naturalistic touch sensations via peripheral nerve stimulation'). Os pesquisadores modelaram matematicamente a dinâmica dos mecanorreceptores da pele humana (corpúsculos de Meissner e Merkel) e sintetizaram padrões de microestimulação que mimetizam a resposta natural do corpo.\n\n[+] CLIQUE PARA VER OS PARÂMETROS BIOMÉDICOS DO ENSAIO:\nOs ensaios demonstraram resultados sem precedentes:\n• A estimulação biomimética ativou os mesmos circuitos somatossensoriais corticais que o toque biológico aciona em indivíduos saudáveis.\n• A discriminação de texturas finas e rigidez de materiais atingiu acurácia média de 92% em tarefas cegas com amputados de membros superiores.\n• A carga de esforço mental cognitivo dos voluntários caiu pela metade durante a manipulação de objetos sensíveis.\n• A sensação fantasma de dor crônica, que atormentava os pacientes há anos, foi mitigada de forma estatisticamente significativa devido à restauração do fluxo aferente normal de dados ao cérebro.",
+      "fontes": [
+        {
+          "titulo": "Nature Communications: Biomimetic touch sensations via peripheral nerve stimulation (Valle et al., PMID: 38378671)",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/38378671/",
+          "data": "2024-02-14"
+        }
+      ],
+      "narracao": "A estimulação biomimética não engana o cérebro: ela fala a mesma língua da pele. Pela primeira vez, a máquina toca o mundo e a mente reconhece o toque como seu.",
+      "som": "Pulso elétrico biomimético em modulação senoidal harmoniosa, soando quase como uma nota musical cristalina e relaxante que ecoa no espaço acústico.",
+      "visual": "Esquema neuroanatômico tridimensional em alta resolução: do eletrodo intraneural fino como um fio de seda implantado no nervo periférico, um feixe luminoso verde viaja pela coluna vertebral até o giro pós-central do córtex somatossensorial, onde uma rede neural acende sincronizada.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para os dados do CRISPR e a vitória histórica do Casgevy",
+          "destino": 17
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para o vídeo sobre a máquina que devolve o toque",
+          "destino": 2
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O risco da reação biológica de corpo estranho e gliose",
+          "destino": 16
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "numero": 16,
+      "tipo": "texto",
+      "polo": "catastrofico",
+      "profundidade": 2,
+      "titulo": "[MOCK] DADO: O Pesadelo da Obsolescência — Quando a Bateria e os Eletrodos Falham",
+      "texto": "Por trás das demonstrações em vídeo cuidadosamente editadas em feiras de robótica, a bioengenharia de implantes enfrenta uma barreira celular implacável: o sistema imunológico humano não foi programado para tolerar corpos estranhos permanentemente. Quando eletrodos metálicos ou microfios de polímero são inseridos em tecidos vivos — sejam nervos periféricos ou o córtex cerebral —, inicia-se imediatamente a chamada Reação a Corpo Estranho (Foreign Body Response).\n\nEm poucos meses, micróglia, astrócitos e macrófagos formam uma cápsula fibrosa e densa de tecido cicatricial (gliose reativa) ao redor dos sensores. Essa camada isolante afasta os contatos condutores dos neurônios vizinhos e degrada a impedância elétrica do sistema:\n• A relação sinal-ruído despenca drasticamente, exigindo correntes elétricas cada vez maiores que podem queimar o tecido adjacente.\n• Baterias recarregáveis implantadas perdem capacidade química após três a cinco anos, exigindo cirurgias invasivas de troca sob anestesia geral.\n• Microfraturas mecânicas causadas pela flexão contínua dos tecidos orgânicos rompem trilhas eletrônicas invisíveis aos exames de raio-X de rotina.\n\nPara o paciente que investiu dezenas de milhares de dólares em um implante, a falha técnica não é um inconveniente: é o retorno abrupto à escuridão ou à paralisia, com a agravante de ter o corpo cicatrizado e incapacitado para novas tentativas cirúrgicas.",
+      "fontes": [
+        {
+          "titulo": "Frontiers in Neuroscience: Foreign body response to neural implants and biological mitigation strategies",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/37152431/",
+          "data": "2023-04-18"
+        },
+        {
+          "titulo": "Ivani et al.: Tactile Perception in Upper Limb Prostheses (Mechanical Characterization)",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/39093675/",
+          "data": "2024-02-23"
+        }
+      ],
+      "narracao": "A biologia defende o corpo contra a máquina. Tecidos cicatriciais sufocam os eletrodos e baterias perdem a carga. Cada implante é uma contagem regressiva para a próxima cirurgia.",
+      "som": "Microestalo estático abafado, seguido pela oscilação irregular de um sinal que perde amplitude até se transformar em ruído branco plano.",
+      "visual": "Microscopia histológica colorida digitalmente: um microfilamento de silício escuro envolvido por uma espessa camada rosada e esbranquiçada de colágeno denso e astrócitos ativados, demonstrando o bloqueio físico entre o eletrodo e os neurônios circundantes.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a análise da barreira de 2,2 milhões de dólares na edição gênica",
+          "destino": 18
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para o vídeo de próteses biônicas",
+          "destino": 2
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Confrontar com o Polo Otimista: A restauração sensorial biomimética bem-sucedida",
+          "destino": 15
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O relatório oficial da exclusão em massa da OMS/UNICEF",
+          "destino": 14
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "numero": 17,
+      "tipo": "texto que se expande",
+      "polo": "otimista",
+      "profundidade": 2,
+      "titulo": "[MOCK] DADO: Casgevy e a Vitória Histórica do CRISPR na Medicina",
+      "texto": "Em 8 de dezembro de 2023, a Food and Drug Administration (FDA) dos Estados Unidos protagonizou um marco indelével na história da ciência biomédica ao aprovar a primeira terapia gênica do mundo baseada na tecnologia CRISPR-Cas9: o exagamglogene autotemcel, comercialmente batizado como Casgevy (desenvolvido em parceria pela Vertex Pharmaceuticals e CRISPR Therapeutics), indicado para pacientes a partir de 12 anos com doença falciforme recorrente e dor severa.\n\nA anemia falciforme é uma enfermidade genética dolorosa causada por uma única mutação no gene da beta-globina, que deforma os glóbulos vermelhos em formato de foice, obstruindo capilares sanguíneos, destruindo órgãos e provocando crises vaso-oclusivas tão intensas que muitos pacientes necessitam de doses maciças de opioides em internações frequentes.\n\n[+] CLIQUE PARA VER OS DADOS CLÍNICOS E O MECANISMO MOLECULAR:\nEm vez de tentar substituir diretamente o gene defeituoso, os cientistas utilizaram o CRISPR para realizar um corte preciso no intensificador eritroide específico do gene BCL11A. Ao desativar esse 'freio genético', as células do próprio paciente reativam a produção da hemoglobina fetal (HbF) — uma forma de hemoglobina altamente eficaz produzida no útero que impede a foice das hemácias adultas.\n\nNos dados clínicos submetidos à FDA:\n• 29 dos 31 pacientes avaliáveis (93,5%) ficaram completamente livres de crises vaso-oclusivas graves por pelo menos 12 meses consecutivos.\n• As internações emergenciais despencaram para zero na grande maioria dos tratados.\n• É a demonstração empírica irrefutável de que a edição genética de precisão pode erradicar patologias humanas antes consideradas sentenças de dor perpétua.",
+      "fontes": [
+        {
+          "titulo": "FDA: Approves first gene therapies to treat patients with sickle cell disease (Casgevy & Lyfgenia)",
+          "url": "https://www.fda.gov/news-events/press-announcements/fda-approves-first-gene-therapies-treat-patients-sickle-cell-disease",
+          "data": "2023-12-08"
+        },
+        {
+          "titulo": "NIH/NHLBI: Statement on new FDA-approved gene therapies for sickle cell disease",
+          "url": "https://www.nhlbi.nih.gov/news/2023/nih-statement-new-fda-approved-gene-therapies-sickle-cell-disease",
+          "data": "2023-12-08"
+        },
+        {
+          "titulo": "Nature / PMC: The new frontier of gene therapies for sickle cell disease",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10862012/",
+          "data": "2024-02-07"
+        }
+      ],
+      "narracao": "A tesoura do CRISPR desligou o freio molecular e libertou a hemoglobina fetal. Mais de noventa por cento dos pacientes não sentiram mais nenhuma crise de dor. A ciência provou que a cura genética é real.",
+      "som": "Batimento cardíaco forte, ritmado e saudável em frequência de 68 bpm, sem arritmias, acompanhado por um acorde maior luminoso e reconfortante.",
+      "visual": "Comparação fotográfica celular em microscopia eletrônica de varredura: do lado esquerdo, hemácias rígidas e contorcidas em meia-lua obstruindo uma bifurcação vascular; do lado direito, hemácias perfeitamente arredondadas, bicôncavas e flexíveis fluindo sem resistência por um capilar transparente.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a inibição de IL-11 e a extensão de vida em mamíferos",
+          "destino": 19
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para o bloco de texto expansível sobre o CRISPR",
+          "destino": 3
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A vitória ampla da medicina biônica e neurotecnologia",
+          "destino": 13
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Confrontar com o Polo Catastrófico: O preço de 2,2 milhões de dólares do Casgevy",
+          "destino": 18
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "numero": 18,
+      "tipo": "texto",
+      "polo": "catastrofico",
+      "profundidade": 2,
+      "titulo": "[MOCK] DADO: O Custo de US$ 2,2 Milhões e a Barreira Quimioterápica da Edição Gênica",
+      "texto": "Apesar do triunfo científico indiscutível do Casgevy, os fatores econômicos e hospitalares que cercam a terapia desenham uma muralha quase intransponível de exclusão humana. O preço de tabela anunciado para uma única rodada do tratamento nos Estados Unidos foi fixado em US$ 2,2 milhões (e a terapia concorrente Lyfgenia, da Bluebird Bio, aprovada no mesmo dia, foi precificada em US$ 3,1 milhões!).\n\nEm números e fatos verificados:\n• A doença falciforme afeta mais de 8 milhões de pessoas no mundo, sendo que mais de 75% dos nascimentos anuais concentram-se na África Subsaariana e partes da Índia e América Latina, onde a renda média per capita inviabiliza completamente tratamentos milionários.\n• Conforme análise crítica publicada na prestigiada revista Nature em 30 de julho de 2024 ('How to make multi-million-dollar gene therapies available globally'), mesmo se os governos subsidiassem o medicamento, a imensa maioria dos países em desenvolvimento carece de centros de transplante com leitos de pressão positiva e equipes de aférese de alto padrão.\n• O regime preparatório exige o quimioterápico bussulfano em doses mieloablativas severas, o que acarreta perda irreversível da fertilidade na maioria dos pacientes jovens, alopecia completa, mucosite extrema e risco de septicemia hemorrágica durante as semanas de aplasia medular.\n\nCom isso, a primeira cura por CRISPR da história humana corre o risco dramático de se transformar em um artigo de luxo supremo: uma tecnologia concebida com recursos de pesquisa pública que beneficia algumas centenas de cidadãos em nações ricas enquanto milhões morrem sem receber sequer hidroxiureia básica de cinco dólares por mês.",
+      "fontes": [
+        {
+          "titulo": "Nature: How to make multi-million-dollar gene therapies available globally",
+          "url": "https://www.nature.com/articles/d41586-024-02310-y",
+          "data": "2024-07-30"
+        },
+        {
+          "titulo": "FDA: FDA Approves First Gene Therapies to Treat Patients with Sickle Cell Disease",
+          "url": "https://www.fda.gov/news-events/press-announcements/fda-approves-first-gene-therapies-treat-patients-sickle-cell-disease",
+          "data": "2023-12-08"
+        }
+      ],
+      "narracao": "Dois milhões e duzentos mil dólares por paciente. Uma quimioterapia que rouba a fertilidade e exige leitos de UTI ultraestéreis. Para a vasta maioria dos doentes no mundo, o CRISPR é uma cura que não existe.",
+      "som": "Caixa registradora emitindo som eletrônico agudo de transação financeira milionária sobreposto ao choro baixo e contido de uma mãe em um leito de hospital.",
+      "visual": "Gráfico de barras comparativo: à esquerda, uma coluna altíssima em ouro mostrando o preço de US$ 2.200.000 do Casgevy; à direita, uma linha no chão quase invisível em cinza mostrando o orçamento anual total de saúde per capita de 45 dólares em regiões de alta prevalência da anemia falciforme.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para os limites do envelhecimento e o teto biológico de Olshansky",
+          "destino": 20
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para o bloco de texto sobre o CRISPR",
+          "destino": 3
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Confrontar com o Polo Otimista: A eficácia de 93% na erradicação das crises",
+          "destino": 17
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O abismo da exclusão e o relatório da OMS/UNICEF",
+          "destino": 14
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "numero": 19,
+      "tipo": "texto que se expande",
+      "polo": "otimista",
+      "profundidade": 2,
+      "titulo": "[MOCK] DADO: A Inibição de IL-11 e a Extensão da Vida Funcional em Mamíferos",
+      "texto": "Enquanto grande parte do mercado de antienvelhecimento apoiava-se em suplementos sem comprovação rigorosa, um artigo científico de impacto extraordinário publicado na revista Nature em 17 de julho de 2024 reposicionou as bases biológicas da gerociência: a inibição da citocina pró-inflamatória interleucina-11 (IL-11).\n\nO estudo, conduzido por Anissa Widjaja, Stuart Cook e uma equipe internacional da Duke-NUS Medical School de Cingapura e do Imperial College London ('Inhibition of IL-11 prolongs mammalian healthspan and lifespan'), demonstrou que a IL-11 atua como um gatilho central para o declínio associado à idade, estimulando inflamação estromal crônica, fibrose de tecidos e disfunções metabólicas.\n\n[+] CLIQUE PARA VER OS NÚMEROS E DESCOBERTAS DO ESTUDO EM MAMÍFEROS:\nOs pesquisadores trataram camundongos a partir dos 75 semanas de idade (o equivalente biológico a cerca de 55 anos humanos) com um anticorpo monoclonal que bloqueia a sinalização da IL-11:\n• A expectativa de vida média dos animais tratados aumentou em 22,5% nos machos e em impressionantes 24,9% nas fêmeas.\n• Os mamíferos mantiveram maior força de preensão muscular, pelagem jovem e níveis reduzidos de gordura visceral prejudicial.\n• Houve redução marcante no aparecimento espontâneo de tumores malignos decorrentes do envelhecimento natural.\n• Ensaios clínicos iniciais de fase 1 com anticorpos anti-IL-11 em humanos já estão em andamento para fibrose pulmonar, abrindo o caminho regulatório mais sólido já visto para retardar a fragilidade funcional do corpo.",
+      "fontes": [
+        {
+          "titulo": "Nature: Inhibition of IL-11 prolongs mammalian healthspan and lifespan (Widjaja et al., PMID: 39020175)",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/39020175/",
+          "data": "2024-07-17"
+        }
+      ],
+      "narracao": "Bloquear uma única molécula inflamatória estendeu a vida saudável de mamíferos em vinte e cinco por cento. A gerociência está aprendendo a desligar as chaves biológicas da fragilidade.",
+      "som": "Pulsação cardíaca ágil e vigorosa em tom ascendente, com sintetizadores límpidos que evocam regeneração celular e rejuvenescimento biológico.",
+      "visual": "Curvas de sobrevivência de Kaplan-Meier em gráfico de dispersão: a curva azul dos mamíferos tratados com anticorpo anti-IL-11 desloca-se fortemente para a direita em relação à curva cinza de controle, acompanhada por fotos em microscopia mostrando redução de colágeno fibrótico no fígado e nos rins.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para as políticas públicas e o caminho da tecnologia assistiva aberta",
+          "destino": 21
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para o vídeo sobre a longevidade e o relógio biológico",
+          "destino": 4
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A promessa da recuperação biônica de membros",
+          "destino": 13
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Confrontar com o Polo Catastrófico: O teto biológico da espécie humana comprovado por Olshansky",
+          "destino": 20
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "numero": 20,
+      "tipo": "texto",
+      "polo": "catastrofico",
+      "profundidade": 2,
+      "titulo": "[MOCK] DADO: O Teto Biológico da Espécie Humana — O Estudo de Olshansky na Nature Aging",
+      "texto": "Em 7 de outubro de 2024, um dos estudos demográficos mais abrangentes da história da medicina moderna desferiu um golpe devastador contra as teses de longevidade radical e imortalidade tecnológica. O artigo, publicado na prestigiosa revista Nature Aging sob o título 'Implausibility of radical life extension in humans in the twenty-first century', foi liderado pelo pesquisador S. Jay Olshansky (Universidade de Illinois em Chicago) e coautores internacionais.\n\nA equipe analisou minuciosamente as tabelas de mortalidade de 1990 a 2019 das populações com as maiores expectativas de vida do planeta — incluindo Japão, Hong Kong, Suíça, Austrália, França, Espanha, Itália e Suécia.\n\nAs conclusões empíricas desmontam a fantasia do aumento ilimitado da vida:\n• A taxa de melhoria na expectativa de vida ao nascer desacelerou fortemente nas últimas três décadas, mesmo diante de investimentos biomédicos sem precedentes.\n• A probabilidade de um ser humano nascido hoje sobreviver até os 100 anos é extremamente baixa: estima-se que não ultrapassará 15% para mulheres e míseros 5% para homens nas nações mais saudáveis da Terra.\n• Para que a expectativa de vida média ao nascer atingisse 110 anos, seria necessário erradicar completamente todas as mortes por câncer, doenças cardíacas e infecções até os 50 anos de idade.\n\nA espécie humana está colidindo com seu limite biológico intrínseco. Sem uma reprogramação genética completa de trilhões de células (que atualmente inexiste e acarreta riscos gigantescos de oncogênese descontrolada), o corpo humano continua condenado ao desgaste de seus tecidos após oito a nove décadas de vida.",
+      "fontes": [
+        {
+          "titulo": "Nature Aging: Implausibility of radical life extension in humans in the twenty-first century (Olshansky et al.)",
+          "url": "https://www.nature.com/articles/s43587-024-00702-3",
+          "data": "2024-10-07"
+        },
+        {
+          "titulo": "Nature Medicine: Limits to human life expectancy and deceleration of gains",
+          "url": "https://www.nature.com/articles/d41591-024-00076-4",
+          "data": "2024-10-31"
+        }
+      ],
+      "narracao": "A demografia mundial analisou trinta anos de dados: a extensão radical da vida é implausível neste século. O ser humano tem uma data de validade gravada na sua própria biologia.",
+      "som": "Grave e soturno repicar de sino de bronze distante, ecoando em um salão vazio de pedra enquanto folhas secas são sopradas pelo chão.",
+      "visual": "Gráfico de pirâmide etária tridimensional: uma curva ascendente vertiginosa no século XX que, ao atingir o ano 2000, nivela-se em um platô horizontal inquebrável por volta dos 85 anos, com a linha dos 100 anos quase desprovida de indivíduos.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para os ensaios clínicos da Neuralink e a retração de fios cerebrais",
+          "destino": 22
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para o bloco de texto sobre o mito da imortalidade",
+          "destino": 8
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Confrontar com o Polo Otimista: A inibição de IL-11 prolongando a saúde em camundongos",
+          "destino": 19
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O abismo da exclusão e o relatório da OMS/UNICEF",
+          "destino": 14
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "numero": 21,
+      "tipo": "texto que se expande",
+      "polo": "otimista",
+      "profundidade": 2,
+      "titulo": "[MOCK] DADO: Políticas Públicas e Tecnologias Abertas — O Caminho da Equidade",
+      "texto": "Diante da ameaça de uma cisão biológica entre ricos aprimorados e pobres esquecidos, uma contraofensiva global baseada em desenho inclusivo, código aberto e políticas públicas universais começa a apresentar resultados tangíveis.\n\nEm vez de buscar o aprimoramento individual milionário, dezenas de iniciativas internacionais e redes de biohackers e universidades públicas estão repensando a tecnologia assistiva com foco em reprodutibilidade local, baixo custo e facilidade de reparo.\n\n[+] CLIQUE PARA VER OS RESULTADOS DE HARDWARE ABERTO E POLÍTICAS DA OMS:\nConforme apontado no Relatório Global sobre Tecnologia Assistiva da OMS/UNICEF (2022) e reforçado por debates na revista Nature (2024):\n• Próteses de membros superiores de código aberto fabricadas com polímeros termoplásticos em impressoras 3D locais reduziram o custo unitário de mais de US$ 20.000 para menos de US$ 200, viabilizando ajustes imediatos para crianças em fase de crescimento rápido.\n• A inclusão de uma Lista de Produtos Assistivos Prioritários (Priority Assistive Products List - APL da OMS) nos sistemas universais de saúde de mais de 35 países reduziu custos de importação e assegurou cobertura pública sem cobrança no ponto de atendimento.\n• A adoção de licenças livres de patentes para vetores virais e plataformas de edição in vivo tem o potencial de reduzir em até 95% o preço de terapias celulares na próxima década, demonstrando que o destino da tecnologia não é ditado pela máquina, mas pelas escolhas políticas da sociedade.",
+      "fontes": [
+        {
+          "titulo": "OMS/UNICEF: Global report on assistive technology",
+          "url": "https://www.who.int/publications/i/item/9789240049451",
+          "data": "2022-05-16"
+        },
+        {
+          "titulo": "Nature: How to make multi-million-dollar gene therapies available globally",
+          "url": "https://www.nature.com/articles/d41586-024-02310-y",
+          "data": "2024-07-30"
+        }
+      ],
+      "narracao": "Quando o código é aberto e o Estado garante a cobertura, a prótese deixa de ser mercadoria de luxo e torna-se um direito humano inalienável.",
+      "som": "Bateria animada de percussão e sons de ferramentas manuais em um mutirão comunitário: risadas infantis, encaixes de peças plásticas e vibração positiva.",
+      "visual": "Uma oficina comunitária iluminada por luz solar: um jovem sorridente recebe uma mão mecânica ajustada sob medida, pintada com as cores de um super-herói, e fecha os dedos para segurar um lápis escolar sob aplausos de familiares e terapeutas.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para o drama da descontinuação de software na falência da Second Sight",
+          "destino": 23
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para o diálogo com a ativista Sofia Alencar",
+          "destino": 11
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A vitória da recuperação funcional biônica de ponta",
+          "destino": 13
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Confrontar com o Polo Catastrófico: O abismo de exclusão constatado pela OMS",
+          "destino": 14
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "numero": 22,
+      "tipo": "texto que se expande",
+      "polo": "neutro",
+      "profundidade": 2,
+      "titulo": "[MOCK] DADO: A Fronteira das BCIs — O Ensaio Clínico da Neuralink e a Retração dos Fios",
+      "texto": "A corrida pelas interfaces cérebro-computador (BCIs) de banda larga atingiu seu momento de maior escrutínio público em janeiro de 2024, quando a Neuralink implantou pela primeira vez seu dispositivo N1 em um participante humano: Noland Arbaugh, um homem de 29 anos com tetraplegia completa após um acidente de mergulho.\n\nO implante possui 1.024 eletrodos distribuídos em 64 fios poliméricos ultrafinos, inseridos diretamente no córtex motor por um robô cirúrgico automatizado. Nos primeiros dias, Arbaugh quebrou o recorde mundial anterior de velocidade de controle de cursor por BCI, atingindo taxas elevadas de bits por segundo (BPS) e conseguindo jogar videogame e xadrez online por horas ininterruptas.\n\n[+] CLIQUE PARA VER O REVÉS TÉCNICO E A SOLUÇÃO ALGORÍTMICA:\nConforme comunicado oficial divulgado pela Neuralink em 8 de maio de 2024 e reportado pela imprensa científica:\n• Nas semanas subsequentes à cirurgia, vários dos fios flexíveis retraíram-se do tecido cerebral em razão de micromovimentos mecânicos do cérebro dentro da calota craniana e acomodação tecidual.\n• Isso reduziu significativamente o número de eletrodos eficazes, provocando uma queda severa na taxa de bits por segundo (BPS) e perda temporária de precisão.\n• Em vez de submeter o participante a uma arriscada cirurgia de remoção ou revisão mecânica, a equipe de engenharia modificou os algoritmos de decodificação neural, tornando-os mais sensíveis aos sinais remanescentes e recuperando o desempenho acima dos níveis iniciais.\n• O caso expõe com precisão a fronteira atual das neurotecnologias: um jogo de equilíbrio delicado entre a biologia viva e imprevisível do cérebro e a plasticidade dos algoritmos de software.",
+      "fontes": [
+        {
+          "titulo": "Neuralink: PRIME Study Progress Update — First Participant Performance & Thread Retraction",
+          "url": "https://neuralink.com/blog/prime-study-progress-update-2024/",
+          "data": "2024-05-08"
+        },
+        {
+          "titulo": "FierceBiotech: Neuralink shares details on first brain implant, including thread retraction issue",
+          "url": "https://www.fiercebiotech.com/medtech/neuralink-shares-details-first-brain-implant-including-thread-retraction-issue",
+          "data": "2024-05-09"
+        }
+      ],
+      "narracao": "O primeiro chip neural no cérebro humano quebrou recordes de digitação pelo pensamento. Mas quando os fios microscópicos começaram a se soltar do córtex, a engenharia descobriu que o cérebro respira e se move.",
+      "som": "Pulso elétrico de alta frequência modulado por software, com um sinal de telemetria digital rápido e contínuo que lembra a transmissão de dados de uma sonda espacial.",
+      "visual": "Renderização digital do chip N1: uma moeda de titânio de 23 mm com 64 fios mais finos que um fio de cabelo humano penetrando no córtex cerebral. Um gráfico holográfico em tempo real mostra a taxa de bits por segundo caindo de 8 BPS para 3 BPS durante a retração, e em seguida subindo para 10 BPS após a atualização do firmware de decodificação.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para os dados sobre as estimativas de mercado e divisão biocêntrica",
+          "destino": 24
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para o vídeo sobre interfaces cérebro-computador (BCI)",
+          "destino": 9
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Polo Otimista: A superação do revés por meio de algoritmos adaptativos",
+          "destino": 13
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O pesadelo da falha biológica e reação de corpo estranho",
+          "destino": 16
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "numero": 23,
+      "tipo": "texto",
+      "polo": "catastrofico",
+      "profundidade": 2,
+      "titulo": "[MOCK] DADO: A Falência da Second Sight — Quando Olhos Biônicos Ficam Sem Firmware",
+      "texto": "O perigo da mercantilização irrestrita de partes do corpo humano encontrou sua ilustração mais dramática no caso da empresa norte-americana Second Sight Medical Products. Pioneira mundial na fabricação de próteses de retina artificiais, a empresa desenvolveu o sistema Argus II, aprovado pela FDA em 2013, que implantava uma matriz de 60 eletrodos na retina de pacientes cegos com retinose pigmentar para captar imagens de uma câmera em óculos e transformá-las em impulsos visuais.\n\nMais de 350 pessoas ao redor do mundo receberam cirurgicamente o implante, que custava cerca de US$ 150.000 (sem contar custos hospitalares). No entanto, em 2019 e 2020, a empresa passou por uma grave crise financeira, abandonou a linha do Argus II para focar em implantes cerebrais e esteve à beira da falência, demitindo quase todos os funcionários e encerrando o suporte técnico e fornecimento de peças.\n\nEm 15 de fevereiro de 2022, uma reportagem investigativa histórica do IEEE Spectrum expôs o desamparo total dos pacientes:\n• Usuários que sofreram defeitos nas antenas receptoras ou nos processadores externos de vídeo não encontraram assistência, peças ou software compatível.\n• Por se tratar de tecnologia com patentes e firmware fechados, nem hospitais universitários nem os próprios pacientes tinham permissão ou conhecimento para reparar o hardware.\n• Diversos pacientes voltaram à cegueira total com um hardware inerte e obsoleto soldado no fundo de seus globos oculares, sujeito a infecções e dores de cabeça.\n\nO escândalo da Second Sight consagrou um novo conceito na bioética mundial: a 'obsolescência tecnológica do próprio corpo'.",
+      "fontes": [
+        {
+          "titulo": "IEEE Spectrum: Their Bionic Eyes Are Now Obsolete and Unsupported (Eliza Strickland & Mark Harris)",
+          "url": "https://spectrum.ieee.org/bionic-eye-obsolete",
+          "data": "2022-02-15"
+        }
+      ],
+      "narracao": "Mais de trezentas pessoas colocaram chips nos olhos para voltar a enxergar. Quando a empresa faliu, os óculos pararam de funcionar e as luzes se apagaram novamente. Elas foram abandonadas no escuro com silício morto nos olhos.",
+      "som": "Zumbido eletrônico irregular que sofre uma interrupção brusca com som seco de disjuntor caindo, deixando apenas o som pesado da respiração de uma pessoa no silêncio escuro.",
+      "visual": "Uma mesa de laboratório embaçada: um par de óculos com microcâmera montada na ponte nasal repousa inerte ao lado de um eletrodo ocular quebrado. Na tela de um computador antigo, a mensagem de boot em letras vermelhas: 'Firmware Argus II não localizado. Conexão com o servidor abortada'.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir para a análise da divisão biocêntrica e eugenia de mercado",
+          "destino": 24
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para o bloco sobre a servidão por assinatura",
+          "destino": 10
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Confrontar com o Polo Otimista: A alternativa da tecnologia aberta e direito ao reparo",
+          "destino": 21
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O abismo da exclusão global documentado pela OMS",
+          "destino": 14
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "numero": 24,
+      "tipo": "texto que se expande",
+      "polo": "catastrofico",
+      "profundidade": 2,
+      "titulo": "[MOCK] DADO: A Divisão Biocêntrica — Estimativas de Mercado e Eugenia de Mercado",
+      "texto": "Para além dos limites técnicos e da obsolescência mecânica, o risco civilizatório mais profundo associado ao corpo aumentado reside na transição de uma medicina meramente terapêutica (que restaura uma função perdida) para uma bioengenharia de melhoramento eletivo ('enhancement') restrita a quem detém capital acumulado.\n\nConforme relatórios de inteligência de mercado biomédico e análises bioéticas de economistas da saúde:\n• O mercado global de terapias gênicas avançadas e neurotecnologias aumentativas está projetado para ultrapassar US$ 50 bilhões até 2030, concentrado em mais de 80% em apenas dez países de renda alta.\n• Ao contrário das vacinas ou antibióticos do século XX, cujo imperativo epidemiológico exigia imunização em massa para erradicar surtos, as biotecnologias de aumento de desempenho cognitivo, muscular ou longevidade conferem vantagens competitivas individuais privadas nos mercados de trabalho e finanças.\n\n[+] CLIQUE PARA VER O DILEMA DA LOTERIA BIOLÓGICA VERSUS MERCADO:\nBioeticistas contemporâneos alertam para a passagem da 'loteria biológica' natural — na qual qualquer pessoa, rica ou pobre, nasce sujeita a imperfeições genéticas aleatórias — para uma 'eugenia de mercado'. Nesse modelo não coercitivo, pais com alto patrimônio financiam edições genéticas pré-implantacionais e nootrópicos neuroconectados para blindar biologicamente seus herdeiros contra fadiga, perda de memória e vulnerabilidade imunológica, enquanto o restante da humanidade permanece preso à fragilidade da carne orgânica.\n\nEssa fragmentação não é mero pesadelo distópico: é a consequência matemática de permitir que o código genético e os sentidos humanos sejam tratados sob as mesmas leis de precificação e rentabilidade de fundos de venture capital.",
+      "fontes": [
+        {
+          "titulo": "Nature: How to make multi-million dollar gene therapies affordable and accessible globally",
+          "url": "https://www.nature.com/articles/d41586-024-02310-y",
+          "data": "2024-07-30"
+        },
+        {
+          "titulo": "NIH/NHLBI: Gene therapies, equity and the ethics of advanced medicine",
+          "url": "https://www.nhlbi.nih.gov/news/2023/nih-statement-new-fda-approved-gene-therapies-sickle-cell-disease",
+          "data": "2023-12-08"
+        }
+      ],
+      "narracao": "Quando o aprimoramento cognitivo e genético tem preço de mercado, as classes sociais deixam de ser uma divisão econômica: tornam-se uma divisão de espécies. O futuro do corpo é o futuro da igualdade humana.",
+      "som": "Acorde grave e orquestral com percussão seca em marcha fúnebre tecnológica, que vai gradualmente se apagando até restar apenas o eco de um metrônomo biológico regular.",
+      "visual": "Animação gráfica: uma árvore genealógica estilizada que começa em uma única raiz humana no topo; ao descer para o século XXI, a árvore se divide em dois troncos divergentes que nunca mais se tocam: um dourado e luminoso repleto de circuitos e hélices perfeitas, e outro cinza e nodoso que definha sob a terra.",
+      "escolhas": [
+        {
+          "tipo": "seguir",
+          "rotulo": "Seguir de volta ao portal inicial: O Corpo Aumentado",
+          "destino": 1
+        },
+        {
+          "tipo": "subir",
+          "rotulo": "Subir para o bloco sobre o paradoxo do transumanismo",
+          "destino": 12
+        },
+        {
+          "tipo": "otimista",
+          "rotulo": "Confrontar com o Polo Otimista: A promessa da recuperação funcional biônica",
+          "destino": 13
+        },
+        {
+          "tipo": "catastrofico",
+          "rotulo": "Polo Catastrófico: O abismo da exclusão humana constatado pela OMS",
+          "destino": 14
+        }
+      ]
+    }
+  ]
+}

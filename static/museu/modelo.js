@@ -33,8 +33,9 @@ export function criarModelo(dados) {
     saidas.push({ id, tipo, titulo, resumo: resumo || '', tema, mock, fechada: false, passos: itens.length, entrada: ids[0] || null, grafo: false });
   };
   for (const s of series) {
-    if (grafo && grafo.serie === s.slug) {
-      grafo.nos.forEach((n) => {
+    const dadosSerie = grafo && (grafo.series ? grafo.series[s.slug] : grafo.serie === s.slug ? { entrada: grafo.entrada } : null);
+    if (dadosSerie) {
+      (grafo.series ? grafo.nos.filter((n) => n.serie === s.slug) : grafo.nos).forEach((n) => {
         const lig = nulas();
         TIPOS.forEach((t) => { const v = n.ligacoes && n.ligacoes[t]; lig[t] = v == null ? null : String(v); });
         nos.set(String(n.id), {
@@ -45,7 +46,8 @@ export function criarModelo(dados) {
           producao: { visual: typeof n.visual === 'string' ? n.visual : '', som: typeof n.som === 'string' ? n.som : '' }, url: '', mock: true, tipo: n.tipo || 'texto', sala: n.sala, video: n.video, camadas: n.camadas, dialogo: n.dialogo, tema: s.tema | 0, ligacoes: lig, rotulos: n.rotulos,
         });
       });
-      saidas.push({ id: s.slug, tipo: 'serie', titulo: s.titulo, resumo: s.resumo || '', tema: s.tema | 0, mock: !!s.mock, fechada: false, passos: grafo.nos.length, entrada: String(grafo.entrada), grafo: true });
+      const quantidade = grafo.series ? dadosSerie.ids.length : grafo.nos.length;
+      saidas.push({ id: s.slug, tipo: 'serie', titulo: s.titulo, resumo: s.resumo || '', tema: s.tema | 0, mock: !!s.mock, fechada: false, passos: quantidade, entrada: String(dadosSerie.entrada), grafo: true });
     } else {
       cadeia(s.slug, s.titulo, 'serie', s.tema | 0, !!s.mock, s.episodios || [], s.resumo);
     }
