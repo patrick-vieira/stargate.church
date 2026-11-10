@@ -2,9 +2,9 @@
 <section class="md-midia" aria-label="{{ midia.titulo }}: vídeo e narração" data-midia>
 <link rel="stylesheet" href="{% static 'css/midia.css' %}">
 <h2 class="md-sobrolho">Ver e ouvir</h2>
-{% if midia.video %}
+{% if midia.video_url or midia.video %}
 <video controls preload="none" playsinline{% if midia.poster %} poster="{{ midia.poster.url }}"{% endif %}>
-  <source src="{{ midia.video.url }}" type="video/mp4">
+  <source src="{% if midia.video_url %}{{ midia.video_url }}{% else %}{{ midia.video.url }}{% endif %}" type="video/mp4">
   {% if midia.legenda %}<track kind="captions" src="{{ midia.legenda.url }}" srclang="pt-BR" label="Português" default>{% endif %}
   Seu navegador não reproduz vídeo.
 </video>
