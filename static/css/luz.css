@@ -90,6 +90,12 @@
 .sg-news .sg-form input[disabled]::placeholder{color:var(--sg-tinta-3);opacity:1}
 .sg-news .sg-btn[disabled]{opacity:1;cursor:not-allowed;background:transparent;color:var(--sg-creme);border:2px dashed var(--sg-creme)}
 
+/* ---------- onda 6, notas do Kakashi: contraste ≥ 3:1 (WCAG 1.4.11) fora dos campos com luz ---------- */
+.sg-burger{border-color:var(--sg-tinta-3)}                                    /* era --sg-linha (1,27:1) */
+.sg-form input[disabled]{opacity:1;background:var(--sg-creme-2);border:1.5px dashed var(--sg-tinta-3);color:var(--sg-tinta-3)}
+.sg-btn[disabled]{opacity:1;background:transparent;color:var(--sg-tinta-3);border:1.5px dashed var(--sg-tinta-3)}
+.sg-cartao-conta .sg-meta a{color:var(--sg-tinta);font-weight:600;text-decoration:underline;text-underline-offset:3px}   /* «Criar conta» / «Entrar»: não só cor */
+
 /* ---------- a home: atmosfera de entrada, que muda com a hora (5 fases) ---------- */
 .luz-ceu{position:relative;isolation:isolate;overflow:hidden;
   --ceu-tx:var(--sg-tinta);--ceu-tx2:var(--sg-tinta-2);--ceu-tx3:var(--sg-tinta-3);--ceu-ac:var(--sg-coral-ink);

@@ -55,6 +55,22 @@ class TransicaoTests(TestCase):
             self.assertIn('carrega("pronto")', js)
             self.assertIn('carrega("erro")', js)
 
+    def test_transicao_sem_ganchos_de_prova_nem_important_global(self):
+        css = (RAIZ / "static/css/transicao.css").read_text()
+        js = (RAIZ / "static/js/transicao.js").read_text()
+        for txt in (css, js):
+            self.assertNotIn("vt-registro", txt)
+            self.assertNotIn("vt-k", txt)
+        self.assertNotIn("*,*::before,*::after", css)
+
+    def test_onda6_contraste_burger_desativados_e_link_sublinhado(self):
+        css = (RAIZ / "static/css/luz.css").read_text()
+        self.assertIn(".sg-burger{border-color:var(--sg-tinta-3)}", css)
+        self.assertIn(".sg-btn[disabled]{opacity:1;", css)
+        self.assertIn(".sg-form input[disabled]{opacity:1;", css)
+        self.assertIn(".sg-cartao-conta .sg-meta a{", css)
+        self.assertIn("text-decoration:underline", css)
+
     def test_assets_novos_sem_rede_externa(self):
         for rel in (
             "static/css/transicao.css",
