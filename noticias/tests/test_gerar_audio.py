@@ -76,6 +76,14 @@ class GerarAudioTests(TestCase):
         self.assertTrue(a.audio_url)
         self.assertEqual(b.audio_url, "")
 
+    def test_artigo_nao_encontrado(self):
+        from django.core.management.base import CommandError
+
+        with self.assertRaisesMessage(
+            CommandError, "Artigo publicado com agente não encontrado."
+        ):
+            self.correr(ClienteFalso(), artigo="inexistente")
+
 
 class PlayerTests(TestCase):
     def test_player_aparece_so_com_audio(self):

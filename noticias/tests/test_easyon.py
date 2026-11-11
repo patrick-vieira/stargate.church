@@ -68,6 +68,10 @@ class ClienteTests(SimpleTestCase):
         with self.assertRaises(EasyONIndisponivel):
             ClienteEasyON("", "", Falso([])).agentes()
 
+    def test_sem_chave_ficheiro_configurado(self):
+        with self.assertRaisesMessage(EasyONIndisponivel, "EASYON_API_KEY_FILE"):
+            ClienteEasyON("https://a/", "").agentes()
+
     def test_resposta_sem_url_e_indisponivel(self):
         with self.assertRaises(EasyONIndisponivel):
             self.cliente(Falso({"cache": True})).gerar_audio("h", "t")
@@ -132,3 +136,23 @@ class ClienteTests(SimpleTestCase):
             cliente.agentes()
         self.assertNotIn(SEGREDO, str(ctx.exception))
         self.assertIsNone(ctx.exception.__cause__)
+
+    def test_transporte_levanta_easyon_indisponivel_repassa(self):
+        falso = Falso(erro=EasyONIndisponivel("Indisponível de propósito"))
+        with self.assertRaisesMessage(EasyONIndisponivel, "Indisponível de propósito"):
+            self.cliente(falso).agentes()
+
+    from unittest import mock
+
+    @mock.patch("urllib.request.urlopen")
+    def test_transporte_urllib(self, mock_urlopen):
+        from unittest import mock
+
+        mock_resposta = mock.Mock()
+        mock_resposta.read.return_value = b'{"url": "https://cdn.test/x.mp3"}'
+        mock_urlopen.return_value.__enter__.return_value = mock_resposta
+
+        cliente = ClienteEasyON("https://easyon.test/api/", self.chave())
+        resposta = cliente.gerar_audio("slug", "texto")
+        self.assertEqual(resposta, {"url": "https://cdn.test/x.mp3"})
+        mock_urlopen.assert_called_once()

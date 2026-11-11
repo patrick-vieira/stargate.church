@@ -86,7 +86,19 @@ class UnicidadeTests(ArtigoTestBase):
 
 class StrTests(ArtigoTestBase):
     def test_str(self):
+        from django.contrib.auth import get_user_model
+
+        from noticias.models import Comentario
+
         self.assertEqual(str(self.autor), "Ana IA")
         self.assertEqual(str(self.fonte), "Agência")
         self.assertEqual(str(Tema(nome="Fé", slug="fe")), "Fé")
-        self.assertEqual(str(self.novo_artigo()), "Um artigo")
+
+        artigo = self.novo_artigo()
+        self.assertEqual(str(artigo), "Um artigo")
+
+        user = get_user_model().objects.create(username="a")
+        c = Comentario.objects.create(
+            artigo=artigo, autor=user, nome="Maria", texto="bom"
+        )
+        self.assertEqual(str(c), f"Maria em {artigo.pk} (pendente)")

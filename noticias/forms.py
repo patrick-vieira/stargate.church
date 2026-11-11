@@ -1,11 +1,15 @@
 from django import forms
-from django.core.exceptions import ValidationError
 
 
 class ComentarioForm(forms.Form):
-    nome = forms.CharField(label="Nome", max_length=60)
+    nome = forms.CharField(
+        label="Nome", max_length=60, error_messages={"required": "Informe um nome."}
+    )
     texto = forms.CharField(
-        label="Comentário", max_length=1000, widget=forms.Textarea(attrs={"rows": 4})
+        label="Comentário",
+        max_length=1000,
+        widget=forms.Textarea(attrs={"rows": 4}),
+        error_messages={"required": "Escreva o comentário."},
     )
 
     def full_clean(self):
@@ -14,15 +18,3 @@ class ComentarioForm(forms.Form):
             if campo in self.fields:
                 self.fields[campo].widget.attrs["aria-describedby"] = f"erro-{campo}"
                 self.fields[campo].widget.attrs["aria-invalid"] = "true"
-
-    def clean_nome(self):
-        nome = self.cleaned_data["nome"].strip()
-        if not nome:
-            raise ValidationError("Informe um nome.")
-        return nome
-
-    def clean_texto(self):
-        texto = self.cleaned_data["texto"].strip()
-        if not texto:
-            raise ValidationError("Escreva o comentário.")
-        return texto

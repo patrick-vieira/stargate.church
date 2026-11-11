@@ -140,6 +140,10 @@ class HomeTests(TestCase):
         self.assertContains(resposta, reverse("noticias:tema", args=["futuro"]))
         self.assertContains(resposta, reverse("noticias:tema", args=["energia"]))
 
+    def test_home_vazia(self):
+        resposta = self.client.get(reverse("noticias:home"))
+        self.assertContains(resposta, "Ainda não há outras notícias publicadas.")
+
 
 class TemaTests(TestCase):
     def test_lista_so_publicados_do_tema_com_aria_current(self):
@@ -158,6 +162,22 @@ class TemaTests(TestCase):
     def test_tema_inexistente_404(self):
         resposta = self.client.get(reverse("noticias:tema", args=["nada"]))
         self.assertEqual(resposta.status_code, 404)
+
+    def test_artigo_inexistente_404(self):
+        resposta = self.client.get(reverse("noticias:artigo", args=["nada-aqui"]))
+        self.assertEqual(resposta.status_code, 404)
+
+    def test_tema_vazio(self):
+        criar_tema("Vazio")
+        resposta = self.client.get(reverse("noticias:tema", args=["vazio"]))
+        self.assertContains(resposta, "Ainda não há notícias publicadas neste tema.")
+
+    def test_paginacao_tema(self):
+        tema = criar_tema("Paginado")
+        for d in range(1, 14):
+            criar_artigo(temas=[tema], dias_atras=d)
+        resposta = self.client.get(reverse("noticias:tema", args=["paginado"]))
+        self.assertContains(resposta, "?pagina=2")
 
 
 class ArtigoTests(TestCase):
