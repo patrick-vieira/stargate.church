@@ -99,3 +99,27 @@ def enviar_video(caminho):
     if not url:
         raise ImageToolsErro(f"ImageTools não devolveu file_url (uuid {uuid}).")
     return uuid, url
+
+
+def enviar_audio(caminho, pasta):
+    """Publica um MP3 na pasta da série e retorna seu UUID."""
+    import httpx
+
+    base, chave = configuracao()
+    try:
+        with open(caminho, "rb") as arquivo:
+            resp = httpx.request(
+                "POST",
+                f"{base}/api/v2/media/",
+                headers={"X-API-Key": chave, "User-Agent": USER_AGENT},
+                data={"tags": TAGS, "folder": pasta},
+                files={"file": (Path(caminho).name, arquivo, "audio/mpeg")},
+                timeout=TIMEOUT_S,
+            )
+        resp.raise_for_status()
+        uuid = resp.json().get("uuid")
+        if not isinstance(uuid, str) or not uuid:
+            raise ValueError("Resposta sem uuid.")
+        return uuid
+    except (httpx.HTTPError, ValueError, OSError) as exc:
+        raise ImageToolsErro(f"Falha ao enviar áudio ({type(exc).__name__}).") from None
